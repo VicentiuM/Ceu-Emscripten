@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <emscripten.h>
 
 #define ceu_out_assert(X) assert(X)
 #define ceu_out_log(X) printf("%s\n", X)
@@ -24,4 +25,6 @@ void begin() {
 	app.init(&app);
 }
 
-
+int main() {
+	EM_ASM( _begin() );
+}
