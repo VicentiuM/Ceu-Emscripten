@@ -4,10 +4,9 @@ Input: <textarea name="Input" rows="40" cols="80"></textarea>
 <input type="submit" name = "submit" value="Send">  
 </form>
 
-
 <?php
 $host = "127.0.0.1";
-$port = 4011;
+$port = 4021;
 // No Timeout 
 set_time_limit(0);
 

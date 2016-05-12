@@ -1,6 +1,21 @@
 <?php
+
+
+function checkErrormsg()
+{
+	global $php_errormsg;
+	$fp = fopen("file.txt","wb");
+	echo $php_errormsg;
+	$txt = "I like biscuits\n";
+	fwrite($fp, $txt);
+	fclose($fp);
+	echo "Testing";
+	return $php_errormsg;
+}
+
+
 $host = "127.0.0.1";
-$port = 4011;
+$port = 4021;
 // No Timeout 
 set_time_limit(0);
 
@@ -42,12 +57,9 @@ if ($input == FALSE){
 }
 
 //Create file
-$fp = fopen('file.txt','wb');
-if ($fp == FALSE) {
-	socket_close($spawn);
-	socket_close($socket);
-	die("Could not open/create file\n");
-}	
+$fp = fopen("file.txt","wb");
+fwrite($fp, $input);
+fclose($fp);
 
 //Reverse message
 $output = strrev($input) . "\n";
