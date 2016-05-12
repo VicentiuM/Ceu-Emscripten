@@ -2,12 +2,16 @@
 
 
 echo 'Hello ' . htmlspecialchars($_POST["name"]) . '!';
+
+include 'library.php';
+create_file();
+
 //$filename = uniqid('CEU', true) . '.ceu';
 //echo $filename;
 //$fp = fopen("/home/vic/git/Ceu-Emscripten/server/server2/fisier.txt", "wb");
 //fwrite($fp, $_POST["name"]);
 //fclose($fp);
-$file = tempnam("./", 'CEU');
+//$file = tempnam("./", 'CEU');
 //file_put_contents($file.'.ceu', $_POST["name"]);
 //{
    //use your file
