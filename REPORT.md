@@ -23,25 +23,19 @@ Instructions for the weekly report:
 
 # Week-1 (11/05-17/05)
 
-## I worked `XX` hours this week (total `0+XX`h).
+## I worked `10` hours this week (total `0+10`h).
 
 ## What I was supposed to do during the past week?
 
-<!--
-copy & paste contents of "What I will do the next week" (27/05-03/05)
--->
+I studied how to make a server-client in php
 
 ## What I actually did the past week?
 
-<!--
-things change, fill with facts...
--->
+I studied and made a basic html client php server that comunicates between them.
 
 ## What I will do the next week?
 
-<!--
-repeat or explicitly remove what you didnt do, add new stuff...
--->
+I will make it so that what the client writes, the server will put the content in files, compile them with emscripten and send the result back to the client.
 
 -------------------------------------------------------------------------------
 
