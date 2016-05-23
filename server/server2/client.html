@@ -3,6 +3,15 @@
 <head>
 
 <script> 
+/*
+(function () {
+  var log = console.log;
+  console.log = function () {
+    log.call(this, 'My Console!!!');
+    log.apply(this, Array.prototype.slice.call(arguments));
+  };
+}());
+*/
 function ajax_post(){ 
 	var hr = new XMLHttpRequest();
 	// Create some variables we need to send to our PHP file
@@ -19,13 +28,21 @@ function ajax_post(){
 
 		if(hr.readyState == 4 && hr.status == 200) { 
 			var return_data = hr.responseText;
-			document.getElementById("status").innerHTML = return_data;
+			var string = ''+return_data;
+			eval(string);
+
+			//eval(return_data);
+			//document.getElementById("status").innerHTML = console_log;
+			//--------------------------------//
+			//var e = document.getElementById("status");
+			//e.innerHTML = newsc;
+			//eval(document.getElementById('sc1').innerHTML);
 		} 
 	} 
 
 	// Send the data to PHP now... and wait for response to update the status div
 	hr.send(vars);
-	document.getElementById("status").innerHTML = "processing..."; } 
+	document.getElementById('status').innerHTML = "processing..."; } 
 </script>
 
 </head>
@@ -35,7 +52,9 @@ Name: <textarea id="name" name="name" rows="20" cols="30"></textarea>
 <input type="submit" name = "submit" value="Send" onclick="javascript:ajax_post();">
 <br>
 
-<div id="status"></div>
+<div id="status">
+
+</div>
 
 </body>
 

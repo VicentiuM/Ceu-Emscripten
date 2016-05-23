@@ -1,8 +1,6 @@
 <?php
 
-
-echo 'Hello ' . htmlspecialchars($_POST["name"]) . '!';
-
+echo file_get_contents("files/hello.js");
 //include 'library.php';
 //create_file($_POST["name"]);
 //$filename = uniqid('CEU', true) . '.ceu';
