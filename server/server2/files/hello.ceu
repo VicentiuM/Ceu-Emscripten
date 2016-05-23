@@ -1,0 +1,6 @@
+input void UPDATE;
+
+loop do
+	await UPDATE;
+	_printf("Hello world!\n");
+end
