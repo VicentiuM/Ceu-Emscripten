@@ -3,22 +3,14 @@
 <head>
 
 <script> 
-/*
-(function () {
-  var log = console.log;
-  console.log = function () {
-    log.call(this, 'My Console!!!');
-    log.apply(this, Array.prototype.slice.call(arguments));
-  };
-}());
-*/
+
 function ajax_post(){ 
 	var hr = new XMLHttpRequest();
 	// Create some variables we need to send to our PHP file
 	var url = "http://localhost/server/server2/server.php";
-	var nm = document.getElementById("name").value;
-	var vars = "name="+nm;
-	
+	var nm = document.getElementById("code").value;
+	var vars = "code="+nm;
+
 	hr.open("POST", url, true);
 	// Set content type header information for sending url encoded variables in the request
 	hr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
@@ -30,7 +22,7 @@ function ajax_post(){
 			var return_data = hr.responseText;
 			var Module = {
 				print: (function() {
-				  var element = document.getElementById('input');
+				  var element = document.getElementById('output');
 				  if (element) element.value = ''; // clear browser cache
 				  return function(text) {
 				    if (arguments.length > 1) text = Array.prototype.slice.call(arguments).join(' ');
@@ -43,9 +35,48 @@ function ajax_post(){
 				})()     
 			      };
 			eval(return_data);
-			
-			//eval(return_data);
-			//document.getElementById("status").innerHTML = document.write(5+6);
+		} 
+	} 
+
+	// Send the data to PHP now... and wait for response to update the status div
+	hr.send(vars);
+	document.getElementById('status').innerHTML = ""; } 
+
+
+var nr = 0;
+function inc_nr() {
+	nr = nr + 1;
+	if (nr == 8)
+		nr = 1;
+	put_tutorial()
+}
+
+function dec_nr() {
+	nr = nr - 1;
+	if (nr <= 0)
+		nr = 7;
+	put_tutorial()
+}
+
+function put_tutorial(){ 
+	var hr = new XMLHttpRequest();
+	
+	// Create some variables we need to send to our PHP file
+	var url = "http://localhost/server/server2/server.php";
+//	var nm = document.getElementById("code").value;
+	var vars = "code-tutorial="+nr;
+
+	hr.open("POST", url, true);
+	// Set content type header information for sending url encoded variables in the request
+	hr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+
+	// Access the onreadystatechange event for the XMLHttpRequest object
+	hr.onreadystatechange = function() { 
+
+		if(hr.readyState == 4 && hr.status == 200) { 
+			var return_data = hr.responseText;
+						//eval(return_data);
+			document.getElementById("code").value = return_data;
 			//--------------------------------//
 			//var e = document.getElementById("status");
 			//e.innerHTML = newsc;
@@ -56,20 +87,22 @@ function ajax_post(){
 	// Send the data to PHP now... and wait for response to update the status div
 	hr.send(vars);
 	document.getElementById('status').innerHTML = ""; } 
+
+
 </script>
 
 </head>
 
 <body>
-Name: <textarea id="name" name="name" rows="20" cols="30"></textarea>   
+Name: <textarea id="code" name="code" rows="20" cols="30"></textarea>   
 <input type="submit" name = "submit" value="Send" onclick="javascript:ajax_post();">
+<input type="submit" name = "submit" value="Next Tutorial" onclick="javascript:inc_nr();">
+<input type="submit" name = "submit" value="Previous Tutorial" onclick="javascript:dec_nr();">
 <br>
 
-<div id="status">
+<div id="status"></div>
 
-</div>
-
-<textarea class="emscripten" id="input" rows="10"></textarea>
+<textarea class="emscripten" id="output" rows="10"></textarea>
 
 
 </body>

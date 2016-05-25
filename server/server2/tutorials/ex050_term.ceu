@@ -1,0 +1,16 @@
+input void TERM;
+par/or do
+    loop do      // par/and loop never terminates
+        par/and do
+            await 100ms;
+            _printf("Hello ");
+        with
+            await 250ms;
+            _printf("World!\n");
+        end
+    end
+with
+    await TERM;  // but par/or terminates on TERM
+                 // and kills the original loop
+end
+escape 1;

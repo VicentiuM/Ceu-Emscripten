@@ -1,0 +1,10 @@
+input void A, B;
+var int v = 0;
+par/and do
+    await A;        // first trail
+    v = v + 1;
+with
+    await B;        // second trail
+    v = v * 2;
+end
+escape v;
