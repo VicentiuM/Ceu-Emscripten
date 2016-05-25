@@ -2,6 +2,31 @@
 
 <head>
 
+<style>
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {background-color: #f1f1f1}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+</style>
+
+
 <script> 
 
 function ajax_post(){ 
@@ -58,6 +83,11 @@ function dec_nr() {
 	put_tutorial()
 }
 
+function set_nr(x) {
+	nr = x;
+	put_tutorial()
+}
+
 function put_tutorial(){ 
 	var hr = new XMLHttpRequest();
 	
@@ -95,9 +125,28 @@ function put_tutorial(){
 
 <body>
 Name: <textarea id="code" name="code" rows="20" cols="30"></textarea>   
+<script>
+javascript:inc_nr();
+</script>
 <input type="submit" name = "submit" value="Send" onclick="javascript:ajax_post();">
 <input type="submit" name = "submit" value="Next Tutorial" onclick="javascript:inc_nr();">
 <input type="submit" name = "submit" value="Previous Tutorial" onclick="javascript:dec_nr();">
+
+<div class="dropdown">
+	<button class="dropbtn">Dropdown</button>
+	<div class="dropdown-content">
+	<ul style="list-style-type:none">
+		<li><input type="submit" name = "submit" value="Tutorial 1" onclick="javascript:set_nr(1);"></li>
+		<li><input type="submit" name = "submit" value="Tutorial 2" onclick="javascript:set_nr(2);"></li>
+		<li><input type="submit" name = "submit" value="Tutorial 3" onclick="javascript:set_nr(3);"></li>
+		<li><input type="submit" name = "submit" value="Tutorial 4" onclick="javascript:set_nr(4);"></li>
+		<li><input type="submit" name = "submit" value="Tutorial 5" onclick="javascript:set_nr(5);"></li>
+		<li><input type="submit" name = "submit" value="Tutorial 6" onclick="javascript:set_nr(6);"></li>
+		<li><input type="submit" name = "submit" value="Tutorial 7" onclick="javascript:set_nr(7);"></li>
+	</ul>
+  </div>
+</div>
+
 <br>
 
 <div id="status"></div>
