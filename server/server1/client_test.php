@@ -6,7 +6,7 @@ Input: <textarea name="Input" rows="40" cols="80"></textarea>
 
 <?php
 $host = "127.0.0.1";
-$port = 4021;
+$port = 4022;
 // No Timeout 
 set_time_limit(0);
 

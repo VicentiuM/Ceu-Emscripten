@@ -28,11 +28,24 @@ function ajax_post(){
 
 		if(hr.readyState == 4 && hr.status == 200) { 
 			var return_data = hr.responseText;
-			var string = ''+return_data;
-			eval(string);
-
+			var Module = {
+				print: (function() {
+				  var element = document.getElementById('input');
+				  if (element) element.value = ''; // clear browser cache
+				  return function(text) {
+				    if (arguments.length > 1) text = Array.prototype.slice.call(arguments).join(' ');
+				    console.log(text);
+				    if (element) {
+				      element.value += text + "\n";
+				      element.scrollTop = element.scrollHeight; // focus on bottom
+				    }
+				  };
+				})()     
+			      };
+			eval(return_data);
+			
 			//eval(return_data);
-			//document.getElementById("status").innerHTML = console_log;
+			//document.getElementById("status").innerHTML = document.write(5+6);
 			//--------------------------------//
 			//var e = document.getElementById("status");
 			//e.innerHTML = newsc;
@@ -42,7 +55,7 @@ function ajax_post(){
 
 	// Send the data to PHP now... and wait for response to update the status div
 	hr.send(vars);
-	document.getElementById('status').innerHTML = "processing..."; } 
+	document.getElementById('status').innerHTML = ""; } 
 </script>
 
 </head>
@@ -55,6 +68,9 @@ Name: <textarea id="name" name="name" rows="20" cols="30"></textarea>
 <div id="status">
 
 </div>
+
+<textarea class="emscripten" id="input" rows="10"></textarea>
+
 
 </body>
 
