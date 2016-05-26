@@ -21,6 +21,28 @@ Instructions for the weekly report:
 
 -------------------------------------------------------------------------------
 
+# Week-1 (18/05-25/05)
+
+## I worked `10` hours this week (total `10+10`h).
+
+## What I was supposed to do during the past week?
+
+I was supposed to make make it so that what the client writes, the server will put the content in files, compile them with emscripten and send the result back to the client.
+
+## What I actually did the past week?
+
+I ported the client and server on the dreamhost. Made it so that the client receives a js file from the server and displays it's contents.
+
+## What I will do the next week?
+
+Make a main.c file that works with all the ceu examples. Maybe also make it so that the server creates the file.
+
+-------------------------------------------------------------------------------
+
+
+
+-------------------------------------------------------------------------------
+
 # Week-1 (11/05-17/05)
 
 ## I worked `10` hours this week (total `0+10`h).
