@@ -21,7 +21,7 @@ Instructions for the weekly report:
 
 -------------------------------------------------------------------------------
 
-# Week-1 (18/05-25/05)
+# Week-2 (18/05-25/05)
 
 ## I worked `10` hours this week (total `10+10`h).
 
