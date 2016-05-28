@@ -1,0 +1,12 @@
+// input event identifiers must be all in uppercase
+// 'MY_EVT' is an event of ints
+input int MY_EVT;
+
+loop do
+    var int v = await MY_EVT;
+    _printf("MY_EVT=%d\n", v);
+    if v == 0 then
+        break;  // escapes the loop when v==0
+    end
+end
+escape 0;

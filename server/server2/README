@@ -1,1 +1,6 @@
 client_html receives a javascript file from the server and prints it's contents in a textbox
+
+In the temp folder I am testing the examples to see if I can use emscripten on them.
+Use ceu ex0XX_YYYY.ceu to select which file you want to compile
+Then use: emcc A B -s EXPORTED_FUNCTIONS="['_begin', '_update', '_main']" -s NO_EXIT_RUNTIME=1 --shell-file custom_shell.html
+Where A can be ex010.c for examples 1 and 3 OR ex020.c for example 2 AND B is the names of the html and javascripts files.
