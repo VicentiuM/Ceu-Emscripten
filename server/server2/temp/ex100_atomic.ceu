@@ -1,0 +1,18 @@
+input void E1, E2, E3;
+var int v = 0;
+par/and do
+    await E1;
+                 // atomic begin: trail awakes
+    v = v + 1;   //      non-deterministic access
+                 // atomic end: trail halts
+    await E2;
+    v = v + 1;   // deterministic, no need to be atomic
+with
+    await E1;
+                 // atomic begin: trail awakes
+    v = v * 2;   //      non-deterministic access
+                 // atomic end: trail halts
+    await E3;
+    v = v * 2;   // deterministic, no need to be atomic
+end
+escape v;

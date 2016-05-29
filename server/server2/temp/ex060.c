@@ -16,13 +16,27 @@ static byte CEU_DATA[sizeof(CEU_Main)];
 static tceu_app app;
 static int i;
 
-void update(int evt, int nr) {
-	tceu__int payload = {nr};
-	ceu_sys_go( &app, evt, &payload );
-	u32 us = 100000;
-	ceu_sys_go( &app, CEU_IN__WCLOCK, &us );
+/*
+void update(int i) {
+	tceu__int payload = {i};
+	ceu_sys_go( &app, CEU_IN_MY_EVT, &payload );
+}
+*/
+
+void update_param(int param) {
+	
+	ceu_sys_go( &app, param, NULL );
 }
 
+/*
+void update_hello() {
+	ceu_sys_go( &app, CEU_IN_HELLO, NULL );
+}
+
+void update_world() {
+	ceu_sys_go( &app, CEU_IN_WORLD, NULL );
+}
+*/
 void begin() {
 	memset(CEU_DATA, 0, sizeof(CEU_Main));
 	app.data = (tceu_org*) &CEU_DATA;

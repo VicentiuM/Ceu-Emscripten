@@ -1,0 +1,10 @@
+input void A;
+var int v;
+par/and do
+    await A;
+    v = 1;          // suspicious access
+with
+    await A;
+    v = 2;          // suspicious access
+end
+escape v;           // always returns 2

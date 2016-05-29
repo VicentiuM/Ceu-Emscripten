@@ -3,7 +3,6 @@
 
 #include "ceu_types.h"
 
-#define CEU_EXTS
 #define CEU_GOTO
 #define CEU_RET
      /* CEU_EXTS, CEU_WCLOCKS, CEU_INTS, ... */
@@ -1613,12 +1612,10 @@ void ceu_pool_free (tceu_pool* pool, byte* val);
 #define CEU_IN__ASYNC 250
 #define CEU_IN__THREAD 249
 #define CEU_IN__WCLOCK 248
-#define CEU_IN_MY_EVT 247
 #define CEU_IN_higher CEU_IN__INIT
-#define CEU_IN_lower 247
+#define CEU_IN_lower 248
 #define CEU_OUT_n 0
       /* CEU_IN_, CEU_OUT_ */
-#define CEU_FUN_printf
    /* CEU_FUN_ */
 typedef struct {
 	int _1;
@@ -1641,26 +1638,25 @@ typedef struct CEU_Main {
           union {
           };
         struct { /* BLOCK ln=1 */
-          int _ret_0;
           union {
               struct { /* BLOCK ln=1 */
                 union {
                   union {
                     struct { /* BLOCK ln=1 */
+                      int fat;
+                      int i;
                       union {
                         union {
                         };
-                        struct { /* BLOCK ln=5 */
+                        union {
+                        };
+                        struct { /* BLOCK ln=4 */
                           union {
                             union {
                             };
-                              struct { /* BLOCK ln=6 */
+                              struct { /* BLOCK ln=5 */
                                 union {
-                                  union {
-                                    union {
-                                    };
-                                  };
-                                    struct { /* BLOCK ln=9 */
+                                    struct { /* BLOCK ln=6 */
                                       union {
                                       };
                                     } ;

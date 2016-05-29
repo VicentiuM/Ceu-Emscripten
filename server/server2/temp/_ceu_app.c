@@ -26,14 +26,13 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
-#line 1 "ex020_events.ceu"
+#line 1 "ex080_tight.ceu"
 
 #ifndef _CEU_APP_H
 #define _CEU_APP_H
 
 #include "ceu_types.h"
 
-#define CEU_EXTS
 #define CEU_GOTO
 #define CEU_RET
      /* CEU_EXTS, CEU_WCLOCKS, CEU_INTS, ... */
@@ -1643,12 +1642,10 @@ void ceu_pool_free (tceu_pool* pool, byte* val);
 #define CEU_IN__ASYNC 250
 #define CEU_IN__THREAD 249
 #define CEU_IN__WCLOCK 248
-#define CEU_IN_MY_EVT 247
 #define CEU_IN_higher CEU_IN__INIT
-#define CEU_IN_lower 247
+#define CEU_IN_lower 248
 #define CEU_OUT_n 0
       /* CEU_IN_, CEU_OUT_ */
-#define CEU_FUN_printf
    /* CEU_FUN_ */
 typedef struct {
 	int _1;
@@ -1671,26 +1668,25 @@ typedef struct CEU_Main {
           union {
           };
         struct { /* BLOCK ln=1 */
-          int _ret_0;
           union {
               struct { /* BLOCK ln=1 */
                 union {
                   union {
                     struct { /* BLOCK ln=1 */
+                      int fat;
+                      int i;
                       union {
                         union {
                         };
-                        struct { /* BLOCK ln=5 */
+                        union {
+                        };
+                        struct { /* BLOCK ln=4 */
                           union {
                             union {
                             };
-                              struct { /* BLOCK ln=6 */
+                              struct { /* BLOCK ln=5 */
                                 union {
-                                  union {
-                                    union {
-                                    };
-                                  };
-                                    struct { /* BLOCK ln=9 */
+                                    struct { /* BLOCK ln=6 */
                                       union {
                                       };
                                     } ;
@@ -6684,8 +6680,7 @@ char* ceu_vector_tochar (tceu_vector* vector) {
 /* goto labels */
 enum {
     Main_Set_out_0 = 0,
-    Main_Awake_MY_EVT_1 = 1,
-    Class_Main = 2,
+    Class_Main = 1,
 
 };
 
@@ -6817,257 +6812,239 @@ printf("OK : lbl=%d : org=%p\n", _ceu_lbl, _ceu_org);
 #endif
 
     switch (_ceu_lbl) {
-        /* NODE: Root 39 */
+        /* NODE: Root 43 */
 /* NODE: Dcl_cls 0 */
 
-#line 1 "ex020_events.ceu"
-case Class_Main:;/* NODE: Block 112 */
+#line 1 "ex080_tight.ceu"
+case Class_Main:;/* NODE: Block 76 */
 
-#line 1 "ex020_events.ceu"
-    {/* NODE: Stmts 111 */
+#line 1 "ex080_tight.ceu"
+    {/* NODE: Stmts 75 */
 
-#line 1 "ex020_events.ceu"
-    {/* NODE: Block 45 */
+#line 1 "ex080_tight.ceu"
+    {/* NODE: Block 49 */
 
-#line 1 "ex020_events.ceu"
-    {/* NODE: Stmts 44 */
-
-#line 1 "ex020_events.ceu"
-    {/* NODE: Dcl_var 41 */
-/* NODE: SetBlock 43 */
-/* NODE: Block 37 */
-
-#line 1 "ex020_events.ceu"
-    {/* NODE: Stmts 36 */
-
-#line 1 "ex020_events.ceu"
-    {/* NODE: Stmts 33 */
-
-#line 1 "ex020_events.ceu"
-    {/* NODE: Block 26 */
-
-#line 1 "ex020_events.ceu"
-    {/* NODE: Stmts 24 */
-
-#line 3 "ex020_events.ceu"
-    {/* NODE: Stmts 50 */
-
-#line 3 "ex020_events.ceu"
-    {/* NODE: Dcl_ext 49 */
-
-#line 3 "ex020_events.ceu"
-    }/* NODE: Block 54 */
-
-#line 5 "ex020_events.ceu"
-    {/* NODE: Stmts 53 */
-
-#line 5 "ex020_events.ceu"
-    {/* NODE: Stmts 52 */
-
-#line 5 "ex020_events.ceu"
+#line 1 "ex080_tight.ceu"
     {
-#line 5 "ex020_events.ceu"
-    }/* NODE: Loop 51 */
+#line 1 "ex080_tight.ceu"
+    #ifdef CEU_RET
 
-#line 5 "ex020_events.ceu"
+#line 1 "ex080_tight.ceu"
+    int __ceu__ret_0;
+
+#line 1 "ex080_tight.ceu"
+    #endif
+/* NODE: Stmts 48 */
+
+#line 1 "ex080_tight.ceu"
+    {/* NODE: Dcl_var 45 */
+/* NODE: SetBlock 47 */
+/* NODE: Block 41 */
+
+#line 1 "ex080_tight.ceu"
+    {/* NODE: Stmts 40 */
+
+#line 1 "ex080_tight.ceu"
+    {/* NODE: Stmts 37 */
+
+#line 1 "ex080_tight.ceu"
+    {/* NODE: Block 30 */
+
+#line 1 "ex080_tight.ceu"
+    {/* NODE: Stmts 28 */
+
+#line 2 "ex080_tight.ceu"
+    {/* NODE: Stmts 55 */
+
+#line 2 "ex080_tight.ceu"
+    {/* NODE: Dcl_var 52 */
+/* NODE: Set 56 */
+
+#line 2 "ex080_tight.ceu"
+/* SET: fat *//* NODE: NUMBER 1 */
+
+#line 2 "ex080_tight.ceu"
+    (((CEU_Main*)_ceu_org)->fat) = 1;
+#line 2 "ex080_tight.ceu"
+    }/* NODE: Stmts 61 */
+
+#line 3 "ex080_tight.ceu"
+    {/* NODE: Dcl_var 58 */
+/* NODE: Set 62 */
+
+#line 3 "ex080_tight.ceu"
+/* SET: i *//* NODE: NUMBER 4 */
+
+#line 3 "ex080_tight.ceu"
+    (((CEU_Main*)_ceu_org)->i) = 10;
+#line 3 "ex080_tight.ceu"
+    }/* NODE: Block 66 */
+
+#line 4 "ex080_tight.ceu"
+    {/* NODE: Stmts 65 */
+
+#line 4 "ex080_tight.ceu"
+    {/* NODE: Stmts 64 */
+
+#line 4 "ex080_tight.ceu"
+    {
+#line 4 "ex080_tight.ceu"
+    }/* NODE: Loop 63 */
+
+#line 4 "ex080_tight.ceu"
     for (;;) {
-/* NODE: Block 20 */
+/* NODE: Block 24 */
 
-#line 6 "ex020_events.ceu"
-    {
-#line 6 "ex020_events.ceu"
-    int __ceu_v_1;
-/* NODE: Stmts 19 */
+#line 5 "ex080_tight.ceu"
+    {/* NODE: Stmts 23 */
 
-#line 6 "ex020_events.ceu"
-    {/* NODE: Stmts 59 */
+#line 5 "ex080_tight.ceu"
+    {/* NODE: If 68 */
 
-#line 6 "ex020_events.ceu"
-    {/* NODE: Dcl_var 56 */
-/* NODE: Stmts 100 */
+#line 5 "ex080_tight.ceu"
+    if (((((CEU_Main*)_ceu_org)->i)==0)) {
+/* NODE: Block 11 */
 
-#line 6 "ex020_events.ceu"
-    {/* NODE: Nothing 62 */
-/* NODE: Set 61 */
+#line 6 "ex080_tight.ceu"
+    {/* NODE: Stmts 10 */
 
-#line 6 "ex020_events.ceu"
-/* SET: table: 0x18d3540 *//* NODE: Await 4 */
+#line 6 "ex080_tight.ceu"
+    {/* NODE: Break 9 */
 
-#line 6 "ex020_events.ceu"
-    _CEU_NO_4_:
-if (0) { goto _CEU_NO_4_; /* avoids "not used" warning */ }
-
-#line 6 "ex020_events.ceu"
-    _ceu_trl->evt = CEU_IN_MY_EVT;
-_ceu_trl->lbl = Main_Awake_MY_EVT_1;
-_ceu_trl->seqno = _ceu_app->seqno;
-
-#line 6 "ex020_events.ceu"
-    return;
-
-case Main_Awake_MY_EVT_1:;
-
-#line 6 "ex020_events.ceu"
-    #ifdef CEU_DEBUG_TRAILS
-#ifndef CEU_OS
-printf("\tOK!\n");
-#endif
-#endif
-
-#line 6 "ex020_events.ceu"
-    {
-
-#line 6 "ex020_events.ceu"
-        tceu__int** __ceu_casted = (tceu__int**) _ceu_evt->param;
-
-#line 6 "ex020_events.ceu"
-        {
-        (__ceu_v_1) = ((*(__ceu_casted))->_1);
-    }
-}
-/* NODE: Nothing 117 */
-/* NODE: Nothing 118 */
-
-#line 6 "ex020_events.ceu"
-    }
-#line 6 "ex020_events.ceu"
-    }/* NODE: CallStmt 11 */
-
-#line 7 "ex020_events.ceu"
-    printf("MY_EVT=%d\n",(__ceu_v_1));/* NODE: If 106 */
-
-#line 8 "ex020_events.ceu"
-    if (((__ceu_v_1)==0)) {
-/* NODE: Block 17 */
-
-#line 9 "ex020_events.ceu"
-    {/* NODE: Stmts 16 */
-
-#line 9 "ex020_events.ceu"
-    {/* NODE: Break 15 */
-
-#line 9 "ex020_events.ceu"
+#line 6 "ex080_tight.ceu"
     break;
-#line 9 "ex020_events.ceu"
+#line 6 "ex080_tight.ceu"
     }
-#line 9 "ex020_events.ceu"
-/* CLEAR: Block (9) */
-#line 9 "ex020_events.ceu"
+#line 6 "ex080_tight.ceu"
+/* CLEAR: Block (6) */
+#line 6 "ex080_tight.ceu"
     if (0) {
 
-#line 9 "ex020_events.ceu"
+#line 6 "ex080_tight.ceu"
         }   /* opened in "if (0)" */
 }       /* opened in Block_pre */
 } else {
-/* NODE: Nothing 105 */
+/* NODE: Nothing 67 */
 }
+/* NODE: Set 69 */
 
-#line 6 "ex020_events.ceu"
+#line 8 "ex080_tight.ceu"
+/* SET: fat *//* NODE: Op2_* 16 */
+
+#line 8 "ex080_tight.ceu"
+    (((CEU_Main*)_ceu_org)->fat) = ((((CEU_Main*)_ceu_org)->fat)*(((CEU_Main*)_ceu_org)->i));/* NODE: Set 70 */
+
+#line 9 "ex080_tight.ceu"
+/* SET: i *//* NODE: Op2_- 21 */
+
+#line 9 "ex080_tight.ceu"
+    (((CEU_Main*)_ceu_org)->i) = ((((CEU_Main*)_ceu_org)->i)-1);
+#line 5 "ex080_tight.ceu"
     }
-#line 6 "ex020_events.ceu"
-/* CLEAR: Block (6) */
-#line 6 "ex020_events.ceu"
-    if (0) {
-
-#line 6 "ex020_events.ceu"
-        }   /* opened in "if (0)" */
-}       /* opened in Block_pre */
-
-#line 5 "ex020_events.ceu"
-    }
-
-#line 5 "ex020_events.ceu"
-/* CLEAR: Loop (5) */
-#line 5 "ex020_events.ceu"
-    }
-#line 5 "ex020_events.ceu"
+#line 5 "ex080_tight.ceu"
 /* CLEAR: Block (5) */
-#line 5 "ex020_events.ceu"
+#line 5 "ex080_tight.ceu"
     if (0) {
 
-#line 5 "ex020_events.ceu"
+#line 5 "ex080_tight.ceu"
         }   /* opened in "if (0)" */
 }       /* opened in Block_pre */
-/* NODE: Stmts 110 */
 
-#line 12 "ex020_events.ceu"
-    {/* NODE: Set 108 */
+#line 4 "ex080_tight.ceu"
+    }
 
-#line 12 "ex020_events.ceu"
-/* SET: _ret *//* NODE: NUMBER 22 */
+#line 4 "ex080_tight.ceu"
+/* CLEAR: Loop (4) */
+#line 4 "ex080_tight.ceu"
+    }
+#line 4 "ex080_tight.ceu"
+/* CLEAR: Block (4) */
+#line 4 "ex080_tight.ceu"
+    if (0) {
 
-#line 12 "ex020_events.ceu"
-    (((CEU_Main*)_ceu_org)->_ret_0) = 0;
-#line 12 "ex020_events.ceu"
+#line 4 "ex080_tight.ceu"
+        }   /* opened in "if (0)" */
+}       /* opened in Block_pre */
+/* NODE: Stmts 74 */
+
+#line 11 "ex080_tight.ceu"
+    {/* NODE: Set 72 */
+
+#line 11 "ex080_tight.ceu"
+/* SET: _ret *//* NODE: Var 26 */
+
+#line 11 "ex080_tight.ceu"
+    (__ceu__ret_0) = (((CEU_Main*)_ceu_org)->fat);
+#line 11 "ex080_tight.ceu"
     #ifdef CEU_RET
-    _ceu_app->ret = (((CEU_Main*)_ceu_org)->_ret_0);
+    _ceu_app->ret = (__ceu__ret_0);
 #endif
-/* NODE: Escape 109 */
+/* NODE: Escape 73 */
 
-#line 12 "ex020_events.ceu"
+#line 11 "ex080_tight.ceu"
     _ceu_lbl = Main_Set_out_0;
 goto _CEU_GOTO_;
 
-#line 12 "ex020_events.ceu"
+#line 11 "ex080_tight.ceu"
     }
-#line 3 "ex020_events.ceu"
+#line 2 "ex080_tight.ceu"
     }
-#line 1 "ex020_events.ceu"
+#line 1 "ex080_tight.ceu"
 /* CLEAR: Block (1) */
-#line 1 "ex020_events.ceu"
+#line 1 "ex080_tight.ceu"
     if (0) {
 
-#line 1 "ex020_events.ceu"
+#line 1 "ex080_tight.ceu"
         }   /* opened in "if (0)" */
 }       /* opened in Block_pre */
 
-#line 1 "ex020_events.ceu"
+#line 1 "ex080_tight.ceu"
     }
-#line 1 "ex020_events.ceu"
+#line 1 "ex080_tight.ceu"
     }
-#line 1 "ex020_events.ceu"
+#line 1 "ex080_tight.ceu"
 /* CLEAR: Block (1) */
-#line 1 "ex020_events.ceu"
+#line 1 "ex080_tight.ceu"
     if (0) {
 
-#line 1 "ex020_events.ceu"
+#line 1 "ex080_tight.ceu"
         }   /* opened in "if (0)" */
 }       /* opened in Block_pre */
 
-#line 1 "ex020_events.ceu"
+#line 1 "ex080_tight.ceu"
     return;
-#line 1 "ex020_events.ceu"
+#line 1 "ex080_tight.ceu"
 case Main_Set_out_0:;
-#line 1 "ex020_events.ceu"
+#line 1 "ex080_tight.ceu"
 /* CLEAR: SetBlock (1) */
-#line 1 "ex020_events.ceu"
+#line 1 "ex080_tight.ceu"
     }
-#line 1 "ex020_events.ceu"
+#line 1 "ex080_tight.ceu"
 /* CLEAR: Block (1) */
-#line 1 "ex020_events.ceu"
+#line 1 "ex080_tight.ceu"
     if (0) {
 
-#line 1 "ex020_events.ceu"
+#line 1 "ex080_tight.ceu"
         }   /* opened in "if (0)" */
 }       /* opened in Block_pre */
 
-#line 1 "ex020_events.ceu"
+#line 1 "ex080_tight.ceu"
     }
-#line 1 "ex020_events.ceu"
+#line 1 "ex080_tight.ceu"
 /* CLEAR: Block (1) */
-#line 1 "ex020_events.ceu"
+#line 1 "ex080_tight.ceu"
     if (0) {
 
-#line 1 "ex020_events.ceu"
+#line 1 "ex080_tight.ceu"
         }   /* opened in "if (0)" */
 }       /* opened in Block_pre */
 
-#line 1 "ex020_events.ceu"
+#line 1 "ex080_tight.ceu"
     #if defined(CEU_RET) || defined(CEU_OS)
 _ceu_app->isAlive = 0;
 #endif
 
-#line 1 "ex020_events.ceu"
+#line 1 "ex080_tight.ceu"
     return;
     }
 #ifdef CEU_DEBUG
