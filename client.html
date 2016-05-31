@@ -39,28 +39,27 @@ function compile_code() {
 	$.ajax({ type: "POST",   
 		url: "server.php",
 		data: { 'code' : send},
-		async: false,
 		success : function(text) {
 			response = text;
+
+			var Module = {
+				print: (function() {
+					var element = document.getElementById('output');
+					if (element) element.value = ''; // clear browser cache
+					return function(text) {
+						if (arguments.length > 1) text = Array.prototype.slice.call(arguments).join(' ');
+						console.log(text);
+						if (element) {
+							element.value += text + "\n";
+							element.scrollTop = element.scrollHeight; // focus on bottom
+						}
+					};
+				})()     
+			};
+
+			eval(response);
 		}
 	});
-
-	var Module = {
-		print: (function() {
-			var element = document.getElementById('output');
-			if (element) element.value = ''; // clear browser cache
-			return function(text) {
-				if (arguments.length > 1) text = Array.prototype.slice.call(arguments).join(' ');
-				console.log(text);
-				if (element) {
-					element.value += text + "\n";
-					element.scrollTop = element.scrollHeight; // focus on bottom
-				}
-			};
-		})()     
-	};
-
-	eval(response);
 }
 
 var nr = 0;
@@ -88,13 +87,12 @@ function get_tutorial() {
 	$.ajax({ type: "POST",   
 		url: "server.php",
 		data: { 'code-tutorial' : nr },
-		async: false,
 		success : function(text) {
 			response = text;
+			document.getElementById("code").value = response;
 		}
 	});
 
-	document.getElementById("code").value = response;
 }
 
 </script>

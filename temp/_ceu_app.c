@@ -26,15 +26,14 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
-#line 1 "ex080_tight.ceu"
+#line 1 "ex060_par.ceu"
 
 #ifndef _CEU_APP_H
 #define _CEU_APP_H
 
 #include "ceu_types.h"
 
-#define CEU_GOTO
-#define CEU_RET
+#define CEU_EXTS
      /* CEU_EXTS, CEU_WCLOCKS, CEU_INTS, ... */
 
 /* TODO: lbl => unsigned */
@@ -48,7 +47,7 @@ typedef s16 tceu_ncls;
 #endif
 
 /* TODO: remove */
-#define CEU_NTRAILS 1
+#define CEU_NTRAILS 2
 
 #ifndef _CEU_OS_H
 #define _CEU_OS_H
@@ -1642,10 +1641,13 @@ void ceu_pool_free (tceu_pool* pool, byte* val);
 #define CEU_IN__ASYNC 250
 #define CEU_IN__THREAD 249
 #define CEU_IN__WCLOCK 248
+#define CEU_IN_HELLO 247
+#define CEU_IN_WORLD 246
 #define CEU_IN_higher CEU_IN__INIT
-#define CEU_IN_lower 248
+#define CEU_IN_lower 246
 #define CEU_OUT_n 0
       /* CEU_IN_, CEU_OUT_ */
+#define CEU_FUN_printf
    /* CEU_FUN_ */
 typedef struct {
 	int _1;
@@ -1662,7 +1664,7 @@ typedef struct CEU_Main {
 #ifdef CEU_ORGS
   struct tceu_org org;
 #endif
-  tceu_trl trls_[ 1 ];
+  tceu_trl trls_[ 2 ];
     struct { /* BLOCK ln=1 */
       union {
           union {
@@ -1673,28 +1675,44 @@ typedef struct CEU_Main {
                 union {
                   union {
                     struct { /* BLOCK ln=1 */
-                      int fat;
-                      int i;
                       union {
                         union {
                         };
                         union {
                         };
-                        struct { /* BLOCK ln=4 */
-                          union {
+                        struct {
+                          struct { /* BLOCK ln=4 */
                             union {
-                            };
-                              struct { /* BLOCK ln=5 */
+                              struct { /* BLOCK ln=4 */
                                 union {
-                                    struct { /* BLOCK ln=6 */
+                                  union {
+                                  };
+                                    struct { /* BLOCK ln=5 */
                                       union {
+                                        union {
+                                        };
                                       };
                                     } ;
                                 };
                               } ;
-                          };
-                        } ;
-                        union {
+                            };
+                          } ;
+                          struct { /* BLOCK ln=9 */
+                            union {
+                              struct { /* BLOCK ln=9 */
+                                union {
+                                  union {
+                                  };
+                                    struct { /* BLOCK ln=10 */
+                                      union {
+                                        union {
+                                        };
+                                      };
+                                    } ;
+                                };
+                              } ;
+                            };
+                          } ;
                         };
                       };
                     } ;
@@ -6680,7 +6698,11 @@ char* ceu_vector_tochar (tceu_vector* vector) {
 /* goto labels */
 enum {
     Main_Set_out_0 = 0,
-    Class_Main = 1,
+    Main_ParEver_sub_1_1 = 1,
+    Main_ParEver_out_2 = 2,
+    Main_Awake_HELLO_3 = 3,
+    Main_Awake_WORLD_4 = 4,
+    Class_Main = 5,
 
 };
 
@@ -6812,240 +6834,335 @@ printf("OK : lbl=%d : org=%p\n", _ceu_lbl, _ceu_org);
 #endif
 
     switch (_ceu_lbl) {
-        /* NODE: Root 43 */
+        /* NODE: Root 44 */
 /* NODE: Dcl_cls 0 */
 
-#line 1 "ex080_tight.ceu"
-case Class_Main:;/* NODE: Block 76 */
+#line 1 "ex060_par.ceu"
+case Class_Main:;/* NODE: Block 121 */
 
-#line 1 "ex080_tight.ceu"
-    {/* NODE: Stmts 75 */
+#line 1 "ex060_par.ceu"
+    {/* NODE: Stmts 120 */
 
-#line 1 "ex080_tight.ceu"
-    {/* NODE: Block 49 */
+#line 1 "ex060_par.ceu"
+    {/* NODE: Block 50 */
 
-#line 1 "ex080_tight.ceu"
+#line 1 "ex060_par.ceu"
     {
-#line 1 "ex080_tight.ceu"
+#line 1 "ex060_par.ceu"
     #ifdef CEU_RET
 
-#line 1 "ex080_tight.ceu"
+#line 1 "ex060_par.ceu"
     int __ceu__ret_0;
 
-#line 1 "ex080_tight.ceu"
+#line 1 "ex060_par.ceu"
     #endif
-/* NODE: Stmts 48 */
+/* NODE: Stmts 49 */
 
-#line 1 "ex080_tight.ceu"
-    {/* NODE: Dcl_var 45 */
-/* NODE: SetBlock 47 */
-/* NODE: Block 41 */
+#line 1 "ex060_par.ceu"
+    {/* NODE: Dcl_var 46 */
+/* NODE: SetBlock 48 */
+/* NODE: Block 42 */
 
-#line 1 "ex080_tight.ceu"
-    {/* NODE: Stmts 40 */
+#line 1 "ex060_par.ceu"
+    {/* NODE: Stmts 41 */
 
-#line 1 "ex080_tight.ceu"
-    {/* NODE: Stmts 37 */
+#line 1 "ex060_par.ceu"
+    {/* NODE: Stmts 38 */
 
-#line 1 "ex080_tight.ceu"
-    {/* NODE: Block 30 */
+#line 1 "ex060_par.ceu"
+    {/* NODE: Block 31 */
 
-#line 1 "ex080_tight.ceu"
-    {/* NODE: Stmts 28 */
+#line 1 "ex060_par.ceu"
+    {/* NODE: Stmts 29 */
 
-#line 2 "ex080_tight.ceu"
-    {/* NODE: Stmts 55 */
+#line 1 "ex060_par.ceu"
+    {/* NODE: Stmts 54 */
 
-#line 2 "ex080_tight.ceu"
-    {/* NODE: Dcl_var 52 */
-/* NODE: Set 56 */
+#line 1 "ex060_par.ceu"
+    {/* NODE: Dcl_ext 53 */
 
-#line 2 "ex080_tight.ceu"
-/* SET: fat *//* NODE: NUMBER 1 */
+#line 1 "ex060_par.ceu"
+    }/* NODE: Stmts 57 */
 
-#line 2 "ex080_tight.ceu"
-    (((CEU_Main*)_ceu_org)->fat) = 1;
-#line 2 "ex080_tight.ceu"
-    }/* NODE: Stmts 61 */
+#line 2 "ex060_par.ceu"
+    {/* NODE: Dcl_ext 56 */
 
-#line 3 "ex080_tight.ceu"
-    {/* NODE: Dcl_var 58 */
-/* NODE: Set 62 */
+#line 2 "ex060_par.ceu"
+    }/* NODE: ParEver 28 */
 
-#line 3 "ex080_tight.ceu"
-/* SET: i *//* NODE: NUMBER 4 */
-
-#line 3 "ex080_tight.ceu"
-    (((CEU_Main*)_ceu_org)->i) = 10;
-#line 3 "ex080_tight.ceu"
-    }/* NODE: Block 66 */
-
-#line 4 "ex080_tight.ceu"
-    {/* NODE: Stmts 65 */
-
-#line 4 "ex080_tight.ceu"
-    {/* NODE: Stmts 64 */
-
-#line 4 "ex080_tight.ceu"
+#line 3 "ex060_par.ceu"
+/* ParEver: spawn subs */
+#line 3 "ex060_par.ceu"
     {
-#line 4 "ex080_tight.ceu"
-    }/* NODE: Loop 63 */
+#ifdef CEU_STACK_CLEAR
+    tceu_stk stk_ = { _ceu_stk, _ceu_org, 0, 1, 1 };
+#endif
 
-#line 4 "ex080_tight.ceu"
+#line 3 "ex060_par.ceu"
+        _ceu_org->trls[ 0 ].lbl = Main_ParEver_sub_1_1;
+    ceu_app_go(_ceu_app,NULL,_ceu_org,
+               &_ceu_org->trls[ 0 ],
+#ifdef CEU_STACK_CLEAR
+               &stk_
+#else
+               NULL
+#endif
+              );
+
+#ifdef CEU_STACK_CLEAR
+    if (!stk_.is_alive) {
+        return;
+    }
+#endif
+
+#line 3 "ex060_par.ceu"
+        _ceu_trl = &_ceu_org->trls[ 1 ];
+
+#line 3 "ex060_par.ceu"
+    }
+/* NODE: Block 27 */
+
+#line 9 "ex060_par.ceu"
+    {/* NODE: Stmts 26 */
+
+#line 9 "ex060_par.ceu"
+    {/* NODE: Block 92 */
+
+#line 9 "ex060_par.ceu"
+    {/* NODE: Stmts 91 */
+
+#line 9 "ex060_par.ceu"
+    {/* NODE: Stmts 90 */
+
+#line 9 "ex060_par.ceu"
+    {
+#line 9 "ex060_par.ceu"
+    }/* NODE: Loop 89 */
+
+#line 9 "ex060_par.ceu"
     for (;;) {
 /* NODE: Block 24 */
 
-#line 5 "ex080_tight.ceu"
+#line 10 "ex060_par.ceu"
     {/* NODE: Stmts 23 */
 
-#line 5 "ex080_tight.ceu"
-    {/* NODE: If 68 */
+#line 10 "ex060_par.ceu"
+    {/* NODE: Stmts 119 */
 
-#line 5 "ex080_tight.ceu"
-    if (((((CEU_Main*)_ceu_org)->i)==0)) {
-/* NODE: Block 11 */
+#line 10 "ex060_par.ceu"
+    {/* NODE: Nothing 93 */
+/* NODE: Await 17 */
 
-#line 6 "ex080_tight.ceu"
-    {/* NODE: Stmts 10 */
+#line 10 "ex060_par.ceu"
+    _CEU_NO_17_:
+if (0) { goto _CEU_NO_17_; /* avoids "not used" warning */ }
 
-#line 6 "ex080_tight.ceu"
-    {/* NODE: Break 9 */
+#line 10 "ex060_par.ceu"
+    _ceu_trl->evt = CEU_IN_WORLD;
+_ceu_trl->lbl = Main_Awake_WORLD_4;
+_ceu_trl->seqno = _ceu_app->seqno;
 
-#line 6 "ex080_tight.ceu"
-    break;
-#line 6 "ex080_tight.ceu"
+#line 10 "ex060_par.ceu"
+    return;
+
+case Main_Awake_WORLD_4:;
+
+#line 10 "ex060_par.ceu"
+    #ifdef CEU_DEBUG_TRAILS
+#ifndef CEU_OS
+printf("\tOK!\n");
+#endif
+#endif
+/* NODE: Nothing 128 */
+/* NODE: Nothing 129 */
+
+#line 10 "ex060_par.ceu"
+    }/* NODE: CallStmt 22 */
+
+#line 11 "ex060_par.ceu"
+    printf("World!\n");
+#line 10 "ex060_par.ceu"
     }
-#line 6 "ex080_tight.ceu"
-/* CLEAR: Block (6) */
-#line 6 "ex080_tight.ceu"
+#line 10 "ex060_par.ceu"
+/* CLEAR: Block (10) */
+#line 10 "ex060_par.ceu"
     if (0) {
 
-#line 6 "ex080_tight.ceu"
+#line 10 "ex060_par.ceu"
         }   /* opened in "if (0)" */
 }       /* opened in Block_pre */
-} else {
-/* NODE: Nothing 67 */
-}
-/* NODE: Set 69 */
 
-#line 8 "ex080_tight.ceu"
-/* SET: fat *//* NODE: Op2_* 16 */
-
-#line 8 "ex080_tight.ceu"
-    (((CEU_Main*)_ceu_org)->fat) = ((((CEU_Main*)_ceu_org)->fat)*(((CEU_Main*)_ceu_org)->i));/* NODE: Set 70 */
-
-#line 9 "ex080_tight.ceu"
-/* SET: i *//* NODE: Op2_- 21 */
-
-#line 9 "ex080_tight.ceu"
-    (((CEU_Main*)_ceu_org)->i) = ((((CEU_Main*)_ceu_org)->i)-1);
-#line 5 "ex080_tight.ceu"
+#line 9 "ex060_par.ceu"
     }
-#line 5 "ex080_tight.ceu"
+
+#line 9 "ex060_par.ceu"
+    }
+#line 9 "ex060_par.ceu"
+/* CLEAR: Block (9) */
+#line 9 "ex060_par.ceu"
+    if (0) {
+
+#line 9 "ex060_par.ceu"
+        }   /* opened in "if (0)" */
+}       /* opened in Block_pre */
+
+#line 9 "ex060_par.ceu"
+    }
+#line 9 "ex060_par.ceu"
+/* CLEAR: Block (9) */
+#line 9 "ex060_par.ceu"
+    if (0) {
+
+#line 9 "ex060_par.ceu"
+        }   /* opened in "if (0)" */
+}       /* opened in Block_pre */
+
+#line 3 "ex060_par.ceu"
+case Main_ParEver_sub_1_1:;/* NODE: Block 15 */
+
+#line 4 "ex060_par.ceu"
+    {/* NODE: Stmts 14 */
+
+#line 4 "ex060_par.ceu"
+    {/* NODE: Block 61 */
+
+#line 4 "ex060_par.ceu"
+    {/* NODE: Stmts 60 */
+
+#line 4 "ex060_par.ceu"
+    {/* NODE: Stmts 59 */
+
+#line 4 "ex060_par.ceu"
+    {
+#line 4 "ex060_par.ceu"
+    }/* NODE: Loop 58 */
+
+#line 4 "ex060_par.ceu"
+    for (;;) {
+/* NODE: Block 12 */
+
+#line 5 "ex060_par.ceu"
+    {/* NODE: Stmts 11 */
+
+#line 5 "ex060_par.ceu"
+    {/* NODE: Stmts 88 */
+
+#line 5 "ex060_par.ceu"
+    {/* NODE: Nothing 62 */
+/* NODE: Await 5 */
+
+#line 5 "ex060_par.ceu"
+    _CEU_NO_5_:
+if (0) { goto _CEU_NO_5_; /* avoids "not used" warning */ }
+
+#line 5 "ex060_par.ceu"
+    _ceu_trl->evt = CEU_IN_HELLO;
+_ceu_trl->lbl = Main_Awake_HELLO_3;
+_ceu_trl->seqno = _ceu_app->seqno;
+
+#line 5 "ex060_par.ceu"
+    return;
+
+case Main_Awake_HELLO_3:;
+
+#line 5 "ex060_par.ceu"
+    #ifdef CEU_DEBUG_TRAILS
+#ifndef CEU_OS
+printf("\tOK!\n");
+#endif
+#endif
+/* NODE: Nothing 126 */
+/* NODE: Nothing 127 */
+
+#line 5 "ex060_par.ceu"
+    }/* NODE: CallStmt 10 */
+
+#line 6 "ex060_par.ceu"
+    printf("Hello!\n");
+#line 5 "ex060_par.ceu"
+    }
+#line 5 "ex060_par.ceu"
 /* CLEAR: Block (5) */
-#line 5 "ex080_tight.ceu"
+#line 5 "ex060_par.ceu"
     if (0) {
 
-#line 5 "ex080_tight.ceu"
+#line 5 "ex060_par.ceu"
         }   /* opened in "if (0)" */
 }       /* opened in Block_pre */
 
-#line 4 "ex080_tight.ceu"
+#line 4 "ex060_par.ceu"
     }
 
-#line 4 "ex080_tight.ceu"
-/* CLEAR: Loop (4) */
-#line 4 "ex080_tight.ceu"
+#line 4 "ex060_par.ceu"
     }
-#line 4 "ex080_tight.ceu"
+#line 4 "ex060_par.ceu"
 /* CLEAR: Block (4) */
-#line 4 "ex080_tight.ceu"
+#line 4 "ex060_par.ceu"
     if (0) {
 
-#line 4 "ex080_tight.ceu"
+#line 4 "ex060_par.ceu"
         }   /* opened in "if (0)" */
 }       /* opened in Block_pre */
-/* NODE: Stmts 74 */
 
-#line 11 "ex080_tight.ceu"
-    {/* NODE: Set 72 */
-
-#line 11 "ex080_tight.ceu"
-/* SET: _ret *//* NODE: Var 26 */
-
-#line 11 "ex080_tight.ceu"
-    (__ceu__ret_0) = (((CEU_Main*)_ceu_org)->fat);
-#line 11 "ex080_tight.ceu"
-    #ifdef CEU_RET
-    _ceu_app->ret = (__ceu__ret_0);
-#endif
-/* NODE: Escape 73 */
-
-#line 11 "ex080_tight.ceu"
-    _ceu_lbl = Main_Set_out_0;
-goto _CEU_GOTO_;
-
-#line 11 "ex080_tight.ceu"
+#line 4 "ex060_par.ceu"
     }
-#line 2 "ex080_tight.ceu"
+#line 4 "ex060_par.ceu"
+/* CLEAR: Block (4) */
+#line 4 "ex060_par.ceu"
+    if (0) {
+
+#line 4 "ex060_par.ceu"
+        }   /* opened in "if (0)" */
+}       /* opened in Block_pre */
+
+#line 1 "ex060_par.ceu"
     }
-#line 1 "ex080_tight.ceu"
+#line 1 "ex060_par.ceu"
 /* CLEAR: Block (1) */
-#line 1 "ex080_tight.ceu"
+#line 1 "ex060_par.ceu"
     if (0) {
 
-#line 1 "ex080_tight.ceu"
+#line 1 "ex060_par.ceu"
         }   /* opened in "if (0)" */
 }       /* opened in Block_pre */
 
-#line 1 "ex080_tight.ceu"
+#line 1 "ex060_par.ceu"
     }
-#line 1 "ex080_tight.ceu"
+#line 1 "ex060_par.ceu"
     }
-#line 1 "ex080_tight.ceu"
+#line 1 "ex060_par.ceu"
 /* CLEAR: Block (1) */
-#line 1 "ex080_tight.ceu"
+#line 1 "ex060_par.ceu"
     if (0) {
 
-#line 1 "ex080_tight.ceu"
+#line 1 "ex060_par.ceu"
         }   /* opened in "if (0)" */
 }       /* opened in Block_pre */
 
-#line 1 "ex080_tight.ceu"
+#line 1 "ex060_par.ceu"
     return;
-#line 1 "ex080_tight.ceu"
-case Main_Set_out_0:;
-#line 1 "ex080_tight.ceu"
-/* CLEAR: SetBlock (1) */
-#line 1 "ex080_tight.ceu"
+#line 1 "ex060_par.ceu"
     }
-#line 1 "ex080_tight.ceu"
+#line 1 "ex060_par.ceu"
 /* CLEAR: Block (1) */
-#line 1 "ex080_tight.ceu"
+#line 1 "ex060_par.ceu"
     if (0) {
 
-#line 1 "ex080_tight.ceu"
+#line 1 "ex060_par.ceu"
         }   /* opened in "if (0)" */
 }       /* opened in Block_pre */
 
-#line 1 "ex080_tight.ceu"
+#line 1 "ex060_par.ceu"
     }
-#line 1 "ex080_tight.ceu"
+#line 1 "ex060_par.ceu"
 /* CLEAR: Block (1) */
-#line 1 "ex080_tight.ceu"
+#line 1 "ex060_par.ceu"
     if (0) {
 
-#line 1 "ex080_tight.ceu"
+#line 1 "ex060_par.ceu"
         }   /* opened in "if (0)" */
 }       /* opened in Block_pre */
 
-#line 1 "ex080_tight.ceu"
-    #if defined(CEU_RET) || defined(CEU_OS)
-_ceu_app->isAlive = 0;
-#endif
-
-#line 1 "ex080_tight.ceu"
-    return;
     }
 #ifdef CEU_DEBUG
     ceu_out_assert_msg(0, "no return");
