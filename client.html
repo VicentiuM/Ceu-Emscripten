@@ -4,7 +4,8 @@
 
 <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
 <meta content="utf-8" http-equiv="encoding">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script> 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+<script type="text/javascript" src="client.js"></script>
 
 <style>
 .dropdown-content {
@@ -29,74 +30,6 @@
 }
 
 </style>
-
-
-<script>
-function compile_code() {
-
-	var response = '';
-	var send = document.getElementById('code').value;
-	$.ajax({ type: "POST",   
-		url: "server.php",
-		data: { 'code' : send},
-		success : function(text) {
-			response = text;
-
-			var Module = {
-				print: (function() {
-					var element = document.getElementById('output');
-					if (element) element.value = ''; // clear browser cache
-					return function(text) {
-						if (arguments.length > 1) text = Array.prototype.slice.call(arguments).join(' ');
-						console.log(text);
-						if (element) {
-							element.value += text + "\n";
-							element.scrollTop = element.scrollHeight; // focus on bottom
-						}
-					};
-				})()     
-			};
-
-			eval(response);
-		}
-	});
-}
-
-var nr = 0;
-function inc_nr() {
-	nr = nr + 1;
-	if (nr == 8)
-		nr = 1;
-	get_tutorial()
-}
-
-function dec_nr() {
-	nr = nr - 1;
-	if (nr <= 0)
-		nr = 7;
-	get_tutorial()
-}
-
-function set_nr(x) {
-	nr = x;
-	get_tutorial()
-}
-
-function get_tutorial() {
-	var response = '';
-	$.ajax({ type: "POST",   
-		url: "server.php",
-		data: { 'code-tutorial' : nr },
-		success : function(text) {
-			response = text;
-			document.getElementById("code").value = response;
-		}
-	});
-
-}
-
-</script>
-
 </head>
 
 <body>
