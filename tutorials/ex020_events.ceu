@@ -2,11 +2,23 @@
 // 'MY_EVT' is an event of ints
 input int MY_EVT;
 
-loop do
+par/or do
+  loop do
     var int v = await MY_EVT;
     _printf("MY_EVT=%d\n", v);
     if v == 0 then
-        break;  // escapes the loop when v==0
+      break;  // escapes the loop when v==0
     end
+  end
+with
+  // simulates the input sending events
+  async do
+    emit MY_EVT => 2;
+    emit MY_EVT => 1;
+    emit MY_EVT => 0;
+    emit MY_EVT => -1;
+    emit MY_EVT => -2;
+  end
 end
+
 escape 0;
