@@ -133,24 +133,25 @@
 
         // Put your drawing code here
 				_update();
-
+2
     }
 	}
 */
 
 	var framesToSkip = 6,
 		counter1 = 0, counter2 = 0,
-		seconds = 5;
+		seconds = 3;
+
 	function draw() {
 		
 		if (counter1 < framesToSkip) {
 			counter1++;
-counter2++;
+			counter2++;
 			requestAnimationFrame(draw);
 			return;
 		}
 
-		_update();
+		_update(247, 0);
 
 		counter1 = 0;
 		if (counter2 <= seconds * 60)
@@ -159,8 +160,8 @@ counter2++;
 	}
 
 	</script>
-	<input id="Button" type="button" value="Update" onclick="_update()">
-
+	<input id="Button" type="button" value="Update" onclick="draw()">
+	<input id="Button" type="button" value="ONLY_UPDATE" onclick="_update()">
 	<script>
 	//function print_message() {
 	//	_update();

@@ -2474,19 +2474,12 @@ function _ceu_app_go($_ceu_app,$_ceu_evt,$_ceu_org,$_ceu_trl,$_ceu_stk) {
  HEAP8[$20>>0] = $18;
  STACKTOP = sp;return;
 }
-function _update($evt,$nr) {
- $evt = $evt|0;
- $nr = $nr|0;
- var $0 = 0, $1 = 0, $2 = 0, $payload = 0, $us = 0, label = 0, sp = 0;
+function _update() {
+ var $us = 0, label = 0, sp = 0;
  sp = STACKTOP;
  STACKTOP = STACKTOP + 16|0; if ((STACKTOP|0) >= (STACK_MAX|0)) abort();
- $payload = sp + 4|0;
  $us = sp;
- $0 = $evt;
- $1 = $nr;
- HEAP32[$payload>>2] = 0;
- $2 = $0;
- _ceu_sys_go(2576,$2,$payload);
+ _ceu_sys_go(2576,250,0);
  HEAP32[$us>>2] = 100000;
  _ceu_sys_go(2576,248,$us);
  STACKTOP = sp;return;

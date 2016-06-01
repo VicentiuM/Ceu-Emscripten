@@ -1,0 +1,11 @@
+The programs will work for only 3 seconds(see line 143 from custom_shell.html to change)
+
+The Makefile is broken, do not use it
+
+==================TO COMPILE================
+ceu ex0XX_YYYY.ceu
+emcc main.c -o ex0XX.html -s EXPORTED_FUNCTIONS="['_begin', '_update', '_main']" -s NO_EXIT_RUNTIME=1 --shell-file custom_shell.html
+
+=============BUTTONS===========
+Update button calls the draw function that every 100ms calls _update()
+JUST_UPDATE calls _update() ones. If you manage to press JUST_UPDATE once every 100ms you will simulate the Update button
