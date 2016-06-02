@@ -138,42 +138,40 @@
 	}
 */
 
-	var prevTime;
-	var newTime = new Date().getTime();
-	var diff;
-	var first = 1;
-	var miliseconds = 5000;
-	var elapsedTime = 0;
-/*
-	var framesToSkip = 6,
-		counter1 = 0, counter2 = 0,
-		seconds = 3;
-*/
-	function draw() {
-		prevTime = newTime;
-		newTime = new Date().getTime();
 
-		if (first == 1) {
-			diff = newTime - prevTime;
+/**************************************LOOK HERE**************************************************/
+	var diff;
+
+	var start = null;
+	var next;
+	var elapsed = 0;
+
+	function draw(timestamp) {
+		if (!start) {
+			start = timestamp;
+			diff = timestamp - start;
 		}
 		else {
-			diff = 15;
-			first = 0;
+			diff = timestamp - next;
 		}
 
 		_update(diff);
-		elapsedTime += diff;
+
+		elapsed += diff;
+		
+
 console.log(diff);
-console.log(elapsedTime);
-console.log("========================");
-		if (elapsedTime <= miliseconds) {
+
+		if (elapsed <= 5000) {
+			next = timestamp;
 			requestAnimationFrame(draw);
 		}
+
 		
 	}
-
+/**************************************STOP LOOKING**************************************************/
 	</script>
-	<input id="Button" type="button" value="Update" onclick="draw()">
+	<input id="Button" type="button" value="Update" onclick="requestAnimationFrame(draw)">
 	<input id="Button" type="button" value="Update 100ms" onclick="_update(100)">
 	<script>
 	//function print_message() {

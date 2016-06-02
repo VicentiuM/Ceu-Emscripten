@@ -140,36 +140,36 @@
 
 
 /**************************************LOOK HERE**************************************************/
-	var prevTime;
-	var newTime = new Date().getTime();
 	var diff;
-	var first = 1;
-	var miliseconds = 5000;
-	var elapsedTime = 0;
 
-	function draw() {
-		prevTime = newTime;
-		newTime = new Date().getTime();
+	var start = null;
+	var next;
+	var elapsed = 0;
 
-		if (first == 1) {
-			diff = newTime - prevTime;
+	function draw(timestamp) {
+		if (!start) {
+			start = timestamp;
+			diff = timestamp - start;
 		}
 		else {
-			diff = 15;
-			first = 0;
+			diff = timestamp - next;
 		}
 
 		_update(diff);
-		elapsedTime += diff;
 
-		if (elapsedTime <= miliseconds) {
+		elapsed += diff;
+		next = timestamp;
+
+console.log(diff);
+
+		if (elapsed <= 5000)
 			requestAnimationFrame(draw);
-		}
+
 		
 	}
 /**************************************STOP LOOKING**************************************************/
 	</script>
-	<input id="Button" type="button" value="Update" onclick="draw()">
+	<input id="Button" type="button" value="Update" onclick="requestAnimationFrame(draw)">
 	<input id="Button" type="button" value="Update 100ms" onclick="_update(100)">
 	<script>
 	//function print_message() {
