@@ -158,14 +158,12 @@
 		_update(diff);
 
 		elapsed += diff;
-		
+		next = timestamp;
 
 console.log(diff);
 
-		if (elapsed <= 5000) {
-			next = timestamp;
+		if (elapsed <= 5000)
 			requestAnimationFrame(draw);
-		}
 
 		
 	}

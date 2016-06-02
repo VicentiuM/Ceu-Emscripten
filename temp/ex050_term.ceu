@@ -1,5 +1,5 @@
 input void TERM;
-par/or do
+
 	par/or do
 	    loop do      // par/and loop never terminates
 		par/and do
@@ -14,16 +14,5 @@ par/or do
 	    await TERM;  // but par/or terminates on TERM
 		         // and kills the original loop
 	end
-with
-	async do
-		emit 100ms;
-		emit 100ms;
-		emit 100ms;
-		emit 100ms;
-		emit 100ms;
-		emit TERM;
-		emit 100ms;
-		emit 100ms;
-	end
-end
+
 escape 1;

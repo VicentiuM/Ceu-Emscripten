@@ -24,8 +24,14 @@ void update(s32 time) {
 	while (WCLOCK_nxt <= 0) {
 		s32 dt_us = 0;
 		ceu_sys_go(&app, CEU_IN__WCLOCK, &dt_us);
+
+		//When there are no timed events
+		if (WCLOCK_nxt == dt_us) {
+			WCLOCK_nxt = 1;
+		}
 	}
 
+	ceu_go_all( &app);
 	//ceu_sys_go( &app, CEU_IN__ASYNC, NULL );
 	//u32 us = 100000;
 	//ceu_sys_go( &app, CEU_IN__WCLOCK, &us );

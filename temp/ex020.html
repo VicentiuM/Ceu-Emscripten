@@ -133,34 +133,44 @@
 
         // Put your drawing code here
 				_update();
-
+2
     }
 	}
 */
 
-	var framesToSkip = 6,
-		counter1 = 0, counter2 = 0,
-		seconds = 3;
-	function draw() {
-		
-		if (counter1 < framesToSkip) {
-			counter1++;
-counter2++;
-			requestAnimationFrame(draw);
-			return;
+
+/**************************************LOOK HERE**************************************************/
+	var diff;
+
+	var start = null;
+	var next;
+	var elapsed = 0;
+
+	function draw(timestamp) {
+		if (!start) {
+			start = timestamp;
+			diff = timestamp - start;
+		}
+		else {
+			diff = timestamp - next;
 		}
 
-		_update(247, 0);
+		_update(diff);
 
-		counter1 = 0;
-		if (counter2 <= seconds * 60)
+		elapsed += diff;
+		next = timestamp;
+
+console.log(diff);
+
+		if (elapsed <= 5000)
 			requestAnimationFrame(draw);
+
 		
 	}
-
+/**************************************STOP LOOKING**************************************************/
 	</script>
-	<input id="Button" type="button" value="Update" onclick="draw()">
-	<input id="Button" type="button" value="ONLY_UPDATE" onclick="_update()">
+	<input id="Button" type="button" value="Update" onclick="requestAnimationFrame(draw)">
+	<input id="Button" type="button" value="Update 100ms" onclick="_update(0)">
 	<script>
 	//function print_message() {
 	//	_update();

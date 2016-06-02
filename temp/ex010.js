@@ -2504,6 +2504,7 @@ function _update($time) {
   HEAP32[$dt_us1>>2] = 0;
   _ceu_sys_go(2580,248,$dt_us1);
  }
+ _ceu_sys_go(2580,250,0);
  STACKTOP = sp;return;
 }
 function _begin() {
