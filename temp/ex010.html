@@ -133,42 +133,48 @@
 
         // Put your drawing code here
 				_update();
-
+2
     }
 	}
 */
 
+	var prevTime;
+	var newTime = new Date().getTime();
+	var diff;
+	var first = 1;
+	var miliseconds = 5000;
+	var elapsedTime = 0;
+/*
 	var framesToSkip = 6,
 		counter1 = 0, counter2 = 0,
 		seconds = 3;
+*/
 	function draw() {
-		
-		if (counter1 < framesToSkip) {
-			counter1++;
-counter2++;
-			requestAnimationFrame(draw);
-			return;
+		prevTime = newTime;
+		newTime = new Date().getTime();
+
+		if (first == 1) {
+			diff = newTime - prevTime;
+		}
+		else {
+			diff = 15;
+			first = 0;
 		}
 
-		_update(247, 0);
-
-		counter1 = 0;
-		if (counter2 <= seconds * 60)
+		_update(diff);
+		elapsedTime += diff;
+console.log(diff);
+console.log(elapsedTime);
+console.log("========================");
+		if (elapsedTime <= miliseconds) {
 			requestAnimationFrame(draw);
+		}
 		
 	}
 
 	</script>
 	<input id="Button" type="button" value="Update" onclick="draw()">
-	<input id="Button" type="button" value="ONLY_UPDATE" onclick="_update()">
-	<input id="Button" type="button" value="1" onclick="_update(247, 1)">
-	<input id="Button" type="button" value="2" onclick="_update(247, 2)">
-	<input id="Button" type="button" value="3" onclick="_update(247, 3)">
-	<input id="Button" type="button" value="Hello" onclick="_update(247, 0)">
-	<input id="Button" type="button" value="World" onclick="_update(246, 0)">
-	<input id="Button" type="button" value="A" onclick="_update(247, 0)">
-	<input id="Button" type="button" value="B" onclick="_update(246, 0)">
-
+	<input id="Button" type="button" value="Update 100ms" onclick="_update(100)">
 	<script>
 	//function print_message() {
 	//	_update();

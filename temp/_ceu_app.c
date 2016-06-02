@@ -26,20 +26,14 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
-#line 1 "ex050_term.ceu"
+#line 1 "ex010_hello.ceu"
 
 #ifndef _CEU_APP_H
 #define _CEU_APP_H
 
 #include "ceu_types.h"
 
-#define CEU_EXTS
 #define CEU_WCLOCKS
-#define CEU_ASYNCS
-#define CEU_CLEAR
-#define CEU_GOTO
-#define CEU_RET
-#define CEU_STACK_CLEAR
      /* CEU_EXTS, CEU_WCLOCKS, CEU_INTS, ... */
 
 /* TODO: lbl => unsigned */
@@ -53,7 +47,7 @@ typedef s16 tceu_ncls;
 #endif
 
 /* TODO: remove */
-#define CEU_NTRAILS 4
+#define CEU_NTRAILS 1
 
 #ifndef _CEU_OS_H
 #define _CEU_OS_H
@@ -1647,9 +1641,8 @@ void ceu_pool_free (tceu_pool* pool, byte* val);
 #define CEU_IN__ASYNC 250
 #define CEU_IN__THREAD 249
 #define CEU_IN__WCLOCK 248
-#define CEU_IN_TERM 247
 #define CEU_IN_higher CEU_IN__INIT
-#define CEU_IN_lower 247
+#define CEU_IN_lower 248
 #define CEU_OUT_n 0
       /* CEU_IN_, CEU_OUT_ */
 #define CEU_FUN_printf
@@ -1669,77 +1662,31 @@ typedef struct CEU_Main {
 #ifdef CEU_ORGS
   struct tceu_org org;
 #endif
-  tceu_trl trls_[ 4 ];
+  tceu_trl trls_[ 1 ];
     struct { /* BLOCK ln=1 */
       union {
           union {
           };
         struct { /* BLOCK ln=1 */
-          int _ret_0;
           union {
               struct { /* BLOCK ln=1 */
                 union {
                   union {
                     struct { /* BLOCK ln=1 */
                       union {
-                        union {
-                        };
-                        struct {
-                          struct { /* BLOCK ln=3 */
+                        struct { /* BLOCK ln=1 */
+                          union {
                             union {
-                              struct {
-                                struct { /* BLOCK ln=4 */
-                                  union {
-                                    struct { /* BLOCK ln=4 */
-                                      union {
-                                        union {
-                                        };
-                                          struct { /* BLOCK ln=5 */
-                                            union {
-                                              struct {
-                                                struct { /* BLOCK ln=6 */
-                                                  union {
-                                                    union {
-                                                        s32 __wclk_3;
-                                                    };
-                                                  };
-                                                } ;
-                                                struct { /* BLOCK ln=9 */
-                                                  union {
-                                                    union {
-                                                        s32 __wclk_12;
-                                                    };
-                                                  };
-                                                } ;
-                                                u8 __and_20_1: 1;
-                                                u8 __and_20_2: 1;
-                                              };
-                                            };
-                                          } ;
-                                      };
-                                    } ;
-                                  };
-                                } ;
-                                struct { /* BLOCK ln=14 */
-                                  union {
-                                    union {
-                                    };
-                                  };
-                                } ;
-                              };
                             };
-                          } ;
-                          struct { /* BLOCK ln=18 */
-                            union {
-                                struct { /* BLOCK ln=19 */
+                              struct { /* BLOCK ln=2 */
+                                union {
                                   union {
+                                      s32 __wclk_1;
                                   };
-                                } ;
-                            };
-                          } ;
-                        };
-                        union {
-                        };
+                                };
+                              } ;
+                          };
+                        } ;
                       };
                     } ;
                   };
@@ -6724,26 +6671,8 @@ char* ceu_vector_tochar (tceu_vector* vector) {
 /* goto labels */
 enum {
     Main_Set_out_0 = 0,
-    Main_ParOr_sub_1_1 = 1,
-    Main_ParOr_out_2 = 2,
-    Main_ParOr_sub_1_3 = 3,
-    Main_ParOr_out_4 = 4,
-    Main_ParAnd_sub_1_5 = 5,
-    Main_ParAnd_chk_6 = 6,
-    Main_ParAnd_out_7 = 7,
-    Main_Awake_DT_8 = 8,
-    Main_Awake_DT_9 = 9,
-    Main_Awake_TERM_10 = 10,
-    Main_Async_cont_11 = 11,
-    Main_Async_cont_12 = 12,
-    Main_Async_cont_13 = 13,
-    Main_Async_cont_14 = 14,
-    Main_Async_cont_15 = 15,
-    Main_Async_cont_16 = 16,
-    Main_Async_cont_17 = 17,
-    Main_Async_cont_18 = 18,
-    Main_Async_19 = 19,
-    Class_Main = 20,
+    Main_Awake_DT_1 = 1,
+    Class_Main = 2,
 
 };
 
@@ -6875,1226 +6804,188 @@ printf("OK : lbl=%d : org=%p\n", _ceu_lbl, _ceu_org);
 #endif
 
     switch (_ceu_lbl) {
-        /* NODE: Root 72 */
+        /* NODE: Root 25 */
 /* NODE: Dcl_cls 0 */
 
-#line 1 "ex050_term.ceu"
-case Class_Main:;/* NODE: Block 192 */
+#line 1 "ex010_hello.ceu"
+case Class_Main:;/* NODE: Block 67 */
 
-#line 1 "ex050_term.ceu"
-    {/* NODE: Stmts 191 */
-
-#line 1 "ex050_term.ceu"
-    {/* NODE: Block 78 */
-
-#line 1 "ex050_term.ceu"
-    {/* NODE: Stmts 77 */
-
-#line 1 "ex050_term.ceu"
-    {/* NODE: Dcl_var 74 */
-/* NODE: SetBlock 76 */
-/* NODE: Block 70 */
-
-#line 1 "ex050_term.ceu"
-    {/* NODE: Stmts 69 */
-
-#line 1 "ex050_term.ceu"
+#line 1 "ex010_hello.ceu"
     {/* NODE: Stmts 66 */
 
-#line 1 "ex050_term.ceu"
-    {/* NODE: Block 59 */
+#line 1 "ex010_hello.ceu"
+    {/* NODE: Block 31 */
 
-#line 1 "ex050_term.ceu"
-    {/* NODE: Stmts 57 */
-
-#line 1 "ex050_term.ceu"
-    {/* NODE: Stmts 82 */
-
-#line 1 "ex050_term.ceu"
-    {/* NODE: Dcl_ext 81 */
-
-#line 1 "ex050_term.ceu"
-    }/* NODE: ParOr 54 */
-
-#line 2 "ex050_term.ceu"
-/* ParOr: spawn subs */
-#line 2 "ex050_term.ceu"
+#line 1 "ex010_hello.ceu"
     {
-#ifdef CEU_STACK_CLEAR
-    tceu_stk stk_ = { _ceu_stk, _ceu_org, 0, 3, 1 };
-#endif
-
-#line 2 "ex050_term.ceu"
-        _ceu_org->trls[ 0 ].lbl = Main_ParOr_sub_1_1;
-    ceu_app_go(_ceu_app,NULL,_ceu_org,
-               &_ceu_org->trls[ 0 ],
-#ifdef CEU_STACK_CLEAR
-               &stk_
-#else
-               NULL
-#endif
-              );
-
-#ifdef CEU_STACK_CLEAR
-    if (!stk_.is_alive) {
-        return;
-    }
-#endif
-
-#line 2 "ex050_term.ceu"
-        _ceu_trl = &_ceu_org->trls[ 3 ];
-
-#line 2 "ex050_term.ceu"
-    }
-/* NODE: Block 53 */
-
-#line 18 "ex050_term.ceu"
-    {/* NODE: Stmts 52 */
-
-#line 18 "ex050_term.ceu"
-    {/* NODE: Async 51 */
-
-#line 18 "ex050_term.ceu"
-    _ceu_trl->evt = CEU_IN__ASYNC;
-_ceu_trl->lbl = Main_Async_19;
-_ceu_trl->seqno = _ceu_app->seqno;
-
-#line 18 "ex050_term.ceu"
-    #ifdef ceu_out_async
-ceu_out_async(_ceu_app);
-#endif
-    _ceu_app->pendingAsyncs = 1;
-
-#line 18 "ex050_term.ceu"
-    return;
-
-case Main_Async_19:;
-/* NODE: Block 50 */
-
-#line 19 "ex050_term.ceu"
-    {/* NODE: Stmts 49 */
-
-#line 19 "ex050_term.ceu"
-    {/* NODE: EmitExt 34 */
-
-#line 19 "ex050_term.ceu"
-    {
-#ifdef CEU_STACK_CLEAR
-    tceu_stk stk_ = { _ceu_stk, _ceu_org, 3, 3, 1 };
-#endif
-
-#line 19 "ex050_term.ceu"
-        {
-
-#line 19 "ex050_term.ceu"
-    _CEU_NO_34_:
-if (0) { goto _CEU_NO_34_; /* avoids "not used" warning */ }
-
-#line 19 "ex050_term.ceu"
-    #ifdef CEU_WCLOCKS
-{
-    u32 __ceu_tmp_34 = ((s32)100000);
-    ceu_sys_go_stk(_ceu_app, CEU_IN__WCLOCK, &__ceu_tmp_34,
-#ifdef CEU_STACK_CLEAR
-                   &stk_
-#else
-                   NULL
-#endif
-                  );
-    while (
-#if defined(CEU_RET) || defined(CEU_OS)
-           _ceu_app->isAlive &&
-#endif
-           _ceu_app->wclk_min_set<=0) {
-#ifdef CEU_STACK_CLEAR
-        if (!stk_.is_alive) {
-            return;
-        }
-#endif
-        s32 __ceu_dt = 0;
-        ceu_sys_go_stk(_ceu_app, CEU_IN__WCLOCK, &__ceu_dt,
-#ifdef CEU_STACK_CLEAR
-                       &stk_
-#else
-                       NULL
-#endif
-                      );
-    }
-}
-#endif
-
-#line 19 "ex050_term.ceu"
-        }   /* block for __emit_ps */
-}       /* block for stk_ */
-
-#line 19 "ex050_term.ceu"
-    #if defined(CEU_RET) || defined(CEU_OS)
-if (!_ceu_app->isAlive)
-#endif
-{
-    return;     /* HALT(me) */
-}
-
-#line 19 "ex050_term.ceu"
-    _ceu_trl->evt = CEU_IN__ASYNC;
-_ceu_trl->lbl = Main_Async_cont_11;
-_ceu_trl->seqno = _ceu_app->seqno;
-
-#line 19 "ex050_term.ceu"
-    #ifdef ceu_out_async
-ceu_out_async(_ceu_app);
-#endif
-    _ceu_app->pendingAsyncs = 1;
-
-#line 19 "ex050_term.ceu"
-    return;
-
-case Main_Async_cont_11:;
-/* NODE: EmitExt 36 */
-
-#line 20 "ex050_term.ceu"
-    {
-#ifdef CEU_STACK_CLEAR
-    tceu_stk stk_ = { _ceu_stk, _ceu_org, 3, 3, 1 };
-#endif
-
-#line 20 "ex050_term.ceu"
-        {
-
-#line 20 "ex050_term.ceu"
-    _CEU_NO_36_:
-if (0) { goto _CEU_NO_36_; /* avoids "not used" warning */ }
-
-#line 20 "ex050_term.ceu"
-    #ifdef CEU_WCLOCKS
-{
-    u32 __ceu_tmp_36 = ((s32)100000);
-    ceu_sys_go_stk(_ceu_app, CEU_IN__WCLOCK, &__ceu_tmp_36,
-#ifdef CEU_STACK_CLEAR
-                   &stk_
-#else
-                   NULL
-#endif
-                  );
-    while (
-#if defined(CEU_RET) || defined(CEU_OS)
-           _ceu_app->isAlive &&
-#endif
-           _ceu_app->wclk_min_set<=0) {
-#ifdef CEU_STACK_CLEAR
-        if (!stk_.is_alive) {
-            return;
-        }
-#endif
-        s32 __ceu_dt = 0;
-        ceu_sys_go_stk(_ceu_app, CEU_IN__WCLOCK, &__ceu_dt,
-#ifdef CEU_STACK_CLEAR
-                       &stk_
-#else
-                       NULL
-#endif
-                      );
-    }
-}
-#endif
-
-#line 20 "ex050_term.ceu"
-        }   /* block for __emit_ps */
-}       /* block for stk_ */
-
-#line 20 "ex050_term.ceu"
-    #if defined(CEU_RET) || defined(CEU_OS)
-if (!_ceu_app->isAlive)
-#endif
-{
-    return;     /* HALT(me) */
-}
-
-#line 20 "ex050_term.ceu"
-    _ceu_trl->evt = CEU_IN__ASYNC;
-_ceu_trl->lbl = Main_Async_cont_12;
-_ceu_trl->seqno = _ceu_app->seqno;
-
-#line 20 "ex050_term.ceu"
-    #ifdef ceu_out_async
-ceu_out_async(_ceu_app);
-#endif
-    _ceu_app->pendingAsyncs = 1;
-
-#line 20 "ex050_term.ceu"
-    return;
-
-case Main_Async_cont_12:;
-/* NODE: EmitExt 38 */
-
-#line 21 "ex050_term.ceu"
-    {
-#ifdef CEU_STACK_CLEAR
-    tceu_stk stk_ = { _ceu_stk, _ceu_org, 3, 3, 1 };
-#endif
-
-#line 21 "ex050_term.ceu"
-        {
-
-#line 21 "ex050_term.ceu"
-    _CEU_NO_38_:
-if (0) { goto _CEU_NO_38_; /* avoids "not used" warning */ }
-
-#line 21 "ex050_term.ceu"
-    #ifdef CEU_WCLOCKS
-{
-    u32 __ceu_tmp_38 = ((s32)100000);
-    ceu_sys_go_stk(_ceu_app, CEU_IN__WCLOCK, &__ceu_tmp_38,
-#ifdef CEU_STACK_CLEAR
-                   &stk_
-#else
-                   NULL
-#endif
-                  );
-    while (
-#if defined(CEU_RET) || defined(CEU_OS)
-           _ceu_app->isAlive &&
-#endif
-           _ceu_app->wclk_min_set<=0) {
-#ifdef CEU_STACK_CLEAR
-        if (!stk_.is_alive) {
-            return;
-        }
-#endif
-        s32 __ceu_dt = 0;
-        ceu_sys_go_stk(_ceu_app, CEU_IN__WCLOCK, &__ceu_dt,
-#ifdef CEU_STACK_CLEAR
-                       &stk_
-#else
-                       NULL
-#endif
-                      );
-    }
-}
-#endif
-
-#line 21 "ex050_term.ceu"
-        }   /* block for __emit_ps */
-}       /* block for stk_ */
-
-#line 21 "ex050_term.ceu"
-    #if defined(CEU_RET) || defined(CEU_OS)
-if (!_ceu_app->isAlive)
-#endif
-{
-    return;     /* HALT(me) */
-}
-
-#line 21 "ex050_term.ceu"
-    _ceu_trl->evt = CEU_IN__ASYNC;
-_ceu_trl->lbl = Main_Async_cont_13;
-_ceu_trl->seqno = _ceu_app->seqno;
-
-#line 21 "ex050_term.ceu"
-    #ifdef ceu_out_async
-ceu_out_async(_ceu_app);
-#endif
-    _ceu_app->pendingAsyncs = 1;
-
-#line 21 "ex050_term.ceu"
-    return;
-
-case Main_Async_cont_13:;
-/* NODE: EmitExt 40 */
-
-#line 22 "ex050_term.ceu"
-    {
-#ifdef CEU_STACK_CLEAR
-    tceu_stk stk_ = { _ceu_stk, _ceu_org, 3, 3, 1 };
-#endif
-
-#line 22 "ex050_term.ceu"
-        {
-
-#line 22 "ex050_term.ceu"
-    _CEU_NO_40_:
-if (0) { goto _CEU_NO_40_; /* avoids "not used" warning */ }
-
-#line 22 "ex050_term.ceu"
-    #ifdef CEU_WCLOCKS
-{
-    u32 __ceu_tmp_40 = ((s32)100000);
-    ceu_sys_go_stk(_ceu_app, CEU_IN__WCLOCK, &__ceu_tmp_40,
-#ifdef CEU_STACK_CLEAR
-                   &stk_
-#else
-                   NULL
-#endif
-                  );
-    while (
-#if defined(CEU_RET) || defined(CEU_OS)
-           _ceu_app->isAlive &&
-#endif
-           _ceu_app->wclk_min_set<=0) {
-#ifdef CEU_STACK_CLEAR
-        if (!stk_.is_alive) {
-            return;
-        }
-#endif
-        s32 __ceu_dt = 0;
-        ceu_sys_go_stk(_ceu_app, CEU_IN__WCLOCK, &__ceu_dt,
-#ifdef CEU_STACK_CLEAR
-                       &stk_
-#else
-                       NULL
-#endif
-                      );
-    }
-}
-#endif
-
-#line 22 "ex050_term.ceu"
-        }   /* block for __emit_ps */
-}       /* block for stk_ */
-
-#line 22 "ex050_term.ceu"
-    #if defined(CEU_RET) || defined(CEU_OS)
-if (!_ceu_app->isAlive)
-#endif
-{
-    return;     /* HALT(me) */
-}
-
-#line 22 "ex050_term.ceu"
-    _ceu_trl->evt = CEU_IN__ASYNC;
-_ceu_trl->lbl = Main_Async_cont_14;
-_ceu_trl->seqno = _ceu_app->seqno;
-
-#line 22 "ex050_term.ceu"
-    #ifdef ceu_out_async
-ceu_out_async(_ceu_app);
-#endif
-    _ceu_app->pendingAsyncs = 1;
-
-#line 22 "ex050_term.ceu"
-    return;
-
-case Main_Async_cont_14:;
-/* NODE: EmitExt 42 */
-
-#line 23 "ex050_term.ceu"
-    {
-#ifdef CEU_STACK_CLEAR
-    tceu_stk stk_ = { _ceu_stk, _ceu_org, 3, 3, 1 };
-#endif
-
-#line 23 "ex050_term.ceu"
-        {
-
-#line 23 "ex050_term.ceu"
-    _CEU_NO_42_:
-if (0) { goto _CEU_NO_42_; /* avoids "not used" warning */ }
-
-#line 23 "ex050_term.ceu"
-    #ifdef CEU_WCLOCKS
-{
-    u32 __ceu_tmp_42 = ((s32)100000);
-    ceu_sys_go_stk(_ceu_app, CEU_IN__WCLOCK, &__ceu_tmp_42,
-#ifdef CEU_STACK_CLEAR
-                   &stk_
-#else
-                   NULL
-#endif
-                  );
-    while (
-#if defined(CEU_RET) || defined(CEU_OS)
-           _ceu_app->isAlive &&
-#endif
-           _ceu_app->wclk_min_set<=0) {
-#ifdef CEU_STACK_CLEAR
-        if (!stk_.is_alive) {
-            return;
-        }
-#endif
-        s32 __ceu_dt = 0;
-        ceu_sys_go_stk(_ceu_app, CEU_IN__WCLOCK, &__ceu_dt,
-#ifdef CEU_STACK_CLEAR
-                       &stk_
-#else
-                       NULL
-#endif
-                      );
-    }
-}
-#endif
-
-#line 23 "ex050_term.ceu"
-        }   /* block for __emit_ps */
-}       /* block for stk_ */
-
-#line 23 "ex050_term.ceu"
-    #if defined(CEU_RET) || defined(CEU_OS)
-if (!_ceu_app->isAlive)
-#endif
-{
-    return;     /* HALT(me) */
-}
-
-#line 23 "ex050_term.ceu"
-    _ceu_trl->evt = CEU_IN__ASYNC;
-_ceu_trl->lbl = Main_Async_cont_15;
-_ceu_trl->seqno = _ceu_app->seqno;
-
-#line 23 "ex050_term.ceu"
-    #ifdef ceu_out_async
-ceu_out_async(_ceu_app);
-#endif
-    _ceu_app->pendingAsyncs = 1;
-
-#line 23 "ex050_term.ceu"
-    return;
-
-case Main_Async_cont_15:;
-/* NODE: EmitExt 44 */
-
-#line 24 "ex050_term.ceu"
-    {
-#ifdef CEU_STACK_CLEAR
-    tceu_stk stk_ = { _ceu_stk, _ceu_org, 3, 3, 1 };
-#endif
-
-#line 24 "ex050_term.ceu"
-        {
-
-#line 24 "ex050_term.ceu"
-    _CEU_NO_44_:
-if (0) { goto _CEU_NO_44_; /* avoids "not used" warning */ }
-
-#line 24 "ex050_term.ceu"
-    
-#if defined(ceu_in_emit_TERM)
-    ceu_in_emit_TERM(NULL)
-
-#elif defined(ceu_in_emit)
-    (ceu_in_emit(_ceu_app, CEU_IN_TERM, 0, NULL))
-
-#else
-    #error ceu_in_emit_* is not defined
-#endif
-;
-#line 24 "ex050_term.ceu"
-    #ifdef CEU_STACK_CLEAR
-    if (!stk_.is_alive) {
-        return;
-    }
-#endif
-
-#line 24 "ex050_term.ceu"
-        }   /* block for __emit_ps */
-}       /* block for stk_ */
-
-#line 24 "ex050_term.ceu"
-    #if defined(CEU_RET) || defined(CEU_OS)
-if (!_ceu_app->isAlive)
-#endif
-{
-    return;     /* HALT(me) */
-}
-
-#line 24 "ex050_term.ceu"
-    _ceu_trl->evt = CEU_IN__ASYNC;
-_ceu_trl->lbl = Main_Async_cont_16;
-_ceu_trl->seqno = _ceu_app->seqno;
-
-#line 24 "ex050_term.ceu"
-    #ifdef ceu_out_async
-ceu_out_async(_ceu_app);
-#endif
-    _ceu_app->pendingAsyncs = 1;
-
-#line 24 "ex050_term.ceu"
-    return;
-
-case Main_Async_cont_16:;
-/* NODE: EmitExt 46 */
-
-#line 25 "ex050_term.ceu"
-    {
-#ifdef CEU_STACK_CLEAR
-    tceu_stk stk_ = { _ceu_stk, _ceu_org, 3, 3, 1 };
-#endif
-
-#line 25 "ex050_term.ceu"
-        {
-
-#line 25 "ex050_term.ceu"
-    _CEU_NO_46_:
-if (0) { goto _CEU_NO_46_; /* avoids "not used" warning */ }
-
-#line 25 "ex050_term.ceu"
-    #ifdef CEU_WCLOCKS
-{
-    u32 __ceu_tmp_46 = ((s32)100000);
-    ceu_sys_go_stk(_ceu_app, CEU_IN__WCLOCK, &__ceu_tmp_46,
-#ifdef CEU_STACK_CLEAR
-                   &stk_
-#else
-                   NULL
-#endif
-                  );
-    while (
-#if defined(CEU_RET) || defined(CEU_OS)
-           _ceu_app->isAlive &&
-#endif
-           _ceu_app->wclk_min_set<=0) {
-#ifdef CEU_STACK_CLEAR
-        if (!stk_.is_alive) {
-            return;
-        }
-#endif
-        s32 __ceu_dt = 0;
-        ceu_sys_go_stk(_ceu_app, CEU_IN__WCLOCK, &__ceu_dt,
-#ifdef CEU_STACK_CLEAR
-                       &stk_
-#else
-                       NULL
-#endif
-                      );
-    }
-}
-#endif
-
-#line 25 "ex050_term.ceu"
-        }   /* block for __emit_ps */
-}       /* block for stk_ */
-
-#line 25 "ex050_term.ceu"
-    #if defined(CEU_RET) || defined(CEU_OS)
-if (!_ceu_app->isAlive)
-#endif
-{
-    return;     /* HALT(me) */
-}
-
-#line 25 "ex050_term.ceu"
-    _ceu_trl->evt = CEU_IN__ASYNC;
-_ceu_trl->lbl = Main_Async_cont_17;
-_ceu_trl->seqno = _ceu_app->seqno;
-
-#line 25 "ex050_term.ceu"
-    #ifdef ceu_out_async
-ceu_out_async(_ceu_app);
-#endif
-    _ceu_app->pendingAsyncs = 1;
-
-#line 25 "ex050_term.ceu"
-    return;
-
-case Main_Async_cont_17:;
-/* NODE: EmitExt 48 */
-
-#line 26 "ex050_term.ceu"
-    {
-#ifdef CEU_STACK_CLEAR
-    tceu_stk stk_ = { _ceu_stk, _ceu_org, 3, 3, 1 };
-#endif
-
-#line 26 "ex050_term.ceu"
-        {
-
-#line 26 "ex050_term.ceu"
-    _CEU_NO_48_:
-if (0) { goto _CEU_NO_48_; /* avoids "not used" warning */ }
-
-#line 26 "ex050_term.ceu"
-    #ifdef CEU_WCLOCKS
-{
-    u32 __ceu_tmp_48 = ((s32)100000);
-    ceu_sys_go_stk(_ceu_app, CEU_IN__WCLOCK, &__ceu_tmp_48,
-#ifdef CEU_STACK_CLEAR
-                   &stk_
-#else
-                   NULL
-#endif
-                  );
-    while (
-#if defined(CEU_RET) || defined(CEU_OS)
-           _ceu_app->isAlive &&
-#endif
-           _ceu_app->wclk_min_set<=0) {
-#ifdef CEU_STACK_CLEAR
-        if (!stk_.is_alive) {
-            return;
-        }
-#endif
-        s32 __ceu_dt = 0;
-        ceu_sys_go_stk(_ceu_app, CEU_IN__WCLOCK, &__ceu_dt,
-#ifdef CEU_STACK_CLEAR
-                       &stk_
-#else
-                       NULL
-#endif
-                      );
-    }
-}
-#endif
-
-#line 26 "ex050_term.ceu"
-        }   /* block for __emit_ps */
-}       /* block for stk_ */
-
-#line 26 "ex050_term.ceu"
-    #if defined(CEU_RET) || defined(CEU_OS)
-if (!_ceu_app->isAlive)
-#endif
-{
-    return;     /* HALT(me) */
-}
-
-#line 26 "ex050_term.ceu"
-    _ceu_trl->evt = CEU_IN__ASYNC;
-_ceu_trl->lbl = Main_Async_cont_18;
-_ceu_trl->seqno = _ceu_app->seqno;
-
-#line 26 "ex050_term.ceu"
-    #ifdef ceu_out_async
-ceu_out_async(_ceu_app);
-#endif
-    _ceu_app->pendingAsyncs = 1;
-
-#line 26 "ex050_term.ceu"
-    return;
-
-case Main_Async_cont_18:;
-
-#line 19 "ex050_term.ceu"
-    }
-#line 19 "ex050_term.ceu"
-/* CLEAR: Block (19) */
-#line 19 "ex050_term.ceu"
-    if (0) {
-
-#line 19 "ex050_term.ceu"
-        }   /* opened in "if (0)" */
-}       /* opened in Block_pre */
-
-#line 18 "ex050_term.ceu"
-    }
-#line 18 "ex050_term.ceu"
-/* CLEAR: Block (18) */
-#line 18 "ex050_term.ceu"
-    if (0) {
-
-#line 18 "ex050_term.ceu"
-        }   /* opened in "if (0)" */
-}       /* opened in Block_pre */
-
-#line 2 "ex050_term.ceu"
-/* PAROR JOIN */
-#line 2 "ex050_term.ceu"
-    _ceu_lbl = Main_ParOr_out_2;
-goto _CEU_GOTO_;
-
-#line 2 "ex050_term.ceu"
-case Main_ParOr_sub_1_1:;/* NODE: Block 32 */
-
-#line 3 "ex050_term.ceu"
-    {/* NODE: Stmts 31 */
-
-#line 3 "ex050_term.ceu"
-    {/* NODE: ParOr 30 */
-
-#line 3 "ex050_term.ceu"
-/* ParOr: spawn subs */
-#line 3 "ex050_term.ceu"
-    {
-#ifdef CEU_STACK_CLEAR
-    tceu_stk stk_ = { _ceu_stk, _ceu_org, 0, 2, 1 };
-#endif
-
-#line 3 "ex050_term.ceu"
-        _ceu_org->trls[ 0 ].lbl = Main_ParOr_sub_1_3;
-    ceu_app_go(_ceu_app,NULL,_ceu_org,
-               &_ceu_org->trls[ 0 ],
-#ifdef CEU_STACK_CLEAR
-               &stk_
-#else
-               NULL
-#endif
-              );
-
-#ifdef CEU_STACK_CLEAR
-    if (!stk_.is_alive) {
-        return;
-    }
-#endif
-
-#line 3 "ex050_term.ceu"
-        _ceu_trl = &_ceu_org->trls[ 2 ];
-
-#line 3 "ex050_term.ceu"
-    }
-/* NODE: Block 29 */
-
-#line 14 "ex050_term.ceu"
-    {/* NODE: Stmts 28 */
-
-#line 14 "ex050_term.ceu"
-    {/* NODE: Stmts 171 */
-
-#line 14 "ex050_term.ceu"
-    {/* NODE: Nothing 145 */
-/* NODE: Await 27 */
-
-#line 14 "ex050_term.ceu"
-    _CEU_NO_27_:
-if (0) { goto _CEU_NO_27_; /* avoids "not used" warning */ }
-
-#line 14 "ex050_term.ceu"
-    _ceu_trl->evt = CEU_IN_TERM;
-_ceu_trl->lbl = Main_Awake_TERM_10;
-_ceu_trl->seqno = _ceu_app->seqno;
-
-#line 14 "ex050_term.ceu"
-    return;
-
-case Main_Awake_TERM_10:;
-
-#line 14 "ex050_term.ceu"
-    #ifdef CEU_DEBUG_TRAILS
-#ifndef CEU_OS
-printf("\tOK!\n");
-#endif
-#endif
-/* NODE: Nothing 201 */
-/* NODE: Nothing 202 */
-
-#line 14 "ex050_term.ceu"
-    }
-#line 14 "ex050_term.ceu"
-    }
-#line 14 "ex050_term.ceu"
-/* CLEAR: Block (14) */
-#line 14 "ex050_term.ceu"
-    if (0) {
-
-#line 14 "ex050_term.ceu"
-        }   /* opened in "if (0)" */
-}       /* opened in Block_pre */
-
-#line 3 "ex050_term.ceu"
-/* PAROR JOIN */
-#line 3 "ex050_term.ceu"
-    _ceu_lbl = Main_ParOr_out_4;
-goto _CEU_GOTO_;
-
-#line 3 "ex050_term.ceu"
-case Main_ParOr_sub_1_3:;/* NODE: Block 25 */
-
-#line 4 "ex050_term.ceu"
-    {/* NODE: Stmts 24 */
-
-#line 4 "ex050_term.ceu"
-    {/* NODE: Block 86 */
-
-#line 4 "ex050_term.ceu"
-    {/* NODE: Stmts 85 */
-
-#line 4 "ex050_term.ceu"
-    {/* NODE: Stmts 84 */
-
-#line 4 "ex050_term.ceu"
-    {
-#line 4 "ex050_term.ceu"
-    }/* NODE: Loop 83 */
-
-#line 4 "ex050_term.ceu"
-    for (;;) {
-/* NODE: Block 22 */
-
-#line 5 "ex050_term.ceu"
-    {/* NODE: Stmts 21 */
-
-#line 5 "ex050_term.ceu"
-    {/* NODE: ParAnd 20 */
-
-#line 5 "ex050_term.ceu"
-/* close ParAnd gates */
-#line 5 "ex050_term.ceu"
-    ((CEU_Main*)_ceu_org)->__and_20_1 = 0;
-#line 5 "ex050_term.ceu"
-    ((CEU_Main*)_ceu_org)->__and_20_2 = 0;
-#line 5 "ex050_term.ceu"
-/* ParAnd: spawn subs */
-#line 5 "ex050_term.ceu"
-    {
-#ifdef CEU_STACK_CLEAR
-    tceu_stk stk_ = { _ceu_stk, _ceu_org, 0, 1, 1 };
-#endif
-
-#line 5 "ex050_term.ceu"
-        _ceu_org->trls[ 0 ].lbl = Main_ParAnd_sub_1_5;
-    ceu_app_go(_ceu_app,NULL,_ceu_org,
-               &_ceu_org->trls[ 0 ],
-#ifdef CEU_STACK_CLEAR
-               &stk_
-#else
-               NULL
-#endif
-              );
-
-#ifdef CEU_STACK_CLEAR
-    if (!stk_.is_alive) {
-        return;
-    }
-#endif
-
-#line 5 "ex050_term.ceu"
-        _ceu_trl = &_ceu_org->trls[ 1 ];
-
-#line 5 "ex050_term.ceu"
-    }
-/* NODE: Block 19 */
-
-#line 9 "ex050_term.ceu"
-    {/* NODE: Stmts 18 */
-
-#line 9 "ex050_term.ceu"
-    {/* NODE: Stmts 143 */
-
-#line 9 "ex050_term.ceu"
-    {/* NODE: Nothing 117 */
-/* NODE: Await 12 */
-
-#line 9 "ex050_term.ceu"
-    ceu_out_wclock(_ceu_app, (s32)((s32)250000), &((CEU_Main*)_ceu_org)->__wclk_12, NULL);
-
-#line 9 "ex050_term.ceu"
-    _CEU_NO_12_:
-if (0) { goto _CEU_NO_12_; /* avoids "not used" warning */ }
-
-#line 9 "ex050_term.ceu"
-    _ceu_trl->evt = CEU_IN__WCLOCK;
-_ceu_trl->lbl = Main_Awake_DT_9;
-_ceu_trl->seqno = _ceu_app->seqno;
-
-#line 9 "ex050_term.ceu"
-    return;
-
-case Main_Awake_DT_9:;
-
-#line 9 "ex050_term.ceu"
-        /* subtract time and check if I have to awake */
-    {
-        s32** __ceu_casted = (s32**)_ceu_evt->param;
-        if (!ceu_out_wclock(_ceu_app, *(*__ceu_casted), NULL, &((CEU_Main*)_ceu_org)->__wclk_12) ) {
-            goto _CEU_NO_12_;
-        }
-    }
-
-#line 9 "ex050_term.ceu"
-    #ifdef CEU_DEBUG_TRAILS
-#ifndef CEU_OS
-printf("\tOK!\n");
-#endif
-#endif
-/* NODE: Nothing 199 */
-/* NODE: Nothing 200 */
-
-#line 9 "ex050_term.ceu"
-    }/* NODE: CallStmt 17 */
-
-#line 10 "ex050_term.ceu"
-    printf("World!\n");
-#line 9 "ex050_term.ceu"
-    }
-#line 9 "ex050_term.ceu"
-/* CLEAR: Block (9) */
-#line 9 "ex050_term.ceu"
-    if (0) {
-
-#line 9 "ex050_term.ceu"
-        }   /* opened in "if (0)" */
-}       /* opened in Block_pre */
-
-#line 5 "ex050_term.ceu"
-    ((CEU_Main*)_ceu_org)->__and_20_2 = 1;
-#line 5 "ex050_term.ceu"
-    _ceu_lbl = Main_ParAnd_chk_6;
-goto _CEU_GOTO_;
-
-#line 5 "ex050_term.ceu"
-case Main_ParAnd_sub_1_5:;/* NODE: Block 10 */
-
-#line 6 "ex050_term.ceu"
-    {/* NODE: Stmts 9 */
-
-#line 6 "ex050_term.ceu"
-    {/* NODE: Stmts 114 */
-
-#line 6 "ex050_term.ceu"
-    {/* NODE: Nothing 88 */
-/* NODE: Await 3 */
-
-#line 6 "ex050_term.ceu"
-    ceu_out_wclock(_ceu_app, (s32)((s32)100000), &((CEU_Main*)_ceu_org)->__wclk_3, NULL);
-
-#line 6 "ex050_term.ceu"
-    _CEU_NO_3_:
-if (0) { goto _CEU_NO_3_; /* avoids "not used" warning */ }
-
-#line 6 "ex050_term.ceu"
-    _ceu_trl->evt = CEU_IN__WCLOCK;
-_ceu_trl->lbl = Main_Awake_DT_8;
-_ceu_trl->seqno = _ceu_app->seqno;
-
-#line 6 "ex050_term.ceu"
-    return;
-
-case Main_Awake_DT_8:;
-
-#line 6 "ex050_term.ceu"
-        /* subtract time and check if I have to awake */
-    {
-        s32** __ceu_casted = (s32**)_ceu_evt->param;
-        if (!ceu_out_wclock(_ceu_app, *(*__ceu_casted), NULL, &((CEU_Main*)_ceu_org)->__wclk_3) ) {
-            goto _CEU_NO_3_;
-        }
-    }
-
-#line 6 "ex050_term.ceu"
-    #ifdef CEU_DEBUG_TRAILS
-#ifndef CEU_OS
-printf("\tOK!\n");
-#endif
-#endif
-/* NODE: Nothing 197 */
-/* NODE: Nothing 198 */
-
-#line 6 "ex050_term.ceu"
-    }/* NODE: CallStmt 8 */
-
-#line 7 "ex050_term.ceu"
-    printf("Hello ");
-#line 6 "ex050_term.ceu"
-    }
-#line 6 "ex050_term.ceu"
-/* CLEAR: Block (6) */
-#line 6 "ex050_term.ceu"
-    if (0) {
-
-#line 6 "ex050_term.ceu"
-        }   /* opened in "if (0)" */
-}       /* opened in Block_pre */
-
-#line 5 "ex050_term.ceu"
-    ((CEU_Main*)_ceu_org)->__and_20_1 = 1;
-#line 5 "ex050_term.ceu"
-    _ceu_lbl = Main_ParAnd_chk_6;
-goto _CEU_GOTO_;
-
-#line 5 "ex050_term.ceu"
-case Main_ParAnd_chk_6:;
-#line 5 "ex050_term.ceu"
-    if (!((CEU_Main*)_ceu_org)->__and_20_1) {
-
-#line 5 "ex050_term.ceu"
-    return;
-#line 5 "ex050_term.ceu"
-    }
-
-#line 5 "ex050_term.ceu"
-    if (!((CEU_Main*)_ceu_org)->__and_20_2) {
-
-#line 5 "ex050_term.ceu"
-    return;
-#line 5 "ex050_term.ceu"
-    }
-
-#line 5 "ex050_term.ceu"
-    }
-#line 5 "ex050_term.ceu"
-/* CLEAR: Block (5) */
-#line 5 "ex050_term.ceu"
-    if (0) {
-
-#line 5 "ex050_term.ceu"
-        }   /* opened in "if (0)" */
-}       /* opened in Block_pre */
-
-#line 4 "ex050_term.ceu"
-    }
-
-#line 4 "ex050_term.ceu"
-    }
-#line 4 "ex050_term.ceu"
-/* CLEAR: Block (4) */
-#line 4 "ex050_term.ceu"
-    if (0) {
-
-#line 4 "ex050_term.ceu"
-        }   /* opened in "if (0)" */
-}       /* opened in Block_pre */
-
-#line 4 "ex050_term.ceu"
-    }
-#line 4 "ex050_term.ceu"
-/* CLEAR: Block (4) */
-#line 4 "ex050_term.ceu"
-    if (0) {
-
-#line 4 "ex050_term.ceu"
-        }   /* opened in "if (0)" */
-}       /* opened in Block_pre */
-
-#line 3 "ex050_term.ceu"
-case Main_ParOr_out_4:;
-#line 3 "ex050_term.ceu"
-/* CLEAR: ParOr (3) */
-#line 3 "ex050_term.ceu"
-    {
-    /* Reuse current stack frame.
-     * We know that CLEAR will not abort anything and return normally.
-     * Just save the previous "is_alive", call CLEAR, and restore it.
-     */
-#ifdef CEU_STACK_CLEAR
-    int __ceu_old = _ceu_stk->is_alive;
-    _ceu_stk->is_alive = 1;
-#endif
-    tceu_evt evt;
-             evt.id = CEU_IN__CLEAR;
-    ceu_sys_go_ex(_ceu_app, &evt,
-                  _ceu_stk,
-                  _ceu_org,
-                  0,
-                  3);
-#ifdef CEU_STACK_CLEAR
-    _ceu_stk->is_alive = __ceu_old;
-    ceu_sys_stack_clear(_ceu_stk, _ceu_org,
-                        0,2);
-#endif
-}
-
-#line 3 "ex050_term.ceu"
-    }
-#line 3 "ex050_term.ceu"
-/* CLEAR: Block (3) */
-#line 3 "ex050_term.ceu"
-    if (0) {
-
-#line 3 "ex050_term.ceu"
-        }   /* opened in "if (0)" */
-}       /* opened in Block_pre */
-
-#line 2 "ex050_term.ceu"
-/* PAROR JOIN */
-#line 2 "ex050_term.ceu"
-    _ceu_lbl = Main_ParOr_out_2;
-goto _CEU_GOTO_;
-
-#line 2 "ex050_term.ceu"
-case Main_ParOr_out_2:;
-#line 2 "ex050_term.ceu"
-/* CLEAR: ParOr (2) */
-#line 2 "ex050_term.ceu"
-    {
-    /* Reuse current stack frame.
-     * We know that CLEAR will not abort anything and return normally.
-     * Just save the previous "is_alive", call CLEAR, and restore it.
-     */
-#ifdef CEU_STACK_CLEAR
-    int __ceu_old = _ceu_stk->is_alive;
-    _ceu_stk->is_alive = 1;
-#endif
-    tceu_evt evt;
-             evt.id = CEU_IN__CLEAR;
-    ceu_sys_go_ex(_ceu_app, &evt,
-                  _ceu_stk,
-                  _ceu_org,
-                  0,
-                  4);
-#ifdef CEU_STACK_CLEAR
-    _ceu_stk->is_alive = __ceu_old;
-    ceu_sys_stack_clear(_ceu_stk, _ceu_org,
-                        0,3);
-#endif
-}
-/* NODE: Stmts 190 */
-
-#line 29 "ex050_term.ceu"
-    {/* NODE: Set 188 */
-
-#line 29 "ex050_term.ceu"
-/* SET: _ret *//* NODE: NUMBER 55 */
-
-#line 29 "ex050_term.ceu"
-    (((CEU_Main*)_ceu_org)->_ret_0) = 1;
-#line 29 "ex050_term.ceu"
+#line 1 "ex010_hello.ceu"
     #ifdef CEU_RET
-    _ceu_app->ret = (((CEU_Main*)_ceu_org)->_ret_0);
-#endif
-/* NODE: Escape 189 */
 
-#line 29 "ex050_term.ceu"
-    _ceu_lbl = Main_Set_out_0;
-goto _CEU_GOTO_;
+#line 1 "ex010_hello.ceu"
+    int __ceu__ret_0;
 
-#line 29 "ex050_term.ceu"
-    }
-#line 1 "ex050_term.ceu"
-    }
-#line 1 "ex050_term.ceu"
-/* CLEAR: Block (1) */
-#line 1 "ex050_term.ceu"
-    if (0) {
+#line 1 "ex010_hello.ceu"
+    #endif
+/* NODE: Stmts 30 */
 
-#line 1 "ex050_term.ceu"
-        }   /* opened in "if (0)" */
-}       /* opened in Block_pre */
+#line 1 "ex010_hello.ceu"
+    {/* NODE: Dcl_var 27 */
+/* NODE: SetBlock 29 */
+/* NODE: Block 23 */
 
-#line 1 "ex050_term.ceu"
-    }
-#line 1 "ex050_term.ceu"
-    }
-#line 1 "ex050_term.ceu"
-/* CLEAR: Block (1) */
-#line 1 "ex050_term.ceu"
-    if (0) {
+#line 1 "ex010_hello.ceu"
+    {/* NODE: Stmts 22 */
 
-#line 1 "ex050_term.ceu"
-        }   /* opened in "if (0)" */
-}       /* opened in Block_pre */
+#line 1 "ex010_hello.ceu"
+    {/* NODE: Stmts 19 */
 
-#line 1 "ex050_term.ceu"
+#line 1 "ex010_hello.ceu"
+    {/* NODE: Block 12 */
+
+#line 1 "ex010_hello.ceu"
+    {/* NODE: Stmts 10 */
+
+#line 1 "ex010_hello.ceu"
+    {/* NODE: Block 36 */
+
+#line 1 "ex010_hello.ceu"
+    {/* NODE: Stmts 35 */
+
+#line 1 "ex010_hello.ceu"
+    {/* NODE: Stmts 34 */
+
+#line 1 "ex010_hello.ceu"
+    {
+#line 1 "ex010_hello.ceu"
+    }/* NODE: Loop 33 */
+
+#line 1 "ex010_hello.ceu"
+    for (;;) {
+/* NODE: Block 8 */
+
+#line 2 "ex010_hello.ceu"
+    {/* NODE: Stmts 7 */
+
+#line 2 "ex010_hello.ceu"
+    {/* NODE: Stmts 64 */
+
+#line 2 "ex010_hello.ceu"
+    {/* NODE: Nothing 38 */
+/* NODE: Await 1 */
+
+#line 2 "ex010_hello.ceu"
+    ceu_out_wclock(_ceu_app, (s32)((s32)250000), &((CEU_Main*)_ceu_org)->__wclk_1, NULL);
+
+#line 2 "ex010_hello.ceu"
+    _CEU_NO_1_:
+if (0) { goto _CEU_NO_1_; /* avoids "not used" warning */ }
+
+#line 2 "ex010_hello.ceu"
+    _ceu_trl->evt = CEU_IN__WCLOCK;
+_ceu_trl->lbl = Main_Awake_DT_1;
+_ceu_trl->seqno = _ceu_app->seqno;
+
+#line 2 "ex010_hello.ceu"
     return;
-#line 1 "ex050_term.ceu"
-case Main_Set_out_0:;
-#line 1 "ex050_term.ceu"
-/* CLEAR: SetBlock (1) */
-#line 1 "ex050_term.ceu"
+
+case Main_Awake_DT_1:;
+
+#line 2 "ex010_hello.ceu"
+        /* subtract time and check if I have to awake */
+    {
+        s32** __ceu_casted = (s32**)_ceu_evt->param;
+        if (!ceu_out_wclock(_ceu_app, *(*__ceu_casted), NULL, &((CEU_Main*)_ceu_org)->__wclk_1) ) {
+            goto _CEU_NO_1_;
+        }
     }
-#line 1 "ex050_term.ceu"
-/* CLEAR: Block (1) */
-#line 1 "ex050_term.ceu"
-    if (0) {
 
-#line 1 "ex050_term.ceu"
-        }   /* opened in "if (0)" */
-}       /* opened in Block_pre */
-
-#line 1 "ex050_term.ceu"
-    }
-#line 1 "ex050_term.ceu"
-/* CLEAR: Block (1) */
-#line 1 "ex050_term.ceu"
-    if (0) {
-
-#line 1 "ex050_term.ceu"
-        }   /* opened in "if (0)" */
-}       /* opened in Block_pre */
-
-#line 1 "ex050_term.ceu"
-    #if defined(CEU_RET) || defined(CEU_OS)
-_ceu_app->isAlive = 0;
+#line 2 "ex010_hello.ceu"
+    #ifdef CEU_DEBUG_TRAILS
+#ifndef CEU_OS
+printf("\tOK!\n");
 #endif
+#endif
+/* NODE: Nothing 72 */
+/* NODE: Nothing 73 */
 
-#line 1 "ex050_term.ceu"
+#line 2 "ex010_hello.ceu"
+    }/* NODE: CallStmt 6 */
+
+#line 3 "ex010_hello.ceu"
+    printf("Hello World!\n");
+#line 2 "ex010_hello.ceu"
+    }
+#line 2 "ex010_hello.ceu"
+/* CLEAR: Block (2) */
+#line 2 "ex010_hello.ceu"
+    if (0) {
+
+#line 2 "ex010_hello.ceu"
+        }   /* opened in "if (0)" */
+}       /* opened in Block_pre */
+
+#line 1 "ex010_hello.ceu"
+    }
+
+#line 1 "ex010_hello.ceu"
+    }
+#line 1 "ex010_hello.ceu"
+/* CLEAR: Block (1) */
+#line 1 "ex010_hello.ceu"
+    if (0) {
+
+#line 1 "ex010_hello.ceu"
+        }   /* opened in "if (0)" */
+}       /* opened in Block_pre */
+
+#line 1 "ex010_hello.ceu"
+    }
+#line 1 "ex010_hello.ceu"
+/* CLEAR: Block (1) */
+#line 1 "ex010_hello.ceu"
+    if (0) {
+
+#line 1 "ex010_hello.ceu"
+        }   /* opened in "if (0)" */
+}       /* opened in Block_pre */
+
+#line 1 "ex010_hello.ceu"
+    }
+#line 1 "ex010_hello.ceu"
+    }
+#line 1 "ex010_hello.ceu"
+/* CLEAR: Block (1) */
+#line 1 "ex010_hello.ceu"
+    if (0) {
+
+#line 1 "ex010_hello.ceu"
+        }   /* opened in "if (0)" */
+}       /* opened in Block_pre */
+
+#line 1 "ex010_hello.ceu"
     return;
+#line 1 "ex010_hello.ceu"
+    }
+#line 1 "ex010_hello.ceu"
+/* CLEAR: Block (1) */
+#line 1 "ex010_hello.ceu"
+    if (0) {
+
+#line 1 "ex010_hello.ceu"
+        }   /* opened in "if (0)" */
+}       /* opened in Block_pre */
+
+#line 1 "ex010_hello.ceu"
+    }
+#line 1 "ex010_hello.ceu"
+/* CLEAR: Block (1) */
+#line 1 "ex010_hello.ceu"
+    if (0) {
+
+#line 1 "ex010_hello.ceu"
+        }   /* opened in "if (0)" */
+}       /* opened in Block_pre */
+
     }
 #ifdef CEU_DEBUG
     ceu_out_assert_msg(0, "no return");

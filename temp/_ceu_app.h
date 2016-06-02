@@ -3,13 +3,7 @@
 
 #include "ceu_types.h"
 
-#define CEU_EXTS
 #define CEU_WCLOCKS
-#define CEU_ASYNCS
-#define CEU_CLEAR
-#define CEU_GOTO
-#define CEU_RET
-#define CEU_STACK_CLEAR
      /* CEU_EXTS, CEU_WCLOCKS, CEU_INTS, ... */
 
 /* TODO: lbl => unsigned */
@@ -23,7 +17,7 @@ typedef s16 tceu_ncls;
 #endif
 
 /* TODO: remove */
-#define CEU_NTRAILS 4
+#define CEU_NTRAILS 1
 
 #ifndef _CEU_OS_H
 #define _CEU_OS_H
@@ -1617,9 +1611,8 @@ void ceu_pool_free (tceu_pool* pool, byte* val);
 #define CEU_IN__ASYNC 250
 #define CEU_IN__THREAD 249
 #define CEU_IN__WCLOCK 248
-#define CEU_IN_TERM 247
 #define CEU_IN_higher CEU_IN__INIT
-#define CEU_IN_lower 247
+#define CEU_IN_lower 248
 #define CEU_OUT_n 0
       /* CEU_IN_, CEU_OUT_ */
 #define CEU_FUN_printf
@@ -1639,77 +1632,31 @@ typedef struct CEU_Main {
 #ifdef CEU_ORGS
   struct tceu_org org;
 #endif
-  tceu_trl trls_[ 4 ];
+  tceu_trl trls_[ 1 ];
     struct { /* BLOCK ln=1 */
       union {
           union {
           };
         struct { /* BLOCK ln=1 */
-          int _ret_0;
           union {
               struct { /* BLOCK ln=1 */
                 union {
                   union {
                     struct { /* BLOCK ln=1 */
                       union {
-                        union {
-                        };
-                        struct {
-                          struct { /* BLOCK ln=3 */
+                        struct { /* BLOCK ln=1 */
+                          union {
                             union {
-                              struct {
-                                struct { /* BLOCK ln=4 */
-                                  union {
-                                    struct { /* BLOCK ln=4 */
-                                      union {
-                                        union {
-                                        };
-                                          struct { /* BLOCK ln=5 */
-                                            union {
-                                              struct {
-                                                struct { /* BLOCK ln=6 */
-                                                  union {
-                                                    union {
-                                                        s32 __wclk_3;
-                                                    };
-                                                  };
-                                                } ;
-                                                struct { /* BLOCK ln=9 */
-                                                  union {
-                                                    union {
-                                                        s32 __wclk_12;
-                                                    };
-                                                  };
-                                                } ;
-                                                u8 __and_20_1: 1;
-                                                u8 __and_20_2: 1;
-                                              };
-                                            };
-                                          } ;
-                                      };
-                                    } ;
-                                  };
-                                } ;
-                                struct { /* BLOCK ln=14 */
-                                  union {
-                                    union {
-                                    };
-                                  };
-                                } ;
-                              };
                             };
-                          } ;
-                          struct { /* BLOCK ln=18 */
-                            union {
-                                struct { /* BLOCK ln=19 */
+                              struct { /* BLOCK ln=2 */
+                                union {
                                   union {
+                                      s32 __wclk_1;
                                   };
-                                } ;
-                            };
-                          } ;
-                        };
-                        union {
-                        };
+                                };
+                              } ;
+                          };
+                        } ;
                       };
                     } ;
                   };

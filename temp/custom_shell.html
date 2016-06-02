@@ -138,30 +138,39 @@
 	}
 */
 
-	var framesToSkip = 6,
-		counter1 = 0, counter2 = 0,
-		seconds = 3;
+
+/**************************************LOOK HERE**************************************************/
+	var prevTime;
+	var newTime = new Date().getTime();
+	var diff;
+	var first = 1;
+	var miliseconds = 5000;
+	var elapsedTime = 0;
 
 	function draw() {
-		
-		if (counter1 < framesToSkip) {
-			counter1++;
-			counter2++;
-			requestAnimationFrame(draw);
-			return;
+		prevTime = newTime;
+		newTime = new Date().getTime();
+
+		if (first == 1) {
+			diff = newTime - prevTime;
+		}
+		else {
+			diff = 15;
+			first = 0;
 		}
 
-		_update(247, 0);
+		_update(diff);
+		elapsedTime += diff;
 
-		counter1 = 0;
-		if (counter2 <= seconds * 60)
+		if (elapsedTime <= miliseconds) {
 			requestAnimationFrame(draw);
+		}
 		
 	}
-
+/**************************************STOP LOOKING**************************************************/
 	</script>
 	<input id="Button" type="button" value="Update" onclick="draw()">
-	<input id="Button" type="button" value="ONLY_UPDATE" onclick="_update()">
+	<input id="Button" type="button" value="Update 100ms" onclick="_update(100)">
 	<script>
 	//function print_message() {
 	//	_update();
