@@ -1,7 +1,7 @@
 loop do
     par/or do
         await 100ms;
-        _printf("Hello ");
+        _printf("Hello \n");
     with
         await 250ms;
         _printf("World!\n");       // never reached

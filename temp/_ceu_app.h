@@ -3,12 +3,8 @@
 
 #include "ceu_types.h"
 
-#define CEU_EXTS
-#define CEU_ASYNCS
-#define CEU_CLEAR
-#define CEU_GOTO
-#define CEU_RET
-#define CEU_STACK_CLEAR
+#define CEU_INTS
+#define CEU_WCLOCKS
      /* CEU_EXTS, CEU_WCLOCKS, CEU_INTS, ... */
 
 /* TODO: lbl => unsigned */
@@ -22,7 +18,7 @@ typedef s16 tceu_ncls;
 #endif
 
 /* TODO: remove */
-#define CEU_NTRAILS 3
+#define CEU_NTRAILS 2
 
 #ifndef _CEU_OS_H
 #define _CEU_OS_H
@@ -1616,10 +1612,8 @@ void ceu_pool_free (tceu_pool* pool, byte* val);
 #define CEU_IN__ASYNC 250
 #define CEU_IN__THREAD 249
 #define CEU_IN__WCLOCK 248
-#define CEU_IN_HELLO 247
-#define CEU_IN_WORLD 246
 #define CEU_IN_higher CEU_IN__INIT
-#define CEU_IN_lower 246
+#define CEU_IN_lower 248
 #define CEU_OUT_n 0
       /* CEU_IN_, CEU_OUT_ */
 #define CEU_FUN_printf
@@ -1639,72 +1633,57 @@ typedef struct CEU_Main {
 #ifdef CEU_ORGS
   struct tceu_org org;
 #endif
-  tceu_trl trls_[ 3 ];
+  tceu_trl trls_[ 2 ];
     struct { /* BLOCK ln=1 */
       union {
           union {
           };
         struct { /* BLOCK ln=1 */
-          int _ret_0;
           union {
               struct { /* BLOCK ln=1 */
                 union {
                   union {
                     struct { /* BLOCK ln=1 */
+                      int i;
                       union {
                         union {
                         };
                         union {
                         };
                         struct {
-                          struct { /* BLOCK ln=4 */
+                          struct { /* BLOCK ln=5 */
                             union {
-                              struct {
-                                struct { /* BLOCK ln=5 */
+                              struct { /* BLOCK ln=5 */
+                                union {
                                   union {
-                                    struct { /* BLOCK ln=5 */
+                                  };
+                                    struct { /* BLOCK ln=6 */
                                       union {
                                         union {
                                         };
-                                          struct { /* BLOCK ln=6 */
-                                            union {
-                                              union {
-                                              };
-                                            };
-                                          } ;
                                       };
                                     } ;
-                                  };
-                                } ;
-                                struct { /* BLOCK ln=10 */
+                                };
+                              } ;
+                            };
+                          } ;
+                          struct { /* BLOCK ln=10 */
+                            union {
+                              struct { /* BLOCK ln=10 */
+                                union {
                                   union {
-                                    struct { /* BLOCK ln=10 */
+                                  };
+                                    struct { /* BLOCK ln=11 */
                                       union {
                                         union {
+                                            s32 __wclk_21;
                                         };
-                                          struct { /* BLOCK ln=11 */
-                                            union {
-                                              union {
-                                              };
-                                            };
-                                          } ;
                                       };
                                     } ;
-                                  };
-                                } ;
-                              };
+                                };
+                              } ;
                             };
                           } ;
-                          struct { /* BLOCK ln=18 */
-                            union {
-                                struct { /* BLOCK ln=19 */
-                                  union {
-                                  };
-                                } ;
-                            };
-                          } ;
-                        };
-                        union {
                         };
                       };
                     } ;

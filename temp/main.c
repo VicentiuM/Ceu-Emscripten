@@ -21,17 +21,21 @@ void update(s32 time) {
 	s32 dt_us = time * 1000;
 	ceu_sys_go(&app, CEU_IN__WCLOCK, &dt_us);
 
+
+	s32 prev = WCLOCK_nxt;
 	while (WCLOCK_nxt <= 0) {
 		s32 dt_us = 0;
 		ceu_sys_go(&app, CEU_IN__WCLOCK, &dt_us);
 
 		//When there are no timed events
-		if (WCLOCK_nxt == dt_us) {
+		if (WCLOCK_nxt == prev) {
 			WCLOCK_nxt = 1;
+			int ret = ceu_go_all( &app);
+			printf("%d\n", ret);
 		}
 	}
 
-	ceu_go_all( &app);
+
 	//ceu_sys_go( &app, CEU_IN__ASYNC, NULL );
 	//u32 us = 100000;
 	//ceu_sys_go( &app, CEU_IN__WCLOCK, &us );
@@ -46,4 +50,8 @@ void begin() {
 
 int main() {
 	EM_ASM( _begin() );
+/*
+	begin();
+	update(1000);
+*/
 }

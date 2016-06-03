@@ -3126,33 +3126,35 @@ function _ceu_app_go($_ceu_app,$_ceu_evt,$_ceu_org,$_ceu_trl,$_ceu_stk) {
 }
 function _update($time) {
  $time = $time|0;
- var $0 = 0, $1 = 0, $2 = 0, $3 = 0, $4 = 0, $5 = 0, $6 = 0, $7 = 0, $dt_us = 0, $dt_us1 = 0, label = 0, sp = 0;
+ var $0 = 0, $1 = 0, $2 = 0, $3 = 0, $4 = 0, $5 = 0, $6 = 0, $7 = 0, $8 = 0, $dt_us = 0, $dt_us1 = 0, $prev = 0, label = 0, sp = 0;
  sp = STACKTOP;
  STACKTOP = STACKTOP + 16|0; if ((STACKTOP|0) >= (STACK_MAX|0)) abort();
- $dt_us = sp + 4|0;
+ $dt_us = sp + 8|0;
  $dt_us1 = sp;
  $0 = $time;
  $1 = $0;
  $2 = ($1*1000)|0;
  HEAP32[$dt_us>>2] = $2;
  _ceu_sys_go(2588,248,$dt_us);
+ $3 = HEAP32[652]|0;
+ $prev = $3;
  while(1) {
-  $3 = HEAP32[652]|0;
-  $4 = ($3|0)<=(0);
-  if (!($4)) {
+  $4 = HEAP32[652]|0;
+  $5 = ($4|0)<=(0);
+  if (!($5)) {
    break;
   }
   HEAP32[$dt_us1>>2] = 0;
   _ceu_sys_go(2588,248,$dt_us1);
-  $5 = HEAP32[652]|0;
-  $6 = HEAP32[$dt_us1>>2]|0;
-  $7 = ($5|0)==($6|0);
-  if (!($7)) {
+  $6 = HEAP32[652]|0;
+  $7 = $prev;
+  $8 = ($6|0)==($7|0);
+  if (!($8)) {
    continue;
   }
   HEAP32[652] = 1;
+  (_ceu_go_all(2588)|0);
  }
- (_ceu_go_all(2588)|0);
  STACKTOP = sp;return;
 }
 function _begin() {

@@ -1,12 +1,25 @@
 input void A, B;
 var int v = 0;
-par/and do
-    await A;        // first trail
-    v = v + 1;
-    _printf("A");
+par/or do
+	par/and do
+	    await A;        // first trail
+	    v = v + 1;
+	    _printf("A\n");
+	with
+	    await B;        // second trail
+	    v = v * 2;
+	    _printf("B\n");
+	end
 with
-    await B;        // second trail
-    v = v * 2;
-    _printf("B");
+	async do
+		emit A;
+		emit A;
+		emit B;
+		emit A;
+		emit A;
+		emit B;
+	end
 end
+//_printf("v");
+//_printf("\n");
 escape v;
