@@ -18,7 +18,7 @@ static tceu_app app;
 
 void update(s32 time) {
 
-	s32 dt_us = time * 1000;
+	s32 dt_us = time;
 	ceu_sys_go(&app, CEU_IN__WCLOCK, &dt_us);
 
 

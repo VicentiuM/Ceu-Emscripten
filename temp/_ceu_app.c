@@ -26,14 +26,13 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
-#line 1 "ex120_inthello.ceu"
+#line 1 "ex010_hello.ceu"
 
 #ifndef _CEU_APP_H
 #define _CEU_APP_H
 
 #include "ceu_types.h"
 
-#define CEU_INTS
 #define CEU_WCLOCKS
      /* CEU_EXTS, CEU_WCLOCKS, CEU_INTS, ... */
 
@@ -48,7 +47,7 @@ typedef s16 tceu_ncls;
 #endif
 
 /* TODO: remove */
-#define CEU_NTRAILS 2
+#define CEU_NTRAILS 1
 
 #ifndef _CEU_OS_H
 #define _CEU_OS_H
@@ -1663,7 +1662,7 @@ typedef struct CEU_Main {
 #ifdef CEU_ORGS
   struct tceu_org org;
 #endif
-  tceu_trl trls_[ 2 ];
+  tceu_trl trls_[ 1 ];
     struct { /* BLOCK ln=1 */
       union {
           union {
@@ -1674,47 +1673,20 @@ typedef struct CEU_Main {
                 union {
                   union {
                     struct { /* BLOCK ln=1 */
-                      int i;
                       union {
-                        union {
-                        };
-                        union {
-                        };
-                        struct {
-                          struct { /* BLOCK ln=5 */
+                        struct { /* BLOCK ln=1 */
+                          union {
                             union {
-                              struct { /* BLOCK ln=5 */
+                            };
+                              struct { /* BLOCK ln=2 */
                                 union {
                                   union {
+                                      s32 __wclk_1;
                                   };
-                                    struct { /* BLOCK ln=6 */
-                                      union {
-                                        union {
-                                        };
-                                      };
-                                    } ;
                                 };
                               } ;
-                            };
-                          } ;
-                          struct { /* BLOCK ln=10 */
-                            union {
-                              struct { /* BLOCK ln=10 */
-                                union {
-                                  union {
-                                  };
-                                    struct { /* BLOCK ln=11 */
-                                      union {
-                                        union {
-                                            s32 __wclk_21;
-                                        };
-                                      };
-                                    } ;
-                                };
-                              } ;
-                            };
-                          } ;
-                        };
+                          };
+                        } ;
                       };
                     } ;
                   };
@@ -6699,11 +6671,8 @@ char* ceu_vector_tochar (tceu_vector* vector) {
 /* goto labels */
 enum {
     Main_Set_out_0 = 0,
-    Main_ParEver_sub_1_1 = 1,
-    Main_ParEver_out_2 = 2,
-    Main_Awake_e_3 = 3,
-    Main_Awake_DT_4 = 4,
-    Class_Main = 5,
+    Main_Awake_DT_1 = 1,
+    Class_Main = 2,
 
 };
 
@@ -6835,423 +6804,185 @@ printf("OK : lbl=%d : org=%p\n", _ceu_lbl, _ceu_org);
 #endif
 
     switch (_ceu_lbl) {
-        /* NODE: Root 48 */
+        /* NODE: Root 25 */
 /* NODE: Dcl_cls 0 */
 
-#line 1 "ex120_inthello.ceu"
-case Class_Main:;/* NODE: Block 150 */
+#line 1 "ex010_hello.ceu"
+case Class_Main:;/* NODE: Block 67 */
 
-#line 1 "ex120_inthello.ceu"
-    {/* NODE: Stmts 149 */
+#line 1 "ex010_hello.ceu"
+    {/* NODE: Stmts 66 */
 
-#line 1 "ex120_inthello.ceu"
-    {/* NODE: Block 54 */
+#line 1 "ex010_hello.ceu"
+    {/* NODE: Block 31 */
 
-#line 1 "ex120_inthello.ceu"
+#line 1 "ex010_hello.ceu"
     {
-#line 1 "ex120_inthello.ceu"
+#line 1 "ex010_hello.ceu"
     #ifdef CEU_RET
 
-#line 1 "ex120_inthello.ceu"
+#line 1 "ex010_hello.ceu"
     int __ceu__ret_0;
 
-#line 1 "ex120_inthello.ceu"
+#line 1 "ex010_hello.ceu"
     #endif
-/* NODE: Stmts 53 */
+/* NODE: Stmts 30 */
 
-#line 1 "ex120_inthello.ceu"
-    {/* NODE: Dcl_var 50 */
-/* NODE: SetBlock 52 */
-/* NODE: Block 46 */
+#line 1 "ex010_hello.ceu"
+    {/* NODE: Dcl_var 27 */
+/* NODE: SetBlock 29 */
+/* NODE: Block 23 */
 
-#line 1 "ex120_inthello.ceu"
-    {/* NODE: Stmts 45 */
+#line 1 "ex010_hello.ceu"
+    {/* NODE: Stmts 22 */
 
-#line 1 "ex120_inthello.ceu"
-    {/* NODE: Stmts 42 */
+#line 1 "ex010_hello.ceu"
+    {/* NODE: Stmts 19 */
 
-#line 1 "ex120_inthello.ceu"
-    {/* NODE: Block 35 */
+#line 1 "ex010_hello.ceu"
+    {/* NODE: Block 12 */
 
-#line 1 "ex120_inthello.ceu"
-    {/* NODE: Stmts 33 */
+#line 1 "ex010_hello.ceu"
+    {/* NODE: Stmts 10 */
 
-#line 2 "ex120_inthello.ceu"
-    {/* NODE: Stmts 59 */
+#line 1 "ex010_hello.ceu"
+    {/* NODE: Block 36 */
 
-#line 2 "ex120_inthello.ceu"
-    {/* NODE: Dcl_int 58 */
+#line 1 "ex010_hello.ceu"
+    {/* NODE: Stmts 35 */
 
-#line 2 "ex120_inthello.ceu"
-    }/* NODE: Stmts 64 */
+#line 1 "ex010_hello.ceu"
+    {/* NODE: Stmts 34 */
 
-#line 3 "ex120_inthello.ceu"
-    {/* NODE: Dcl_var 61 */
-/* NODE: Set 65 */
-
-#line 3 "ex120_inthello.ceu"
-/* SET: i *//* NODE: NUMBER 3 */
-
-#line 3 "ex120_inthello.ceu"
-    (((CEU_Main*)_ceu_org)->i) = 0;
-#line 3 "ex120_inthello.ceu"
-    }/* NODE: ParEver 32 */
-
-#line 4 "ex120_inthello.ceu"
-/* ParEver: spawn subs */
-#line 4 "ex120_inthello.ceu"
+#line 1 "ex010_hello.ceu"
     {
-#ifdef CEU_STACK_CLEAR
-    tceu_stk stk_ = { _ceu_stk, _ceu_org, 0, 1, 1 };
-#endif
+#line 1 "ex010_hello.ceu"
+    }/* NODE: Loop 33 */
 
-#line 4 "ex120_inthello.ceu"
-        _ceu_org->trls[ 0 ].lbl = Main_ParEver_sub_1_1;
-    ceu_app_go(_ceu_app,NULL,_ceu_org,
-               &_ceu_org->trls[ 0 ],
-#ifdef CEU_STACK_CLEAR
-               &stk_
-#else
-               NULL
-#endif
-              );
-
-#ifdef CEU_STACK_CLEAR
-    if (!stk_.is_alive) {
-        return;
-    }
-#endif
-
-#line 4 "ex120_inthello.ceu"
-        _ceu_trl = &_ceu_org->trls[ 1 ];
-
-#line 4 "ex120_inthello.ceu"
-    }
-/* NODE: Block 31 */
-
-#line 10 "ex120_inthello.ceu"
-    {/* NODE: Stmts 30 */
-
-#line 10 "ex120_inthello.ceu"
-    {/* NODE: Block 118 */
-
-#line 10 "ex120_inthello.ceu"
-    {/* NODE: Stmts 117 */
-
-#line 10 "ex120_inthello.ceu"
-    {/* NODE: Stmts 116 */
-
-#line 10 "ex120_inthello.ceu"
-    {
-#line 10 "ex120_inthello.ceu"
-    }/* NODE: Loop 115 */
-
-#line 10 "ex120_inthello.ceu"
+#line 1 "ex010_hello.ceu"
     for (;;) {
-/* NODE: Block 28 */
+/* NODE: Block 8 */
 
-#line 11 "ex120_inthello.ceu"
-    {/* NODE: Stmts 27 */
+#line 2 "ex010_hello.ceu"
+    {/* NODE: Stmts 7 */
 
-#line 11 "ex120_inthello.ceu"
-    {/* NODE: Stmts 146 */
+#line 2 "ex010_hello.ceu"
+    {/* NODE: Stmts 64 */
 
-#line 11 "ex120_inthello.ceu"
-    {/* NODE: Nothing 120 */
-/* NODE: Await 21 */
+#line 2 "ex010_hello.ceu"
+    {/* NODE: Nothing 38 */
+/* NODE: Await 1 */
 
-#line 11 "ex120_inthello.ceu"
-    ceu_out_wclock(_ceu_app, (s32)((s32)250000), &((CEU_Main*)_ceu_org)->__wclk_21, NULL);
+#line 2 "ex010_hello.ceu"
+    ceu_out_wclock(_ceu_app, (s32)((s32)250000), &((CEU_Main*)_ceu_org)->__wclk_1, NULL);
 
-#line 11 "ex120_inthello.ceu"
-    _CEU_NO_21_:
-if (0) { goto _CEU_NO_21_; /* avoids "not used" warning */ }
+#line 2 "ex010_hello.ceu"
+    _CEU_NO_1_:
+if (0) { goto _CEU_NO_1_; /* avoids "not used" warning */ }
 
-#line 11 "ex120_inthello.ceu"
+#line 2 "ex010_hello.ceu"
     _ceu_trl->evt = CEU_IN__WCLOCK;
-_ceu_trl->lbl = Main_Awake_DT_4;
+_ceu_trl->lbl = Main_Awake_DT_1;
 _ceu_trl->seqno = _ceu_app->seqno;
 
-#line 11 "ex120_inthello.ceu"
+#line 2 "ex010_hello.ceu"
     return;
 
-case Main_Awake_DT_4:;
+case Main_Awake_DT_1:;
 
-#line 11 "ex120_inthello.ceu"
+#line 2 "ex010_hello.ceu"
         /* subtract time and check if I have to awake */
     {
         s32** __ceu_casted = (s32**)_ceu_evt->param;
-        if (!ceu_out_wclock(_ceu_app, *(*__ceu_casted), NULL, &((CEU_Main*)_ceu_org)->__wclk_21) ) {
-            goto _CEU_NO_21_;
+        if (!ceu_out_wclock(_ceu_app, *(*__ceu_casted), NULL, &((CEU_Main*)_ceu_org)->__wclk_1) ) {
+            goto _CEU_NO_1_;
         }
     }
 
-#line 11 "ex120_inthello.ceu"
+#line 2 "ex010_hello.ceu"
     #ifdef CEU_DEBUG_TRAILS
 #ifndef CEU_OS
 printf("\tOK!\n");
 #endif
 #endif
-/* NODE: Nothing 157 */
-/* NODE: Nothing 158 */
+/* NODE: Nothing 72 */
+/* NODE: Nothing 73 */
 
-#line 11 "ex120_inthello.ceu"
-    }/* NODE: EmitInt 26 */
+#line 2 "ex010_hello.ceu"
+    }/* NODE: CallStmt 6 */
 
-#line 12 "ex120_inthello.ceu"
-    {
-#ifdef CEU_STACK_CLEAR
-    tceu_stk stk_ = { _ceu_stk, _ceu_org, 1, 1, 1 };
-#endif
-
-#line 12 "ex120_inthello.ceu"
-    tceu__int __ceu_ps_26;
-{
-    tceu__int __ceu_ps_26_ =
-        {
-
-#line 12 "ex120_inthello.ceu"
-                ((((CEU_Main*)_ceu_org)->i)+1)
-#line 12 "ex120_inthello.ceu"
-            };
-
-#line 12 "ex120_inthello.ceu"
-        __ceu_ps_26 = __ceu_ps_26_;
-}
-
-#line 12 "ex120_inthello.ceu"
-        /* trigger the event */
-    tceu_evt evt;
-    evt.id = 1;
-#ifdef CEU_ORGS
-#line 12 "ex120_inthello.ceu"
-    evt.org = (tceu_org*) _ceu_org;
-#endif
-
-#line 12 "ex120_inthello.ceu"
-        evt.param = (&__ceu_ps_26);
-
-#line 12 "ex120_inthello.ceu"
-        ceu_sys_go_ex(_ceu_app, &evt,
-#ifdef CEU_STACK_CLEAR
-                  &stk_,
-#else
-                  NULL,
-#endif
-                  _ceu_app->data, 0,
-#ifdef CEU_ORGS
-                  _ceu_app->data->n
-#else
-                  CEU_NTRAILS
-#endif
-    );
-
-#ifdef CEU_STACK_CLEAR
-    if (!stk_.is_alive) {
-        return;
+#line 3 "ex010_hello.ceu"
+    printf("Hello World!\n");
+#line 2 "ex010_hello.ceu"
     }
-#endif
-}
-
-#line 11 "ex120_inthello.ceu"
-    }
-#line 11 "ex120_inthello.ceu"
-/* CLEAR: Block (11) */
-#line 11 "ex120_inthello.ceu"
+#line 2 "ex010_hello.ceu"
+/* CLEAR: Block (2) */
+#line 2 "ex010_hello.ceu"
     if (0) {
 
-#line 11 "ex120_inthello.ceu"
+#line 2 "ex010_hello.ceu"
         }   /* opened in "if (0)" */
 }       /* opened in Block_pre */
 
-#line 10 "ex120_inthello.ceu"
+#line 1 "ex010_hello.ceu"
     }
 
-#line 10 "ex120_inthello.ceu"
+#line 1 "ex010_hello.ceu"
     }
-#line 10 "ex120_inthello.ceu"
-/* CLEAR: Block (10) */
-#line 10 "ex120_inthello.ceu"
+#line 1 "ex010_hello.ceu"
+/* CLEAR: Block (1) */
+#line 1 "ex010_hello.ceu"
     if (0) {
 
-#line 10 "ex120_inthello.ceu"
+#line 1 "ex010_hello.ceu"
         }   /* opened in "if (0)" */
 }       /* opened in Block_pre */
 
-#line 10 "ex120_inthello.ceu"
+#line 1 "ex010_hello.ceu"
     }
-#line 10 "ex120_inthello.ceu"
-/* CLEAR: Block (10) */
-#line 10 "ex120_inthello.ceu"
+#line 1 "ex010_hello.ceu"
+/* CLEAR: Block (1) */
+#line 1 "ex010_hello.ceu"
     if (0) {
 
-#line 10 "ex120_inthello.ceu"
+#line 1 "ex010_hello.ceu"
         }   /* opened in "if (0)" */
 }       /* opened in Block_pre */
 
-#line 4 "ex120_inthello.ceu"
-case Main_ParEver_sub_1_1:;/* NODE: Block 19 */
+#line 1 "ex010_hello.ceu"
+    }
+#line 1 "ex010_hello.ceu"
+    }
+#line 1 "ex010_hello.ceu"
+/* CLEAR: Block (1) */
+#line 1 "ex010_hello.ceu"
+    if (0) {
 
-#line 5 "ex120_inthello.ceu"
-    {/* NODE: Stmts 18 */
+#line 1 "ex010_hello.ceu"
+        }   /* opened in "if (0)" */
+}       /* opened in Block_pre */
 
-#line 5 "ex120_inthello.ceu"
-    {/* NODE: Block 69 */
-
-#line 5 "ex120_inthello.ceu"
-    {/* NODE: Stmts 68 */
-
-#line 5 "ex120_inthello.ceu"
-    {/* NODE: Stmts 67 */
-
-#line 5 "ex120_inthello.ceu"
-    {
-#line 5 "ex120_inthello.ceu"
-    }/* NODE: Loop 66 */
-
-#line 5 "ex120_inthello.ceu"
-    for (;;) {
-/* NODE: Block 16 */
-
-#line 6 "ex120_inthello.ceu"
-    {/* NODE: Stmts 15 */
-
-#line 6 "ex120_inthello.ceu"
-    {/* NODE: Stmts 110 */
-
-#line 6 "ex120_inthello.ceu"
-    {/* NODE: Nothing 72 */
-/* NODE: Set 71 */
-
-#line 6 "ex120_inthello.ceu"
-/* SET: table: 0xe0dc30 *//* NODE: Await 7 */
-
-#line 6 "ex120_inthello.ceu"
-    _CEU_NO_7_:
-if (0) { goto _CEU_NO_7_; /* avoids "not used" warning */ }
-
-#line 6 "ex120_inthello.ceu"
-    _ceu_trl->evt = 1;
-_ceu_trl->lbl = Main_Awake_e_3;
-_ceu_trl->seqno = _ceu_app->seqno;
-
-#line 6 "ex120_inthello.ceu"
-    #ifdef CEU_ORGS
-_ceu_trl->evto  = _ceu_org;
-#endif
-
-#line 6 "ex120_inthello.ceu"
+#line 1 "ex010_hello.ceu"
     return;
-
-case Main_Awake_e_3:;
-
-#line 6 "ex120_inthello.ceu"
-    #ifdef CEU_DEBUG_TRAILS
-#ifndef CEU_OS
-printf("\tOK!\n");
-#endif
-#endif
-
-#line 6 "ex120_inthello.ceu"
-    {
-
-#line 6 "ex120_inthello.ceu"
-        tceu__int* __ceu_casted = (tceu__int*) _ceu_evt->param;
-
-#line 6 "ex120_inthello.ceu"
-        {
-        (((CEU_Main*)_ceu_org)->i) = ((__ceu_casted)->_1);
+#line 1 "ex010_hello.ceu"
     }
-}
-/* NODE: Nothing 155 */
-/* NODE: Nothing 156 */
-
-#line 6 "ex120_inthello.ceu"
-    }/* NODE: CallStmt 14 */
-
-#line 7 "ex120_inthello.ceu"
-    printf("Hello World: %d!\n",(((CEU_Main*)_ceu_org)->i));
-#line 6 "ex120_inthello.ceu"
-    }
-#line 6 "ex120_inthello.ceu"
-/* CLEAR: Block (6) */
-#line 6 "ex120_inthello.ceu"
-    if (0) {
-
-#line 6 "ex120_inthello.ceu"
-        }   /* opened in "if (0)" */
-}       /* opened in Block_pre */
-
-#line 5 "ex120_inthello.ceu"
-    }
-
-#line 5 "ex120_inthello.ceu"
-    }
-#line 5 "ex120_inthello.ceu"
-/* CLEAR: Block (5) */
-#line 5 "ex120_inthello.ceu"
-    if (0) {
-
-#line 5 "ex120_inthello.ceu"
-        }   /* opened in "if (0)" */
-}       /* opened in Block_pre */
-
-#line 5 "ex120_inthello.ceu"
-    }
-#line 5 "ex120_inthello.ceu"
-/* CLEAR: Block (5) */
-#line 5 "ex120_inthello.ceu"
-    if (0) {
-
-#line 5 "ex120_inthello.ceu"
-        }   /* opened in "if (0)" */
-}       /* opened in Block_pre */
-
-#line 2 "ex120_inthello.ceu"
-    }
-#line 1 "ex120_inthello.ceu"
+#line 1 "ex010_hello.ceu"
 /* CLEAR: Block (1) */
-#line 1 "ex120_inthello.ceu"
+#line 1 "ex010_hello.ceu"
     if (0) {
 
-#line 1 "ex120_inthello.ceu"
+#line 1 "ex010_hello.ceu"
         }   /* opened in "if (0)" */
 }       /* opened in Block_pre */
 
-#line 1 "ex120_inthello.ceu"
+#line 1 "ex010_hello.ceu"
     }
-#line 1 "ex120_inthello.ceu"
-    }
-#line 1 "ex120_inthello.ceu"
+#line 1 "ex010_hello.ceu"
 /* CLEAR: Block (1) */
-#line 1 "ex120_inthello.ceu"
+#line 1 "ex010_hello.ceu"
     if (0) {
 
-#line 1 "ex120_inthello.ceu"
-        }   /* opened in "if (0)" */
-}       /* opened in Block_pre */
-
-#line 1 "ex120_inthello.ceu"
-    return;
-#line 1 "ex120_inthello.ceu"
-    }
-#line 1 "ex120_inthello.ceu"
-/* CLEAR: Block (1) */
-#line 1 "ex120_inthello.ceu"
-    if (0) {
-
-#line 1 "ex120_inthello.ceu"
-        }   /* opened in "if (0)" */
-}       /* opened in Block_pre */
-
-#line 1 "ex120_inthello.ceu"
-    }
-#line 1 "ex120_inthello.ceu"
-/* CLEAR: Block (1) */
-#line 1 "ex120_inthello.ceu"
-    if (0) {
-
-#line 1 "ex120_inthello.ceu"
+#line 1 "ex010_hello.ceu"
         }   /* opened in "if (0)" */
 }       /* opened in Block_pre */
 
