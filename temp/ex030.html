@@ -152,7 +152,7 @@
 			diff = timestamp - start;
 		}
 		else {
-			diff = timestamp - next;
+			diff = (timestamp - next) * 1000;
 		}
 
 		_update(diff);
@@ -162,7 +162,7 @@
 
 console.log(diff);
 
-		if (elapsed <= 5000)
+		if (elapsed <= 5000000)
 			requestAnimationFrame(draw);
 
 		
@@ -170,9 +170,10 @@ console.log(diff);
 /**************************************STOP LOOKING**************************************************/
 	</script>
 	<input id="Button" type="button" value="Update" onclick="requestAnimationFrame(draw)">
-	<input id="Button" type="button" value="Update 100ms" onclick="_update(100)">
-	<input id="Button" type="button" value="Update 1s" onclick="_update(1000)">
-	<input id="Button" type="button" value="Update 5s" onclick="_update(5000)">
+	<input id="Button" type="button" value="Update 100ms" onclick="_update(100000)">
+	<input id="Button" type="button" value="Update 1s" onclick="_update(1000000)">
+	<input id="Button" type="button" value="Update 5s" onclick="_update(5000000)">
+	<input id="Button" type="button" value="Send Async" onclick="_async_call()">
 	<script>
 	//function print_message() {
 	//	_update();

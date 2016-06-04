@@ -2371,19 +2371,6 @@ function _ceu_sys_go($app,$evt,$evtp) {
  _ceu_sys_go_stk($3,$4,$5,0);
  STACKTOP = sp;return;
 }
-function _ceu_go_all($app) {
- $app = $app|0;
- var $0 = 0, $1 = 0, $2 = 0, $3 = 0, $4 = 0, label = 0, sp = 0;
- sp = STACKTOP;
- STACKTOP = STACKTOP + 16|0; if ((STACKTOP|0) >= (STACK_MAX|0)) abort();
- $0 = $app;
- $1 = $0;
- $2 = ((($1)) + 20|0);
- $3 = HEAP32[$2>>2]|0;
- $4 = $0;
- FUNCTION_TABLE_vi[$3 & 7]($4);
- STACKTOP = sp;return 0;
-}
 function _ceu_app_init($app) {
  $app = $app|0;
  var $0 = 0, $1 = 0, $10 = 0, $11 = 0, $12 = 0, $13 = 0, $14 = 0, $15 = 0, $16 = 0, $17 = 0, $18 = 0, $19 = 0, $2 = 0, $20 = 0, $21 = 0, $22 = 0, $3 = 0, $4 = 0, $5 = 0, $6 = 0;
@@ -2621,36 +2608,40 @@ function _ceu_app_go($_ceu_app,$_ceu_evt,$_ceu_org,$_ceu_trl,$_ceu_stk) {
  HEAP8[$38>>0] = $36;
  STACKTOP = sp;return;
 }
+function _async_call() {
+ var label = 0, sp = 0;
+ sp = STACKTOP;
+ _ceu_sys_go(2580,250,0);
+ return;
+}
 function _update($time) {
  $time = $time|0;
- var $0 = 0, $1 = 0, $2 = 0, $3 = 0, $4 = 0, $5 = 0, $6 = 0, $7 = 0, $8 = 0, $dt_us = 0, $dt_us1 = 0, $prev = 0, label = 0, sp = 0;
+ var $0 = 0, $1 = 0, $2 = 0, $3 = 0, $4 = 0, $5 = 0, $6 = 0, $7 = 0, $dt_us = 0, $dt_us1 = 0, $prev = 0, label = 0, sp = 0;
  sp = STACKTOP;
  STACKTOP = STACKTOP + 16|0; if ((STACKTOP|0) >= (STACK_MAX|0)) abort();
  $dt_us = sp + 8|0;
  $dt_us1 = sp;
  $0 = $time;
  $1 = $0;
- $2 = ($1*1000)|0;
- HEAP32[$dt_us>>2] = $2;
+ HEAP32[$dt_us>>2] = $1;
  _ceu_sys_go(2580,248,$dt_us);
- $3 = HEAP32[644]|0;
- $prev = $3;
+ $2 = HEAP32[644]|0;
+ $prev = $2;
  while(1) {
-  $4 = HEAP32[644]|0;
-  $5 = ($4|0)<=(0);
-  if (!($5)) {
+  $3 = HEAP32[644]|0;
+  $4 = ($3|0)<=(0);
+  if (!($4)) {
    break;
   }
   HEAP32[$dt_us1>>2] = 0;
   _ceu_sys_go(2580,248,$dt_us1);
-  $6 = HEAP32[644]|0;
-  $7 = $prev;
-  $8 = ($6|0)==($7|0);
-  if (!($8)) {
+  $5 = HEAP32[644]|0;
+  $6 = $prev;
+  $7 = ($5|0)==($6|0);
+  if (!($7)) {
    continue;
   }
   HEAP32[644] = 1;
-  (_ceu_go_all(2580)|0);
  }
  STACKTOP = sp;return;
 }
@@ -9507,7 +9498,7 @@ var FUNCTION_TABLE_iiii = [b1,b1,___stdout_write,___stdio_seek,b1,b1,___stdio_wr
 var FUNCTION_TABLE_viiiii = [b2,b2,b2,b2,_ceu_app_go,b2,b2,b2];
 var FUNCTION_TABLE_vi = [b3,b3,b3,b3,b3,_ceu_app_init,b3,_cleanup_89];
 
-  return { _i64Subtract: _i64Subtract, _update: _update, _free: _free, _main: _main, _i64Add: _i64Add, _memset: _memset, _malloc: _malloc, _memcpy: _memcpy, _bitshift64Lshr: _bitshift64Lshr, _begin: _begin, ___errno_location: ___errno_location, _bitshift64Shl: _bitshift64Shl, runPostSets: runPostSets, stackAlloc: stackAlloc, stackSave: stackSave, stackRestore: stackRestore, establishStackSpace: establishStackSpace, setThrew: setThrew, setTempRet0: setTempRet0, getTempRet0: getTempRet0, dynCall_ii: dynCall_ii, dynCall_iiii: dynCall_iiii, dynCall_viiiii: dynCall_viiiii, dynCall_vi: dynCall_vi };
+  return { _i64Subtract: _i64Subtract, _update: _update, _begin: _begin, _main: _main, _i64Add: _i64Add, _memset: _memset, _malloc: _malloc, _memcpy: _memcpy, _async_call: _async_call, _bitshift64Lshr: _bitshift64Lshr, _free: _free, ___errno_location: ___errno_location, _bitshift64Shl: _bitshift64Shl, runPostSets: runPostSets, stackAlloc: stackAlloc, stackSave: stackSave, stackRestore: stackRestore, establishStackSpace: establishStackSpace, setThrew: setThrew, setTempRet0: setTempRet0, getTempRet0: getTempRet0, dynCall_ii: dynCall_ii, dynCall_iiii: dynCall_iiii, dynCall_viiiii: dynCall_viiiii, dynCall_vi: dynCall_vi };
 })
 // EMSCRIPTEN_END_ASM
 (Module.asmGlobalArg, Module.asmLibraryArg, buffer);
@@ -9523,16 +9514,22 @@ assert(!runtimeExited, 'the runtime was exited (use NO_EXIT_RUNTIME to keep it a
 return real__update.apply(null, arguments);
 };
 
-var real__free = asm["_free"]; asm["_free"] = function() {
+var real__begin = asm["_begin"]; asm["_begin"] = function() {
 assert(runtimeInitialized, 'you need to wait for the runtime to be ready (e.g. wait for main() to be called)');
 assert(!runtimeExited, 'the runtime was exited (use NO_EXIT_RUNTIME to keep it alive after main() exits)');
-return real__free.apply(null, arguments);
+return real__begin.apply(null, arguments);
 };
 
 var real__main = asm["_main"]; asm["_main"] = function() {
 assert(runtimeInitialized, 'you need to wait for the runtime to be ready (e.g. wait for main() to be called)');
 assert(!runtimeExited, 'the runtime was exited (use NO_EXIT_RUNTIME to keep it alive after main() exits)');
 return real__main.apply(null, arguments);
+};
+
+var real__async_call = asm["_async_call"]; asm["_async_call"] = function() {
+assert(runtimeInitialized, 'you need to wait for the runtime to be ready (e.g. wait for main() to be called)');
+assert(!runtimeExited, 'the runtime was exited (use NO_EXIT_RUNTIME to keep it alive after main() exits)');
+return real__async_call.apply(null, arguments);
 };
 
 var real__i64Add = asm["_i64Add"]; asm["_i64Add"] = function() {
@@ -9553,10 +9550,10 @@ assert(!runtimeExited, 'the runtime was exited (use NO_EXIT_RUNTIME to keep it a
 return real__bitshift64Lshr.apply(null, arguments);
 };
 
-var real__begin = asm["_begin"]; asm["_begin"] = function() {
+var real__free = asm["_free"]; asm["_free"] = function() {
 assert(runtimeInitialized, 'you need to wait for the runtime to be ready (e.g. wait for main() to be called)');
 assert(!runtimeExited, 'the runtime was exited (use NO_EXIT_RUNTIME to keep it alive after main() exits)');
-return real__begin.apply(null, arguments);
+return real__free.apply(null, arguments);
 };
 
 var real____errno_location = asm["___errno_location"]; asm["___errno_location"] = function() {
@@ -9572,15 +9569,16 @@ return real__bitshift64Shl.apply(null, arguments);
 };
 var _i64Subtract = Module["_i64Subtract"] = asm["_i64Subtract"];
 var _update = Module["_update"] = asm["_update"];
-var _free = Module["_free"] = asm["_free"];
+var _begin = Module["_begin"] = asm["_begin"];
 var _main = Module["_main"] = asm["_main"];
+var _async_call = Module["_async_call"] = asm["_async_call"];
 var _i64Add = Module["_i64Add"] = asm["_i64Add"];
 var _memset = Module["_memset"] = asm["_memset"];
 var runPostSets = Module["runPostSets"] = asm["runPostSets"];
 var _malloc = Module["_malloc"] = asm["_malloc"];
 var _memcpy = Module["_memcpy"] = asm["_memcpy"];
 var _bitshift64Lshr = Module["_bitshift64Lshr"] = asm["_bitshift64Lshr"];
-var _begin = Module["_begin"] = asm["_begin"];
+var _free = Module["_free"] = asm["_free"];
 var ___errno_location = Module["___errno_location"] = asm["___errno_location"];
 var _bitshift64Shl = Module["_bitshift64Shl"] = asm["_bitshift64Shl"];
 var dynCall_ii = Module["dynCall_ii"] = asm["dynCall_ii"];
