@@ -26,7 +26,7 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
-#line 1 "ex040_paror.ceu"
+#line 1 "ex010_hello.ceu"
 
 #ifndef _CEU_APP_H
 #define _CEU_APP_H
@@ -34,9 +34,6 @@ SOFTWARE.
 #include "ceu_types.h"
 
 #define CEU_WCLOCKS
-#define CEU_CLEAR
-#define CEU_GOTO
-#define CEU_STACK_CLEAR
      /* CEU_EXTS, CEU_WCLOCKS, CEU_INTS, ... */
 
 /* TODO: lbl => unsigned */
@@ -50,7 +47,7 @@ typedef s16 tceu_ncls;
 #endif
 
 /* TODO: remove */
-#define CEU_NTRAILS 2
+#define CEU_NTRAILS 1
 
 #ifndef _CEU_OS_H
 #define _CEU_OS_H
@@ -1665,7 +1662,7 @@ typedef struct CEU_Main {
 #ifdef CEU_ORGS
   struct tceu_org org;
 #endif
-  tceu_trl trls_[ 2 ];
+  tceu_trl trls_[ 1 ];
     struct { /* BLOCK ln=1 */
       union {
           union {
@@ -1683,21 +1680,8 @@ typedef struct CEU_Main {
                             };
                               struct { /* BLOCK ln=2 */
                                 union {
-                                  struct {
-                                    struct { /* BLOCK ln=3 */
-                                      union {
-                                        union {
-                                            s32 __wclk_1;
-                                        };
-                                      };
-                                    } ;
-                                    struct { /* BLOCK ln=6 */
-                                      union {
-                                        union {
-                                            s32 __wclk_10;
-                                        };
-                                      };
-                                    } ;
+                                  union {
+                                      s32 __wclk_1;
                                   };
                                 };
                               } ;
@@ -6687,11 +6671,8 @@ char* ceu_vector_tochar (tceu_vector* vector) {
 /* goto labels */
 enum {
     Main_Set_out_0 = 0,
-    Main_ParOr_sub_1_1 = 1,
-    Main_ParOr_out_2 = 2,
-    Main_Awake_DT_3 = 3,
-    Main_Awake_DT_4 = 4,
-    Class_Main = 5,
+    Main_Awake_DT_1 = 1,
+    Class_Main = 2,
 
 };
 
@@ -6823,201 +6804,93 @@ printf("OK : lbl=%d : org=%p\n", _ceu_lbl, _ceu_org);
 #endif
 
     switch (_ceu_lbl) {
-        /* NODE: Root 37 */
+        /* NODE: Root 25 */
 /* NODE: Dcl_cls 0 */
 
-#line 1 "ex040_paror.ceu"
-case Class_Main:;/* NODE: Block 108 */
+#line 1 "ex010_hello.ceu"
+case Class_Main:;/* NODE: Block 67 */
 
-#line 1 "ex040_paror.ceu"
-    {/* NODE: Stmts 107 */
+#line 1 "ex010_hello.ceu"
+    {/* NODE: Stmts 66 */
 
-#line 1 "ex040_paror.ceu"
-    {/* NODE: Block 43 */
+#line 1 "ex010_hello.ceu"
+    {/* NODE: Block 31 */
 
-#line 1 "ex040_paror.ceu"
+#line 1 "ex010_hello.ceu"
     {
-#line 1 "ex040_paror.ceu"
+#line 1 "ex010_hello.ceu"
     #ifdef CEU_RET
 
-#line 1 "ex040_paror.ceu"
+#line 1 "ex010_hello.ceu"
     int __ceu__ret_0;
 
-#line 1 "ex040_paror.ceu"
+#line 1 "ex010_hello.ceu"
     #endif
-/* NODE: Stmts 42 */
+/* NODE: Stmts 30 */
 
-#line 1 "ex040_paror.ceu"
-    {/* NODE: Dcl_var 39 */
-/* NODE: SetBlock 41 */
-/* NODE: Block 35 */
+#line 1 "ex010_hello.ceu"
+    {/* NODE: Dcl_var 27 */
+/* NODE: SetBlock 29 */
+/* NODE: Block 23 */
 
-#line 1 "ex040_paror.ceu"
-    {/* NODE: Stmts 34 */
-
-#line 1 "ex040_paror.ceu"
-    {/* NODE: Stmts 31 */
-
-#line 1 "ex040_paror.ceu"
-    {/* NODE: Block 24 */
-
-#line 1 "ex040_paror.ceu"
+#line 1 "ex010_hello.ceu"
     {/* NODE: Stmts 22 */
 
-#line 1 "ex040_paror.ceu"
-    {/* NODE: Block 48 */
-
-#line 1 "ex040_paror.ceu"
-    {/* NODE: Stmts 47 */
-
-#line 1 "ex040_paror.ceu"
-    {/* NODE: Stmts 46 */
-
-#line 1 "ex040_paror.ceu"
-    {
-#line 1 "ex040_paror.ceu"
-    }/* NODE: Loop 45 */
-
-#line 1 "ex040_paror.ceu"
-    for (;;) {
-/* NODE: Block 20 */
-
-#line 2 "ex040_paror.ceu"
+#line 1 "ex010_hello.ceu"
     {/* NODE: Stmts 19 */
 
-#line 2 "ex040_paror.ceu"
-    {/* NODE: ParOr 18 */
+#line 1 "ex010_hello.ceu"
+    {/* NODE: Block 12 */
 
-#line 2 "ex040_paror.ceu"
-/* ParOr: spawn subs */
-#line 2 "ex040_paror.ceu"
+#line 1 "ex010_hello.ceu"
+    {/* NODE: Stmts 10 */
+
+#line 1 "ex010_hello.ceu"
+    {/* NODE: Block 36 */
+
+#line 1 "ex010_hello.ceu"
+    {/* NODE: Stmts 35 */
+
+#line 1 "ex010_hello.ceu"
+    {/* NODE: Stmts 34 */
+
+#line 1 "ex010_hello.ceu"
     {
-#ifdef CEU_STACK_CLEAR
-    tceu_stk stk_ = { _ceu_stk, _ceu_org, 0, 1, 1 };
-#endif
+#line 1 "ex010_hello.ceu"
+    }/* NODE: Loop 33 */
 
-#line 2 "ex040_paror.ceu"
-        _ceu_org->trls[ 0 ].lbl = Main_ParOr_sub_1_1;
-    ceu_app_go(_ceu_app,NULL,_ceu_org,
-               &_ceu_org->trls[ 0 ],
-#ifdef CEU_STACK_CLEAR
-               &stk_
-#else
-               NULL
-#endif
-              );
+#line 1 "ex010_hello.ceu"
+    for (;;) {
+/* NODE: Block 8 */
 
-#ifdef CEU_STACK_CLEAR
-    if (!stk_.is_alive) {
-        return;
-    }
-#endif
-
-#line 2 "ex040_paror.ceu"
-        _ceu_trl = &_ceu_org->trls[ 1 ];
-
-#line 2 "ex040_paror.ceu"
-    }
-/* NODE: Block 17 */
-
-#line 6 "ex040_paror.ceu"
-    {/* NODE: Stmts 16 */
-
-#line 6 "ex040_paror.ceu"
-    {/* NODE: Stmts 105 */
-
-#line 6 "ex040_paror.ceu"
-    {/* NODE: Nothing 79 */
-/* NODE: Await 10 */
-
-#line 6 "ex040_paror.ceu"
-    ceu_out_wclock(_ceu_app, (s32)((s32)250000), &((CEU_Main*)_ceu_org)->__wclk_10, NULL);
-
-#line 6 "ex040_paror.ceu"
-    _CEU_NO_10_:
-if (0) { goto _CEU_NO_10_; /* avoids "not used" warning */ }
-
-#line 6 "ex040_paror.ceu"
-    _ceu_trl->evt = CEU_IN__WCLOCK;
-_ceu_trl->lbl = Main_Awake_DT_4;
-_ceu_trl->seqno = _ceu_app->seqno;
-
-#line 6 "ex040_paror.ceu"
-    return;
-
-case Main_Awake_DT_4:;
-
-#line 6 "ex040_paror.ceu"
-        /* subtract time and check if I have to awake */
-    {
-        s32** __ceu_casted = (s32**)_ceu_evt->param;
-        if (!ceu_out_wclock(_ceu_app, *(*__ceu_casted), NULL, &((CEU_Main*)_ceu_org)->__wclk_10) ) {
-            goto _CEU_NO_10_;
-        }
-    }
-
-#line 6 "ex040_paror.ceu"
-    #ifdef CEU_DEBUG_TRAILS
-#ifndef CEU_OS
-printf("\tOK!\n");
-#endif
-#endif
-/* NODE: Nothing 115 */
-/* NODE: Nothing 116 */
-
-#line 6 "ex040_paror.ceu"
-    }/* NODE: CallStmt 15 */
-
-#line 7 "ex040_paror.ceu"
-    printf("World!\n");
-#line 6 "ex040_paror.ceu"
-    }
-#line 6 "ex040_paror.ceu"
-/* CLEAR: Block (6) */
-#line 6 "ex040_paror.ceu"
-    if (0) {
-
-#line 6 "ex040_paror.ceu"
-        }   /* opened in "if (0)" */
-}       /* opened in Block_pre */
-
-#line 2 "ex040_paror.ceu"
-/* PAROR JOIN */
-#line 2 "ex040_paror.ceu"
-    _ceu_lbl = Main_ParOr_out_2;
-goto _CEU_GOTO_;
-
-#line 2 "ex040_paror.ceu"
-case Main_ParOr_sub_1_1:;/* NODE: Block 8 */
-
-#line 3 "ex040_paror.ceu"
+#line 2 "ex010_hello.ceu"
     {/* NODE: Stmts 7 */
 
-#line 3 "ex040_paror.ceu"
-    {/* NODE: Stmts 76 */
+#line 2 "ex010_hello.ceu"
+    {/* NODE: Stmts 64 */
 
-#line 3 "ex040_paror.ceu"
-    {/* NODE: Nothing 50 */
+#line 2 "ex010_hello.ceu"
+    {/* NODE: Nothing 38 */
 /* NODE: Await 1 */
 
-#line 3 "ex040_paror.ceu"
-    ceu_out_wclock(_ceu_app, (s32)((s32)100000), &((CEU_Main*)_ceu_org)->__wclk_1, NULL);
+#line 2 "ex010_hello.ceu"
+    ceu_out_wclock(_ceu_app, (s32)((s32)250000), &((CEU_Main*)_ceu_org)->__wclk_1, NULL);
 
-#line 3 "ex040_paror.ceu"
+#line 2 "ex010_hello.ceu"
     _CEU_NO_1_:
 if (0) { goto _CEU_NO_1_; /* avoids "not used" warning */ }
 
-#line 3 "ex040_paror.ceu"
+#line 2 "ex010_hello.ceu"
     _ceu_trl->evt = CEU_IN__WCLOCK;
-_ceu_trl->lbl = Main_Awake_DT_3;
+_ceu_trl->lbl = Main_Awake_DT_1;
 _ceu_trl->seqno = _ceu_app->seqno;
 
-#line 3 "ex040_paror.ceu"
+#line 2 "ex010_hello.ceu"
     return;
 
-case Main_Awake_DT_3:;
+case Main_Awake_DT_1:;
 
-#line 3 "ex040_paror.ceu"
+#line 2 "ex010_hello.ceu"
         /* subtract time and check if I have to awake */
     {
         s32** __ceu_casted = (s32**)_ceu_evt->param;
@@ -7026,135 +6899,90 @@ case Main_Awake_DT_3:;
         }
     }
 
-#line 3 "ex040_paror.ceu"
+#line 2 "ex010_hello.ceu"
     #ifdef CEU_DEBUG_TRAILS
 #ifndef CEU_OS
 printf("\tOK!\n");
 #endif
 #endif
-/* NODE: Nothing 113 */
-/* NODE: Nothing 114 */
+/* NODE: Nothing 72 */
+/* NODE: Nothing 73 */
 
-#line 3 "ex040_paror.ceu"
+#line 2 "ex010_hello.ceu"
     }/* NODE: CallStmt 6 */
 
-#line 4 "ex040_paror.ceu"
-    printf("Hello \n");
-#line 3 "ex040_paror.ceu"
+#line 3 "ex010_hello.ceu"
+    printf("Hello World!\n");
+#line 2 "ex010_hello.ceu"
     }
-#line 3 "ex040_paror.ceu"
-/* CLEAR: Block (3) */
-#line 3 "ex040_paror.ceu"
-    if (0) {
-
-#line 3 "ex040_paror.ceu"
-        }   /* opened in "if (0)" */
-}       /* opened in Block_pre */
-
-#line 2 "ex040_paror.ceu"
-/* PAROR JOIN */
-#line 2 "ex040_paror.ceu"
-    _ceu_lbl = Main_ParOr_out_2;
-goto _CEU_GOTO_;
-
-#line 2 "ex040_paror.ceu"
-case Main_ParOr_out_2:;
-#line 2 "ex040_paror.ceu"
-/* CLEAR: ParOr (2) */
-#line 2 "ex040_paror.ceu"
-    {
-    /* Reuse current stack frame.
-     * We know that CLEAR will not abort anything and return normally.
-     * Just save the previous "is_alive", call CLEAR, and restore it.
-     */
-#ifdef CEU_STACK_CLEAR
-    int __ceu_old = _ceu_stk->is_alive;
-    _ceu_stk->is_alive = 1;
-#endif
-    tceu_evt evt;
-             evt.id = CEU_IN__CLEAR;
-    ceu_sys_go_ex(_ceu_app, &evt,
-                  _ceu_stk,
-                  _ceu_org,
-                  0,
-                  2);
-#ifdef CEU_STACK_CLEAR
-    _ceu_stk->is_alive = __ceu_old;
-    ceu_sys_stack_clear(_ceu_stk, _ceu_org,
-                        0,1);
-#endif
-}
-
-#line 2 "ex040_paror.ceu"
-    }
-#line 2 "ex040_paror.ceu"
+#line 2 "ex010_hello.ceu"
 /* CLEAR: Block (2) */
-#line 2 "ex040_paror.ceu"
+#line 2 "ex010_hello.ceu"
     if (0) {
 
-#line 2 "ex040_paror.ceu"
+#line 2 "ex010_hello.ceu"
         }   /* opened in "if (0)" */
 }       /* opened in Block_pre */
 
-#line 1 "ex040_paror.ceu"
+#line 1 "ex010_hello.ceu"
     }
 
-#line 1 "ex040_paror.ceu"
+#line 1 "ex010_hello.ceu"
     }
-#line 1 "ex040_paror.ceu"
+#line 1 "ex010_hello.ceu"
 /* CLEAR: Block (1) */
-#line 1 "ex040_paror.ceu"
+#line 1 "ex010_hello.ceu"
     if (0) {
 
-#line 1 "ex040_paror.ceu"
+#line 1 "ex010_hello.ceu"
         }   /* opened in "if (0)" */
 }       /* opened in Block_pre */
 
-#line 1 "ex040_paror.ceu"
+#line 1 "ex010_hello.ceu"
     }
-#line 1 "ex040_paror.ceu"
+#line 1 "ex010_hello.ceu"
 /* CLEAR: Block (1) */
-#line 1 "ex040_paror.ceu"
+#line 1 "ex010_hello.ceu"
     if (0) {
 
-#line 1 "ex040_paror.ceu"
+#line 1 "ex010_hello.ceu"
         }   /* opened in "if (0)" */
 }       /* opened in Block_pre */
 
-#line 1 "ex040_paror.ceu"
+#line 1 "ex010_hello.ceu"
     }
-#line 1 "ex040_paror.ceu"
+#line 1 "ex010_hello.ceu"
     }
-#line 1 "ex040_paror.ceu"
+#line 1 "ex010_hello.ceu"
 /* CLEAR: Block (1) */
-#line 1 "ex040_paror.ceu"
+#line 1 "ex010_hello.ceu"
     if (0) {
 
-#line 1 "ex040_paror.ceu"
+#line 1 "ex010_hello.ceu"
         }   /* opened in "if (0)" */
 }       /* opened in Block_pre */
 
-#line 1 "ex040_paror.ceu"
+#line 1 "ex010_hello.ceu"
     return;
-#line 1 "ex040_paror.ceu"
+#line 1 "ex010_hello.ceu"
     }
-#line 1 "ex040_paror.ceu"
+#line 1 "ex010_hello.ceu"
 /* CLEAR: Block (1) */
-#line 1 "ex040_paror.ceu"
+#line 1 "ex010_hello.ceu"
     if (0) {
 
-#line 1 "ex040_paror.ceu"
+#line 1 "ex010_hello.ceu"
         }   /* opened in "if (0)" */
 }       /* opened in Block_pre */
 
-#line 1 "ex040_paror.ceu"
+#line 1 "ex010_hello.ceu"
     }
-#line 1 "ex040_paror.ceu"
+#line 1 "ex010_hello.ceu"
 /* CLEAR: Block (1) */
-#line 1 "ex040_paror.ceu"
+#line 1 "ex010_hello.ceu"
     if (0) {
 
-#line 1 "ex040_paror.ceu"
+#line 1 "ex010_hello.ceu"
         }   /* opened in "if (0)" */
 }       /* opened in Block_pre */
 

@@ -4,6 +4,11 @@
 
 <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
 <meta content="utf-8" http-equiv="encoding">
+
+<!--- CSS FILES -->
+<link href="css/bootstrap.min.css" rel="stylesheet"> <!-- Bootstrap -->
+<link href="css/try.css" rel="stylesheet">  <!-- Online editor css -->
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
 <script type="text/javascript" src="client.js"></script>
 
@@ -30,10 +35,44 @@
 }
 
 </style>
-</head>
 
+</head>
+<!--
 <body>
-Name: <textarea id="code" name="code" rows="20" cols="30"></textarea>   
+<div id="ceu-body">
+	<div>
+		<div id="ceu-slide">
+			<div class="relative">
+				<div class="ceu-textbar">
+					<a href="http://ceu-lang.org/index.html"><img src="img/ceu.png"></a>
+<!-- <blink>UNDER MAINTENANCE</blink> -->
+<!--
+					<span id="ceu-font-controls">
+						<button id="ceu-font-decrease" class="btn btn-mini" alt="Decrease font size." title="Decrease font size"><i class="icon-minus-sign"></i></button>
+						Font
+						<button id="ceu-font-increase" class="btn btn-mini" alt="Increase font size." title="Increase font size"><i class="icon-plus-sign"></i></button>
+					</span>
+
+					<span class="pull-right">
+						<button type="button" class="btn btn-small" data-toggle="modal" data-target="#ceu-index-modal" title="View Table of Contents">
+						<i class="icon-list"></i> Index
+						</button>
+
+						<button id="ceu-left" type="button" class="btn btn-small" title="Previous lesson" onclick="javascript:dec_nr();">&lt;</button>
+						<span id="ceu-slide-number">1</span>
+						<button id="ceu-next" type="button" class="btn btn-small" title="Next lesson" onclick="javascript:inc_nr();">&gt;</button>
+					</span>
+				</div>
+
+			</div>
+		</div>		
+	</div>
+
+</div> 
+-->
+  
+Name: <textarea id="code" name="code" rows="20" cols="30"></textarea> 
+<textarea class="emscripten" id="output" rows="10"></textarea>
 
 <input type="submit" name = "submit" value="Send" onclick="javascript:compile_code();">
 <input type="submit" name = "submit" value="Next Tutorial" onclick="javascript:inc_nr();">
@@ -58,7 +97,7 @@ Name: <textarea id="code" name="code" rows="20" cols="30"></textarea>
 
 <div id="status"></div>
 
-<textarea class="emscripten" id="output" rows="10"></textarea>
+
 
 
 </body>

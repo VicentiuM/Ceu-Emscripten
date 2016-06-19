@@ -10,7 +10,7 @@ function compile_code() {
 		url: "server.php",
 		data: { 'code' : send}
 	}).done(function(text) {
-
+console.log(text);
 		var Module = {
 			print: (function() {
 				var element = document.getElementById('output');

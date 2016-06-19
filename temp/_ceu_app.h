@@ -4,9 +4,6 @@
 #include "ceu_types.h"
 
 #define CEU_WCLOCKS
-#define CEU_CLEAR
-#define CEU_GOTO
-#define CEU_STACK_CLEAR
      /* CEU_EXTS, CEU_WCLOCKS, CEU_INTS, ... */
 
 /* TODO: lbl => unsigned */
@@ -20,7 +17,7 @@ typedef s16 tceu_ncls;
 #endif
 
 /* TODO: remove */
-#define CEU_NTRAILS 2
+#define CEU_NTRAILS 1
 
 #ifndef _CEU_OS_H
 #define _CEU_OS_H
@@ -1635,7 +1632,7 @@ typedef struct CEU_Main {
 #ifdef CEU_ORGS
   struct tceu_org org;
 #endif
-  tceu_trl trls_[ 2 ];
+  tceu_trl trls_[ 1 ];
     struct { /* BLOCK ln=1 */
       union {
           union {
@@ -1653,21 +1650,8 @@ typedef struct CEU_Main {
                             };
                               struct { /* BLOCK ln=2 */
                                 union {
-                                  struct {
-                                    struct { /* BLOCK ln=3 */
-                                      union {
-                                        union {
-                                            s32 __wclk_1;
-                                        };
-                                      };
-                                    } ;
-                                    struct { /* BLOCK ln=6 */
-                                      union {
-                                        union {
-                                            s32 __wclk_10;
-                                        };
-                                      };
-                                    } ;
+                                  union {
+                                      s32 __wclk_1;
                                   };
                                 };
                               } ;

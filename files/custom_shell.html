@@ -1,9 +1,12 @@
 <!doctype html>
 <html lang="en-us">
- <script src="hello2.js"></script>
   <head>
     <meta charset="utf-8">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+    <script src="custom.js"></script>
+
+
     <title>Emscripten-Generated Code</title>
     <style>
       .emscripten { padding-right: 0; margin-left: auto; margin-right: auto; display: block; }
@@ -64,8 +67,12 @@
       &nbsp;&nbsp;&nbsp;
       <input type="button" value="Fullscreen" onclick="Module.requestFullScreen(document.getElementById('pointerLock').checked, 
                                                                                 document.getElementById('resize').checked)">
-	<input id="Button" type="button" value="Update" onclick="_update()">
 
+	<input id="Button" type="button" value="Update" onclick="requestAnimationFrame(draw)">
+	<input id="Button" type="button" value="Update 100ms" onclick="_update(100000)">
+	<input id="Button" type="button" value="Update 1s" onclick="_update(1000000)">
+	<input id="Button" type="button" value="Update 5s" onclick="_update(5000000)">
+	<input id="Button" type="button" value="Send Async" onclick="_async_call()">
 	<script>
 	//function print_message() {
 	//	_update();
