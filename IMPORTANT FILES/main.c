@@ -16,6 +16,15 @@ static byte CEU_DATA[sizeof(CEU_Main)];
 static tceu_app app;
 
 
+int async_check() {
+	#ifdef CEU_ASYNCS
+		if (app.pendingAsyncs) {
+			return 1;
+		}
+	#endif
+	return 0;
+}
+
 void async_call() {
 	ceu_sys_go(&app, CEU_IN__ASYNC, NULL);
 	#ifdef CEU_RET
