@@ -85,7 +85,7 @@ function async_call() {
 }
 
 function async_check() {
-	if (copy_of_Module._async_check() == 1) {
+	if (Module._async_check() == 1) {
 		console.log('true');
 	}
 	else {
