@@ -1,0 +1,22 @@
+native _inc(), _mystruct;
+native do
+    int inc (int a) {
+        return a;
+    }
+
+    typedef struct {
+        s16 a;
+        s16 b;
+    } mystruct;
+end
+
+var _mystruct s;
+var _mystruct&& ps = &&s;
+s.a = 10;
+ps:b = 5;
+escape _inc(10) + ps:a - s.b;
+
+/*
+ * This example will not execute because native blocks are deactivated on the 
+ * Web.
+ */

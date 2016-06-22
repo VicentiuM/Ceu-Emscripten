@@ -39,17 +39,11 @@ void update(s32 time) {
 		//When there are no timed events
 		if (WCLOCK_nxt == prev) {
 			WCLOCK_nxt = 1;
-/*
-			int ret = ceu_go_all( &app);
-			printf("%d\n", ret);
-*/
+
 		}
 	}
 
 
-	//ceu_sys_go( &app, CEU_IN__ASYNC, NULL );
-	//u32 us = 100000;
-	//ceu_sys_go( &app, CEU_IN__WCLOCK, &us );
 }
 
 void begin() {
@@ -59,11 +53,3 @@ void begin() {
 	app.init(&app);
 }
 
-int main() {
-	EM_ASM( _begin() );
-	EM_ASM( requestAnimationFrame(draw) );
-/*
-	begin();
-	update(1000);
-*/
-}

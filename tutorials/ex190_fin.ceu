@@ -1,0 +1,26 @@
+C _myalloc(), _myfree, _COUNT;
+
+C do
+    void* myalloc () {
+        _COUNT = _COUNT + 1;
+        return NULL;
+    }
+    void myfree (void* p) {
+        _COUNT = _COUNT - 1;
+    }
+end
+
+par/or do
+    var void* ptr
+    //finalize
+        ptr = _mymalloc();
+    //with
+        //_myfree(ptr);
+    //end
+
+    await 1s;
+    // do something with `ptr´
+    _myfree(ptr);
+with
+    await F;
+end

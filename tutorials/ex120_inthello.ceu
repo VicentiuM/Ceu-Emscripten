@@ -1,0 +1,14 @@
+// internal event begin in lowercase
+event int e;
+var   int i = 0;
+par do
+    loop do
+        i = await e;    // waits for changes
+        _printf("Hello World: %d!\n", i);
+    end
+with
+    loop do
+        await 250ms;
+        emit e => i+1;  // triggers 'e'
+    end
+end

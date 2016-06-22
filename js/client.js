@@ -1,7 +1,11 @@
 var tutorial = ["tutorials/ex010_hello.ceu", "tutorials/ex020_events.ceu", "tutorials/ex030_parand.ceu",
 				"tutorials/ex040_paror.ceu", "tutorials/ex050_term.ceu", "tutorials/ex060_par.ceu",
-				"tutorials/ex070_AB.ceu"];
+				"tutorials/ex070_AB.ceu", "tutorials/ex080_tight.ceu", "tutorials/ex090_det01.ceu", 
+				"tutorials/ex100_atomic.ceu", "tutorials/ex120_inthello.ceu", "tutorials/ex140_intstack.ceu", 
+				"tutorials/ex150_async10.ceu", "tutorials/ex160_async0.ceu", "tutorials/ex170_simul.ceu", 
+				"tutorials/ex180_cblock.ceu", "tutorials/ex190_fin.ceu"];
 
+var copy_of_Module;
 
 function compile_code() {
 
@@ -10,7 +14,6 @@ function compile_code() {
 		url: "server.php",
 		data: { 'code' : send}
 	}).done(function(text) {
-console.log(text);
 		var Module = {
 			print: (function() {
 				var element = document.getElementById('output');
@@ -26,37 +29,60 @@ console.log(text);
 			})()     
 		};
 
+		js_file = text;
 		eval(text);
+
+		copy_of_Module = Module;
+		copy_of_Module.ccall('begin', // name of C function
+  					'void', // return type
+  					[], // argument types
+  					[]);
+
+
+		requestAnimationFrame(draw);
+
 	});
 }
 
 var nr = 0;
 function inc_nr() {
 	nr = nr + 1;
-	if (nr == 7)
+	if (nr == 17)
 		nr = 0;
 	get_tutorial()
+	document.getElementById('log').innerHTML = "";
+	document.getElementById('log').innerHTML += nr;
 }
 
 function dec_nr() {
 	nr = nr - 1;
 	if (nr < 0)
-		nr = 6;
+		nr = 16;
 	get_tutorial()
+	document.getElementById('log').innerHTML = "";
+	document.getElementById('log').innerHTML += nr;
 }
 
 function set_nr(x) {
 	nr = x;
 	get_tutorial()
+	document.getElementById('log').innerHTML = "";
+	document.getElementById('log').innerHTML += nr;
 }
 
 function get_tutorial() {
-	$.ajax({ type: "GET",   
-		url: tutorial[nr]
+	$.ajax({ type: "GET",
+		mimeType: 'text/plain; charset=x-user-defined',
+		url: tutorial[nr],
+		dataType: "text"
 	}).done(function(text) {
 		document.getElementById("code").value = text;
 	});
 
+}
+
+function async_call() {
+	copy_of_Module._async_call();
 }
 
 get_tutorial();

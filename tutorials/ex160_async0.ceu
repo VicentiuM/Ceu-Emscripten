@@ -1,0 +1,22 @@
+/*********DON'T KNOW WHAT TO DO WITH THIS*********/
+
+var int ret;
+par/or do
+    async (ret) do
+        // calculates fat of 10
+        var int fat = 1;
+        var int i = 10;
+        loop do
+            if i == 0 then
+                break;
+            end
+            fat = fat * i;
+            i = i - 1;
+        end
+        ret = fat;
+    end;
+with
+    await 1s;  // kill the async if it takes long
+    ret = 0;
+end
+escape ret;

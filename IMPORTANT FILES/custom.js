@@ -17,8 +17,6 @@ function draw(timestamp) {
 	elapsed += diff;
 	next = timestamp;
 
-console.log(diff);
-
 	if (elapsed <= 5000000)
 		requestAnimationFrame(draw);
 

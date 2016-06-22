@@ -6,11 +6,12 @@
 <meta content="utf-8" http-equiv="encoding">
 
 <!--- CSS FILES -->
-<link href="css/bootstrap.min.css" rel="stylesheet"> <!-- Bootstrap -->
-<link href="css/try.css" rel="stylesheet">  <!-- Online editor css -->
+
+<!--- <link href="css/bootstrap.min.css" rel="stylesheet"> <!-- Bootstrap -->
+<!--- <link href="css/try.css" rel="stylesheet">  <!-- Online editor css -->
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
-<script type="text/javascript" src="client.js"></script>
+<script type="text/javascript" src="js/client.js"></script>
 
 <style>
 .dropdown-content {
@@ -71,29 +72,33 @@
 </div> 
 -->
   
-Name: <textarea id="code" name="code" rows="20" cols="30"></textarea> 
-<textarea class="emscripten" id="output" rows="10"></textarea>
+
 
 <input type="submit" name = "submit" value="Send" onclick="javascript:compile_code();">
+<input id="Button" type="button" value="Async Call" onclick="async_call()">
 <input type="submit" name = "submit" value="Next Tutorial" onclick="javascript:inc_nr();">
 <input type="submit" name = "submit" value="Previous Tutorial" onclick="javascript:dec_nr();">
-
+<div id="log">0</div>
 <div class="dropdown">
 	<button class="dropbtn">Dropdown</button>
 	<div class="dropdown-content">
 	<ul style="list-style-type:none">
-		<li><input type="submit" name = "submit" value="Tutorial 1" onclick="javascript:set_nr(0);"></li>
-		<li><input type="submit" name = "submit" value="Tutorial 2" onclick="javascript:set_nr(1);"></li>
-		<li><input type="submit" name = "submit" value="Tutorial 3" onclick="javascript:set_nr(2);"></li>
-		<li><input type="submit" name = "submit" value="Tutorial 4" onclick="javascript:set_nr(3);"></li>
-		<li><input type="submit" name = "submit" value="Tutorial 5" onclick="javascript:set_nr(4);"></li>
-		<li><input type="submit" name = "submit" value="Tutorial 6" onclick="javascript:set_nr(5);"></li>
-		<li><input type="submit" name = "submit" value="Tutorial 7" onclick="javascript:set_nr(6);"></li>
+		<li><input type="submit" name = "submit" value="Tutorial 0" onclick="javascript:set_nr(0);"></li>
+		<li><input type="submit" name = "submit" value="Tutorial 1" onclick="javascript:set_nr(1);"></li>
+		<li><input type="submit" name = "submit" value="Tutorial 2" onclick="javascript:set_nr(2);"></li>
+		<li><input type="submit" name = "submit" value="Tutorial 3" onclick="javascript:set_nr(3);"></li>
+		<li><input type="submit" name = "submit" value="Tutorial 4" onclick="javascript:set_nr(4);"></li>
+		<li><input type="submit" name = "submit" value="Tutorial 5" onclick="javascript:set_nr(5);"></li>
+		<li><input type="submit" name = "submit" value="Tutorial 6" onclick="javascript:set_nr(6);"></li>
 	</ul>
   </div>
 </div>
 
 <br>
+
+
+<textarea id="code" name="code" rows="40" cols="70"></textarea> 
+<textarea class="emscripten" id="output" rows="40" cols="20"></textarea>
 
 <div id="status"></div>
 

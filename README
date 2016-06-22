@@ -1,9 +1,25 @@
-# I AM WORKING IN THE TEMP FOLDER
+#Folders
+css <- contains the css files (NOT YET IMPLEMENTED)
+img <- contains the images used by the client (NOT YET IMPLEMENTED)
+IMPORTANT FILES <- contains the files used by install.sh
+js <- contains the javascript files used by client (PARTIALLY IMPLEMENTED)
+temp <- a temporary working directory used for debugging
+tutorials <- the source files for the example codes (WILL ADD THE EXPLANATIONS AS WELL)
 
+#Files
+client.html <- the html code for the client
+install.sh <- a script that puts the necessary files used for compiling(needs root privileges). It amuses that the Apache chroot is in /tmp/ . MUST BE USED EVERY TIME THE COPTER RESTARTS
+library.php <- a php file that receives ceu code and converts it into a javascript file
+server.php <- a php file that receives the code from the client and with library.php sends it to the client
 
-client_html receives a javascript file from the server and prints it's contents in a textbox
+#Requirements to run
+-emscripten
+-ceu
+-apache2
+-php
+-javascript
 
-In the temp folder I am testing the examples to see if I can use emscripten on them.
-Use ceu ex0XX_YYYY.ceu to select which file you want to compile
-Then use: emcc A B -s EXPORTED_FUNCTIONS="['_begin', '_update', '_main']" -s NO_EXIT_RUNTIME=1 --shell-file custom_shell.html
-Where A can be ex010.c for examples 1 and 3 OR ex020.c for example 2 AND B is the names of the html and javascripts files.
+#How to run (ONLY FOR LINUX)
+Create a shortcut in /var/www/ towards the location of the folder
+Execute with root privileges install.sh
+Open client.html in your browser, select the tutorial and press Send. The Async button sends an asynchronos signal.
