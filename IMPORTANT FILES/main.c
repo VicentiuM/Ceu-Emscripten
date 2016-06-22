@@ -15,6 +15,7 @@ s32 WCLOCK_nxt;
 static byte CEU_DATA[sizeof(CEU_Main)];
 static tceu_app app;
 
+int last = 1;
 
 int async_check() {
 	#ifdef CEU_ASYNCS
@@ -29,7 +30,13 @@ void async_call() {
 	ceu_sys_go(&app, CEU_IN__ASYNC, NULL);
 	#ifdef CEU_RET
 	if (! app.isAlive) {
-		printf("%d\n", app.ret);
+		if (async_check() == 1) {
+			printf("%d\n", app.ret);
+		}
+		else if (last == 1) {
+			last = 0;
+			printf("%d\n", app.ret);
+		}
 	}
 	#endif
 }
@@ -51,7 +58,6 @@ void update(s32 time) {
 
 		}
 	}
-
 
 }
 

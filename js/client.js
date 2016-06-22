@@ -5,7 +5,7 @@ var tutorial = ["tutorials/ex010_hello.ceu", "tutorials/ex020_events.ceu", "tuto
 				"tutorials/ex150_async10.ceu", "tutorials/ex160_async0.ceu", "tutorials/ex170_simul.ceu", 
 				"tutorials/ex180_cblock.ceu", "tutorials/ex190_fin.ceu"];
 
-var copy_of_Module;
+var Module = {};
 
 function compile_code() {
 
@@ -14,7 +14,7 @@ function compile_code() {
 		url: "server.php",
 		data: { 'code' : send}
 	}).done(function(text) {
-		var Module = {
+		Module = {
 			print: (function() {
 				var element = document.getElementById('output');
 				if (element) element.value = ''; // clear browser cache
@@ -32,8 +32,7 @@ function compile_code() {
 		js_file = text;
 		eval(text);
 
-		copy_of_Module = Module;
-		copy_of_Module.ccall('begin', // name of C function
+		Module.ccall('begin', // name of C function
   					'void', // return type
   					[], // argument types
   					[]);
@@ -82,7 +81,7 @@ function get_tutorial() {
 }
 
 function async_call() {
-	copy_of_Module._async_call();
+	Module._async_call();
 }
 
 function async_check() {
