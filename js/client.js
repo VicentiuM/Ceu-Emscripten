@@ -5,16 +5,7 @@ var tutorial = ["tutorials/ex010_hello.ceu", "tutorials/ex020_events.ceu", "tuto
 				"tutorials/ex150_async10.ceu", "tutorials/ex160_async0.ceu", "tutorials/ex170_simul.ceu", 
 				"tutorials/ex180_cblock.ceu", "tutorials/ex190_fin.ceu"];
 
-var Module = {};
-
-function compile_code() {
-
-	var send = document.getElementById('code').value;
-	$.ajax({ type: "POST",   
-		url: "server.php",
-		data: { 'code' : send}
-	}).done(function(text) {
-		Module = {
+var Module = {
 			print: (function() {
 				var element = document.getElementById('output');
 				if (element) element.value = ''; // clear browser cache
@@ -29,8 +20,34 @@ function compile_code() {
 			})()     
 		};
 
-		js_file = text;
-		eval(text);
+
+/*
+var Module = {
+			print: (function() {
+				var element = document.getElementById('output');
+				if (element) element.value = ''; // clear browser cache
+				return function(text) {
+					if (arguments.length > 1) text = Array.prototype.slice.call(arguments).join(' ');
+					console.log(text);
+					if (element) {
+						element.value += text + "\n";
+						element.scrollTop = element.scrollHeight; // focus on bottom
+					}
+				};
+			})()     
+		};
+*/
+
+function compile_code() {
+
+	var send = document.getElementById('code').value;
+	$.ajax({ type: "POST",   
+		url: "server.php",
+		data: { 'code' : send}
+	}).done(function(text) {
+		//Module.print(text);
+
+		//eval(text);
 
 		Module.ccall('begin', // name of C function
   					'void', // return type
@@ -39,6 +56,14 @@ function compile_code() {
 
 
 		requestAnimationFrame(draw);
+
+		//Module._async_call();
+		//Module._async_call();
+		/*
+		while(Module._async_check() == 1) {
+			setTimeout(Module._async_call(), 0);
+		}
+		*/
 
 	});
 }
@@ -81,11 +106,14 @@ function get_tutorial() {
 }
 
 function async_call() {
-	Module._async_call();
+	Module.ccall('async_call', // name of C function
+  				'void', // return type
+  				[], // argument types
+  				[]);
 }
 
 function async_check() {
-	if (Module._async_check() == 1) {
+	if (Module.ccall('async_check', 'number', [], []) == 1) {
 		console.log('true');
 	}
 	else {
