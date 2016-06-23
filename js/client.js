@@ -8,11 +8,11 @@ var tutorial = ["tutorials/ex010_hello.ceu", "tutorials/ex020_events.ceu", "tuto
 
 var Module={};
 
+//Calls Module which will intercept the console log and print the message in output
 function call_module() {
 	Module = {
 		print: function (text) { 
 			var element = document.getElementById('output');
-			//element.value = ''; // clear browser cache 
 			console.log(text); 
 			element.value += text + "\n"; 
 			element.scrollTop = element.scrollHeight;
@@ -20,6 +20,7 @@ function call_module() {
 	};
 }
 
+//Sends the ceu code to the server and will receive javascript code that will interpret and print in output
 function compile_code() {
 
 	var send = document.getElementById('code').value;
@@ -27,7 +28,7 @@ function compile_code() {
 		url: "server.php",
 		data: { 'code' : send}
 	}).done(function(text) {
-		//Module.print(text);
+
 		document.getElementById('output').value ='';
 
 		call_module();
@@ -39,7 +40,7 @@ function compile_code() {
   					[]);
 
 
-		requestAnimationFrame(draw);
+		requestAnimationFrame(handle_time);
 
 	});
 }
@@ -50,7 +51,8 @@ var start = null;
 var next;
 var elapsed = 0;
 
-function draw(timestamp) {
+//Function that handles time for 5 seconds
+function handle_time(timestamp) {
 	if (!start) {
 		start = timestamp;
 		diff = timestamp - start;
@@ -66,7 +68,7 @@ function draw(timestamp) {
 
 
 	if (elapsed <= 5000000) {
-		requestAnimationFrame(draw);
+		requestAnimationFrame(handle_time);
 		async_call();
 	}
 	else {
@@ -78,6 +80,7 @@ function draw(timestamp) {
 
 
 var nr = 0;
+//Function for going to the next tutorial lesson
 function inc_nr() {
 	nr = nr + 1;
 	if (nr == 17)
@@ -87,6 +90,7 @@ function inc_nr() {
 	document.getElementById('log').innerHTML += nr;
 }
 
+//Function for going to the previous tutorial lesson
 function dec_nr() {
 	nr = nr - 1;
 	if (nr < 0)
@@ -96,6 +100,7 @@ function dec_nr() {
 	document.getElementById('log').innerHTML += nr;
 }
 
+//Function for going to a specific tutorial lesson
 function set_nr(x) {
 	nr = x;
 	get_tutorial()
@@ -103,6 +108,7 @@ function set_nr(x) {
 	document.getElementById('log').innerHTML += nr;
 }
 
+//Function that prints the content of a certain tutorial in the code textbox
 function get_tutorial() {
 	$.ajax({ type: "GET",
 		mimeType: 'text/plain; charset=x-user-defined',
@@ -114,13 +120,14 @@ function get_tutorial() {
 
 }
 
+//Sends an asynchronous call to the ceu code
 function async_call() {
-	Module.ccall('async_call', // name of C function
-  				'void', // return type
-  				[], // argument types
-  				[]);
+	if ( Module.ccall('async_call', 'void', [], []) ) {
+		setTimeout(async_call, 0)
+	}
 }
 
+//Checks if an asynchronous call can be made
 function async_check() {
 	if (Module.ccall('async_check', 'number', [], []) == 1) {
 		console.log('true');
@@ -130,4 +137,5 @@ function async_check() {
 	}
 }
 
+//Gets the first tutorial when the page is first loaded
 get_tutorial();
