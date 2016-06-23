@@ -5,38 +5,20 @@ var tutorial = ["tutorials/ex010_hello.ceu", "tutorials/ex020_events.ceu", "tuto
 				"tutorials/ex150_async10.ceu", "tutorials/ex160_async0.ceu", "tutorials/ex170_simul.ceu", 
 				"tutorials/ex180_cblock.ceu", "tutorials/ex190_fin.ceu"];
 
-var Module = {
-			print: (function() {
-				var element = document.getElementById('output');
-				if (element) element.value = ''; // clear browser cache
-				return function(text) {
-					if (arguments.length > 1) text = Array.prototype.slice.call(arguments).join(' ');
-					console.log(text);
-					if (element) {
-						element.value += text + "\n";
-						element.scrollTop = element.scrollHeight; // focus on bottom
-					}
-				};
-			})()     
-		};
 
+var Module={};
 
-/*
-var Module = {
-			print: (function() {
-				var element = document.getElementById('output');
-				if (element) element.value = ''; // clear browser cache
-				return function(text) {
-					if (arguments.length > 1) text = Array.prototype.slice.call(arguments).join(' ');
-					console.log(text);
-					if (element) {
-						element.value += text + "\n";
-						element.scrollTop = element.scrollHeight; // focus on bottom
-					}
-				};
-			})()     
-		};
-*/
+function call_module() {
+	Module = {
+		print: function (text) { 
+			var element = document.getElementById('output');
+			//element.value = ''; // clear browser cache 
+			console.log(text); 
+			element.value += text + "\n"; 
+			element.scrollTop = element.scrollHeight;
+		}
+	};
+}
 
 function compile_code() {
 
@@ -46,8 +28,10 @@ function compile_code() {
 		data: { 'code' : send}
 	}).done(function(text) {
 		//Module.print(text);
+		document.getElementById('output').value ='';
 
-		//eval(text);
+		call_module();
+		window.eval(text);
 
 		Module.ccall('begin', // name of C function
   					'void', // return type
@@ -57,16 +41,41 @@ function compile_code() {
 
 		requestAnimationFrame(draw);
 
-		//Module._async_call();
-		//Module._async_call();
-		/*
-		while(Module._async_check() == 1) {
-			setTimeout(Module._async_call(), 0);
-		}
-		*/
-
 	});
 }
+
+
+var diff;
+var start = null;
+var next;
+var elapsed = 0;
+
+function draw(timestamp) {
+	if (!start) {
+		start = timestamp;
+		diff = timestamp - start;
+	}
+	else {
+		diff = (timestamp - next) * 1000;
+	}
+
+	_update(diff);
+
+	elapsed += diff;
+	next = timestamp;
+
+
+	if (elapsed <= 5000000) {
+		requestAnimationFrame(draw);
+		async_call();
+	}
+	else {
+		start = null;
+		elapsed = 0;
+	}
+
+}
+
 
 var nr = 0;
 function inc_nr() {

@@ -26,7 +26,7 @@ function create_js($data) {
 	
 	
 	//Run emscripten
-	$function =  "emcc main.c -o " . $filename_js . " -s EXPORTED_FUNCTIONS=\"['_begin', '_update', '_async_call', '_async_check']\" -s NO_EXIT_RUNTIME=1 --pre-js custom.js";
+	$function =  "emcc main.c -o " . $filename_js . " -s EXPORTED_FUNCTIONS=\"['_begin', '_update', '_async_call', '_async_check']\" -s NO_EXIT_RUNTIME=1";
 	exec($function);
 
 
