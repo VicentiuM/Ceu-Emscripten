@@ -41,8 +41,8 @@ var SDL_Color bg_clr = SDL_Color(0x00, 0x00, 0x00, 0xFF);
 
 
 //Bullet Coordinates
-//var int blx = 0;
-//var int bly = 0;
+var int blx = 0;
+var int bly = 0;
 
 
 //*************************ENEMY************************/
@@ -109,7 +109,7 @@ do
         loop do
             await 3 ms;
             rct.y = rct.y - 1;
-            //blx = rct.x;
+            blx = rct.x;
             //bly = rct.y;
             if rct.y < 0 then
                 break;

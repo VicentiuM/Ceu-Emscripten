@@ -22,7 +22,7 @@ function create_js($data) {
 
 	
 	//Run ceu on the file
-	exec("ceu ".$filename_ceu);
+	exec("./ceu ".$filename_ceu);
 	
 	
 	//Run emscripten
