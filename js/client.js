@@ -122,7 +122,7 @@ function get_tutorial() {
 
 //Sends an asynchronous call to the ceu code
 function async_call() {
-	if ( Module.ccall('async_call', 'void', [], []) ) {
+	if ( Module.ccall('async_call', 'number', [], []) == 1 ) {
 		setTimeout(async_call, 0)
 	}
 }

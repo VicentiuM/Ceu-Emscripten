@@ -26,19 +26,22 @@ int async_check() {
 	return 0;
 }
 
-void async_call() {
+int async_call() {
 	ceu_sys_go(&app, CEU_IN__ASYNC, NULL);
 	#ifdef CEU_RET
 	if (! app.isAlive) {
 		if (async_check() == 1) {
 			printf("%d\n", app.ret);
+			return 1;
 		}
 		else if (last == 1) {
 			last = 0;
 			printf("%d\n", app.ret);
+			return 1;
 		}
 	}
 	#endif
+	return 0;
 }
 
 void update(s32 time) {
