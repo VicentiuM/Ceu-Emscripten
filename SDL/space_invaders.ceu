@@ -8,6 +8,14 @@ input _SDL_MouseButtonEvent&& SDL_MOUSEBUTTONDOWN;
 input void MOVE;
 input void SHOOT;
 
+native do
+//Bullet Coordinates
+    int blx = 0;
+    int bly = 900;
+//If enemy was hit
+    int enemy_hit = 0;
+end
+
 var _SDL_Window&? win;
     finalize
         win = &_SDL_CreateWindow("Space Invader", _SDL_WINDOWPOS_CENTERED,
@@ -35,14 +43,41 @@ var _SDL_Texture&? tex_a;
         _SDL_DestroyTexture(&&tex_a!);
     end
 
+//************************WRITING*************************/
+_TTF_Init();
+    finalize with
+        _TTF_Quit();
+    end
+
+var _TTF_Font&? fnt;
+    finalize
+        fnt = &_TTF_OpenFont("../git/Ceu-Emscripten/SDL/monofonto.ttf", 40);
+    with
+        _TTF_CloseFont(&&fnt!);
+    end
+
+var _SDL_Texture&? str_tex;
+var SDL_Rect str_r = SDL_Rect(10,10, 500,30);
+var SDL_Color clr = SDL_Color(0xFF, 0xFF, 0xFF, 0xFF);
+var _SDL_Surface&? sfc;
+    finalize
+        sfc = &_TTF_RenderText_Blended(&&fnt!, "Use A and D to move Use Left Click to shoot", 
+                                                        *(_SDL_Color&&)&&clr);
+    with
+        _SDL_FreeSurface(&&sfc!);
+    end
+    finalize
+        str_tex = &_SDL_CreateTextureFromSurface(&&ren!, &&sfc!);
+    with
+        _SDL_DestroyTexture(&&str_tex!);
+    end
+
+
+//*******************************************************/
 
 var SDL_Rect  bg     = SDL_Rect(0,0 , w,h);
 var SDL_Color bg_clr = SDL_Color(0x00, 0x00, 0x00, 0xFF);
 
-
-//Bullet Coordinates
-var int blx = 0;
-var int bly = 0;
 
 
 //*************************ENEMY************************/
@@ -55,40 +90,63 @@ do
     this.rct.h = 40;
 
     var int dist = 40;
-
+    var int exist = 1;
 
     var SDL_Color clr = SDL_Color(0xFF, 0xFF, 0xFF, 0xFF);
 
     par/or do
         loop do
-            await 100ms;
-            if dist > 0 then
-                loop do
-                    await 100ms;
-                    rct.x = rct.x - 1;
-                    dist = dist - 1;
-                    if dist < 0 then
-                        break;
+            if exist == 1 then
+                await 100ms;
+                if dist > 0 then
+                    loop do
+                        //Check if the enemy was hit by a bullet
+                        if rct.x <= _blx and _blx <= rct.x + 40 and rct.y + 40 >= _bly then
+                            _enemy_hit = 1;
+                            exist = 0;
+                            break;
+                        else
+
+                            await 100ms;
+                            rct.x = rct.x - 1;
+                            dist = dist - 1;
+                            if dist < 0 then
+                                break;
+                            end
+                        end
+                    end
+                else
+                    loop do
+                        //Check if the enemy was hit by a bullet
+                        if rct.x <= _blx and _blx <= rct.x + 40 and rct.y >= _bly + 8 then
+                            _enemy_hit = 1;
+                            exist = 0;
+                            break;
+                        else
+
+                            await 100ms;
+                            rct.x = rct.x + 1;
+                            dist = dist + 1;
+                            if dist > 40 then
+                                break;
+                            end
+                        end
                     end
                 end
             else
-                loop do
-                    await 100ms;
-                    rct.x = rct.x + 1;
-                    dist = dist + 1;
-                    if dist > 40 then
-                        break;
-                    end
-                end
+                break;
             end
-
         end
+    with
+        every 10s do
+            rct.y = rct.y + 30;
+        end;
     with
         every SDL_REDRAW do
             _SDL_SetRenderDrawColor(&&ren, clr.r,clr.g,clr.b,0xFF);
             //_SDL_RenderFillRect(&&ren, (_SDL_Rect&&)&&rct);
             _SDL_RenderCopy(&&ren, &&tex_a, null, (_SDL_Rect&&)&&rct);
-        end
+        end        
     end
     //await FOREVER;    // disappears but remains on memory
 
@@ -107,11 +165,15 @@ do
 
     par/or do
         loop do
-            await 3 ms;
+            await 2 ms;
             rct.y = rct.y - 1;
-            blx = rct.x;
-            //bly = rct.y;
+            _blx = rct.x;
+            _bly = rct.y;
             if rct.y < 0 then
+                break;
+            end
+            if _enemy_hit == 1 then
+                _enemy_hit = 0;
                 break;
             end
         end
@@ -261,6 +323,7 @@ with
 
 with
     every SDL_REDRAW do
+        _SDL_RenderCopy(&&ren!, &&str_tex!, null, (_SDL_Rect&&)&&str_r);
         _SDL_RenderPresent(&&ren!);
     end
 end
