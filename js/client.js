@@ -43,6 +43,7 @@ function compile_code() {
 		document.getElementById('output').value ='';
 
 		call_module();
+
 		window.eval(text);
 
 		Module.ccall('begin', // name of C function

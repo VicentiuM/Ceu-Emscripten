@@ -8,11 +8,15 @@
 
 #include "ceu_types.h"
 
+/*
 #include "SDL2/SDL.h"
 #include "SDL2/SDL_image.h"
 #include "SDL2/SDL_mixer.h"
 #include "SDL2/SDL_ttf.h"
 #include "SDL2/SDL_opengl.h"
+*/
+
+#include "SDL.h"
 
 s32 WCLOCK_nxt;
 #define ceu_out_wclock_set(us) WCLOCK_nxt = us;

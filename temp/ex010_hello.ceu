@@ -1,4 +1,0 @@
-loop do
-	await 250ms;
-	_printf("Hello World!\n");
-end
