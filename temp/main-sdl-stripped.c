@@ -10,27 +10,9 @@
 #include "SDL2/SDL_opengl.h"
 
 
-#include <assert.h>
+#define ceu_out_assert(v)
+#define ceu_out_log(m,s)
 
-#define ceu_out_assert(v) ceu_sys_assert(v)
-void ceu_sys_assert (int v) {
-    assert(v);
-}
-
-#define ceu_out_log(m,s) ceu_sys_log(m,s)
-void ceu_sys_log (int mode, long s) {
-    switch (mode) {
-        case 0:
-            printf("%s", (char*)s);
-            break;
-        case 1:
-            printf("%lX", s);
-            break;
-        case 2:
-            printf("%ld", s);
-            break;
-    }
-}
 
 #include "_ceu_app.h"
 
@@ -50,6 +32,7 @@ int main (int argc, char *argv[]) {
 
     WCLOCK_nxt = CEU_WCLOCK_INACTIVE;
     u32 old = SDL_GetTicks();
+    printf ("old=%d\n",old);
 
     tceu_app app;
     app.data = (tceu_org*) &CEU_DATA;
@@ -64,7 +47,7 @@ int main (int argc, char *argv[]) {
 
     SDL_Event evt;
 
-
+    
     for (;;)
     {
         /*
@@ -100,12 +83,9 @@ int main (int argc, char *argv[]) {
         old = now;
 
 
-        int fps_ok = 1;
-
         s32 dt_us = dt_ms*1000;
 
 
-        if (fps_ok) {
 #ifdef CEU_WCLOCKS
     #if ! (defined(CEU_IN_SDL_DT) || defined(CEU_IN_SDL_DT_))
                 if (WCLOCK_nxt != CEU_WCLOCK_INACTIVE)
@@ -137,16 +117,13 @@ int main (int argc, char *argv[]) {
 
 
 #ifdef CEU_IN_SDL_DT
-            if (fps_ok) {
                 ceu_sys_go(&app, CEU_IN_SDL_DT, &dt_ms);
-            }
     #ifdef CEU_RET
                 if (! app.isAlive)
                     goto END;
     #endif
             //redraw = 1;
 #endif
-        }
 
         // OTHER EVENTS
         if (has)
@@ -240,14 +217,12 @@ int main (int argc, char *argv[]) {
 
 #ifdef CEU_IN_SDL_REDRAW
 
-        //if (redraw && !SDL_PollEvent(NULL))
-        if (fps_ok) {
+
             ceu_sys_go(&app, CEU_IN_SDL_REDRAW, NULL);
     #ifdef CEU_RET
                 if (! app.isAlive)
                     goto END;
     #endif
-        }
 
 #endif
 
@@ -268,10 +243,6 @@ int main (int argc, char *argv[]) {
 #endif
     }
 END:
-#ifdef CEU_THREADS
-    // only reachable if LOCKED
-    CEU_THREADS_MUTEX_UNLOCK(&app.threads_mutex);
-#endif
     SDL_Quit();         // TODO: slow
 #ifdef CEU_RET
     return app.ret;

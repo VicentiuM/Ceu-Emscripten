@@ -7,20 +7,24 @@ function draw(timestamp) {
 	if (!start) {
 		start = timestamp;
 		diff = timestamp - start;
+		_begin();
 	}
 	else {
 		diff = (timestamp - next) * 1000;
 	}
 
-	_update(diff);
+	//_update(diff);
+	
 
 	elapsed += diff;
 	next = timestamp;
 
 console.log(diff);
 
-	if (elapsed <= 5000000)
+	if (elapsed <= 20000000) {
 		requestAnimationFrame(draw);
+		_ceu_draw(diff);
+	}
 
 		
 }
