@@ -7,6 +7,7 @@ var tutorial = ["tutorials/ex010_hello.ceu", "tutorials/ex020_events.ceu", "tuto
 
 
 var Module={};
+var printing = false;
 
 //Calls Module which will intercept the console log and print the message in output
 function call_module() {
@@ -33,7 +34,7 @@ function call_module() {
 
 //Sends the ceu code to the server and will receive javascript code that will interpret and print in output
 function compile_code() {
-
+		printing = false;
 	var send = document.getElementById('code').value;
 	$.ajax({ type: "POST",   
 		url: "server.php",
@@ -51,8 +52,8 @@ function compile_code() {
   					[], // argument types
   					[]);
 
-
-		requestAnimationFrame(handle_time);
+		printing = true;
+		//requestAnimationFrame(handle_time);
 
 	});
 }
@@ -73,12 +74,17 @@ function handle_time(timestamp) {
 		diff = (timestamp - next) * 1000;
 	}
 
-	_update(diff);
+	if (printing == true) {
+		_update(diff);
+		async_call();
+	}
 
 	elapsed += diff;
 	next = timestamp;
 
+	requestAnimationFrame(handle_time);
 
+/*
 	if (elapsed <= 5000000) {
 		requestAnimationFrame(handle_time);
 		async_call();
@@ -87,7 +93,7 @@ function handle_time(timestamp) {
 		start = null;
 		elapsed = 0;
 	}
-
+*/
 }
 
 
@@ -151,3 +157,6 @@ function async_check() {
 
 //Gets the first tutorial when the page is first loaded
 get_tutorial();
+
+//Start requestAnimationFrame
+requestAnimationFrame(handle_time);
