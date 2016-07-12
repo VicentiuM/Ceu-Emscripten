@@ -4,7 +4,6 @@
 #include "ceu_types.h"
 
 #define CEU_EXTS
-#define CEU_WCLOCKS
 #define CEU_CLEAR
 #define CEU_GOTO
 #define CEU_RET
@@ -1618,18 +1617,20 @@ void ceu_pool_free (tceu_pool* pool, byte* val);
 #define CEU_IN__WCLOCK 248
 #define CEU_IN_SDL_REDRAW 247
 #define CEU_IN_SDL_QUIT 246
+#define CEU_IN_SDL_DT 245
 #define CEU_IN_higher CEU_IN__INIT
-#define CEU_IN_lower 246
+#define CEU_IN_lower 245
 #define CEU_OUT_n 0
       /* CEU_IN_, CEU_OUT_ */
 #define CEU_FUN_SDL_SetRenderDrawColor
+#define CEU_FUN_printf
+#define CEU_FUN_SDL_CreateWindow
+#define CEU_FUN_SDL_GetWindowSize
 #define CEU_FUN_SDL_RenderFillRect
-#define CEU_FUN_SDL_DestroyRenderer
 #define CEU_FUN_SDL_RenderPresent
+#define CEU_FUN_SDL_DestroyRenderer
 #define CEU_FUN_SDL_CreateRenderer
 #define CEU_FUN_SDL_DestroyWindow
-#define CEU_FUN_SDL_GetWindowSize
-#define CEU_FUN_SDL_CreateWindow
    /* CEU_FUN_ */
 typedef struct {
 	int _1;
@@ -1682,7 +1683,7 @@ typedef                           struct { /* BLOCK ln=16 */
                           }  CEU_SDL_Rect;
 
 enum {
-CEU_NONE544,
+CEU_NONE577,
 CEU__OPTION___SDL_WINDOW__REF_NIL,
 CEU__OPTION___SDL_WINDOW__REF_SOME
 };
@@ -1690,9 +1691,9 @@ CEU__OPTION___SDL_WINDOW__REF_SOME
 typedef struct CEU__Option___SDL_Window__ref {
     u8 tag;
     union {
-                              struct { /* BLOCK ln=6 */
+                              struct { /* BLOCK ln=7 */
                               } NIL;
-                              struct { /* BLOCK ln=6 */
+                              struct { /* BLOCK ln=7 */
                                 SDL_Window* v;
                               } SOME;
     };
@@ -1700,7 +1701,7 @@ typedef struct CEU__Option___SDL_Window__ref {
  CEU__Option___SDL_Window__ref;
 
 enum {
-CEU_NONE550,
+CEU_NONE583,
 CEU__OPTION___SDL_RENDERER__REF_NIL,
 CEU__OPTION___SDL_RENDERER__REF_SOME
 };
@@ -1708,9 +1709,9 @@ CEU__OPTION___SDL_RENDERER__REF_SOME
 typedef struct CEU__Option___SDL_Renderer__ref {
     u8 tag;
     union {
-                              struct { /* BLOCK ln=19 */
+                              struct { /* BLOCK ln=20 */
                               } NIL;
-                              struct { /* BLOCK ln=19 */
+                              struct { /* BLOCK ln=20 */
                                 SDL_Renderer* v;
                               } SOME;
     };
@@ -1732,8 +1733,8 @@ typedef struct CEU_Main {
                 union {
                   union {
                     struct { /* BLOCK ln=1 */
-                    u8 __fin_232_1: 1;
-                    u8 __fin_232_2: 1;
+                    u8 __fin_243_1: 1;
+                    u8 __fin_243_2: 1;
                       CEU__Option___SDL_Window__ref win;
                       int w;
                       int h;
@@ -1788,12 +1789,14 @@ typedef struct CEU_Main {
                         union {
                         };
                         union {
+                        };
+                        union {
                                 union {
                                 };
                                 union {
                                 };
                         };
-                            struct { /* BLOCK ln=13 */
+                            struct { /* BLOCK ln=14 */
                               union {
                               };
                             } ;
@@ -1805,7 +1808,7 @@ typedef struct CEU_Main {
                                 union {
                                 };
                         };
-                            struct { /* BLOCK ln=23 */
+                            struct { /* BLOCK ln=24 */
                               union {
                               };
                             } ;
@@ -1818,22 +1821,23 @@ typedef struct CEU_Main {
                         union {
                         };
                         struct {
-                          struct { /* BLOCK ln=33 */
+                          struct { /* BLOCK ln=34 */
                             union {
                               union {
                               };
                             };
                           } ;
-                          struct { /* BLOCK ln=35 */
+                          struct { /* BLOCK ln=36 */
                             union {
-                              struct { /* BLOCK ln=35 */
+                              struct { /* BLOCK ln=36 */
                                 union {
                                   union {
                                   };
-                                    struct { /* BLOCK ln=36 */
+                                    struct { /* BLOCK ln=37 */
                                       union {
                                         union {
-                                            s32 __wclk_461;
+                                          union {
+                                          };
                                         };
                                       };
                                     } ;
@@ -1841,13 +1845,13 @@ typedef struct CEU_Main {
                               } ;
                             };
                           } ;
-                          struct { /* BLOCK ln=40 */
+                          struct { /* BLOCK ln=43 */
                             union {
-                              struct { /* BLOCK ln=40 */
+                              struct { /* BLOCK ln=43 */
                                 union {
                                   union {
                                   };
-                                    struct { /* BLOCK ln=41 */
+                                    struct { /* BLOCK ln=44 */
                                       union {
                                         union {
                                         };

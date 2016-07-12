@@ -1,0 +1,117 @@
+#include "sdl.ceu"
+
+input void SDL_REDRAW;
+input void SDL_QUIT;
+input _SDL_KeyboardEvent&&    SDL_KEYDOWN;
+input _SDL_MouseButtonEvent&& SDL_MOUSEBUTTONDOWN;
+
+input void SDL_REDRAW;
+input void SDL_QUIT;
+
+var _SDL_Window&? win;
+    finalize
+        win = &_SDL_CreateWindow("SDL 2", _SDL_WINDOWPOS_CENTERED,
+                                         _SDL_WINDOWPOS_CENTERED,
+                                         800, 480,
+                                         _SDL_WINDOW_SHOWN);
+    with
+        _SDL_DestroyWindow(&&win!);
+    end
+
+var int w=0, h=0;
+_SDL_GetWindowSize(&&win!, &&w, &&h);
+
+var _SDL_Renderer&? ren;
+    finalize
+        ren = &_SDL_CreateRenderer(&&win!, -1, 0);
+    with
+        _SDL_DestroyRenderer(&&ren!);
+    end
+
+var SDL_Rect  bg     = SDL_Rect(0,0 , w,h);
+var SDL_Color bg_clr = SDL_Color(0x00, 0x00, 0x00, 0xFF);
+
+class Rect with
+    var _SDL_Renderer& ren;
+    var SDL_Rect       rect;
+do
+    var _SDL_Color clr = _SDL_Color(0x00,0xFF,0xFF);
+
+    event int go_oriz;
+    event int go_vert;
+
+    par/or do
+    	//MOVE THE PLAYER
+    	par/or do
+	        loop do
+	            var int v = await go_oriz;
+	            rect.x = rect.x + v;
+	            if rect.x > 1500 then
+	            	break;
+	            end
+	        end
+        with
+        	loop do
+	            var int v = await go_vert;
+	            rect.y = rect.y + v;
+	        end
+        end
+    with
+    	//KEYBOARD EVENTS
+    	loop do
+    		var _SDL_KeyboardEvent&& key = await SDL_KEYDOWN;
+            if key:keysym.sym == _SDLK_a then
+                emit go_oriz => -10;
+            else/if key:keysym.sym == _SDLK_d then
+                emit go_oriz => 10;
+            else/if key:keysym.sym == _SDLK_w then
+            	emit go_vert => -10;
+            else/if key:keysym.sym == _SDLK_s then
+            	emit go_vert => 10;
+            end
+    	end
+    with
+        every SDL_REDRAW do
+            _SDL_SetRenderDrawColor(&&ren, clr.r,clr.g,clr.b,0xFF);
+            _SDL_RenderFillRect(&&ren, (_SDL_Rect&&)&&rect);
+        end
+    end
+end
+
+
+
+
+
+
+
+
+
+par/or do
+    await SDL_QUIT;
+with
+    every SDL_REDRAW do
+        _SDL_SetRenderDrawColor(&&ren!, bg_clr.r,bg_clr.g,bg_clr.b,0xFF);
+        _SDL_RenderFillRect(&&ren!, (_SDL_Rect&&)&&bg);
+    end
+with
+
+    var Rect r1 with
+        this.ren  = &ren!;
+        this.rect = SDL_Rect(100,100,20,20);
+    end;
+
+    loop do
+    	var _SDL_KeyboardEvent&& key = await SDL_KEYDOWN;
+        if key:keysym.sym == _SDLK_ESCAPE then
+            break;
+        end
+    end
+
+
+with
+    every SDL_REDRAW do
+        _SDL_RenderPresent(&&ren!);
+    end
+end
+
+escape 0;

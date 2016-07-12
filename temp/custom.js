@@ -21,10 +21,10 @@ function draw(timestamp) {
 
 console.log(diff);
 
-	if (elapsed <= 20000000) {
 		requestAnimationFrame(draw);
 		_ceu_draw(diff);
-	}
+		_update(diff);
+
 
 		
 }

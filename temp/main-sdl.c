@@ -204,7 +204,6 @@ int ceu_draw(u32 oldee) {
 
 #ifdef CEU_IN_SDL_REDRAW
 
-
             ceu_sys_go(&app, CEU_IN_SDL_REDRAW, NULL);
     #ifdef CEU_RET
                 if (! app.isAlive)
@@ -212,6 +211,7 @@ int ceu_draw(u32 oldee) {
     #endif
 
 #endif
+
 
 //#endif  /* SIMULATION_TEST */
 
@@ -263,7 +263,7 @@ void update(s32 time) {
 		ceu_sys_go(&app, CEU_IN__WCLOCK, &dt_us);
 
 		//DRAW FUNCTION
-		ceu_sys_go(&app, CEU_IN_SDL_REDRAW, NULL);
+		//ceu_sys_go(&app, CEU_IN_SDL_REDRAW, NULL);
 
 		//When there are no timed events
 		if (WCLOCK_nxt == prev) {

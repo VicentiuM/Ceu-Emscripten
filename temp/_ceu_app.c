@@ -34,7 +34,6 @@ SOFTWARE.
 #include "ceu_types.h"
 
 #define CEU_EXTS
-#define CEU_WCLOCKS
 #define CEU_CLEAR
 #define CEU_GOTO
 #define CEU_RET
@@ -1648,18 +1647,20 @@ void ceu_pool_free (tceu_pool* pool, byte* val);
 #define CEU_IN__WCLOCK 248
 #define CEU_IN_SDL_REDRAW 247
 #define CEU_IN_SDL_QUIT 246
+#define CEU_IN_SDL_DT 245
 #define CEU_IN_higher CEU_IN__INIT
-#define CEU_IN_lower 246
+#define CEU_IN_lower 245
 #define CEU_OUT_n 0
       /* CEU_IN_, CEU_OUT_ */
 #define CEU_FUN_SDL_SetRenderDrawColor
+#define CEU_FUN_printf
+#define CEU_FUN_SDL_CreateWindow
+#define CEU_FUN_SDL_GetWindowSize
 #define CEU_FUN_SDL_RenderFillRect
-#define CEU_FUN_SDL_DestroyRenderer
 #define CEU_FUN_SDL_RenderPresent
+#define CEU_FUN_SDL_DestroyRenderer
 #define CEU_FUN_SDL_CreateRenderer
 #define CEU_FUN_SDL_DestroyWindow
-#define CEU_FUN_SDL_GetWindowSize
-#define CEU_FUN_SDL_CreateWindow
    /* CEU_FUN_ */
 typedef struct {
 	int _1;
@@ -1712,7 +1713,7 @@ typedef                           struct { /* BLOCK ln=16 */
                           }  CEU_SDL_Rect;
 
 enum {
-CEU_NONE544,
+CEU_NONE577,
 CEU__OPTION___SDL_WINDOW__REF_NIL,
 CEU__OPTION___SDL_WINDOW__REF_SOME
 };
@@ -1720,9 +1721,9 @@ CEU__OPTION___SDL_WINDOW__REF_SOME
 typedef struct CEU__Option___SDL_Window__ref {
     u8 tag;
     union {
-                              struct { /* BLOCK ln=6 */
+                              struct { /* BLOCK ln=7 */
                               } NIL;
-                              struct { /* BLOCK ln=6 */
+                              struct { /* BLOCK ln=7 */
                                 SDL_Window* v;
                               } SOME;
     };
@@ -1730,7 +1731,7 @@ typedef struct CEU__Option___SDL_Window__ref {
  CEU__Option___SDL_Window__ref;
 
 enum {
-CEU_NONE550,
+CEU_NONE583,
 CEU__OPTION___SDL_RENDERER__REF_NIL,
 CEU__OPTION___SDL_RENDERER__REF_SOME
 };
@@ -1738,9 +1739,9 @@ CEU__OPTION___SDL_RENDERER__REF_SOME
 typedef struct CEU__Option___SDL_Renderer__ref {
     u8 tag;
     union {
-                              struct { /* BLOCK ln=19 */
+                              struct { /* BLOCK ln=20 */
                               } NIL;
-                              struct { /* BLOCK ln=19 */
+                              struct { /* BLOCK ln=20 */
                                 SDL_Renderer* v;
                               } SOME;
     };
@@ -1762,8 +1763,8 @@ typedef struct CEU_Main {
                 union {
                   union {
                     struct { /* BLOCK ln=1 */
-                    u8 __fin_232_1: 1;
-                    u8 __fin_232_2: 1;
+                    u8 __fin_243_1: 1;
+                    u8 __fin_243_2: 1;
                       CEU__Option___SDL_Window__ref win;
                       int w;
                       int h;
@@ -1818,12 +1819,14 @@ typedef struct CEU_Main {
                         union {
                         };
                         union {
+                        };
+                        union {
                                 union {
                                 };
                                 union {
                                 };
                         };
-                            struct { /* BLOCK ln=13 */
+                            struct { /* BLOCK ln=14 */
                               union {
                               };
                             } ;
@@ -1835,7 +1838,7 @@ typedef struct CEU_Main {
                                 union {
                                 };
                         };
-                            struct { /* BLOCK ln=23 */
+                            struct { /* BLOCK ln=24 */
                               union {
                               };
                             } ;
@@ -1848,22 +1851,23 @@ typedef struct CEU_Main {
                         union {
                         };
                         struct {
-                          struct { /* BLOCK ln=33 */
+                          struct { /* BLOCK ln=34 */
                             union {
                               union {
                               };
                             };
                           } ;
-                          struct { /* BLOCK ln=35 */
+                          struct { /* BLOCK ln=36 */
                             union {
-                              struct { /* BLOCK ln=35 */
+                              struct { /* BLOCK ln=36 */
                                 union {
                                   union {
                                   };
-                                    struct { /* BLOCK ln=36 */
+                                    struct { /* BLOCK ln=37 */
                                       union {
                                         union {
-                                            s32 __wclk_461;
+                                          union {
+                                          };
                                         };
                                       };
                                     } ;
@@ -1871,13 +1875,13 @@ typedef struct CEU_Main {
                               } ;
                             };
                           } ;
-                          struct { /* BLOCK ln=40 */
+                          struct { /* BLOCK ln=43 */
                             union {
-                              struct { /* BLOCK ln=40 */
+                              struct { /* BLOCK ln=43 */
                                 union {
                                   union {
                                   };
-                                    struct { /* BLOCK ln=41 */
+                                    struct { /* BLOCK ln=44 */
                                       union {
                                         union {
                                         };
@@ -6917,8 +6921,8 @@ enum {
     Main_ParOr_sub_2_2 = 2,
     Main_ParOr_out_3 = 3,
     Main_Awake_SDL_QUIT_4 = 4,
-    Main_Awake_DT_5 = 5,
-    Main_Awake_SDL_REDRAW_6 = 6,
+    Main_Awake_SDL_DT_5 = 5,
+    Main_Awake_SDL_DT_6 = 6,
     Main_Block__fin_7 = 7,
     Class_Main = 8,
 
@@ -7233,34 +7237,34 @@ printf("OK : lbl=%d : org=%p\n", _ceu_lbl, _ceu_org);
 #endif
 
     switch (_ceu_lbl) {
-        /* NODE: Root 245 */
+        /* NODE: Root 256 */
 /* NODE: Dcl_cls 0 */
 
 #line 1 "sdl1.ceu"
-case Class_Main:;/* NODE: Block 538 */
+case Class_Main:;/* NODE: Block 571 */
 
 #line 1 "sdl1.ceu"
-    {/* NODE: Stmts 537 */
+    {/* NODE: Stmts 570 */
 
 #line 1 "sdl1.ceu"
-    {/* NODE: Block 251 */
+    {/* NODE: Block 262 */
+
+#line 1 "sdl1.ceu"
+    {/* NODE: Stmts 261 */
+
+#line 1 "sdl1.ceu"
+    {/* NODE: Dcl_var 258 */
+/* NODE: SetBlock 260 */
+/* NODE: Block 254 */
+
+#line 1 "sdl1.ceu"
+    {/* NODE: Stmts 253 */
 
 #line 1 "sdl1.ceu"
     {/* NODE: Stmts 250 */
 
 #line 1 "sdl1.ceu"
-    {/* NODE: Dcl_var 247 */
-/* NODE: SetBlock 249 */
-/* NODE: Block 243 */
-
-#line 1 "sdl1.ceu"
-    {/* NODE: Stmts 242 */
-
-#line 1 "sdl1.ceu"
-    {/* NODE: Stmts 239 */
-
-#line 1 "sdl1.ceu"
-    {/* NODE: Block 232 */
+    {/* NODE: Block 243 */
 
 #line 1 "sdl1.ceu"
     /*  FINALIZE */
@@ -7268,9 +7272,9 @@ _ceu_org->trls[ 3 ].evt = CEU_IN__CLEAR;
 _ceu_org->trls[ 3 ].lbl = Main_Block__fin_7;
 
 #line 1 "sdl1.ceu"
-    ((CEU_Main*)_ceu_org)->__fin_232_1 = 0;
+    ((CEU_Main*)_ceu_org)->__fin_243_1 = 0;
 #line 1 "sdl1.ceu"
-    ((CEU_Main*)_ceu_org)->__fin_232_2 = 0;
+    ((CEU_Main*)_ceu_org)->__fin_243_2 = 0;
 #line 1 "sdl1.ceu"
     {
 #line 1 "sdl1.ceu"
@@ -7278,54 +7282,43 @@ _ceu_org->trls[ 3 ].lbl = Main_Block__fin_7;
 
 #line 1 "sdl1.ceu"
     (((CEU_Main*)_ceu_org)->ren).tag = CEU__OPTION___SDL_RENDERER__REF_NIL;
-/* NODE: Stmts 230 */
+/* NODE: Stmts 241 */
 
 #line 4 "sdl.ceu"
     {/* NODE: Dcl_adt 8 */
 /* NODE: Dcl_adt 13 */
 /* NODE: Dcl_adt 22 */
-/* NODE: Stmts 285 */
+/* NODE: Stmts 296 */
 
 #line 23 "sdl.ceu"
-    {/* NODE: Dcl_nat 283 */
-/* NODE: Dcl_nat 284 */
-
-#line 23 "sdl.ceu"
-    }/* NODE: Stmts 289 */
-
-#line 24 "sdl.ceu"
-    {/* NODE: Dcl_nat 286 */
-/* NODE: Dcl_nat 287 */
-/* NODE: Dcl_nat 288 */
-
-#line 24 "sdl.ceu"
-    }/* NODE: Stmts 297 */
-
-#line 26 "sdl.ceu"
-    {/* NODE: Dcl_nat 290 */
-/* NODE: Dcl_nat 291 */
-/* NODE: Dcl_nat 292 */
-/* NODE: Dcl_nat 293 */
-/* NODE: Dcl_nat 294 */
+    {/* NODE: Dcl_nat 294 */
 /* NODE: Dcl_nat 295 */
-/* NODE: Dcl_nat 296 */
+
+#line 23 "sdl.ceu"
+    }/* NODE: Stmts 300 */
+
+#line 24 "sdl.ceu"
+    {/* NODE: Dcl_nat 297 */
+/* NODE: Dcl_nat 298 */
+/* NODE: Dcl_nat 299 */
+
+#line 24 "sdl.ceu"
+    }/* NODE: Stmts 308 */
 
 #line 26 "sdl.ceu"
-    }/* NODE: Stmts 317 */
-
-#line 32 "sdl.ceu"
-    {/* NODE: Dcl_nat 298 */
-/* NODE: Dcl_nat 299 */
-/* NODE: Dcl_nat 300 */
-/* NODE: Dcl_nat 301 */
+    {/* NODE: Dcl_nat 301 */
 /* NODE: Dcl_nat 302 */
 /* NODE: Dcl_nat 303 */
 /* NODE: Dcl_nat 304 */
 /* NODE: Dcl_nat 305 */
 /* NODE: Dcl_nat 306 */
 /* NODE: Dcl_nat 307 */
-/* NODE: Dcl_nat 308 */
-/* NODE: Dcl_nat 309 */
+
+#line 26 "sdl.ceu"
+    }/* NODE: Stmts 328 */
+
+#line 32 "sdl.ceu"
+    {/* NODE: Dcl_nat 309 */
 /* NODE: Dcl_nat 310 */
 /* NODE: Dcl_nat 311 */
 /* NODE: Dcl_nat 312 */
@@ -7333,32 +7326,32 @@ _ceu_org->trls[ 3 ].lbl = Main_Block__fin_7;
 /* NODE: Dcl_nat 314 */
 /* NODE: Dcl_nat 315 */
 /* NODE: Dcl_nat 316 */
-
-#line 32 "sdl.ceu"
-    }/* NODE: Stmts 322 */
-
-#line 50 "sdl.ceu"
-    {/* NODE: Dcl_nat 318 */
+/* NODE: Dcl_nat 317 */
+/* NODE: Dcl_nat 318 */
 /* NODE: Dcl_nat 319 */
 /* NODE: Dcl_nat 320 */
 /* NODE: Dcl_nat 321 */
-
-#line 50 "sdl.ceu"
-    }/* NODE: Stmts 375 */
-
-#line 55 "sdl.ceu"
-    {/* NODE: Dcl_nat 323 */
+/* NODE: Dcl_nat 322 */
+/* NODE: Dcl_nat 323 */
 /* NODE: Dcl_nat 324 */
 /* NODE: Dcl_nat 325 */
 /* NODE: Dcl_nat 326 */
 /* NODE: Dcl_nat 327 */
-/* NODE: Dcl_nat 328 */
-/* NODE: Dcl_nat 329 */
+
+#line 32 "sdl.ceu"
+    }/* NODE: Stmts 333 */
+
+#line 50 "sdl.ceu"
+    {/* NODE: Dcl_nat 329 */
 /* NODE: Dcl_nat 330 */
 /* NODE: Dcl_nat 331 */
 /* NODE: Dcl_nat 332 */
-/* NODE: Dcl_nat 333 */
-/* NODE: Dcl_nat 334 */
+
+#line 50 "sdl.ceu"
+    }/* NODE: Stmts 386 */
+
+#line 55 "sdl.ceu"
+    {/* NODE: Dcl_nat 334 */
 /* NODE: Dcl_nat 335 */
 /* NODE: Dcl_nat 336 */
 /* NODE: Dcl_nat 337 */
@@ -7399,12 +7392,8 @@ _ceu_org->trls[ 3 ].lbl = Main_Block__fin_7;
 /* NODE: Dcl_nat 372 */
 /* NODE: Dcl_nat 373 */
 /* NODE: Dcl_nat 374 */
-
-#line 55 "sdl.ceu"
-    }/* NODE: Stmts 384 */
-
-#line 108 "sdl.ceu"
-    {/* NODE: Dcl_nat 376 */
+/* NODE: Dcl_nat 375 */
+/* NODE: Dcl_nat 376 */
 /* NODE: Dcl_nat 377 */
 /* NODE: Dcl_nat 378 */
 /* NODE: Dcl_nat 379 */
@@ -7412,234 +7401,255 @@ _ceu_org->trls[ 3 ].lbl = Main_Block__fin_7;
 /* NODE: Dcl_nat 381 */
 /* NODE: Dcl_nat 382 */
 /* NODE: Dcl_nat 383 */
+/* NODE: Dcl_nat 384 */
+/* NODE: Dcl_nat 385 */
+
+#line 55 "sdl.ceu"
+    }/* NODE: Stmts 395 */
+
+#line 108 "sdl.ceu"
+    {/* NODE: Dcl_nat 387 */
+/* NODE: Dcl_nat 388 */
+/* NODE: Dcl_nat 389 */
+/* NODE: Dcl_nat 390 */
+/* NODE: Dcl_nat 391 */
+/* NODE: Dcl_nat 392 */
+/* NODE: Dcl_nat 393 */
+/* NODE: Dcl_nat 394 */
 
 #line 108 "sdl.ceu"
     }/* NODE: Host 30 */
-/* NODE: Stmts 387 */
+/* NODE: Stmts 398 */
 
 #line 3 "sdl1.ceu"
-    {/* NODE: Dcl_ext 386 */
+    {/* NODE: Dcl_ext 397 */
 
 #line 3 "sdl1.ceu"
-    }/* NODE: Stmts 390 */
+    }/* NODE: Stmts 401 */
 
 #line 4 "sdl1.ceu"
-    {/* NODE: Dcl_ext 389 */
+    {/* NODE: Dcl_ext 400 */
 
 #line 4 "sdl1.ceu"
-    }/* NODE: Stmts 393 */
+    }/* NODE: Stmts 405 */
 
-#line 6 "sdl1.ceu"
-    {/* NODE: Dcl_adt 544 */
-/* NODE: Dcl_var 392 */
+#line 5 "sdl1.ceu"
+    {/* NODE: Dcl_ext 404 */
 
-#line 6 "sdl1.ceu"
-    }/* NODE: Finalize 59 */
+#line 5 "sdl1.ceu"
+    }/* NODE: Stmts 408 */
 
 #line 7 "sdl1.ceu"
-    ((CEU_Main*)_ceu_org)->__fin_232_2 = 1;/* NODE: Set 394 */
-
-#line 8 "sdl1.ceu"
-/* SET: win *//* NODE: Op1_& 47 */
-
-#line 8 "sdl1.ceu"
-    (((CEU_Main*)_ceu_org)->win) = (CEU__OPTION___SDL_WINDOW__REF_pack(SDL_CreateWindow("SDL 1",SDL_WINDOWPOS_CENTERED,SDL_WINDOWPOS_CENTERED,800,480,SDL_WINDOW_SHOWN)));/* NODE: Stmts 403 */
-
-#line 16 "sdl1.ceu"
-    {/* NODE: Dcl_var 396 */
-/* NODE: Set 404 */
-
-#line 16 "sdl1.ceu"
-/* SET: w *//* NODE: NUMBER 61 */
-
-#line 16 "sdl1.ceu"
-    (((CEU_Main*)_ceu_org)->w) = 0;/* NODE: Dcl_var 400 */
-/* NODE: Set 405 */
-
-#line 16 "sdl1.ceu"
-/* SET: h *//* NODE: NUMBER 62 */
-
-#line 16 "sdl1.ceu"
-    (((CEU_Main*)_ceu_org)->h) = 0;
-#line 16 "sdl1.ceu"
-    }/* NODE: CallStmt 74 */
-
-#line 17 "sdl1.ceu"
-    SDL_GetWindowSize(((CEU__OPTION___SDL_WINDOW__REF_SOME_assert(_ceu_app, (&((CEU_Main*)_ceu_org)->win),__FILE__,__LINE__)->SOME.v)),(&((CEU_Main*)_ceu_org)->w),(&((CEU_Main*)_ceu_org)->h));/* NODE: Stmts 408 */
-
-#line 19 "sdl1.ceu"
-    {/* NODE: Dcl_adt 550 */
+    {/* NODE: Dcl_adt 577 */
 /* NODE: Dcl_var 407 */
 
-#line 19 "sdl1.ceu"
-    }/* NODE: Finalize 99 */
+#line 7 "sdl1.ceu"
+    }/* NODE: Finalize 61 */
+
+#line 8 "sdl1.ceu"
+    ((CEU_Main*)_ceu_org)->__fin_243_2 = 1;/* NODE: Set 409 */
+
+#line 9 "sdl1.ceu"
+/* SET: win *//* NODE: Op1_& 49 */
+
+#line 9 "sdl1.ceu"
+    (((CEU_Main*)_ceu_org)->win) = (CEU__OPTION___SDL_WINDOW__REF_pack(SDL_CreateWindow("SDL 1",SDL_WINDOWPOS_CENTERED,SDL_WINDOWPOS_CENTERED,800,480,SDL_WINDOW_SHOWN)));/* NODE: Stmts 418 */
+
+#line 17 "sdl1.ceu"
+    {/* NODE: Dcl_var 411 */
+/* NODE: Set 419 */
+
+#line 17 "sdl1.ceu"
+/* SET: w *//* NODE: NUMBER 63 */
+
+#line 17 "sdl1.ceu"
+    (((CEU_Main*)_ceu_org)->w) = 0;/* NODE: Dcl_var 415 */
+/* NODE: Set 420 */
+
+#line 17 "sdl1.ceu"
+/* SET: h *//* NODE: NUMBER 64 */
+
+#line 17 "sdl1.ceu"
+    (((CEU_Main*)_ceu_org)->h) = 0;
+#line 17 "sdl1.ceu"
+    }/* NODE: CallStmt 76 */
+
+#line 18 "sdl1.ceu"
+    SDL_GetWindowSize(((CEU__OPTION___SDL_WINDOW__REF_SOME_assert(_ceu_app, (&((CEU_Main*)_ceu_org)->win),__FILE__,__LINE__)->SOME.v)),(&((CEU_Main*)_ceu_org)->w),(&((CEU_Main*)_ceu_org)->h));/* NODE: Stmts 423 */
 
 #line 20 "sdl1.ceu"
-    ((CEU_Main*)_ceu_org)->__fin_232_1 = 1;/* NODE: Set 409 */
+    {/* NODE: Dcl_adt 583 */
+/* NODE: Dcl_var 422 */
+
+#line 20 "sdl1.ceu"
+    }/* NODE: Finalize 101 */
 
 #line 21 "sdl1.ceu"
-/* SET: ren *//* NODE: Op1_& 87 */
+    ((CEU_Main*)_ceu_org)->__fin_243_1 = 1;/* NODE: Set 424 */
 
-#line 21 "sdl1.ceu"
-    (((CEU_Main*)_ceu_org)->ren) = (CEU__OPTION___SDL_RENDERER__REF_pack(SDL_CreateRenderer(((CEU__OPTION___SDL_WINDOW__REF_SOME_assert(_ceu_app, (&((CEU_Main*)_ceu_org)->win),__FILE__,__LINE__)->SOME.v)),(-1),0)));/* NODE: Stmts 414 */
+#line 22 "sdl1.ceu"
+/* SET: ren *//* NODE: Op1_& 89 */
 
-#line 26 "sdl1.ceu"
-    {/* NODE: Dcl_var 411 */
-/* NODE: Set 415 */
+#line 22 "sdl1.ceu"
+    (((CEU_Main*)_ceu_org)->ren) = (CEU__OPTION___SDL_RENDERER__REF_pack(SDL_CreateRenderer(((CEU__OPTION___SDL_WINDOW__REF_SOME_assert(_ceu_app, (&((CEU_Main*)_ceu_org)->win),__FILE__,__LINE__)->SOME.v)),(-1),0)));/* NODE: Stmts 429 */
 
-#line 26 "sdl1.ceu"
-/* SET: bg *//* NODE: Adt_constr_root 108 */
+#line 27 "sdl1.ceu"
+    {/* NODE: Dcl_var 426 */
+/* NODE: Set 430 */
 
-#line 26 "sdl1.ceu"
-    {/* NODE: Adt_constr_one 107 */
+#line 27 "sdl1.ceu"
+/* SET: bg *//* NODE: Adt_constr_root 110 */
 
-#line 26 "sdl1.ceu"
-    CEU_SDL_Rect __ceu_adt_107;
+#line 27 "sdl1.ceu"
+    {/* NODE: Adt_constr_one 109 */
 
-#line 26 "sdl1.ceu"
-    {/* NODE: ExpList 106 */
-/* NODE: NUMBER 102 */
-/* NODE: NUMBER 103 */
-/* NODE: Var 104 */
-/* NODE: Var 105 */
+#line 27 "sdl1.ceu"
+    CEU_SDL_Rect __ceu_adt_109;
 
-#line 26 "sdl1.ceu"
-    __ceu_adt_107.x = 0;
-#line 26 "sdl1.ceu"
-    __ceu_adt_107.y = 0;
-#line 26 "sdl1.ceu"
-    __ceu_adt_107.w = (((CEU_Main*)_ceu_org)->w);
-#line 26 "sdl1.ceu"
-    __ceu_adt_107.h = (((CEU_Main*)_ceu_org)->h);
-#line 26 "sdl1.ceu"
+#line 27 "sdl1.ceu"
+    {/* NODE: ExpList 108 */
+/* NODE: NUMBER 104 */
+/* NODE: NUMBER 105 */
+/* NODE: Var 106 */
+/* NODE: Var 107 */
+
+#line 27 "sdl1.ceu"
+    __ceu_adt_109.x = 0;
+#line 27 "sdl1.ceu"
+    __ceu_adt_109.y = 0;
+#line 27 "sdl1.ceu"
+    __ceu_adt_109.w = (((CEU_Main*)_ceu_org)->w);
+#line 27 "sdl1.ceu"
+    __ceu_adt_109.h = (((CEU_Main*)_ceu_org)->h);
+#line 27 "sdl1.ceu"
     }
-#line 26 "sdl1.ceu"
-    (((CEU_Main*)_ceu_org)->bg) = __ceu_adt_107;
-#line 26 "sdl1.ceu"
+#line 27 "sdl1.ceu"
+    (((CEU_Main*)_ceu_org)->bg) = __ceu_adt_109;
+#line 27 "sdl1.ceu"
     }
-#line 26 "sdl1.ceu"
-    }/* NODE: Stmts 420 */
-
 #line 27 "sdl1.ceu"
-    {/* NODE: Dcl_var 417 */
-/* NODE: Set 421 */
+    }/* NODE: Stmts 435 */
 
-#line 27 "sdl1.ceu"
-/* SET: bg_clr *//* NODE: Adt_constr_root 118 */
+#line 28 "sdl1.ceu"
+    {/* NODE: Dcl_var 432 */
+/* NODE: Set 436 */
 
-#line 27 "sdl1.ceu"
-    {/* NODE: Adt_constr_one 117 */
+#line 28 "sdl1.ceu"
+/* SET: bg_clr *//* NODE: Adt_constr_root 120 */
 
-#line 27 "sdl1.ceu"
-    CEU_SDL_Color __ceu_adt_117;
+#line 28 "sdl1.ceu"
+    {/* NODE: Adt_constr_one 119 */
 
-#line 27 "sdl1.ceu"
-    {/* NODE: ExpList 116 */
-/* NODE: NUMBER 112 */
-/* NODE: NUMBER 113 */
+#line 28 "sdl1.ceu"
+    CEU_SDL_Color __ceu_adt_119;
+
+#line 28 "sdl1.ceu"
+    {/* NODE: ExpList 118 */
 /* NODE: NUMBER 114 */
 /* NODE: NUMBER 115 */
+/* NODE: NUMBER 116 */
+/* NODE: NUMBER 117 */
 
-#line 27 "sdl1.ceu"
-    __ceu_adt_117.r = 0xFF;
-#line 27 "sdl1.ceu"
-    __ceu_adt_117.g = 0xFF;
-#line 27 "sdl1.ceu"
-    __ceu_adt_117.b = 0x00;
-#line 27 "sdl1.ceu"
-    __ceu_adt_117.a = 0xFF;
-#line 27 "sdl1.ceu"
+#line 28 "sdl1.ceu"
+    __ceu_adt_119.r = 0xFF;
+#line 28 "sdl1.ceu"
+    __ceu_adt_119.g = 0xFF;
+#line 28 "sdl1.ceu"
+    __ceu_adt_119.b = 0x00;
+#line 28 "sdl1.ceu"
+    __ceu_adt_119.a = 0xFF;
+#line 28 "sdl1.ceu"
     }
-#line 27 "sdl1.ceu"
-    (((CEU_Main*)_ceu_org)->bg_clr) = __ceu_adt_117;
-#line 27 "sdl1.ceu"
+#line 28 "sdl1.ceu"
+    (((CEU_Main*)_ceu_org)->bg_clr) = __ceu_adt_119;
+#line 28 "sdl1.ceu"
     }
-#line 27 "sdl1.ceu"
-    }/* NODE: Stmts 426 */
+#line 28 "sdl1.ceu"
+    }/* NODE: Stmts 441 */
 
-#line 29 "sdl1.ceu"
-    {/* NODE: Dcl_var 423 */
-/* NODE: Set 427 */
+#line 30 "sdl1.ceu"
+    {/* NODE: Dcl_var 438 */
+/* NODE: Set 442 */
 
-#line 29 "sdl1.ceu"
-/* SET: fg *//* NODE: Adt_constr_root 128 */
+#line 30 "sdl1.ceu"
+/* SET: fg *//* NODE: Adt_constr_root 130 */
 
-#line 29 "sdl1.ceu"
-    {/* NODE: Adt_constr_one 127 */
+#line 30 "sdl1.ceu"
+    {/* NODE: Adt_constr_one 129 */
 
-#line 29 "sdl1.ceu"
-    CEU_SDL_Rect __ceu_adt_127;
+#line 30 "sdl1.ceu"
+    CEU_SDL_Rect __ceu_adt_129;
 
-#line 29 "sdl1.ceu"
-    {/* NODE: ExpList 126 */
-/* NODE: NUMBER 122 */
-/* NODE: NUMBER 123 */
+#line 30 "sdl1.ceu"
+    {/* NODE: ExpList 128 */
 /* NODE: NUMBER 124 */
 /* NODE: NUMBER 125 */
+/* NODE: NUMBER 126 */
+/* NODE: NUMBER 127 */
 
-#line 29 "sdl1.ceu"
-    __ceu_adt_127.x = 100;
-#line 29 "sdl1.ceu"
-    __ceu_adt_127.y = 100;
-#line 29 "sdl1.ceu"
-    __ceu_adt_127.w = 100;
-#line 29 "sdl1.ceu"
-    __ceu_adt_127.h = 100;
-#line 29 "sdl1.ceu"
+#line 30 "sdl1.ceu"
+    __ceu_adt_129.x = 100;
+#line 30 "sdl1.ceu"
+    __ceu_adt_129.y = 100;
+#line 30 "sdl1.ceu"
+    __ceu_adt_129.w = 100;
+#line 30 "sdl1.ceu"
+    __ceu_adt_129.h = 100;
+#line 30 "sdl1.ceu"
     }
-#line 29 "sdl1.ceu"
-    (((CEU_Main*)_ceu_org)->fg) = __ceu_adt_127;
-#line 29 "sdl1.ceu"
+#line 30 "sdl1.ceu"
+    (((CEU_Main*)_ceu_org)->fg) = __ceu_adt_129;
+#line 30 "sdl1.ceu"
     }
-#line 29 "sdl1.ceu"
-    }/* NODE: Stmts 432 */
-
 #line 30 "sdl1.ceu"
-    {/* NODE: Dcl_var 429 */
-/* NODE: Set 433 */
+    }/* NODE: Stmts 447 */
 
-#line 30 "sdl1.ceu"
-/* SET: fg_clr *//* NODE: Adt_constr_root 138 */
+#line 31 "sdl1.ceu"
+    {/* NODE: Dcl_var 444 */
+/* NODE: Set 448 */
 
-#line 30 "sdl1.ceu"
-    {/* NODE: Adt_constr_one 137 */
+#line 31 "sdl1.ceu"
+/* SET: fg_clr *//* NODE: Adt_constr_root 140 */
 
-#line 30 "sdl1.ceu"
-    CEU_SDL_Color __ceu_adt_137;
+#line 31 "sdl1.ceu"
+    {/* NODE: Adt_constr_one 139 */
 
-#line 30 "sdl1.ceu"
-    {/* NODE: ExpList 136 */
-/* NODE: NUMBER 132 */
-/* NODE: NUMBER 133 */
+#line 31 "sdl1.ceu"
+    CEU_SDL_Color __ceu_adt_139;
+
+#line 31 "sdl1.ceu"
+    {/* NODE: ExpList 138 */
 /* NODE: NUMBER 134 */
 /* NODE: NUMBER 135 */
+/* NODE: NUMBER 136 */
+/* NODE: NUMBER 137 */
 
-#line 30 "sdl1.ceu"
-    __ceu_adt_137.r = 0xFF;
-#line 30 "sdl1.ceu"
-    __ceu_adt_137.g = 0x00;
-#line 30 "sdl1.ceu"
-    __ceu_adt_137.b = 0x00;
-#line 30 "sdl1.ceu"
-    __ceu_adt_137.a = 0xFF;
-#line 30 "sdl1.ceu"
+#line 31 "sdl1.ceu"
+    __ceu_adt_139.r = 0xFF;
+#line 31 "sdl1.ceu"
+    __ceu_adt_139.g = 0x00;
+#line 31 "sdl1.ceu"
+    __ceu_adt_139.b = 0x00;
+#line 31 "sdl1.ceu"
+    __ceu_adt_139.a = 0xFF;
+#line 31 "sdl1.ceu"
     }
-#line 30 "sdl1.ceu"
-    (((CEU_Main*)_ceu_org)->fg_clr) = __ceu_adt_137;
-#line 30 "sdl1.ceu"
+#line 31 "sdl1.ceu"
+    (((CEU_Main*)_ceu_org)->fg_clr) = __ceu_adt_139;
+#line 31 "sdl1.ceu"
     }
-#line 30 "sdl1.ceu"
-    }/* NODE: ParOr 227 */
+#line 31 "sdl1.ceu"
+    }/* NODE: ParOr 238 */
 
-#line 32 "sdl1.ceu"
+#line 33 "sdl1.ceu"
 /* ParOr: spawn subs */
-#line 32 "sdl1.ceu"
+#line 33 "sdl1.ceu"
     {
 #ifdef CEU_STACK_CLEAR
     tceu_stk stk_ = { _ceu_stk, _ceu_org, 0, 2, 1 };
 #endif
 
-#line 32 "sdl1.ceu"
+#line 33 "sdl1.ceu"
         _ceu_org->trls[ 0 ].lbl = Main_ParOr_sub_1_1;
     ceu_app_go(_ceu_app,NULL,_ceu_org,
                &_ceu_org->trls[ 0 ],
@@ -7656,7 +7666,7 @@ _ceu_org->trls[ 3 ].lbl = Main_Block__fin_7;
     }
 #endif
 
-#line 32 "sdl1.ceu"
+#line 33 "sdl1.ceu"
         _ceu_org->trls[ 1 ].lbl = Main_ParOr_sub_2_2;
     ceu_app_go(_ceu_app,NULL,_ceu_org,
                &_ceu_org->trls[ 1 ],
@@ -7673,203 +7683,232 @@ _ceu_org->trls[ 3 ].lbl = Main_Block__fin_7;
     }
 #endif
 
-#line 32 "sdl1.ceu"
+#line 33 "sdl1.ceu"
         _ceu_trl = &_ceu_org->trls[ 2 ];
 
-#line 32 "sdl1.ceu"
+#line 33 "sdl1.ceu"
     }
-/* NODE: Block 226 */
+/* NODE: Block 237 */
 
-#line 40 "sdl1.ceu"
-    {/* NODE: Stmts 225 */
+#line 43 "sdl1.ceu"
+    {/* NODE: Stmts 236 */
 
-#line 40 "sdl1.ceu"
-    {/* NODE: Block 505 */
+#line 43 "sdl1.ceu"
+    {/* NODE: Block 538 */
 
-#line 40 "sdl1.ceu"
-    {/* NODE: Stmts 504 */
+#line 43 "sdl1.ceu"
+    {/* NODE: Stmts 537 */
 
-#line 40 "sdl1.ceu"
-    {/* NODE: Stmts 503 */
+#line 43 "sdl1.ceu"
+    {/* NODE: Stmts 536 */
 
-#line 40 "sdl1.ceu"
+#line 43 "sdl1.ceu"
     {
-#line 40 "sdl1.ceu"
-    }/* NODE: Loop 502 */
+#line 43 "sdl1.ceu"
+    }/* NODE: Loop 535 */
 
-#line 40 "sdl1.ceu"
+#line 43 "sdl1.ceu"
     for (;;) {
-/* NODE: Block 223 */
-
-#line 41 "sdl1.ceu"
-    {/* NODE: Stmts 222 */
-
-#line 41 "sdl1.ceu"
-    {/* NODE: Stmts 532 */
-
-#line 40 "sdl1.ceu"
-    {/* NODE: Nothing 506 */
-/* NODE: Await 499 */
-
-#line 40 "sdl1.ceu"
-    _CEU_NO_499_:
-if (0) { goto _CEU_NO_499_; /* avoids "not used" warning */ }
-
-#line 40 "sdl1.ceu"
-    _ceu_trl->evt = CEU_IN_SDL_REDRAW;
-_ceu_trl->lbl = Main_Awake_SDL_REDRAW_6;
-_ceu_trl->seqno = _ceu_app->seqno;
-
-#line 40 "sdl1.ceu"
-    return;
-
-case Main_Awake_SDL_REDRAW_6:;
-
-#line 40 "sdl1.ceu"
-    #ifdef CEU_DEBUG_TRAILS
-#ifndef CEU_OS
-printf("\tOK!\n");
-#endif
-#endif
-/* NODE: Nothing 590 */
-/* NODE: Nothing 591 */
-
-#line 40 "sdl1.ceu"
-    }/* NODE: CallStmt 178 */
-
-#line 41 "sdl1.ceu"
-    SDL_SetRenderDrawColor(((CEU__OPTION___SDL_RENDERER__REF_SOME_assert(_ceu_app, (&((CEU_Main*)_ceu_org)->ren),__FILE__,__LINE__)->SOME.v)),(((((CEU_Main*)_ceu_org)->bg_clr).r)),(((((CEU_Main*)_ceu_org)->bg_clr).g)),(((((CEU_Main*)_ceu_org)->bg_clr).b)),0xFF);/* NODE: CallStmt 189 */
-
-#line 42 "sdl1.ceu"
-    SDL_RenderFillRect(((CEU__OPTION___SDL_RENDERER__REF_SOME_assert(_ceu_app, (&((CEU_Main*)_ceu_org)->ren),__FILE__,__LINE__)->SOME.v)),((SDL_Rect*)(&((CEU_Main*)_ceu_org)->bg)));/* NODE: CallStmt 203 */
+/* NODE: Block 234 */
 
 #line 44 "sdl1.ceu"
-    SDL_SetRenderDrawColor(((CEU__OPTION___SDL_RENDERER__REF_SOME_assert(_ceu_app, (&((CEU_Main*)_ceu_org)->ren),__FILE__,__LINE__)->SOME.v)),(((((CEU_Main*)_ceu_org)->fg_clr).r)),(((((CEU_Main*)_ceu_org)->fg_clr).g)),(((((CEU_Main*)_ceu_org)->fg_clr).b)),0xFF);/* NODE: CallStmt 214 */
+    {/* NODE: Stmts 233 */
 
-#line 45 "sdl1.ceu"
-    SDL_RenderFillRect(((CEU__OPTION___SDL_RENDERER__REF_SOME_assert(_ceu_app, (&((CEU_Main*)_ceu_org)->ren),__FILE__,__LINE__)->SOME.v)),((SDL_Rect*)(&((CEU_Main*)_ceu_org)->fg)));/* NODE: CallStmt 221 */
+#line 44 "sdl1.ceu"
+    {/* NODE: Stmts 565 */
 
-#line 47 "sdl1.ceu"
-    SDL_RenderPresent(((CEU__OPTION___SDL_RENDERER__REF_SOME_assert(_ceu_app, (&((CEU_Main*)_ceu_org)->ren),__FILE__,__LINE__)->SOME.v)));
-#line 41 "sdl1.ceu"
-    }
-#line 41 "sdl1.ceu"
-/* CLEAR: Block (41) */
-#line 41 "sdl1.ceu"
-    if (0) {
+#line 43 "sdl1.ceu"
+    {/* NODE: Nothing 539 */
+/* NODE: Await 532 */
 
-#line 41 "sdl1.ceu"
-        }   /* opened in "if (0)" */
-}       /* opened in Block_pre */
+#line 43 "sdl1.ceu"
+    _CEU_NO_532_:
+if (0) { goto _CEU_NO_532_; /* avoids "not used" warning */ }
 
-#line 40 "sdl1.ceu"
-    }
-
-#line 40 "sdl1.ceu"
-    }
-#line 40 "sdl1.ceu"
-/* CLEAR: Block (40) */
-#line 40 "sdl1.ceu"
-    if (0) {
-
-#line 40 "sdl1.ceu"
-        }   /* opened in "if (0)" */
-}       /* opened in Block_pre */
-
-#line 40 "sdl1.ceu"
-    }
-#line 40 "sdl1.ceu"
-/* CLEAR: Block (40) */
-#line 40 "sdl1.ceu"
-    if (0) {
-
-#line 40 "sdl1.ceu"
-        }   /* opened in "if (0)" */
-}       /* opened in Block_pre */
-
-#line 32 "sdl1.ceu"
-case Main_ParOr_sub_2_2:;/* NODE: Block 163 */
-
-#line 35 "sdl1.ceu"
-    {/* NODE: Stmts 162 */
-
-#line 35 "sdl1.ceu"
-    {/* NODE: Block 467 */
-
-#line 35 "sdl1.ceu"
-    {/* NODE: Stmts 466 */
-
-#line 35 "sdl1.ceu"
-    {/* NODE: Stmts 465 */
-
-#line 35 "sdl1.ceu"
-    {
-#line 35 "sdl1.ceu"
-    }/* NODE: Loop 464 */
-
-#line 35 "sdl1.ceu"
-    for (;;) {
-/* NODE: Block 160 */
-
-#line 36 "sdl1.ceu"
-    {/* NODE: Stmts 159 */
-
-#line 36 "sdl1.ceu"
-    {/* NODE: Stmts 495 */
-
-#line 35 "sdl1.ceu"
-    {/* NODE: Nothing 469 */
-/* NODE: Await 461 */
-
-#line 35 "sdl1.ceu"
-    ceu_out_wclock(_ceu_app, (s32)((s32)1000000), &((CEU_Main*)_ceu_org)->__wclk_461, NULL);
-
-#line 35 "sdl1.ceu"
-    _CEU_NO_461_:
-if (0) { goto _CEU_NO_461_; /* avoids "not used" warning */ }
-
-#line 35 "sdl1.ceu"
-    _ceu_trl->evt = CEU_IN__WCLOCK;
-_ceu_trl->lbl = Main_Awake_DT_5;
+#line 43 "sdl1.ceu"
+    _ceu_trl->evt = CEU_IN_SDL_DT;
+_ceu_trl->lbl = Main_Awake_SDL_DT_6;
 _ceu_trl->seqno = _ceu_app->seqno;
 
-#line 35 "sdl1.ceu"
+#line 43 "sdl1.ceu"
     return;
 
-case Main_Awake_DT_5:;
+case Main_Awake_SDL_DT_6:;
 
-#line 35 "sdl1.ceu"
-        /* subtract time and check if I have to awake */
-    {
-        s32** __ceu_casted = (s32**)_ceu_evt->param;
-        if (!ceu_out_wclock(_ceu_app, *(*__ceu_casted), NULL, &((CEU_Main*)_ceu_org)->__wclk_461) ) {
-            goto _CEU_NO_461_;
-        }
-    }
-
-#line 35 "sdl1.ceu"
+#line 43 "sdl1.ceu"
     #ifdef CEU_DEBUG_TRAILS
 #ifndef CEU_OS
 printf("\tOK!\n");
 #endif
 #endif
-/* NODE: Nothing 588 */
-/* NODE: Nothing 589 */
+/* NODE: Nothing 623 */
+/* NODE: Nothing 624 */
 
-#line 35 "sdl1.ceu"
-    }/* NODE: Set 497 */
+#line 43 "sdl1.ceu"
+    }/* NODE: CallStmt 189 */
+
+#line 44 "sdl1.ceu"
+    SDL_SetRenderDrawColor(((CEU__OPTION___SDL_RENDERER__REF_SOME_assert(_ceu_app, (&((CEU_Main*)_ceu_org)->ren),__FILE__,__LINE__)->SOME.v)),(((((CEU_Main*)_ceu_org)->bg_clr).r)),(((((CEU_Main*)_ceu_org)->bg_clr).g)),(((((CEU_Main*)_ceu_org)->bg_clr).b)),0xFF);/* NODE: CallStmt 200 */
+
+#line 45 "sdl1.ceu"
+    SDL_RenderFillRect(((CEU__OPTION___SDL_RENDERER__REF_SOME_assert(_ceu_app, (&((CEU_Main*)_ceu_org)->ren),__FILE__,__LINE__)->SOME.v)),((SDL_Rect*)(&((CEU_Main*)_ceu_org)->bg)));/* NODE: CallStmt 214 */
+
+#line 47 "sdl1.ceu"
+    SDL_SetRenderDrawColor(((CEU__OPTION___SDL_RENDERER__REF_SOME_assert(_ceu_app, (&((CEU_Main*)_ceu_org)->ren),__FILE__,__LINE__)->SOME.v)),(((((CEU_Main*)_ceu_org)->fg_clr).r)),(((((CEU_Main*)_ceu_org)->fg_clr).g)),(((((CEU_Main*)_ceu_org)->fg_clr).b)),0xFF);/* NODE: CallStmt 225 */
+
+#line 48 "sdl1.ceu"
+    SDL_RenderFillRect(((CEU__OPTION___SDL_RENDERER__REF_SOME_assert(_ceu_app, (&((CEU_Main*)_ceu_org)->ren),__FILE__,__LINE__)->SOME.v)),((SDL_Rect*)(&((CEU_Main*)_ceu_org)->fg)));/* NODE: CallStmt 232 */
+
+#line 50 "sdl1.ceu"
+    SDL_RenderPresent(((CEU__OPTION___SDL_RENDERER__REF_SOME_assert(_ceu_app, (&((CEU_Main*)_ceu_org)->ren),__FILE__,__LINE__)->SOME.v)));
+#line 44 "sdl1.ceu"
+    }
+#line 44 "sdl1.ceu"
+/* CLEAR: Block (44) */
+#line 44 "sdl1.ceu"
+    if (0) {
+
+#line 44 "sdl1.ceu"
+        }   /* opened in "if (0)" */
+}       /* opened in Block_pre */
+
+#line 43 "sdl1.ceu"
+    }
+
+#line 43 "sdl1.ceu"
+    }
+#line 43 "sdl1.ceu"
+/* CLEAR: Block (43) */
+#line 43 "sdl1.ceu"
+    if (0) {
+
+#line 43 "sdl1.ceu"
+        }   /* opened in "if (0)" */
+}       /* opened in Block_pre */
+
+#line 43 "sdl1.ceu"
+    }
+#line 43 "sdl1.ceu"
+/* CLEAR: Block (43) */
+#line 43 "sdl1.ceu"
+    if (0) {
+
+#line 43 "sdl1.ceu"
+        }   /* opened in "if (0)" */
+}       /* opened in Block_pre */
+
+#line 33 "sdl1.ceu"
+case Main_ParOr_sub_2_2:;/* NODE: Block 174 */
 
 #line 36 "sdl1.ceu"
-/* SET: . *//* NODE: Op2_+ 150 */
+    {/* NODE: Stmts 173 */
 
 #line 36 "sdl1.ceu"
-    (((((CEU_Main*)_ceu_org)->fg).x)) = ((((((CEU_Main*)_ceu_org)->fg).x))+10);/* NODE: Set 498 */
+    {/* NODE: Block 479 */
+
+#line 36 "sdl1.ceu"
+    {/* NODE: Stmts 478 */
+
+#line 36 "sdl1.ceu"
+    {/* NODE: Stmts 477 */
+
+#line 36 "sdl1.ceu"
+    {
+#line 36 "sdl1.ceu"
+    }/* NODE: Loop 476 */
+
+#line 36 "sdl1.ceu"
+    for (;;) {
+/* NODE: Block 171 */
 
 #line 37 "sdl1.ceu"
-/* SET: . *//* NODE: Op2_+ 157 */
+    {
+#line 37 "sdl1.ceu"
+    int __ceu_dt_21;
+/* NODE: Stmts 170 */
 
 #line 37 "sdl1.ceu"
+    {/* NODE: Stmts 484 */
+
+#line 37 "sdl1.ceu"
+    {/* NODE: Dcl_var 481 */
+/* NODE: Stmts 525 */
+
+#line 37 "sdl1.ceu"
+    {/* NODE: Nothing 487 */
+/* NODE: Set 486 */
+
+#line 37 "sdl1.ceu"
+/* SET: table: 0x24c74f0 *//* NODE: Await 148 */
+
+#line 37 "sdl1.ceu"
+    _CEU_NO_148_:
+if (0) { goto _CEU_NO_148_; /* avoids "not used" warning */ }
+
+#line 37 "sdl1.ceu"
+    _ceu_trl->evt = CEU_IN_SDL_DT;
+_ceu_trl->lbl = Main_Awake_SDL_DT_5;
+_ceu_trl->seqno = _ceu_app->seqno;
+
+#line 37 "sdl1.ceu"
+    return;
+
+case Main_Awake_SDL_DT_5:;
+
+#line 37 "sdl1.ceu"
+    #ifdef CEU_DEBUG_TRAILS
+#ifndef CEU_OS
+printf("\tOK!\n");
+#endif
+#endif
+
+#line 37 "sdl1.ceu"
+    {
+
+#line 37 "sdl1.ceu"
+        tceu__int** __ceu_casted = (tceu__int**) _ceu_evt->param;
+
+#line 37 "sdl1.ceu"
+        {
+        (__ceu_dt_21) = ((*(__ceu_casted))->_1);
+    }
+}
+/* NODE: Nothing 621 */
+/* NODE: Nothing 622 */
+
+#line 37 "sdl1.ceu"
+    }
+#line 37 "sdl1.ceu"
+    }/* NODE: CallStmt 155 */
+
+#line 38 "sdl1.ceu"
+    printf("%d\n",(__ceu_dt_21));/* NODE: Set 530 */
+
+#line 39 "sdl1.ceu"
+/* SET: . *//* NODE: Op2_+ 161 */
+
+#line 39 "sdl1.ceu"
+    (((((CEU_Main*)_ceu_org)->fg).x)) = ((((((CEU_Main*)_ceu_org)->fg).x))+10);/* NODE: Set 531 */
+
+#line 40 "sdl1.ceu"
+/* SET: . *//* NODE: Op2_+ 168 */
+
+#line 40 "sdl1.ceu"
     (((((CEU_Main*)_ceu_org)->fg).y)) = ((((((CEU_Main*)_ceu_org)->fg).y))+10);
+#line 37 "sdl1.ceu"
+    }
+#line 37 "sdl1.ceu"
+/* CLEAR: Block (37) */
+#line 37 "sdl1.ceu"
+    if (0) {
+
+#line 37 "sdl1.ceu"
+        }   /* opened in "if (0)" */
+}       /* opened in Block_pre */
+
+#line 36 "sdl1.ceu"
+    }
+
 #line 36 "sdl1.ceu"
     }
 #line 36 "sdl1.ceu"
@@ -7881,91 +7920,77 @@ printf("\tOK!\n");
         }   /* opened in "if (0)" */
 }       /* opened in Block_pre */
 
-#line 35 "sdl1.ceu"
+#line 36 "sdl1.ceu"
     }
-
-#line 35 "sdl1.ceu"
-    }
-#line 35 "sdl1.ceu"
-/* CLEAR: Block (35) */
-#line 35 "sdl1.ceu"
+#line 36 "sdl1.ceu"
+/* CLEAR: Block (36) */
+#line 36 "sdl1.ceu"
     if (0) {
 
-#line 35 "sdl1.ceu"
+#line 36 "sdl1.ceu"
         }   /* opened in "if (0)" */
 }       /* opened in Block_pre */
 
-#line 35 "sdl1.ceu"
-    }
-#line 35 "sdl1.ceu"
-/* CLEAR: Block (35) */
-#line 35 "sdl1.ceu"
-    if (0) {
-
-#line 35 "sdl1.ceu"
-        }   /* opened in "if (0)" */
-}       /* opened in Block_pre */
-
-#line 32 "sdl1.ceu"
-case Main_ParOr_sub_1_1:;/* NODE: Block 143 */
-
 #line 33 "sdl1.ceu"
-    {/* NODE: Stmts 142 */
+case Main_ParOr_sub_1_1:;/* NODE: Block 145 */
 
-#line 33 "sdl1.ceu"
-    {/* NODE: Stmts 460 */
+#line 34 "sdl1.ceu"
+    {/* NODE: Stmts 144 */
 
-#line 33 "sdl1.ceu"
-    {/* NODE: Nothing 434 */
-/* NODE: Await 141 */
+#line 34 "sdl1.ceu"
+    {/* NODE: Stmts 475 */
 
-#line 33 "sdl1.ceu"
-    _CEU_NO_141_:
-if (0) { goto _CEU_NO_141_; /* avoids "not used" warning */ }
+#line 34 "sdl1.ceu"
+    {/* NODE: Nothing 449 */
+/* NODE: Await 143 */
 
-#line 33 "sdl1.ceu"
+#line 34 "sdl1.ceu"
+    _CEU_NO_143_:
+if (0) { goto _CEU_NO_143_; /* avoids "not used" warning */ }
+
+#line 34 "sdl1.ceu"
     _ceu_trl->evt = CEU_IN_SDL_QUIT;
 _ceu_trl->lbl = Main_Awake_SDL_QUIT_4;
 _ceu_trl->seqno = _ceu_app->seqno;
 
-#line 33 "sdl1.ceu"
+#line 34 "sdl1.ceu"
     return;
 
 case Main_Awake_SDL_QUIT_4:;
 
-#line 33 "sdl1.ceu"
+#line 34 "sdl1.ceu"
     #ifdef CEU_DEBUG_TRAILS
 #ifndef CEU_OS
 printf("\tOK!\n");
 #endif
 #endif
-/* NODE: Nothing 586 */
-/* NODE: Nothing 587 */
+/* NODE: Nothing 619 */
+/* NODE: Nothing 620 */
 
-#line 33 "sdl1.ceu"
+#line 34 "sdl1.ceu"
     }
-#line 33 "sdl1.ceu"
+#line 34 "sdl1.ceu"
     }
-#line 33 "sdl1.ceu"
-/* CLEAR: Block (33) */
-#line 33 "sdl1.ceu"
+#line 34 "sdl1.ceu"
+/* CLEAR: Block (34) */
+#line 34 "sdl1.ceu"
     if (0) {
 
-#line 33 "sdl1.ceu"
+#line 34 "sdl1.ceu"
         }   /* opened in "if (0)" */
 }       /* opened in Block_pre */
 
-#line 32 "sdl1.ceu"
+#line 33 "sdl1.ceu"
 /* PAROR JOIN */
-#line 32 "sdl1.ceu"
+#line 33 "sdl1.ceu"
     _ceu_lbl = Main_ParOr_out_3;
 goto _CEU_GOTO_;
 
-#line 32 "sdl1.ceu"
+#line 33 "sdl1.ceu"
 case Main_ParOr_out_3:;
-#line 32 "sdl1.ceu"
-/* CLEAR: ParOr (32) */
-#line 32 "sdl1.ceu"
+#line 33 "sdl1.ceu"
+/* CLEAR: ParOr (33) */
+#line 33 "sdl1.ceu"
     {
     /* Reuse current stack frame.
      * We know that CLEAR will not abort anything and return normally.
@@ -7988,27 +8013,27 @@ case Main_ParOr_out_3:;
                         0,2);
 #endif
 }
-/* NODE: Stmts 536 */
+/* NODE: Stmts 569 */
 
-#line 51 "sdl1.ceu"
-    {/* NODE: Set 534 */
+#line 54 "sdl1.ceu"
+    {/* NODE: Set 567 */
 
-#line 51 "sdl1.ceu"
-/* SET: _ret *//* NODE: NUMBER 228 */
+#line 54 "sdl1.ceu"
+/* SET: _ret *//* NODE: NUMBER 239 */
 
-#line 51 "sdl1.ceu"
+#line 54 "sdl1.ceu"
     (((CEU_Main*)_ceu_org)->_ret_0) = 0;
-#line 51 "sdl1.ceu"
+#line 54 "sdl1.ceu"
     #ifdef CEU_RET
     _ceu_app->ret = (((CEU_Main*)_ceu_org)->_ret_0);
 #endif
-/* NODE: Escape 535 */
+/* NODE: Escape 568 */
 
-#line 51 "sdl1.ceu"
+#line 54 "sdl1.ceu"
     _ceu_lbl = Main_Set_out_0;
 goto _CEU_GOTO_;
 
-#line 51 "sdl1.ceu"
+#line 54 "sdl1.ceu"
     }
 #line 4 "sdl.ceu"
     }
@@ -8020,51 +8045,51 @@ goto _CEU_GOTO_;
 #line 1 "sdl1.ceu"
 case Main_Block__fin_7:;
 #line 1 "sdl1.ceu"
-    if (((CEU_Main*)_ceu_org)->__fin_232_1) {
-    /* NODE: Finally 98 */
-/* NODE: Block 97 */
+    if (((CEU_Main*)_ceu_org)->__fin_243_1) {
+    /* NODE: Finally 100 */
+/* NODE: Block 99 */
 
-#line 23 "sdl1.ceu"
-    {/* NODE: Stmts 96 */
+#line 24 "sdl1.ceu"
+    {/* NODE: Stmts 98 */
 
-#line 23 "sdl1.ceu"
-    {/* NODE: CallStmt 95 */
+#line 24 "sdl1.ceu"
+    {/* NODE: CallStmt 97 */
 
-#line 23 "sdl1.ceu"
+#line 24 "sdl1.ceu"
     SDL_DestroyRenderer(((CEU__OPTION___SDL_RENDERER__REF_SOME_assert(_ceu_app, (&((CEU_Main*)_ceu_org)->ren),__FILE__,__LINE__)->SOME.v)));
-#line 23 "sdl1.ceu"
+#line 24 "sdl1.ceu"
     }
-#line 23 "sdl1.ceu"
-/* CLEAR: Block (23) */
-#line 23 "sdl1.ceu"
+#line 24 "sdl1.ceu"
+/* CLEAR: Block (24) */
+#line 24 "sdl1.ceu"
     if (0) {
 
-#line 23 "sdl1.ceu"
+#line 24 "sdl1.ceu"
         }   /* opened in "if (0)" */
 }       /* opened in Block_pre */
 }
 
 #line 1 "sdl1.ceu"
-    if (((CEU_Main*)_ceu_org)->__fin_232_2) {
-    /* NODE: Finally 58 */
-/* NODE: Block 57 */
+    if (((CEU_Main*)_ceu_org)->__fin_243_2) {
+    /* NODE: Finally 60 */
+/* NODE: Block 59 */
 
-#line 13 "sdl1.ceu"
-    {/* NODE: Stmts 56 */
+#line 14 "sdl1.ceu"
+    {/* NODE: Stmts 58 */
 
-#line 13 "sdl1.ceu"
-    {/* NODE: CallStmt 55 */
+#line 14 "sdl1.ceu"
+    {/* NODE: CallStmt 57 */
 
-#line 13 "sdl1.ceu"
+#line 14 "sdl1.ceu"
     SDL_DestroyWindow(((CEU__OPTION___SDL_WINDOW__REF_SOME_assert(_ceu_app, (&((CEU_Main*)_ceu_org)->win),__FILE__,__LINE__)->SOME.v)));
-#line 13 "sdl1.ceu"
+#line 14 "sdl1.ceu"
     }
-#line 13 "sdl1.ceu"
-/* CLEAR: Block (13) */
-#line 13 "sdl1.ceu"
+#line 14 "sdl1.ceu"
+/* CLEAR: Block (14) */
+#line 14 "sdl1.ceu"
     if (0) {
 
-#line 13 "sdl1.ceu"
+#line 14 "sdl1.ceu"
         }   /* opened in "if (0)" */
 }       /* opened in Block_pre */
 }
