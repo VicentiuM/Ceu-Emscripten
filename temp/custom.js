@@ -22,8 +22,9 @@ function draw(timestamp) {
 console.log(diff);
 
 		requestAnimationFrame(draw);
-		_ceu_draw(diff);
-		_update(diff);
+		//_ceu_draw(diff);
+		//_update(diff);
+		_new_draw(diff);
 
 
 		

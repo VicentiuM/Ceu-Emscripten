@@ -42,6 +42,16 @@ SDL_Event evt;
 //u32 old = SDL_GetTicks();
 u32 old = 0;
 
+void new_draw(s32 dt_us) {
+
+	u32 dt_ms = dt_us / 1000;
+
+
+	ceu_sys_go(&app, CEU_IN__WCLOCK, &dt_us);
+	ceu_sys_go(&app, CEU_IN_SDL_DT, &dt_ms);
+	ceu_sys_go(&app, CEU_IN_SDL_REDRAW, NULL);
+}
+
 int ceu_draw(u32 oldee) {
 	   s32 tm = -1;
 
@@ -229,7 +239,7 @@ int ceu_draw(u32 oldee) {
         }
 #endif
     
-
+return 1;
 }
 
 int async_call() {
