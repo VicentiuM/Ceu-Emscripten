@@ -19,13 +19,12 @@ function draw(timestamp) {
 	elapsed += diff;
 	next = timestamp;
 
-console.log(diff);
+//console.log(diff);
 
 		requestAnimationFrame(draw);
 		//_ceu_draw(diff);
 		//_update(diff);
 		_new_draw(diff);
-
-
 		
 }
+

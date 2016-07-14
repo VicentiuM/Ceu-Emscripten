@@ -48,9 +48,38 @@ void new_draw(s32 dt_us) {
 
 
 	ceu_sys_go(&app, CEU_IN__WCLOCK, &dt_us);
+	#ifdef CEU_IN_SDL_DT
 	ceu_sys_go(&app, CEU_IN_SDL_DT, &dt_ms);
+	#endif
 	ceu_sys_go(&app, CEU_IN_SDL_REDRAW, NULL);
 }
+
+void key_down(SDL_Event* event) {
+	/*
+	SDL_Event event;
+	SDL_PollEvent(&event);
+	*/
+
+
+	while(SDL_PollEvent(&evt));
+	SDL_Event* evtp = &evt;
+	#ifdef CEU_IN_SDL_KEYDOWN
+	printf("I'm here %d\n", evt.type);
+	ceu_sys_go(&app, CEU_IN_SDL_KEYDOWN, &evtp);
+	#endif
+
+/*
+	SDL_Event test_event;
+	while (SDL_PollEvent(&test_event)) {
+
+		#ifdef CEU_IN_SDL_KEYDOWN
+		printf("I'm here %d\n", test_event.type);
+		ceu_sys_go(&app, CEU_IN_SDL_KEYDOWN, &test_event);
+		#endif
+	}
+*/
+}
+
 
 int ceu_draw(u32 oldee) {
 	   s32 tm = -1;

@@ -4,8 +4,8 @@
     <meta charset="utf-8">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="custom.js"></script>
-
 
     <title>Emscripten-Generated Code</title>
     <style>
@@ -58,7 +58,17 @@
       <progress value="0" max="100" id="progress" hidden=1></progress>  
     </div>
     <div class="emscripten_border">
+
       <canvas class="emscripten" id="canvas" oncontextmenu="event.preventDefault()"></canvas>
+      <script type="text/javascript">
+        window.addEventListener('keydown',this.check,false);
+
+        function check(e) {
+          console.log(e.keyCode);
+          //Module.ccall('key_down','void',['object'],[e]);
+          _key_down();
+        }
+      </script>
     </div>
     <hr/>
     <div class="emscripten">
