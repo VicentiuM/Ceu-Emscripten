@@ -63,6 +63,8 @@
       <script type="text/javascript">
         window.addEventListener('keydown',this.check_keydown,false);
         window.addEventListener('keyup',this.check_keyup,false);
+        window.addEventListener('mousedown',this.check_mousedown,false);
+        window.addEventListener('mouseup',this.check_mouseup,false);
 
         function check_keydown(e) {
           Module.ccall('key_down', 'void', ['number'], [e.keyCode]);
@@ -70,6 +72,14 @@
 
         function check_keyup(e) {
           Module.ccall('key_up', 'void', ['number'], [e.keyCode]);
+        }
+
+        function check_mousedown(e) {
+          Module.ccall('mouse_down', 'void', ['number'], [e.which]);
+        }
+
+        function check_mouseup(e) {
+          Module.ccall('mouse_up', 'void', ['number'], [e.which]);
         }
       </script>
     </div>

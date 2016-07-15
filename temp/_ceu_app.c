@@ -53,7 +53,7 @@ typedef s16 tceu_ncls;
 #endif
 
 /* TODO: remove */
-#define CEU_NTRAILS 7
+#define CEU_NTRAILS 8
 
 #ifndef _CEU_OS_H
 #define _CEU_OS_H
@@ -1723,7 +1723,7 @@ typedef                           struct { /* BLOCK ln=16 */
                           }  CEU_SDL_Rect;
 
 enum {
-CEU_NONE1110,
+CEU_NONE1304,
 CEU__OPTION___SDL_WINDOW__REF_NIL,
 CEU__OPTION___SDL_WINDOW__REF_SOME
 };
@@ -1741,7 +1741,7 @@ typedef struct CEU__Option___SDL_Window__ref {
  CEU__Option___SDL_Window__ref;
 
 enum {
-CEU_NONE1116,
+CEU_NONE1310,
 CEU__OPTION___SDL_RENDERER__REF_NIL,
 CEU__OPTION___SDL_RENDERER__REF_SOME
 };
@@ -1762,7 +1762,7 @@ typedef struct CEU_Rect {
 #ifdef CEU_ORGS
   struct tceu_org org;
 #endif
-  tceu_trl trls_[ 6 ];
+  tceu_trl trls_[ 7 ];
                             struct { /* BLOCK ln=35 */
                               SDL_Renderer* ren;
                               CEU_SDL_Rect rect;
@@ -1773,6 +1773,10 @@ typedef struct CEU_Rect {
                                   union {
                                     struct { /* BLOCK ln=39 */
                                       SDL_Color clr;
+                                      int h;
+                                      int wn;
+                                      int w;
+                                      int hn;
                                       union {
                                         union {
                                         };
@@ -1780,23 +1784,31 @@ typedef struct CEU_Rect {
                                         };
                                         union {
                                         };
+                                        union {
+                                        };
+                                        union {
+                                        };
+                                        union {
+                                        };
+                                        union {
+                                        };
                                         struct {
-                                          struct { /* BLOCK ln=46 */
+                                          struct { /* BLOCK ln=51 */
                                             union {
                                               struct {
-                                                struct { /* BLOCK ln=47 */
+                                                struct { /* BLOCK ln=52 */
                                                   union {
-                                                    struct { /* BLOCK ln=47 */
+                                                    struct { /* BLOCK ln=52 */
                                                       union {
                                                         union {
                                                         };
-                                                          struct { /* BLOCK ln=48 */
+                                                          struct { /* BLOCK ln=53 */
                                                             union {
                                                               union {
                                                                 union {
                                                                 };
                                                               };
-                                                                struct { /* BLOCK ln=51 */
+                                                                struct { /* BLOCK ln=56 */
                                                                   union {
                                                                   };
                                                                 } ;
@@ -1806,13 +1818,13 @@ typedef struct CEU_Rect {
                                                     } ;
                                                   };
                                                 } ;
-                                                struct { /* BLOCK ln=55 */
+                                                struct { /* BLOCK ln=60 */
                                                   union {
-                                                    struct { /* BLOCK ln=55 */
+                                                    struct { /* BLOCK ln=60 */
                                                       union {
                                                         union {
                                                         };
-                                                          struct { /* BLOCK ln=56 */
+                                                          struct { /* BLOCK ln=61 */
                                                             union {
                                                               union {
                                                                 union {
@@ -1827,56 +1839,77 @@ typedef struct CEU_Rect {
                                               };
                                             };
                                           } ;
-                                          struct { /* BLOCK ln=62 */
+                                          struct { /* BLOCK ln=67 */
                                             union {
-                                              struct { /* BLOCK ln=62 */
+                                              struct { /* BLOCK ln=67 */
                                                 union {
                                                   union {
                                                   };
-                                                    struct { /* BLOCK ln=63 */
+                                                    struct { /* BLOCK ln=68 */
                                                       union {
                                                         struct {
-                                                          struct { /* BLOCK ln=64 */
-                                                            SDL_KeyboardEvent* key_26;
+                                                          struct { /* BLOCK ln=69 */
+                                                            SDL_KeyboardEvent* key_30;
                                                             union {
                                                               union {
                                                                 union {
                                                                 };
                                                               };
-                                                                struct { /* BLOCK ln=66 */
+                                                                struct { /* BLOCK ln=71 */
                                                                   union {
                                                                   };
                                                                 } ;
-                                                                  struct { /* BLOCK ln=68 */
+                                                                  struct { /* BLOCK ln=73 */
                                                                     union {
                                                                     };
                                                                   } ;
-                                                                    struct { /* BLOCK ln=70 */
+                                                                    struct { /* BLOCK ln=75 */
                                                                       union {
                                                                       };
                                                                     } ;
-                                                                      struct { /* BLOCK ln=72 */
+                                                                      struct { /* BLOCK ln=77 */
                                                                         union {
                                                                         };
                                                                       } ;
                                                             };
                                                           } ;
-                                                          struct { /* BLOCK ln=75 */
-                                                            SDL_KeyboardEvent* key_27;
+                                                          struct { /* BLOCK ln=80 */
+                                                            SDL_KeyboardEvent* key_31;
                                                             union {
                                                               union {
                                                                 union {
                                                                 };
                                                               };
-                                                                struct { /* BLOCK ln=77 */
+                                                                struct { /* BLOCK ln=82 */
                                                                   union {
                                                                   };
                                                                 } ;
-                                                                  struct { /* BLOCK ln=79 */
+                                                                  struct { /* BLOCK ln=84 */
                                                                     union {
                                                                     };
                                                                   } ;
-                                                                    struct { /* BLOCK ln=81 */
+                                                                    struct { /* BLOCK ln=86 */
+                                                                      union {
+                                                                      };
+                                                                    } ;
+                                                            };
+                                                          } ;
+                                                          struct { /* BLOCK ln=90 */
+                                                            SDL_MouseButtonEvent* but_32;
+                                                            union {
+                                                              union {
+                                                                union {
+                                                                };
+                                                              };
+                                                                struct { /* BLOCK ln=92 */
+                                                                  union {
+                                                                  };
+                                                                } ;
+                                                                  struct { /* BLOCK ln=95 */
+                                                                    union {
+                                                                    };
+                                                                  } ;
+                                                                    struct { /* BLOCK ln=98 */
                                                                       union {
                                                                       };
                                                                     } ;
@@ -1889,13 +1922,13 @@ typedef struct CEU_Rect {
                                               } ;
                                             };
                                           } ;
-                                          struct { /* BLOCK ln=86 */
+                                          struct { /* BLOCK ln=105 */
                                             union {
-                                              struct { /* BLOCK ln=86 */
+                                              struct { /* BLOCK ln=105 */
                                                 union {
                                                   union {
                                                   };
-                                                    struct { /* BLOCK ln=87 */
+                                                    struct { /* BLOCK ln=106 */
                                                       union {
                                                         union {
                                                         };
@@ -1922,7 +1955,7 @@ typedef struct CEU_Main {
 #ifdef CEU_ORGS
   struct tceu_org org;
 #endif
-  tceu_trl trls_[ 7 ];
+  tceu_trl trls_[ 8 ];
     struct { /* BLOCK ln=1 */
       union {
           union {
@@ -1934,8 +1967,8 @@ typedef struct CEU_Main {
                 union {
                   union {
                     struct { /* BLOCK ln=1 */
-                    u8 __fin_423_1: 1;
-                    u8 __fin_423_2: 1;
+                    u8 __fin_526_1: 1;
+                    u8 __fin_526_2: 1;
                       CEU__Option___SDL_Window__ref win;
                       int w;
                       int h;
@@ -2026,19 +2059,19 @@ typedef struct CEU_Main {
                         union {
                         };
                         struct {
-                          struct { /* BLOCK ln=102 */
+                          struct { /* BLOCK ln=121 */
                             union {
                               union {
                               };
                             };
                           } ;
-                          struct { /* BLOCK ln=104 */
+                          struct { /* BLOCK ln=123 */
                             union {
-                              struct { /* BLOCK ln=104 */
+                              struct { /* BLOCK ln=123 */
                                 union {
                                   union {
                                   };
-                                    struct { /* BLOCK ln=105 */
+                                    struct { /* BLOCK ln=124 */
                                       union {
                                         union {
                                         };
@@ -2048,24 +2081,24 @@ typedef struct CEU_Main {
                               } ;
                             };
                           } ;
-                          struct { /* BLOCK ln=110 */
+                          struct { /* BLOCK ln=129 */
                             struct CEU_Rect r1_19;
                             union {
-                                  struct { /* BLOCK ln=111 */
+                                  struct { /* BLOCK ln=130 */
                                     union {
                                     };
                                   } ;
-                              struct { /* BLOCK ln=115 */
+                              struct { /* BLOCK ln=134 */
                                 union {
                                   union {
                                   };
-                                    struct { /* BLOCK ln=116 */
+                                    struct { /* BLOCK ln=135 */
                                       union {
                                         union {
                                           union {
                                           };
                                         };
-                                          struct { /* BLOCK ln=118 */
+                                          struct { /* BLOCK ln=137 */
                                             union {
                                             };
                                           } ;
@@ -2075,13 +2108,13 @@ typedef struct CEU_Main {
                               } ;
                             };
                           } ;
-                          struct { /* BLOCK ln=124 */
+                          struct { /* BLOCK ln=143 */
                             union {
-                              struct { /* BLOCK ln=124 */
+                              struct { /* BLOCK ln=143 */
                                 union {
                                   union {
                                   };
-                                    struct { /* BLOCK ln=125 */
+                                    struct { /* BLOCK ln=144 */
                                       union {
                                         union {
                                         };
@@ -7125,21 +7158,23 @@ enum {
     Rect_Awake_go_oriz_6 = 6,
     Rect_Awake_go_vert_7 = 7,
     Rect_ParOr_sub_1_8 = 8,
-    Rect_ParOr_out_9 = 9,
-    Rect_Awake_SDL_KEYDOWN_10 = 10,
-    Rect_Awake_SDL_KEYUP_11 = 11,
-    Rect_Awake_SDL_REDRAW_12 = 12,
-    Class_Rect = 13,
-    Main_ParOr_sub_1_14 = 14,
-    Main_ParOr_sub_2_15 = 15,
-    Main_ParOr_sub_3_16 = 16,
-    Main_ParOr_out_17 = 17,
-    Main_Awake_SDL_QUIT_18 = 18,
-    Main_Awake_SDL_REDRAW_19 = 19,
-    Main_Awake_SDL_KEYDOWN_20 = 20,
+    Rect_ParOr_sub_2_9 = 9,
+    Rect_ParOr_out_10 = 10,
+    Rect_Awake_SDL_KEYDOWN_11 = 11,
+    Rect_Awake_SDL_KEYUP_12 = 12,
+    Rect_Awake_SDL_MOUSEBUTTONDOWN_13 = 13,
+    Rect_Awake_SDL_REDRAW_14 = 14,
+    Class_Rect = 15,
+    Main_ParOr_sub_1_16 = 16,
+    Main_ParOr_sub_2_17 = 17,
+    Main_ParOr_sub_3_18 = 18,
+    Main_ParOr_out_19 = 19,
+    Main_Awake_SDL_QUIT_20 = 20,
     Main_Awake_SDL_REDRAW_21 = 21,
-    Main_Block__fin_22 = 22,
-    Class_Main = 23,
+    Main_Awake_SDL_KEYDOWN_22 = 22,
+    Main_Awake_SDL_REDRAW_23 = 23,
+    Main_Block__fin_24 = 24,
+    Class_Main = 25,
 
 };
 
@@ -7394,60 +7429,60 @@ static void ceu_stack_clr () {
 #endif
 
 #ifdef CEU_ORGS
-static void _ceu_constr_385 (tceu_app* _ceu_app, tceu_org* __ceu_this, tceu_org* _ceu_org) {
-/* NODE: Dcl_constr 385 */
-/* NODE: Block 384 */
+static void _ceu_constr_488 (tceu_app* _ceu_app, tceu_org* __ceu_this, tceu_org* _ceu_org) {
+/* NODE: Dcl_constr 488 */
+/* NODE: Block 487 */
 
-#line 111 "movable_object.ceu"
-    {/* NODE: Stmts 383 */
+#line 130 "movable_object.ceu"
+    {/* NODE: Stmts 486 */
 
-#line 111 "movable_object.ceu"
-    {/* NODE: Set 1005 */
+#line 130 "movable_object.ceu"
+    {/* NODE: Set 1199 */
 
-#line 111 "movable_object.ceu"
-/* SET: . *//* NODE: Op1_& 370 */
+#line 130 "movable_object.ceu"
+/* SET: . *//* NODE: Op1_& 473 */
 
-#line 111 "movable_object.ceu"
-    (((*((CEU_Rect*)__ceu_this)).ren)) = ((CEU__OPTION___SDL_RENDERER__REF_SOME_assert(_ceu_app, (&((CEU_Main*)_ceu_org)->ren),__FILE__,__LINE__)->SOME.v));/* NODE: Set 1006 */
+#line 130 "movable_object.ceu"
+    (((*((CEU_Rect*)__ceu_this)).ren)) = ((CEU__OPTION___SDL_RENDERER__REF_SOME_assert(_ceu_app, (&((CEU_Main*)_ceu_org)->ren),__FILE__,__LINE__)->SOME.v));/* NODE: Set 1200 */
 
-#line 112 "movable_object.ceu"
-/* SET: . *//* NODE: Adt_constr_root 381 */
+#line 131 "movable_object.ceu"
+/* SET: . *//* NODE: Adt_constr_root 484 */
 
-#line 112 "movable_object.ceu"
-    {/* NODE: Adt_constr_one 380 */
+#line 131 "movable_object.ceu"
+    {/* NODE: Adt_constr_one 483 */
 
-#line 112 "movable_object.ceu"
-    CEU_SDL_Rect __ceu_adt_380;
+#line 131 "movable_object.ceu"
+    CEU_SDL_Rect __ceu_adt_483;
 
-#line 112 "movable_object.ceu"
-    {/* NODE: ExpList 379 */
-/* NODE: NUMBER 375 */
-/* NODE: NUMBER 376 */
-/* NODE: NUMBER 377 */
-/* NODE: NUMBER 378 */
+#line 131 "movable_object.ceu"
+    {/* NODE: ExpList 482 */
+/* NODE: NUMBER 478 */
+/* NODE: NUMBER 479 */
+/* NODE: NUMBER 480 */
+/* NODE: NUMBER 481 */
 
-#line 112 "movable_object.ceu"
-    __ceu_adt_380.x = 100;
-#line 112 "movable_object.ceu"
-    __ceu_adt_380.y = 100;
-#line 112 "movable_object.ceu"
-    __ceu_adt_380.w = 20;
-#line 112 "movable_object.ceu"
-    __ceu_adt_380.h = 20;
-#line 112 "movable_object.ceu"
+#line 131 "movable_object.ceu"
+    __ceu_adt_483.x = 100;
+#line 131 "movable_object.ceu"
+    __ceu_adt_483.y = 100;
+#line 131 "movable_object.ceu"
+    __ceu_adt_483.w = 20;
+#line 131 "movable_object.ceu"
+    __ceu_adt_483.h = 20;
+#line 131 "movable_object.ceu"
     }
-#line 112 "movable_object.ceu"
-    (((*((CEU_Rect*)__ceu_this)).rect)) = __ceu_adt_380;
-#line 112 "movable_object.ceu"
+#line 131 "movable_object.ceu"
+    (((*((CEU_Rect*)__ceu_this)).rect)) = __ceu_adt_483;
+#line 131 "movable_object.ceu"
     }
-#line 111 "movable_object.ceu"
+#line 130 "movable_object.ceu"
     }
-#line 111 "movable_object.ceu"
-/* CLEAR: Block (111) */
-#line 111 "movable_object.ceu"
+#line 130 "movable_object.ceu"
+/* CLEAR: Block (130) */
+#line 130 "movable_object.ceu"
     if (0) {
 
-#line 111 "movable_object.ceu"
+#line 130 "movable_object.ceu"
         }   /* opened in "if (0)" */
 }       /* opened in Block_pre */
 }
@@ -7509,44 +7544,44 @@ printf("OK : lbl=%d : org=%p\n", _ceu_lbl, _ceu_org);
 #endif
 
     switch (_ceu_lbl) {
-        /* NODE: Root 436 */
+        /* NODE: Root 539 */
 /* NODE: Dcl_cls 0 */
 
 #line 1 "movable_object.ceu"
-case Class_Main:;/* NODE: Block 1104 */
+case Class_Main:;/* NODE: Block 1298 */
 
 #line 1 "movable_object.ceu"
-    {/* NODE: Stmts 1103 */
+    {/* NODE: Stmts 1297 */
 
 #line 1 "movable_object.ceu"
-    {/* NODE: Block 442 */
+    {/* NODE: Block 545 */
 
 #line 1 "movable_object.ceu"
-    {/* NODE: Stmts 441 */
+    {/* NODE: Stmts 544 */
 
 #line 1 "movable_object.ceu"
-    {/* NODE: Dcl_var 438 */
-/* NODE: SetBlock 440 */
-/* NODE: Block 434 */
+    {/* NODE: Dcl_var 541 */
+/* NODE: SetBlock 543 */
+/* NODE: Block 537 */
 
 #line 1 "movable_object.ceu"
-    {/* NODE: Stmts 433 */
+    {/* NODE: Stmts 536 */
 
 #line 1 "movable_object.ceu"
-    {/* NODE: Stmts 430 */
+    {/* NODE: Stmts 533 */
 
 #line 1 "movable_object.ceu"
-    {/* NODE: Block 423 */
+    {/* NODE: Block 526 */
 
 #line 1 "movable_object.ceu"
     /*  FINALIZE */
-_ceu_org->trls[ 6 ].evt = CEU_IN__CLEAR;
-_ceu_org->trls[ 6 ].lbl = Main_Block__fin_22;
+_ceu_org->trls[ 7 ].evt = CEU_IN__CLEAR;
+_ceu_org->trls[ 7 ].lbl = Main_Block__fin_24;
 
 #line 1 "movable_object.ceu"
-    ((CEU_Main*)_ceu_org)->__fin_423_1 = 0;
+    ((CEU_Main*)_ceu_org)->__fin_526_1 = 0;
 #line 1 "movable_object.ceu"
-    ((CEU_Main*)_ceu_org)->__fin_423_2 = 0;
+    ((CEU_Main*)_ceu_org)->__fin_526_2 = 0;
 #line 1 "movable_object.ceu"
     {
 #line 1 "movable_object.ceu"
@@ -7554,213 +7589,213 @@ _ceu_org->trls[ 6 ].lbl = Main_Block__fin_22;
 
 #line 1 "movable_object.ceu"
     (((CEU_Main*)_ceu_org)->ren).tag = CEU__OPTION___SDL_RENDERER__REF_NIL;
-/* NODE: Stmts 421 */
+/* NODE: Stmts 524 */
 
 #line 4 "sdl.ceu"
     {/* NODE: Dcl_adt 8 */
 /* NODE: Dcl_adt 13 */
 /* NODE: Dcl_adt 22 */
-/* NODE: Stmts 476 */
+/* NODE: Stmts 579 */
 
 #line 23 "sdl.ceu"
-    {/* NODE: Dcl_nat 474 */
-/* NODE: Dcl_nat 475 */
+    {/* NODE: Dcl_nat 577 */
+/* NODE: Dcl_nat 578 */
 
 #line 23 "sdl.ceu"
-    }/* NODE: Stmts 480 */
+    }/* NODE: Stmts 583 */
 
 #line 24 "sdl.ceu"
-    {/* NODE: Dcl_nat 477 */
-/* NODE: Dcl_nat 478 */
-/* NODE: Dcl_nat 479 */
+    {/* NODE: Dcl_nat 580 */
+/* NODE: Dcl_nat 581 */
+/* NODE: Dcl_nat 582 */
 
 #line 24 "sdl.ceu"
-    }/* NODE: Stmts 488 */
+    }/* NODE: Stmts 591 */
 
 #line 26 "sdl.ceu"
-    {/* NODE: Dcl_nat 481 */
-/* NODE: Dcl_nat 482 */
-/* NODE: Dcl_nat 483 */
-/* NODE: Dcl_nat 484 */
-/* NODE: Dcl_nat 485 */
-/* NODE: Dcl_nat 486 */
-/* NODE: Dcl_nat 487 */
+    {/* NODE: Dcl_nat 584 */
+/* NODE: Dcl_nat 585 */
+/* NODE: Dcl_nat 586 */
+/* NODE: Dcl_nat 587 */
+/* NODE: Dcl_nat 588 */
+/* NODE: Dcl_nat 589 */
+/* NODE: Dcl_nat 590 */
 
 #line 26 "sdl.ceu"
-    }/* NODE: Stmts 508 */
+    }/* NODE: Stmts 611 */
 
 #line 32 "sdl.ceu"
-    {/* NODE: Dcl_nat 489 */
-/* NODE: Dcl_nat 490 */
-/* NODE: Dcl_nat 491 */
-/* NODE: Dcl_nat 492 */
-/* NODE: Dcl_nat 493 */
-/* NODE: Dcl_nat 494 */
-/* NODE: Dcl_nat 495 */
-/* NODE: Dcl_nat 496 */
-/* NODE: Dcl_nat 497 */
-/* NODE: Dcl_nat 498 */
-/* NODE: Dcl_nat 499 */
-/* NODE: Dcl_nat 500 */
-/* NODE: Dcl_nat 501 */
-/* NODE: Dcl_nat 502 */
-/* NODE: Dcl_nat 503 */
-/* NODE: Dcl_nat 504 */
-/* NODE: Dcl_nat 505 */
-/* NODE: Dcl_nat 506 */
-/* NODE: Dcl_nat 507 */
+    {/* NODE: Dcl_nat 592 */
+/* NODE: Dcl_nat 593 */
+/* NODE: Dcl_nat 594 */
+/* NODE: Dcl_nat 595 */
+/* NODE: Dcl_nat 596 */
+/* NODE: Dcl_nat 597 */
+/* NODE: Dcl_nat 598 */
+/* NODE: Dcl_nat 599 */
+/* NODE: Dcl_nat 600 */
+/* NODE: Dcl_nat 601 */
+/* NODE: Dcl_nat 602 */
+/* NODE: Dcl_nat 603 */
+/* NODE: Dcl_nat 604 */
+/* NODE: Dcl_nat 605 */
+/* NODE: Dcl_nat 606 */
+/* NODE: Dcl_nat 607 */
+/* NODE: Dcl_nat 608 */
+/* NODE: Dcl_nat 609 */
+/* NODE: Dcl_nat 610 */
 
 #line 32 "sdl.ceu"
-    }/* NODE: Stmts 513 */
+    }/* NODE: Stmts 616 */
 
 #line 50 "sdl.ceu"
-    {/* NODE: Dcl_nat 509 */
-/* NODE: Dcl_nat 510 */
-/* NODE: Dcl_nat 511 */
-/* NODE: Dcl_nat 512 */
+    {/* NODE: Dcl_nat 612 */
+/* NODE: Dcl_nat 613 */
+/* NODE: Dcl_nat 614 */
+/* NODE: Dcl_nat 615 */
 
 #line 50 "sdl.ceu"
-    }/* NODE: Stmts 566 */
+    }/* NODE: Stmts 669 */
 
 #line 55 "sdl.ceu"
-    {/* NODE: Dcl_nat 514 */
-/* NODE: Dcl_nat 515 */
-/* NODE: Dcl_nat 516 */
-/* NODE: Dcl_nat 517 */
-/* NODE: Dcl_nat 518 */
-/* NODE: Dcl_nat 519 */
-/* NODE: Dcl_nat 520 */
-/* NODE: Dcl_nat 521 */
-/* NODE: Dcl_nat 522 */
-/* NODE: Dcl_nat 523 */
-/* NODE: Dcl_nat 524 */
-/* NODE: Dcl_nat 525 */
-/* NODE: Dcl_nat 526 */
-/* NODE: Dcl_nat 527 */
-/* NODE: Dcl_nat 528 */
-/* NODE: Dcl_nat 529 */
-/* NODE: Dcl_nat 530 */
-/* NODE: Dcl_nat 531 */
-/* NODE: Dcl_nat 532 */
-/* NODE: Dcl_nat 533 */
-/* NODE: Dcl_nat 534 */
-/* NODE: Dcl_nat 535 */
-/* NODE: Dcl_nat 536 */
-/* NODE: Dcl_nat 537 */
-/* NODE: Dcl_nat 538 */
-/* NODE: Dcl_nat 539 */
-/* NODE: Dcl_nat 540 */
-/* NODE: Dcl_nat 541 */
-/* NODE: Dcl_nat 542 */
-/* NODE: Dcl_nat 543 */
-/* NODE: Dcl_nat 544 */
-/* NODE: Dcl_nat 545 */
-/* NODE: Dcl_nat 546 */
-/* NODE: Dcl_nat 547 */
-/* NODE: Dcl_nat 548 */
-/* NODE: Dcl_nat 549 */
-/* NODE: Dcl_nat 550 */
-/* NODE: Dcl_nat 551 */
-/* NODE: Dcl_nat 552 */
-/* NODE: Dcl_nat 553 */
-/* NODE: Dcl_nat 554 */
-/* NODE: Dcl_nat 555 */
-/* NODE: Dcl_nat 556 */
-/* NODE: Dcl_nat 557 */
-/* NODE: Dcl_nat 558 */
-/* NODE: Dcl_nat 559 */
-/* NODE: Dcl_nat 560 */
-/* NODE: Dcl_nat 561 */
-/* NODE: Dcl_nat 562 */
-/* NODE: Dcl_nat 563 */
-/* NODE: Dcl_nat 564 */
-/* NODE: Dcl_nat 565 */
+    {/* NODE: Dcl_nat 617 */
+/* NODE: Dcl_nat 618 */
+/* NODE: Dcl_nat 619 */
+/* NODE: Dcl_nat 620 */
+/* NODE: Dcl_nat 621 */
+/* NODE: Dcl_nat 622 */
+/* NODE: Dcl_nat 623 */
+/* NODE: Dcl_nat 624 */
+/* NODE: Dcl_nat 625 */
+/* NODE: Dcl_nat 626 */
+/* NODE: Dcl_nat 627 */
+/* NODE: Dcl_nat 628 */
+/* NODE: Dcl_nat 629 */
+/* NODE: Dcl_nat 630 */
+/* NODE: Dcl_nat 631 */
+/* NODE: Dcl_nat 632 */
+/* NODE: Dcl_nat 633 */
+/* NODE: Dcl_nat 634 */
+/* NODE: Dcl_nat 635 */
+/* NODE: Dcl_nat 636 */
+/* NODE: Dcl_nat 637 */
+/* NODE: Dcl_nat 638 */
+/* NODE: Dcl_nat 639 */
+/* NODE: Dcl_nat 640 */
+/* NODE: Dcl_nat 641 */
+/* NODE: Dcl_nat 642 */
+/* NODE: Dcl_nat 643 */
+/* NODE: Dcl_nat 644 */
+/* NODE: Dcl_nat 645 */
+/* NODE: Dcl_nat 646 */
+/* NODE: Dcl_nat 647 */
+/* NODE: Dcl_nat 648 */
+/* NODE: Dcl_nat 649 */
+/* NODE: Dcl_nat 650 */
+/* NODE: Dcl_nat 651 */
+/* NODE: Dcl_nat 652 */
+/* NODE: Dcl_nat 653 */
+/* NODE: Dcl_nat 654 */
+/* NODE: Dcl_nat 655 */
+/* NODE: Dcl_nat 656 */
+/* NODE: Dcl_nat 657 */
+/* NODE: Dcl_nat 658 */
+/* NODE: Dcl_nat 659 */
+/* NODE: Dcl_nat 660 */
+/* NODE: Dcl_nat 661 */
+/* NODE: Dcl_nat 662 */
+/* NODE: Dcl_nat 663 */
+/* NODE: Dcl_nat 664 */
+/* NODE: Dcl_nat 665 */
+/* NODE: Dcl_nat 666 */
+/* NODE: Dcl_nat 667 */
+/* NODE: Dcl_nat 668 */
 
 #line 55 "sdl.ceu"
-    }/* NODE: Stmts 575 */
+    }/* NODE: Stmts 678 */
 
 #line 108 "sdl.ceu"
-    {/* NODE: Dcl_nat 567 */
-/* NODE: Dcl_nat 568 */
-/* NODE: Dcl_nat 569 */
-/* NODE: Dcl_nat 570 */
-/* NODE: Dcl_nat 571 */
-/* NODE: Dcl_nat 572 */
-/* NODE: Dcl_nat 573 */
-/* NODE: Dcl_nat 574 */
+    {/* NODE: Dcl_nat 670 */
+/* NODE: Dcl_nat 671 */
+/* NODE: Dcl_nat 672 */
+/* NODE: Dcl_nat 673 */
+/* NODE: Dcl_nat 674 */
+/* NODE: Dcl_nat 675 */
+/* NODE: Dcl_nat 676 */
+/* NODE: Dcl_nat 677 */
 
 #line 108 "sdl.ceu"
     }/* NODE: Host 30 */
-/* NODE: Stmts 578 */
+/* NODE: Stmts 681 */
 
 #line 3 "movable_object.ceu"
-    {/* NODE: Dcl_ext 577 */
+    {/* NODE: Dcl_ext 680 */
 
 #line 3 "movable_object.ceu"
-    }/* NODE: Stmts 581 */
+    }/* NODE: Stmts 684 */
 
 #line 4 "movable_object.ceu"
-    {/* NODE: Dcl_ext 580 */
+    {/* NODE: Dcl_ext 683 */
 
 #line 4 "movable_object.ceu"
-    }/* NODE: Stmts 585 */
+    }/* NODE: Stmts 688 */
 
 #line 5 "movable_object.ceu"
-    {/* NODE: Dcl_ext 584 */
+    {/* NODE: Dcl_ext 687 */
 
 #line 5 "movable_object.ceu"
-    }/* NODE: Stmts 589 */
+    }/* NODE: Stmts 692 */
 
 #line 6 "movable_object.ceu"
-    {/* NODE: Dcl_ext 588 */
+    {/* NODE: Dcl_ext 691 */
 
 #line 6 "movable_object.ceu"
-    }/* NODE: Stmts 593 */
+    }/* NODE: Stmts 696 */
 
 #line 7 "movable_object.ceu"
-    {/* NODE: Dcl_ext 592 */
+    {/* NODE: Dcl_ext 695 */
 
 #line 7 "movable_object.ceu"
-    }/* NODE: Stmts 596 */
+    }/* NODE: Stmts 699 */
 
 #line 9 "movable_object.ceu"
-    {/* NODE: Dcl_ext 595 */
+    {/* NODE: Dcl_ext 698 */
 
 #line 9 "movable_object.ceu"
-    }/* NODE: Stmts 599 */
+    }/* NODE: Stmts 702 */
 
 #line 10 "movable_object.ceu"
-    {/* NODE: Dcl_ext 598 */
+    {/* NODE: Dcl_ext 701 */
 
 #line 10 "movable_object.ceu"
-    }/* NODE: Stmts 602 */
+    }/* NODE: Stmts 705 */
 
 #line 12 "movable_object.ceu"
-    {/* NODE: Dcl_adt 1110 */
-/* NODE: Dcl_var 601 */
+    {/* NODE: Dcl_adt 1304 */
+/* NODE: Dcl_var 704 */
 
 #line 12 "movable_object.ceu"
     }/* NODE: Finalize 69 */
 
 #line 13 "movable_object.ceu"
-    ((CEU_Main*)_ceu_org)->__fin_423_2 = 1;/* NODE: Set 603 */
+    ((CEU_Main*)_ceu_org)->__fin_526_2 = 1;/* NODE: Set 706 */
 
 #line 14 "movable_object.ceu"
 /* SET: win *//* NODE: Op1_& 57 */
 
 #line 14 "movable_object.ceu"
-    (((CEU_Main*)_ceu_org)->win) = (CEU__OPTION___SDL_WINDOW__REF_pack(SDL_CreateWindow("SDL 2",SDL_WINDOWPOS_CENTERED,SDL_WINDOWPOS_CENTERED,800,480,SDL_WINDOW_SHOWN)));/* NODE: Stmts 612 */
+    (((CEU_Main*)_ceu_org)->win) = (CEU__OPTION___SDL_WINDOW__REF_pack(SDL_CreateWindow("SDL 2",SDL_WINDOWPOS_CENTERED,SDL_WINDOWPOS_CENTERED,800,480,SDL_WINDOW_SHOWN)));/* NODE: Stmts 715 */
 
 #line 22 "movable_object.ceu"
-    {/* NODE: Dcl_var 605 */
-/* NODE: Set 613 */
+    {/* NODE: Dcl_var 708 */
+/* NODE: Set 716 */
 
 #line 22 "movable_object.ceu"
 /* SET: w *//* NODE: NUMBER 71 */
 
 #line 22 "movable_object.ceu"
-    (((CEU_Main*)_ceu_org)->w) = 0;/* NODE: Dcl_var 609 */
-/* NODE: Set 614 */
+    (((CEU_Main*)_ceu_org)->w) = 0;/* NODE: Dcl_var 712 */
+/* NODE: Set 717 */
 
 #line 22 "movable_object.ceu"
 /* SET: h *//* NODE: NUMBER 72 */
@@ -7771,27 +7806,27 @@ _ceu_org->trls[ 6 ].lbl = Main_Block__fin_22;
     }/* NODE: CallStmt 84 */
 
 #line 23 "movable_object.ceu"
-    SDL_GetWindowSize(((CEU__OPTION___SDL_WINDOW__REF_SOME_assert(_ceu_app, (&((CEU_Main*)_ceu_org)->win),__FILE__,__LINE__)->SOME.v)),(&((CEU_Main*)_ceu_org)->w),(&((CEU_Main*)_ceu_org)->h));/* NODE: Stmts 617 */
+    SDL_GetWindowSize(((CEU__OPTION___SDL_WINDOW__REF_SOME_assert(_ceu_app, (&((CEU_Main*)_ceu_org)->win),__FILE__,__LINE__)->SOME.v)),(&((CEU_Main*)_ceu_org)->w),(&((CEU_Main*)_ceu_org)->h));/* NODE: Stmts 720 */
 
 #line 25 "movable_object.ceu"
-    {/* NODE: Dcl_adt 1116 */
-/* NODE: Dcl_var 616 */
+    {/* NODE: Dcl_adt 1310 */
+/* NODE: Dcl_var 719 */
 
 #line 25 "movable_object.ceu"
     }/* NODE: Finalize 109 */
 
 #line 26 "movable_object.ceu"
-    ((CEU_Main*)_ceu_org)->__fin_423_1 = 1;/* NODE: Set 618 */
+    ((CEU_Main*)_ceu_org)->__fin_526_1 = 1;/* NODE: Set 721 */
 
 #line 27 "movable_object.ceu"
 /* SET: ren *//* NODE: Op1_& 97 */
 
 #line 27 "movable_object.ceu"
-    (((CEU_Main*)_ceu_org)->ren) = (CEU__OPTION___SDL_RENDERER__REF_pack(SDL_CreateRenderer(((CEU__OPTION___SDL_WINDOW__REF_SOME_assert(_ceu_app, (&((CEU_Main*)_ceu_org)->win),__FILE__,__LINE__)->SOME.v)),(-1),0)));/* NODE: Stmts 623 */
+    (((CEU_Main*)_ceu_org)->ren) = (CEU__OPTION___SDL_RENDERER__REF_pack(SDL_CreateRenderer(((CEU__OPTION___SDL_WINDOW__REF_SOME_assert(_ceu_app, (&((CEU_Main*)_ceu_org)->win),__FILE__,__LINE__)->SOME.v)),(-1),0)));/* NODE: Stmts 726 */
 
 #line 32 "movable_object.ceu"
-    {/* NODE: Dcl_var 620 */
-/* NODE: Set 624 */
+    {/* NODE: Dcl_var 723 */
+/* NODE: Set 727 */
 
 #line 32 "movable_object.ceu"
 /* SET: bg *//* NODE: Adt_constr_root 118 */
@@ -7824,11 +7859,11 @@ _ceu_org->trls[ 6 ].lbl = Main_Block__fin_22;
 #line 32 "movable_object.ceu"
     }
 #line 32 "movable_object.ceu"
-    }/* NODE: Stmts 629 */
+    }/* NODE: Stmts 732 */
 
 #line 33 "movable_object.ceu"
-    {/* NODE: Dcl_var 626 */
-/* NODE: Set 630 */
+    {/* NODE: Dcl_var 729 */
+/* NODE: Set 733 */
 
 #line 33 "movable_object.ceu"
 /* SET: bg_clr *//* NODE: Adt_constr_root 128 */
@@ -7861,23 +7896,23 @@ _ceu_org->trls[ 6 ].lbl = Main_Block__fin_22;
 #line 33 "movable_object.ceu"
     }
 #line 33 "movable_object.ceu"
-    }/* NODE: Stmts 943 */
+    }/* NODE: Stmts 1137 */
 
 #line 35 "movable_object.ceu"
     {
 #line 35 "movable_object.ceu"
-    }/* NODE: ParOr 418 */
+    }/* NODE: ParOr 521 */
 
-#line 101 "movable_object.ceu"
+#line 120 "movable_object.ceu"
 /* ParOr: spawn subs */
-#line 101 "movable_object.ceu"
+#line 120 "movable_object.ceu"
     {
 #ifdef CEU_STACK_CLEAR
-    tceu_stk stk_ = { _ceu_stk, _ceu_org, 0, 5, 1 };
+    tceu_stk stk_ = { _ceu_stk, _ceu_org, 0, 6, 1 };
 #endif
 
-#line 101 "movable_object.ceu"
-        _ceu_org->trls[ 0 ].lbl = Main_ParOr_sub_1_14;
+#line 120 "movable_object.ceu"
+        _ceu_org->trls[ 0 ].lbl = Main_ParOr_sub_1_16;
     ceu_app_go(_ceu_app,NULL,_ceu_org,
                &_ceu_org->trls[ 0 ],
 #ifdef CEU_STACK_CLEAR
@@ -7893,8 +7928,8 @@ _ceu_org->trls[ 6 ].lbl = Main_Block__fin_22;
     }
 #endif
 
-#line 101 "movable_object.ceu"
-        _ceu_org->trls[ 1 ].lbl = Main_ParOr_sub_2_15;
+#line 120 "movable_object.ceu"
+        _ceu_org->trls[ 1 ].lbl = Main_ParOr_sub_2_17;
     ceu_app_go(_ceu_app,NULL,_ceu_org,
                &_ceu_org->trls[ 1 ],
 #ifdef CEU_STACK_CLEAR
@@ -7910,8 +7945,8 @@ _ceu_org->trls[ 6 ].lbl = Main_Block__fin_22;
     }
 #endif
 
-#line 101 "movable_object.ceu"
-        _ceu_org->trls[ 2 ].lbl = Main_ParOr_sub_3_16;
+#line 120 "movable_object.ceu"
+        _ceu_org->trls[ 2 ].lbl = Main_ParOr_sub_3_18;
     ceu_app_go(_ceu_app,NULL,_ceu_org,
                &_ceu_org->trls[ 2 ],
 #ifdef CEU_STACK_CLEAR
@@ -7927,132 +7962,132 @@ _ceu_org->trls[ 6 ].lbl = Main_Block__fin_22;
     }
 #endif
 
-#line 101 "movable_object.ceu"
+#line 120 "movable_object.ceu"
         _ceu_trl = &_ceu_org->trls[ 4 ];
 
-#line 101 "movable_object.ceu"
+#line 120 "movable_object.ceu"
     }
-/* NODE: Block 417 */
+/* NODE: Block 520 */
 
-#line 124 "movable_object.ceu"
-    {/* NODE: Stmts 416 */
+#line 143 "movable_object.ceu"
+    {/* NODE: Stmts 519 */
 
-#line 124 "movable_object.ceu"
-    {/* NODE: Block 1071 */
+#line 143 "movable_object.ceu"
+    {/* NODE: Block 1265 */
 
-#line 124 "movable_object.ceu"
-    {/* NODE: Stmts 1070 */
+#line 143 "movable_object.ceu"
+    {/* NODE: Stmts 1264 */
 
-#line 124 "movable_object.ceu"
-    {/* NODE: Stmts 1069 */
+#line 143 "movable_object.ceu"
+    {/* NODE: Stmts 1263 */
 
-#line 124 "movable_object.ceu"
+#line 143 "movable_object.ceu"
     {
-#line 124 "movable_object.ceu"
-    }/* NODE: Loop 1068 */
+#line 143 "movable_object.ceu"
+    }/* NODE: Loop 1262 */
 
-#line 124 "movable_object.ceu"
+#line 143 "movable_object.ceu"
     for (;;) {
-/* NODE: Block 414 */
+/* NODE: Block 517 */
 
-#line 125 "movable_object.ceu"
-    {/* NODE: Stmts 413 */
+#line 144 "movable_object.ceu"
+    {/* NODE: Stmts 516 */
 
-#line 125 "movable_object.ceu"
-    {/* NODE: Stmts 1098 */
+#line 144 "movable_object.ceu"
+    {/* NODE: Stmts 1292 */
 
-#line 124 "movable_object.ceu"
-    {/* NODE: Nothing 1072 */
-/* NODE: Await 1065 */
+#line 143 "movable_object.ceu"
+    {/* NODE: Nothing 1266 */
+/* NODE: Await 1259 */
 
-#line 124 "movable_object.ceu"
-    _CEU_NO_1065_:
-if (0) { goto _CEU_NO_1065_; /* avoids "not used" warning */ }
+#line 143 "movable_object.ceu"
+    _CEU_NO_1259_:
+if (0) { goto _CEU_NO_1259_; /* avoids "not used" warning */ }
 
-#line 124 "movable_object.ceu"
+#line 143 "movable_object.ceu"
     _ceu_trl->evt = CEU_IN_SDL_REDRAW;
-_ceu_trl->lbl = Main_Awake_SDL_REDRAW_21;
+_ceu_trl->lbl = Main_Awake_SDL_REDRAW_23;
 _ceu_trl->seqno = _ceu_app->seqno;
 
-#line 124 "movable_object.ceu"
+#line 143 "movable_object.ceu"
     return;
 
-case Main_Awake_SDL_REDRAW_21:;
+case Main_Awake_SDL_REDRAW_23:;
 
-#line 124 "movable_object.ceu"
+#line 143 "movable_object.ceu"
     #ifdef CEU_DEBUG_TRAILS
 #ifndef CEU_OS
 printf("\tOK!\n");
 #endif
 #endif
-/* NODE: Nothing 1170 */
-/* NODE: Nothing 1171 */
+/* NODE: Nothing 1366 */
+/* NODE: Nothing 1367 */
 
-#line 124 "movable_object.ceu"
-    }/* NODE: CallStmt 412 */
+#line 143 "movable_object.ceu"
+    }/* NODE: CallStmt 515 */
 
-#line 125 "movable_object.ceu"
+#line 144 "movable_object.ceu"
     SDL_RenderPresent(((CEU__OPTION___SDL_RENDERER__REF_SOME_assert(_ceu_app, (&((CEU_Main*)_ceu_org)->ren),__FILE__,__LINE__)->SOME.v)));
-#line 125 "movable_object.ceu"
+#line 144 "movable_object.ceu"
     }
-#line 125 "movable_object.ceu"
-/* CLEAR: Block (125) */
-#line 125 "movable_object.ceu"
+#line 144 "movable_object.ceu"
+/* CLEAR: Block (144) */
+#line 144 "movable_object.ceu"
     if (0) {
 
-#line 125 "movable_object.ceu"
+#line 144 "movable_object.ceu"
         }   /* opened in "if (0)" */
 }       /* opened in Block_pre */
 
-#line 124 "movable_object.ceu"
+#line 143 "movable_object.ceu"
     }
 
-#line 124 "movable_object.ceu"
+#line 143 "movable_object.ceu"
     }
-#line 124 "movable_object.ceu"
-/* CLEAR: Block (124) */
-#line 124 "movable_object.ceu"
+#line 143 "movable_object.ceu"
+/* CLEAR: Block (143) */
+#line 143 "movable_object.ceu"
     if (0) {
 
-#line 124 "movable_object.ceu"
+#line 143 "movable_object.ceu"
         }   /* opened in "if (0)" */
 }       /* opened in Block_pre */
 
-#line 124 "movable_object.ceu"
+#line 143 "movable_object.ceu"
     }
-#line 124 "movable_object.ceu"
-/* CLEAR: Block (124) */
-#line 124 "movable_object.ceu"
+#line 143 "movable_object.ceu"
+/* CLEAR: Block (143) */
+#line 143 "movable_object.ceu"
     if (0) {
 
-#line 124 "movable_object.ceu"
+#line 143 "movable_object.ceu"
         }   /* opened in "if (0)" */
 }       /* opened in Block_pre */
 
-#line 101 "movable_object.ceu"
-case Main_ParOr_sub_3_16:;/* NODE: Block 404 */
+#line 120 "movable_object.ceu"
+case Main_ParOr_sub_3_18:;/* NODE: Block 507 */
 
-#line 110 "movable_object.ceu"
+#line 129 "movable_object.ceu"
     {
-#line 110 "movable_object.ceu"
+#line 129 "movable_object.ceu"
     #ifdef CEU_ORGS
 _ceu_org->trls[ 2 ].evt = CEU_IN__ORG;
 _ceu_org->trls[ 2 ].org = NULL;
 #endif
 
-#line 110 "movable_object.ceu"
+#line 129 "movable_object.ceu"
     _ceu_trl = &_ceu_org->trls[ 3 ];
-/* NODE: Stmts 403 */
+/* NODE: Stmts 506 */
 
-#line 110 "movable_object.ceu"
-    {/* NODE: Dcl_var 386 */
+#line 129 "movable_object.ceu"
+    {/* NODE: Dcl_var 489 */
 
-#line 110 "movable_object.ceu"
+#line 129 "movable_object.ceu"
 /* start org: r1 */
-#line 110 "movable_object.ceu"
+#line 129 "movable_object.ceu"
         /* resets org memory and starts org.trail[0]=Class_XXX */
     /* TODO: BUG: _ceu_org is not necessarily the parent for pool allocations */
-    ceu_out_org_init(_ceu_app, ((tceu_org*) &(((CEU_Main*)_ceu_org)->r1_19)),6,Class_Rect,
+    ceu_out_org_init(_ceu_app, ((tceu_org*) &(((CEU_Main*)_ceu_org)->r1_19)),7,Class_Rect,
                      1,
                      0,
                      _ceu_org,2);
@@ -8060,10 +8095,10 @@ _ceu_org->trls[ 2 ].org = NULL;
  * are all together there. When we have separate trls for pools, we'll have to 
  * indirectly access the offset in the interface. */
 
-#line 110 "movable_object.ceu"
-        _ceu_constr_385(_ceu_app, ((tceu_org*) &(((CEU_Main*)_ceu_org)->r1_19)), _ceu_org);
+#line 129 "movable_object.ceu"
+        _ceu_constr_488(_ceu_app, ((tceu_org*) &(((CEU_Main*)_ceu_org)->r1_19)), _ceu_org);
 
-#line 110 "movable_object.ceu"
+#line 129 "movable_object.ceu"
     {
 #ifdef CEU_STACK_CLEAR
     tceu_stk stk_ = { _ceu_stk, _ceu_org, 3, 3, 1 };
@@ -8079,143 +8114,143 @@ _ceu_org->trls[ 2 ].org = NULL;
                NULL);
 #endif
 
-#line 110 "movable_object.ceu"
+#line 129 "movable_object.ceu"
     }
-/* NODE: Block 1010 */
+/* NODE: Block 1204 */
 
-#line 115 "movable_object.ceu"
-    {/* NODE: Stmts 1009 */
+#line 134 "movable_object.ceu"
+    {/* NODE: Stmts 1203 */
 
-#line 115 "movable_object.ceu"
-    {/* NODE: Stmts 1008 */
+#line 134 "movable_object.ceu"
+    {/* NODE: Stmts 1202 */
 
-#line 115 "movable_object.ceu"
+#line 134 "movable_object.ceu"
     {
-#line 115 "movable_object.ceu"
-    }/* NODE: Loop 1007 */
+#line 134 "movable_object.ceu"
+    }/* NODE: Loop 1201 */
 
-#line 115 "movable_object.ceu"
+#line 134 "movable_object.ceu"
     for (;;) {
-/* NODE: Block 401 */
+/* NODE: Block 504 */
 
-#line 116 "movable_object.ceu"
+#line 135 "movable_object.ceu"
     {
-#line 116 "movable_object.ceu"
+#line 135 "movable_object.ceu"
     SDL_KeyboardEvent* __ceu_key_20;
-/* NODE: Stmts 400 */
+/* NODE: Stmts 503 */
 
-#line 116 "movable_object.ceu"
-    {/* NODE: Stmts 1015 */
+#line 135 "movable_object.ceu"
+    {/* NODE: Stmts 1209 */
 
-#line 116 "movable_object.ceu"
-    {/* NODE: Dcl_var 1012 */
-/* NODE: Stmts 1056 */
+#line 135 "movable_object.ceu"
+    {/* NODE: Dcl_var 1206 */
+/* NODE: Stmts 1250 */
 
-#line 116 "movable_object.ceu"
-    {/* NODE: Nothing 1018 */
-/* NODE: Set 1017 */
+#line 135 "movable_object.ceu"
+    {/* NODE: Nothing 1212 */
+/* NODE: Set 1211 */
 
-#line 116 "movable_object.ceu"
-/* SET: table: 0x193d760 *//* NODE: Await 389 */
+#line 135 "movable_object.ceu"
+/* SET: table: 0x1d2a040 *//* NODE: Await 492 */
 
-#line 116 "movable_object.ceu"
-    _CEU_NO_389_:
-if (0) { goto _CEU_NO_389_; /* avoids "not used" warning */ }
+#line 135 "movable_object.ceu"
+    _CEU_NO_492_:
+if (0) { goto _CEU_NO_492_; /* avoids "not used" warning */ }
 
-#line 116 "movable_object.ceu"
+#line 135 "movable_object.ceu"
     _ceu_trl->evt = CEU_IN_SDL_KEYDOWN;
-_ceu_trl->lbl = Main_Awake_SDL_KEYDOWN_20;
+_ceu_trl->lbl = Main_Awake_SDL_KEYDOWN_22;
 _ceu_trl->seqno = _ceu_app->seqno;
 
-#line 116 "movable_object.ceu"
+#line 135 "movable_object.ceu"
     return;
 
-case Main_Awake_SDL_KEYDOWN_20:;
+case Main_Awake_SDL_KEYDOWN_22:;
 
-#line 116 "movable_object.ceu"
+#line 135 "movable_object.ceu"
     #ifdef CEU_DEBUG_TRAILS
 #ifndef CEU_OS
 printf("\tOK!\n");
 #endif
 #endif
 
-#line 116 "movable_object.ceu"
+#line 135 "movable_object.ceu"
     {
 
-#line 116 "movable_object.ceu"
+#line 135 "movable_object.ceu"
         tceu__SDL_KeyboardEvent_** __ceu_casted = (tceu__SDL_KeyboardEvent_**) _ceu_evt->param;
 
-#line 116 "movable_object.ceu"
+#line 135 "movable_object.ceu"
         {
         (__ceu_key_20) = ((*(__ceu_casted))->_1);
     }
 }
-/* NODE: Nothing 1168 */
-/* NODE: Nothing 1169 */
+/* NODE: Nothing 1364 */
+/* NODE: Nothing 1365 */
 
-#line 116 "movable_object.ceu"
+#line 135 "movable_object.ceu"
     }
-#line 116 "movable_object.ceu"
-    }/* NODE: If 1062 */
+#line 135 "movable_object.ceu"
+    }/* NODE: If 1256 */
 
-#line 117 "movable_object.ceu"
+#line 136 "movable_object.ceu"
     if (((((((*(__ceu_key_20)).keysym)).sym))==SDLK_ESCAPE)) {
-/* NODE: Block 398 */
+/* NODE: Block 501 */
 
-#line 118 "movable_object.ceu"
-    {/* NODE: Stmts 397 */
+#line 137 "movable_object.ceu"
+    {/* NODE: Stmts 500 */
 
-#line 118 "movable_object.ceu"
-    {/* NODE: Break 396 */
+#line 137 "movable_object.ceu"
+    {/* NODE: Break 499 */
 
-#line 118 "movable_object.ceu"
+#line 137 "movable_object.ceu"
     break;
-#line 118 "movable_object.ceu"
+#line 137 "movable_object.ceu"
     }
-#line 118 "movable_object.ceu"
-/* CLEAR: Block (118) */
-#line 118 "movable_object.ceu"
+#line 137 "movable_object.ceu"
+/* CLEAR: Block (137) */
+#line 137 "movable_object.ceu"
     if (0) {
 
-#line 118 "movable_object.ceu"
+#line 137 "movable_object.ceu"
         }   /* opened in "if (0)" */
 }       /* opened in Block_pre */
 } else {
-/* NODE: Nothing 1061 */
+/* NODE: Nothing 1255 */
 }
 
-#line 116 "movable_object.ceu"
+#line 135 "movable_object.ceu"
     }
-#line 116 "movable_object.ceu"
-/* CLEAR: Block (116) */
-#line 116 "movable_object.ceu"
+#line 135 "movable_object.ceu"
+/* CLEAR: Block (135) */
+#line 135 "movable_object.ceu"
     if (0) {
 
-#line 116 "movable_object.ceu"
+#line 135 "movable_object.ceu"
         }   /* opened in "if (0)" */
 }       /* opened in Block_pre */
 
-#line 115 "movable_object.ceu"
+#line 134 "movable_object.ceu"
     }
 
-#line 115 "movable_object.ceu"
-/* CLEAR: Loop (115) */
-#line 115 "movable_object.ceu"
+#line 134 "movable_object.ceu"
+/* CLEAR: Loop (134) */
+#line 134 "movable_object.ceu"
     }
-#line 115 "movable_object.ceu"
-/* CLEAR: Block (115) */
-#line 115 "movable_object.ceu"
+#line 134 "movable_object.ceu"
+/* CLEAR: Block (134) */
+#line 134 "movable_object.ceu"
     if (0) {
 
-#line 115 "movable_object.ceu"
+#line 134 "movable_object.ceu"
         }   /* opened in "if (0)" */
 }       /* opened in Block_pre */
 
-#line 110 "movable_object.ceu"
+#line 129 "movable_object.ceu"
     }
-#line 110 "movable_object.ceu"
-/* CLEAR: Block (110) */
-#line 110 "movable_object.ceu"
+#line 129 "movable_object.ceu"
+/* CLEAR: Block (129) */
+#line 129 "movable_object.ceu"
     {
     /* Reuse current stack frame.
      * We know that CLEAR will not abort anything and return normally.
@@ -8239,7 +8274,7 @@ printf("\tOK!\n");
 #endif
 }
 
-#line 110 "movable_object.ceu"
+#line 129 "movable_object.ceu"
     #ifdef CEU_ORGS_AWAIT
 /* signal ok_killed */
 {
@@ -8252,180 +8287,180 @@ printf("\tOK!\n");
 }
 #endif
 
-#line 110 "movable_object.ceu"
+#line 129 "movable_object.ceu"
     if (0) {
 
-#line 110 "movable_object.ceu"
+#line 129 "movable_object.ceu"
         }   /* opened in "if (0)" */
 }       /* opened in Block_pre */
 
-#line 101 "movable_object.ceu"
+#line 120 "movable_object.ceu"
 /* PAROR JOIN */
-#line 101 "movable_object.ceu"
-    _ceu_lbl = Main_ParOr_out_17;
+#line 120 "movable_object.ceu"
+    _ceu_lbl = Main_ParOr_out_19;
 goto _CEU_GOTO_;
 
-#line 101 "movable_object.ceu"
-case Main_ParOr_sub_2_15:;/* NODE: Block 364 */
+#line 120 "movable_object.ceu"
+case Main_ParOr_sub_2_17:;/* NODE: Block 467 */
 
-#line 104 "movable_object.ceu"
-    {/* NODE: Stmts 363 */
+#line 123 "movable_object.ceu"
+    {/* NODE: Stmts 466 */
 
-#line 104 "movable_object.ceu"
-    {/* NODE: Block 977 */
+#line 123 "movable_object.ceu"
+    {/* NODE: Block 1171 */
 
-#line 104 "movable_object.ceu"
-    {/* NODE: Stmts 976 */
+#line 123 "movable_object.ceu"
+    {/* NODE: Stmts 1170 */
 
-#line 104 "movable_object.ceu"
-    {/* NODE: Stmts 975 */
+#line 123 "movable_object.ceu"
+    {/* NODE: Stmts 1169 */
 
-#line 104 "movable_object.ceu"
+#line 123 "movable_object.ceu"
     {
-#line 104 "movable_object.ceu"
-    }/* NODE: Loop 974 */
+#line 123 "movable_object.ceu"
+    }/* NODE: Loop 1168 */
 
-#line 104 "movable_object.ceu"
+#line 123 "movable_object.ceu"
     for (;;) {
-/* NODE: Block 361 */
+/* NODE: Block 464 */
 
-#line 105 "movable_object.ceu"
-    {/* NODE: Stmts 360 */
+#line 124 "movable_object.ceu"
+    {/* NODE: Stmts 463 */
 
-#line 105 "movable_object.ceu"
-    {/* NODE: Stmts 1004 */
+#line 124 "movable_object.ceu"
+    {/* NODE: Stmts 1198 */
 
-#line 104 "movable_object.ceu"
-    {/* NODE: Nothing 978 */
-/* NODE: Await 971 */
+#line 123 "movable_object.ceu"
+    {/* NODE: Nothing 1172 */
+/* NODE: Await 1165 */
 
-#line 104 "movable_object.ceu"
-    _CEU_NO_971_:
-if (0) { goto _CEU_NO_971_; /* avoids "not used" warning */ }
+#line 123 "movable_object.ceu"
+    _CEU_NO_1165_:
+if (0) { goto _CEU_NO_1165_; /* avoids "not used" warning */ }
 
-#line 104 "movable_object.ceu"
+#line 123 "movable_object.ceu"
     _ceu_trl->evt = CEU_IN_SDL_REDRAW;
-_ceu_trl->lbl = Main_Awake_SDL_REDRAW_19;
+_ceu_trl->lbl = Main_Awake_SDL_REDRAW_21;
 _ceu_trl->seqno = _ceu_app->seqno;
 
-#line 104 "movable_object.ceu"
+#line 123 "movable_object.ceu"
     return;
 
-case Main_Awake_SDL_REDRAW_19:;
+case Main_Awake_SDL_REDRAW_21:;
 
-#line 104 "movable_object.ceu"
+#line 123 "movable_object.ceu"
     #ifdef CEU_DEBUG_TRAILS
 #ifndef CEU_OS
 printf("\tOK!\n");
 #endif
 #endif
-/* NODE: Nothing 1164 */
-/* NODE: Nothing 1165 */
+/* NODE: Nothing 1360 */
+/* NODE: Nothing 1361 */
 
-#line 104 "movable_object.ceu"
-    }/* NODE: CallStmt 348 */
+#line 123 "movable_object.ceu"
+    }/* NODE: CallStmt 451 */
 
-#line 105 "movable_object.ceu"
-    SDL_SetRenderDrawColor(((CEU__OPTION___SDL_RENDERER__REF_SOME_assert(_ceu_app, (&((CEU_Main*)_ceu_org)->ren),__FILE__,__LINE__)->SOME.v)),(((((CEU_Main*)_ceu_org)->bg_clr).r)),(((((CEU_Main*)_ceu_org)->bg_clr).g)),(((((CEU_Main*)_ceu_org)->bg_clr).b)),0xFF);/* NODE: CallStmt 359 */
+#line 124 "movable_object.ceu"
+    SDL_SetRenderDrawColor(((CEU__OPTION___SDL_RENDERER__REF_SOME_assert(_ceu_app, (&((CEU_Main*)_ceu_org)->ren),__FILE__,__LINE__)->SOME.v)),(((((CEU_Main*)_ceu_org)->bg_clr).r)),(((((CEU_Main*)_ceu_org)->bg_clr).g)),(((((CEU_Main*)_ceu_org)->bg_clr).b)),0xFF);/* NODE: CallStmt 462 */
 
-#line 106 "movable_object.ceu"
+#line 125 "movable_object.ceu"
     SDL_RenderFillRect(((CEU__OPTION___SDL_RENDERER__REF_SOME_assert(_ceu_app, (&((CEU_Main*)_ceu_org)->ren),__FILE__,__LINE__)->SOME.v)),((SDL_Rect*)(&((CEU_Main*)_ceu_org)->bg)));
-#line 105 "movable_object.ceu"
+#line 124 "movable_object.ceu"
     }
-#line 105 "movable_object.ceu"
-/* CLEAR: Block (105) */
-#line 105 "movable_object.ceu"
+#line 124 "movable_object.ceu"
+/* CLEAR: Block (124) */
+#line 124 "movable_object.ceu"
     if (0) {
 
-#line 105 "movable_object.ceu"
+#line 124 "movable_object.ceu"
         }   /* opened in "if (0)" */
 }       /* opened in Block_pre */
 
-#line 104 "movable_object.ceu"
+#line 123 "movable_object.ceu"
     }
 
-#line 104 "movable_object.ceu"
+#line 123 "movable_object.ceu"
     }
-#line 104 "movable_object.ceu"
-/* CLEAR: Block (104) */
-#line 104 "movable_object.ceu"
+#line 123 "movable_object.ceu"
+/* CLEAR: Block (123) */
+#line 123 "movable_object.ceu"
     if (0) {
 
-#line 104 "movable_object.ceu"
+#line 123 "movable_object.ceu"
         }   /* opened in "if (0)" */
 }       /* opened in Block_pre */
 
-#line 104 "movable_object.ceu"
+#line 123 "movable_object.ceu"
     }
-#line 104 "movable_object.ceu"
-/* CLEAR: Block (104) */
-#line 104 "movable_object.ceu"
+#line 123 "movable_object.ceu"
+/* CLEAR: Block (123) */
+#line 123 "movable_object.ceu"
     if (0) {
 
-#line 104 "movable_object.ceu"
+#line 123 "movable_object.ceu"
         }   /* opened in "if (0)" */
 }       /* opened in Block_pre */
 
-#line 101 "movable_object.ceu"
-case Main_ParOr_sub_1_14:;/* NODE: Block 333 */
+#line 120 "movable_object.ceu"
+case Main_ParOr_sub_1_16:;/* NODE: Block 436 */
 
-#line 102 "movable_object.ceu"
-    {/* NODE: Stmts 332 */
+#line 121 "movable_object.ceu"
+    {/* NODE: Stmts 435 */
 
-#line 102 "movable_object.ceu"
-    {/* NODE: Stmts 970 */
+#line 121 "movable_object.ceu"
+    {/* NODE: Stmts 1164 */
 
-#line 102 "movable_object.ceu"
-    {/* NODE: Nothing 944 */
-/* NODE: Await 331 */
+#line 121 "movable_object.ceu"
+    {/* NODE: Nothing 1138 */
+/* NODE: Await 434 */
 
-#line 102 "movable_object.ceu"
-    _CEU_NO_331_:
-if (0) { goto _CEU_NO_331_; /* avoids "not used" warning */ }
+#line 121 "movable_object.ceu"
+    _CEU_NO_434_:
+if (0) { goto _CEU_NO_434_; /* avoids "not used" warning */ }
 
-#line 102 "movable_object.ceu"
+#line 121 "movable_object.ceu"
     _ceu_trl->evt = CEU_IN_SDL_QUIT;
-_ceu_trl->lbl = Main_Awake_SDL_QUIT_18;
+_ceu_trl->lbl = Main_Awake_SDL_QUIT_20;
 _ceu_trl->seqno = _ceu_app->seqno;
 
-#line 102 "movable_object.ceu"
+#line 121 "movable_object.ceu"
     return;
 
-case Main_Awake_SDL_QUIT_18:;
+case Main_Awake_SDL_QUIT_20:;
 
-#line 102 "movable_object.ceu"
+#line 121 "movable_object.ceu"
     #ifdef CEU_DEBUG_TRAILS
 #ifndef CEU_OS
 printf("\tOK!\n");
 #endif
 #endif
-/* NODE: Nothing 1162 */
-/* NODE: Nothing 1163 */
+/* NODE: Nothing 1358 */
+/* NODE: Nothing 1359 */
 
-#line 102 "movable_object.ceu"
+#line 121 "movable_object.ceu"
     }
-#line 102 "movable_object.ceu"
+#line 121 "movable_object.ceu"
     }
-#line 102 "movable_object.ceu"
-/* CLEAR: Block (102) */
-#line 102 "movable_object.ceu"
+#line 121 "movable_object.ceu"
+/* CLEAR: Block (121) */
+#line 121 "movable_object.ceu"
     if (0) {
 
-#line 102 "movable_object.ceu"
+#line 121 "movable_object.ceu"
         }   /* opened in "if (0)" */
 }       /* opened in Block_pre */
 
-#line 101 "movable_object.ceu"
+#line 120 "movable_object.ceu"
 /* PAROR JOIN */
-#line 101 "movable_object.ceu"
-    _ceu_lbl = Main_ParOr_out_17;
+#line 120 "movable_object.ceu"
+    _ceu_lbl = Main_ParOr_out_19;
 goto _CEU_GOTO_;
 
-#line 101 "movable_object.ceu"
-case Main_ParOr_out_17:;
-#line 101 "movable_object.ceu"
-/* CLEAR: ParOr (101) */
-#line 101 "movable_object.ceu"
+#line 120 "movable_object.ceu"
+case Main_ParOr_out_19:;
+#line 120 "movable_object.ceu"
+/* CLEAR: ParOr (120) */
+#line 120 "movable_object.ceu"
     {
     /* Reuse current stack frame.
      * We know that CLEAR will not abort anything and return normally.
@@ -8441,19 +8476,19 @@ case Main_ParOr_out_17:;
                   _ceu_stk,
                   _ceu_org,
                   0,
-                  6);
+                  7);
 #ifdef CEU_STACK_CLEAR
     _ceu_stk->is_alive = __ceu_old;
     ceu_sys_stack_clear(_ceu_stk, _ceu_org,
-                        0,5);
+                        0,6);
 #endif
 }
 
-#line 101 "movable_object.ceu"
+#line 120 "movable_object.ceu"
     #ifdef CEU_ORGS_AWAIT
 /* signal ok_killed */
 {
-    tceu_kill ps = { _ceu_org, _ceu_org->ret, 0,5 };
+    tceu_kill ps = { _ceu_org, _ceu_org->ret, 0,6 };
     tceu_evt evt_;
              evt_.id = CEU_IN__ok_killed;
              evt_.param = &ps;
@@ -8461,27 +8496,27 @@ case Main_ParOr_out_17:;
                   _ceu_app->data, 0, _ceu_app->data->n);
 }
 #endif
-/* NODE: Stmts 1102 */
+/* NODE: Stmts 1296 */
 
-#line 129 "movable_object.ceu"
-    {/* NODE: Set 1100 */
+#line 148 "movable_object.ceu"
+    {/* NODE: Set 1294 */
 
-#line 129 "movable_object.ceu"
-/* SET: _ret *//* NODE: NUMBER 419 */
+#line 148 "movable_object.ceu"
+/* SET: _ret *//* NODE: NUMBER 522 */
 
-#line 129 "movable_object.ceu"
+#line 148 "movable_object.ceu"
     (((CEU_Main*)_ceu_org)->_ret_0) = 0;
-#line 129 "movable_object.ceu"
+#line 148 "movable_object.ceu"
     #ifdef CEU_RET
     _ceu_app->ret = (((CEU_Main*)_ceu_org)->_ret_0);
 #endif
-/* NODE: Escape 1101 */
+/* NODE: Escape 1295 */
 
-#line 129 "movable_object.ceu"
+#line 148 "movable_object.ceu"
     _ceu_lbl = Main_Set_out_0;
 goto _CEU_GOTO_;
 
-#line 129 "movable_object.ceu"
+#line 148 "movable_object.ceu"
     }
 #line 4 "sdl.ceu"
     }
@@ -8491,9 +8526,9 @@ goto _CEU_GOTO_;
     if (0) {
 
 #line 1 "movable_object.ceu"
-case Main_Block__fin_22:;
+case Main_Block__fin_24:;
 #line 1 "movable_object.ceu"
-    if (((CEU_Main*)_ceu_org)->__fin_423_1) {
+    if (((CEU_Main*)_ceu_org)->__fin_526_1) {
     /* NODE: Finally 108 */
 /* NODE: Block 107 */
 
@@ -8518,7 +8553,7 @@ case Main_Block__fin_22:;
 }
 
 #line 1 "movable_object.ceu"
-    if (((CEU_Main*)_ceu_org)->__fin_423_2) {
+    if (((CEU_Main*)_ceu_org)->__fin_526_2) {
     /* NODE: Finally 68 */
 /* NODE: Block 67 */
 
@@ -8583,11 +8618,11 @@ case Main_Set_out_0:;
                   _ceu_stk,
                   _ceu_org,
                   0,
-                  7);
+                  8);
 #ifdef CEU_STACK_CLEAR
     _ceu_stk->is_alive = __ceu_old;
     ceu_sys_stack_clear(_ceu_stk, _ceu_org,
-                        0,6);
+                        0,7);
 #endif
 }
 
@@ -8595,7 +8630,7 @@ case Main_Set_out_0:;
     #ifdef CEU_ORGS_AWAIT
 /* signal ok_killed */
 {
-    tceu_kill ps = { _ceu_org, _ceu_org->ret, 0,6 };
+    tceu_kill ps = { _ceu_org, _ceu_org->ret, 0,7 };
     tceu_evt evt_;
              evt_.id = CEU_IN__ok_killed;
              evt_.param = &ps;
@@ -8635,69 +8670,117 @@ _ceu_app->isAlive = 0;
     return;/* NODE: Dcl_cls 1 */
 
 #line 35 "movable_object.ceu"
-case Class_Rect:;/* NODE: Block 941 */
+case Class_Rect:;/* NODE: Block 1135 */
 
 #line 35 "movable_object.ceu"
-    {/* NODE: Stmts 940 */
+    {/* NODE: Stmts 1134 */
 
 #line 35 "movable_object.ceu"
-    {/* NODE: Block 636 */
+    {/* NODE: Block 739 */
 
 #line 35 "movable_object.ceu"
-    {/* NODE: Stmts 942 */
+    {/* NODE: Stmts 1136 */
 
 #line 35 "movable_object.ceu"
-    {/* NODE: Block 328 */
+    {/* NODE: Block 431 */
 
 #line 39 "movable_object.ceu"
-    {/* NODE: Stmts 327 */
+    {/* NODE: Stmts 430 */
 
 #line 39 "movable_object.ceu"
-    {/* NODE: Stmts 650 */
+    {/* NODE: Stmts 753 */
 
 #line 39 "movable_object.ceu"
-    {/* NODE: Dcl_var 647 */
-/* NODE: Set 651 */
+    {/* NODE: Dcl_var 750 */
+/* NODE: Set 754 */
 
 #line 39 "movable_object.ceu"
 /* SET: clr *//* NODE: Op2_call 141 */
 
 #line 39 "movable_object.ceu"
     {
-    SDL_Color __ceu_v_651 = 
+    SDL_Color __ceu_v_754 = 
 #ifdef __cplusplus
     SDL_Color(0x00,0xFF,0xFF)
 #else
     {0x00,0xFF,0xFF}
 #endif
 ;
-    (((CEU_Rect*)_ceu_org)->clr) = __ceu_v_651;
+    (((CEU_Rect*)_ceu_org)->clr) = __ceu_v_754;
 }
 
 #line 39 "movable_object.ceu"
-    }/* NODE: Stmts 655 */
+    }/* NODE: Stmts 758 */
 
 #line 41 "movable_object.ceu"
-    {/* NODE: Dcl_int 654 */
+    {/* NODE: Dcl_int 757 */
 
 #line 41 "movable_object.ceu"
-    }/* NODE: Stmts 659 */
+    }/* NODE: Stmts 762 */
 
 #line 42 "movable_object.ceu"
-    {/* NODE: Dcl_int 658 */
+    {/* NODE: Dcl_int 761 */
 
 #line 42 "movable_object.ceu"
-    }/* NODE: ParOr 326 */
+    }/* NODE: Stmts 767 */
 
 #line 44 "movable_object.ceu"
+    {/* NODE: Dcl_var 764 */
+/* NODE: Set 768 */
+
+#line 44 "movable_object.ceu"
+/* SET: w *//* NODE: Op2_. 149 */
+
+#line 44 "movable_object.ceu"
+    (((CEU_Rect*)_ceu_org)->w) = (((((CEU_Rect*)_ceu_org)->rect).w));
+#line 44 "movable_object.ceu"
+    }/* NODE: Stmts 773 */
+
+#line 45 "movable_object.ceu"
+    {/* NODE: Dcl_var 770 */
+/* NODE: Set 774 */
+
+#line 45 "movable_object.ceu"
+/* SET: h *//* NODE: Op2_. 153 */
+
+#line 45 "movable_object.ceu"
+    (((CEU_Rect*)_ceu_org)->h) = (((((CEU_Rect*)_ceu_org)->rect).h));
+#line 45 "movable_object.ceu"
+    }/* NODE: Stmts 779 */
+
+#line 46 "movable_object.ceu"
+    {/* NODE: Dcl_var 776 */
+/* NODE: Set 780 */
+
+#line 46 "movable_object.ceu"
+/* SET: wn *//* NODE: NUMBER 156 */
+
+#line 46 "movable_object.ceu"
+    (((CEU_Rect*)_ceu_org)->wn) = 0;
+#line 46 "movable_object.ceu"
+    }/* NODE: Stmts 785 */
+
+#line 47 "movable_object.ceu"
+    {/* NODE: Dcl_var 782 */
+/* NODE: Set 786 */
+
+#line 47 "movable_object.ceu"
+/* SET: hn *//* NODE: NUMBER 159 */
+
+#line 47 "movable_object.ceu"
+    (((CEU_Rect*)_ceu_org)->hn) = 0;
+#line 47 "movable_object.ceu"
+    }/* NODE: ParOr 429 */
+
+#line 49 "movable_object.ceu"
 /* ParOr: spawn subs */
-#line 44 "movable_object.ceu"
+#line 49 "movable_object.ceu"
     {
 #ifdef CEU_STACK_CLEAR
-    tceu_stk stk_ = { _ceu_stk, _ceu_org, 0, 4, 1 };
+    tceu_stk stk_ = { _ceu_stk, _ceu_org, 0, 5, 1 };
 #endif
 
-#line 44 "movable_object.ceu"
+#line 49 "movable_object.ceu"
         _ceu_org->trls[ 0 ].lbl = Rect_ParOr_sub_1_1;
     ceu_app_go(_ceu_app,NULL,_ceu_org,
                &_ceu_org->trls[ 0 ],
@@ -8714,7 +8797,7 @@ case Class_Rect:;/* NODE: Block 941 */
     }
 #endif
 
-#line 44 "movable_object.ceu"
+#line 49 "movable_object.ceu"
         _ceu_org->trls[ 2 ].lbl = Rect_ParOr_sub_2_2;
     ceu_app_go(_ceu_app,NULL,_ceu_org,
                &_ceu_org->trls[ 2 ],
@@ -8731,150 +8814,150 @@ case Class_Rect:;/* NODE: Block 941 */
     }
 #endif
 
-#line 44 "movable_object.ceu"
-        _ceu_trl = &_ceu_org->trls[ 4 ];
+#line 49 "movable_object.ceu"
+        _ceu_trl = &_ceu_org->trls[ 5 ];
 
-#line 44 "movable_object.ceu"
+#line 49 "movable_object.ceu"
     }
-/* NODE: Block 325 */
+/* NODE: Block 428 */
 
-#line 86 "movable_object.ceu"
-    {/* NODE: Stmts 324 */
+#line 105 "movable_object.ceu"
+    {/* NODE: Stmts 427 */
 
-#line 86 "movable_object.ceu"
-    {/* NODE: Block 912 */
+#line 105 "movable_object.ceu"
+    {/* NODE: Block 1106 */
 
-#line 86 "movable_object.ceu"
-    {/* NODE: Stmts 911 */
+#line 105 "movable_object.ceu"
+    {/* NODE: Stmts 1105 */
 
-#line 86 "movable_object.ceu"
-    {/* NODE: Stmts 910 */
+#line 105 "movable_object.ceu"
+    {/* NODE: Stmts 1104 */
 
-#line 86 "movable_object.ceu"
+#line 105 "movable_object.ceu"
     {
-#line 86 "movable_object.ceu"
-    }/* NODE: Loop 909 */
+#line 105 "movable_object.ceu"
+    }/* NODE: Loop 1103 */
 
-#line 86 "movable_object.ceu"
+#line 105 "movable_object.ceu"
     for (;;) {
-/* NODE: Block 322 */
+/* NODE: Block 425 */
 
-#line 87 "movable_object.ceu"
-    {/* NODE: Stmts 321 */
+#line 106 "movable_object.ceu"
+    {/* NODE: Stmts 424 */
 
-#line 87 "movable_object.ceu"
-    {/* NODE: Stmts 939 */
+#line 106 "movable_object.ceu"
+    {/* NODE: Stmts 1133 */
 
-#line 86 "movable_object.ceu"
-    {/* NODE: Nothing 913 */
-/* NODE: Await 906 */
+#line 105 "movable_object.ceu"
+    {/* NODE: Nothing 1107 */
+/* NODE: Await 1100 */
 
-#line 86 "movable_object.ceu"
-    _CEU_NO_906_:
-if (0) { goto _CEU_NO_906_; /* avoids "not used" warning */ }
+#line 105 "movable_object.ceu"
+    _CEU_NO_1100_:
+if (0) { goto _CEU_NO_1100_; /* avoids "not used" warning */ }
 
-#line 86 "movable_object.ceu"
+#line 105 "movable_object.ceu"
     _ceu_trl->evt = CEU_IN_SDL_REDRAW;
-_ceu_trl->lbl = Rect_Awake_SDL_REDRAW_12;
+_ceu_trl->lbl = Rect_Awake_SDL_REDRAW_14;
 _ceu_trl->seqno = _ceu_app->seqno;
 
-#line 86 "movable_object.ceu"
+#line 105 "movable_object.ceu"
     return;
 
-case Rect_Awake_SDL_REDRAW_12:;
+case Rect_Awake_SDL_REDRAW_14:;
 
-#line 86 "movable_object.ceu"
+#line 105 "movable_object.ceu"
     #ifdef CEU_DEBUG_TRAILS
 #ifndef CEU_OS
 printf("\tOK!\n");
 #endif
 #endif
-/* NODE: Nothing 1160 */
-/* NODE: Nothing 1161 */
+/* NODE: Nothing 1356 */
+/* NODE: Nothing 1357 */
 
-#line 86 "movable_object.ceu"
-    }/* NODE: CallStmt 310 */
+#line 105 "movable_object.ceu"
+    }/* NODE: CallStmt 413 */
 
-#line 87 "movable_object.ceu"
-    SDL_SetRenderDrawColor((((CEU_Rect*)_ceu_org)->ren),(((((CEU_Rect*)_ceu_org)->clr).r)),(((((CEU_Rect*)_ceu_org)->clr).g)),(((((CEU_Rect*)_ceu_org)->clr).b)),0xFF);/* NODE: CallStmt 320 */
+#line 106 "movable_object.ceu"
+    SDL_SetRenderDrawColor((((CEU_Rect*)_ceu_org)->ren),(((((CEU_Rect*)_ceu_org)->clr).r)),(((((CEU_Rect*)_ceu_org)->clr).g)),(((((CEU_Rect*)_ceu_org)->clr).b)),0xFF);/* NODE: CallStmt 423 */
 
-#line 88 "movable_object.ceu"
+#line 107 "movable_object.ceu"
     SDL_RenderFillRect((((CEU_Rect*)_ceu_org)->ren),((SDL_Rect*)(&((CEU_Rect*)_ceu_org)->rect)));
-#line 87 "movable_object.ceu"
+#line 106 "movable_object.ceu"
     }
-#line 87 "movable_object.ceu"
-/* CLEAR: Block (87) */
-#line 87 "movable_object.ceu"
+#line 106 "movable_object.ceu"
+/* CLEAR: Block (106) */
+#line 106 "movable_object.ceu"
     if (0) {
 
-#line 87 "movable_object.ceu"
+#line 106 "movable_object.ceu"
         }   /* opened in "if (0)" */
 }       /* opened in Block_pre */
 
-#line 86 "movable_object.ceu"
+#line 105 "movable_object.ceu"
     }
 
-#line 86 "movable_object.ceu"
+#line 105 "movable_object.ceu"
     }
-#line 86 "movable_object.ceu"
-/* CLEAR: Block (86) */
-#line 86 "movable_object.ceu"
+#line 105 "movable_object.ceu"
+/* CLEAR: Block (105) */
+#line 105 "movable_object.ceu"
     if (0) {
 
-#line 86 "movable_object.ceu"
+#line 105 "movable_object.ceu"
         }   /* opened in "if (0)" */
 }       /* opened in Block_pre */
 
-#line 86 "movable_object.ceu"
+#line 105 "movable_object.ceu"
     }
-#line 86 "movable_object.ceu"
-/* CLEAR: Block (86) */
-#line 86 "movable_object.ceu"
+#line 105 "movable_object.ceu"
+/* CLEAR: Block (105) */
+#line 105 "movable_object.ceu"
     if (0) {
 
-#line 86 "movable_object.ceu"
+#line 105 "movable_object.ceu"
         }   /* opened in "if (0)" */
 }       /* opened in Block_pre */
 
-#line 44 "movable_object.ceu"
-case Rect_ParOr_sub_2_2:;/* NODE: Block 296 */
+#line 49 "movable_object.ceu"
+case Rect_ParOr_sub_2_2:;/* NODE: Block 399 */
 
-#line 62 "movable_object.ceu"
-    {/* NODE: Stmts 295 */
+#line 67 "movable_object.ceu"
+    {/* NODE: Stmts 398 */
 
-#line 62 "movable_object.ceu"
-    {/* NODE: Block 775 */
+#line 67 "movable_object.ceu"
+    {/* NODE: Block 902 */
 
-#line 62 "movable_object.ceu"
-    {/* NODE: Stmts 774 */
+#line 67 "movable_object.ceu"
+    {/* NODE: Stmts 901 */
 
-#line 62 "movable_object.ceu"
-    {/* NODE: Stmts 773 */
+#line 67 "movable_object.ceu"
+    {/* NODE: Stmts 900 */
 
-#line 62 "movable_object.ceu"
+#line 67 "movable_object.ceu"
     {
-#line 62 "movable_object.ceu"
-    }/* NODE: Loop 772 */
+#line 67 "movable_object.ceu"
+    }/* NODE: Loop 899 */
 
-#line 62 "movable_object.ceu"
+#line 67 "movable_object.ceu"
     for (;;) {
-/* NODE: Block 293 */
+/* NODE: Block 396 */
 
-#line 63 "movable_object.ceu"
-    {/* NODE: Stmts 292 */
+#line 68 "movable_object.ceu"
+    {/* NODE: Stmts 395 */
 
-#line 63 "movable_object.ceu"
-    {/* NODE: ParOr 291 */
+#line 68 "movable_object.ceu"
+    {/* NODE: ParOr 394 */
 
-#line 63 "movable_object.ceu"
+#line 68 "movable_object.ceu"
 /* ParOr: spawn subs */
-#line 63 "movable_object.ceu"
+#line 68 "movable_object.ceu"
     {
 #ifdef CEU_STACK_CLEAR
-    tceu_stk stk_ = { _ceu_stk, _ceu_org, 2, 3, 1 };
+    tceu_stk stk_ = { _ceu_stk, _ceu_org, 2, 4, 1 };
 #endif
 
-#line 63 "movable_object.ceu"
+#line 68 "movable_object.ceu"
         _ceu_org->trls[ 2 ].lbl = Rect_ParOr_sub_1_8;
     ceu_app_go(_ceu_app,NULL,_ceu_org,
                &_ceu_org->trls[ 2 ],
@@ -8891,93 +8974,841 @@ case Rect_ParOr_sub_2_2:;/* NODE: Block 296 */
     }
 #endif
 
-#line 63 "movable_object.ceu"
-        _ceu_trl = &_ceu_org->trls[ 3 ];
+#line 68 "movable_object.ceu"
+        _ceu_org->trls[ 3 ].lbl = Rect_ParOr_sub_2_9;
+    ceu_app_go(_ceu_app,NULL,_ceu_org,
+               &_ceu_org->trls[ 3 ],
+#ifdef CEU_STACK_CLEAR
+               &stk_
+#else
+               NULL
+#endif
+              );
 
-#line 63 "movable_object.ceu"
+#ifdef CEU_STACK_CLEAR
+    if (!stk_.is_alive) {
+        return;
     }
-/* NODE: Block 290 */
+#endif
 
-#line 75 "movable_object.ceu"
-    {/* NODE: Stmts 289 */
+#line 68 "movable_object.ceu"
+        _ceu_trl = &_ceu_org->trls[ 4 ];
 
-#line 75 "movable_object.ceu"
-    {/* NODE: Stmts 847 */
+#line 68 "movable_object.ceu"
+    }
+/* NODE: Block 393 */
 
-#line 75 "movable_object.ceu"
-    {/* NODE: Dcl_var 844 */
-/* NODE: Stmts 888 */
+#line 90 "movable_object.ceu"
+    {/* NODE: Stmts 392 */
 
-#line 75 "movable_object.ceu"
-    {/* NODE: Nothing 850 */
-/* NODE: Set 849 */
+#line 90 "movable_object.ceu"
+    {/* NODE: Stmts 1037 */
 
-#line 75 "movable_object.ceu"
-/* SET: table: 0x1927d10 *//* NODE: Await 241 */
+#line 90 "movable_object.ceu"
+    {/* NODE: Dcl_var 1034 */
+/* NODE: Stmts 1078 */
 
-#line 75 "movable_object.ceu"
-    _CEU_NO_241_:
-if (0) { goto _CEU_NO_241_; /* avoids "not used" warning */ }
+#line 90 "movable_object.ceu"
+    {/* NODE: Nothing 1040 */
+/* NODE: Set 1039 */
 
-#line 75 "movable_object.ceu"
-    _ceu_trl->evt = CEU_IN_SDL_KEYUP;
-_ceu_trl->lbl = Rect_Awake_SDL_KEYUP_11;
+#line 90 "movable_object.ceu"
+/* SET: table: 0x1d14920 *//* NODE: Await 307 */
+
+#line 90 "movable_object.ceu"
+    _CEU_NO_307_:
+if (0) { goto _CEU_NO_307_; /* avoids "not used" warning */ }
+
+#line 90 "movable_object.ceu"
+    _ceu_trl->evt = CEU_IN_SDL_MOUSEBUTTONDOWN;
+_ceu_trl->lbl = Rect_Awake_SDL_MOUSEBUTTONDOWN_13;
 _ceu_trl->seqno = _ceu_app->seqno;
 
-#line 75 "movable_object.ceu"
+#line 90 "movable_object.ceu"
     return;
 
-case Rect_Awake_SDL_KEYUP_11:;
+case Rect_Awake_SDL_MOUSEBUTTONDOWN_13:;
 
-#line 75 "movable_object.ceu"
+#line 90 "movable_object.ceu"
     #ifdef CEU_DEBUG_TRAILS
 #ifndef CEU_OS
 printf("\tOK!\n");
 #endif
 #endif
 
-#line 75 "movable_object.ceu"
+#line 90 "movable_object.ceu"
     {
 
-#line 75 "movable_object.ceu"
-        tceu__SDL_KeyboardEvent_** __ceu_casted = (tceu__SDL_KeyboardEvent_**) _ceu_evt->param;
+#line 90 "movable_object.ceu"
+        tceu__SDL_MouseButtonEvent_** __ceu_casted = (tceu__SDL_MouseButtonEvent_**) _ceu_evt->param;
 
-#line 75 "movable_object.ceu"
+#line 90 "movable_object.ceu"
         {
-        (((CEU_Rect*)_ceu_org)->key_27) = ((*(__ceu_casted))->_1);
+        (((CEU_Rect*)_ceu_org)->but_32) = ((*(__ceu_casted))->_1);
     }
 }
-/* NODE: Nothing 1158 */
-/* NODE: Nothing 1159 */
+/* NODE: Nothing 1354 */
+/* NODE: Nothing 1355 */
 
-#line 75 "movable_object.ceu"
+#line 90 "movable_object.ceu"
     }
-#line 75 "movable_object.ceu"
-    }/* NODE: If 896 */
+#line 90 "movable_object.ceu"
+    }/* NODE: If 1086 */
 
-#line 76 "movable_object.ceu"
-    if (((((((*(((CEU_Rect*)_ceu_org)->key_27)).keysym)).sym))==SDLK_t)) {
-/* NODE: Block 257 */
+#line 91 "movable_object.ceu"
+    if (((((*(((CEU_Rect*)_ceu_org)->but_32)).button))==SDL_BUTTON_LEFT)) {
+/* NODE: Block 335 */
 
-#line 77 "movable_object.ceu"
-    {/* NODE: Stmts 256 */
+#line 92 "movable_object.ceu"
+    {/* NODE: Stmts 334 */
 
-#line 77 "movable_object.ceu"
-    {/* NODE: Set 899 */
+#line 92 "movable_object.ceu"
+    {/* NODE: Set 1089 */
 
-#line 77 "movable_object.ceu"
-/* SET: clr *//* NODE: Op2_call 254 */
+#line 92 "movable_object.ceu"
+/* SET: wn *//* NODE: Op2_+ 316 */
 
-#line 77 "movable_object.ceu"
+#line 92 "movable_object.ceu"
+    (((CEU_Rect*)_ceu_org)->wn) = ((((CEU_Rect*)_ceu_org)->wn)+5);/* NODE: Set 1090 */
+
+#line 93 "movable_object.ceu"
+/* SET: rect *//* NODE: Adt_constr_root 332 */
+
+#line 93 "movable_object.ceu"
+    {/* NODE: Adt_constr_one 331 */
+
+#line 93 "movable_object.ceu"
+    CEU_SDL_Rect __ceu_adt_331;
+
+#line 93 "movable_object.ceu"
+    {/* NODE: ExpList 330 */
+/* NODE: Op2_. 321 */
+/* NODE: Op2_. 323 */
+/* NODE: Op2_+ 326 */
+/* NODE: Op2_+ 329 */
+
+#line 93 "movable_object.ceu"
+    __ceu_adt_331.x = (((((CEU_Rect*)_ceu_org)->rect).x));
+#line 93 "movable_object.ceu"
+    __ceu_adt_331.y = (((((CEU_Rect*)_ceu_org)->rect).y));
+#line 93 "movable_object.ceu"
+    __ceu_adt_331.w = ((((CEU_Rect*)_ceu_org)->w)+(((CEU_Rect*)_ceu_org)->wn));
+#line 93 "movable_object.ceu"
+    __ceu_adt_331.h = ((((CEU_Rect*)_ceu_org)->h)+(((CEU_Rect*)_ceu_org)->hn));
+#line 93 "movable_object.ceu"
+    }
+#line 93 "movable_object.ceu"
+    (((CEU_Rect*)_ceu_org)->rect) = __ceu_adt_331;
+#line 93 "movable_object.ceu"
+    }
+#line 92 "movable_object.ceu"
+    }
+#line 92 "movable_object.ceu"
+/* CLEAR: Block (92) */
+#line 92 "movable_object.ceu"
+    if (0) {
+
+#line 92 "movable_object.ceu"
+        }   /* opened in "if (0)" */
+}       /* opened in Block_pre */
+} else {
+/* NODE: If 1085 */
+
+#line 94 "movable_object.ceu"
+    if (((((*(((CEU_Rect*)_ceu_org)->but_32)).button))==SDL_BUTTON_RIGHT)) {
+/* NODE: Block 362 */
+
+#line 95 "movable_object.ceu"
+    {/* NODE: Stmts 361 */
+
+#line 95 "movable_object.ceu"
+    {/* NODE: Set 1093 */
+
+#line 95 "movable_object.ceu"
+/* SET: hn *//* NODE: Op2_+ 343 */
+
+#line 95 "movable_object.ceu"
+    (((CEU_Rect*)_ceu_org)->hn) = ((((CEU_Rect*)_ceu_org)->hn)+5);/* NODE: Set 1094 */
+
+#line 96 "movable_object.ceu"
+/* SET: rect *//* NODE: Adt_constr_root 359 */
+
+#line 96 "movable_object.ceu"
+    {/* NODE: Adt_constr_one 358 */
+
+#line 96 "movable_object.ceu"
+    CEU_SDL_Rect __ceu_adt_358;
+
+#line 96 "movable_object.ceu"
+    {/* NODE: ExpList 357 */
+/* NODE: Op2_. 348 */
+/* NODE: Op2_. 350 */
+/* NODE: Op2_+ 353 */
+/* NODE: Op2_+ 356 */
+
+#line 96 "movable_object.ceu"
+    __ceu_adt_358.x = (((((CEU_Rect*)_ceu_org)->rect).x));
+#line 96 "movable_object.ceu"
+    __ceu_adt_358.y = (((((CEU_Rect*)_ceu_org)->rect).y));
+#line 96 "movable_object.ceu"
+    __ceu_adt_358.w = ((((CEU_Rect*)_ceu_org)->w)+(((CEU_Rect*)_ceu_org)->wn));
+#line 96 "movable_object.ceu"
+    __ceu_adt_358.h = ((((CEU_Rect*)_ceu_org)->h)+(((CEU_Rect*)_ceu_org)->hn));
+#line 96 "movable_object.ceu"
+    }
+#line 96 "movable_object.ceu"
+    (((CEU_Rect*)_ceu_org)->rect) = __ceu_adt_358;
+#line 96 "movable_object.ceu"
+    }
+#line 95 "movable_object.ceu"
+    }
+#line 95 "movable_object.ceu"
+/* CLEAR: Block (95) */
+#line 95 "movable_object.ceu"
+    if (0) {
+
+#line 95 "movable_object.ceu"
+        }   /* opened in "if (0)" */
+}       /* opened in Block_pre */
+} else {
+/* NODE: If 1084 */
+
+#line 97 "movable_object.ceu"
+    if (((((*(((CEU_Rect*)_ceu_org)->but_32)).button))==SDL_BUTTON_MIDDLE)) {
+/* NODE: Block 390 */
+
+#line 98 "movable_object.ceu"
+    {/* NODE: Stmts 389 */
+
+#line 98 "movable_object.ceu"
+    {/* NODE: Set 1097 */
+
+#line 98 "movable_object.ceu"
+/* SET: wn *//* NODE: NUMBER 368 */
+
+#line 98 "movable_object.ceu"
+    (((CEU_Rect*)_ceu_org)->wn) = 0;/* NODE: Set 1098 */
+
+#line 99 "movable_object.ceu"
+/* SET: hn *//* NODE: NUMBER 371 */
+
+#line 99 "movable_object.ceu"
+    (((CEU_Rect*)_ceu_org)->hn) = 0;/* NODE: Set 1099 */
+
+#line 100 "movable_object.ceu"
+/* SET: rect *//* NODE: Adt_constr_root 387 */
+
+#line 100 "movable_object.ceu"
+    {/* NODE: Adt_constr_one 386 */
+
+#line 100 "movable_object.ceu"
+    CEU_SDL_Rect __ceu_adt_386;
+
+#line 100 "movable_object.ceu"
+    {/* NODE: ExpList 385 */
+/* NODE: Op2_. 376 */
+/* NODE: Op2_. 378 */
+/* NODE: Op2_+ 381 */
+/* NODE: Op2_+ 384 */
+
+#line 100 "movable_object.ceu"
+    __ceu_adt_386.x = (((((CEU_Rect*)_ceu_org)->rect).x));
+#line 100 "movable_object.ceu"
+    __ceu_adt_386.y = (((((CEU_Rect*)_ceu_org)->rect).y));
+#line 100 "movable_object.ceu"
+    __ceu_adt_386.w = ((((CEU_Rect*)_ceu_org)->w)+(((CEU_Rect*)_ceu_org)->wn));
+#line 100 "movable_object.ceu"
+    __ceu_adt_386.h = ((((CEU_Rect*)_ceu_org)->h)+(((CEU_Rect*)_ceu_org)->hn));
+#line 100 "movable_object.ceu"
+    }
+#line 100 "movable_object.ceu"
+    (((CEU_Rect*)_ceu_org)->rect) = __ceu_adt_386;
+#line 100 "movable_object.ceu"
+    }
+#line 98 "movable_object.ceu"
+    }
+#line 98 "movable_object.ceu"
+/* CLEAR: Block (98) */
+#line 98 "movable_object.ceu"
+    if (0) {
+
+#line 98 "movable_object.ceu"
+        }   /* opened in "if (0)" */
+}       /* opened in Block_pre */
+} else {
+/* NODE: Nothing 1083 */
+}
+}
+}
+
+#line 90 "movable_object.ceu"
+    }
+#line 90 "movable_object.ceu"
+/* CLEAR: Block (90) */
+#line 90 "movable_object.ceu"
+    if (0) {
+
+#line 90 "movable_object.ceu"
+        }   /* opened in "if (0)" */
+}       /* opened in Block_pre */
+
+#line 68 "movable_object.ceu"
+/* PAROR JOIN */
+#line 68 "movable_object.ceu"
+    _ceu_lbl = Rect_ParOr_out_10;
+goto _CEU_GOTO_;
+
+#line 68 "movable_object.ceu"
+case Rect_ParOr_sub_2_9:;/* NODE: Block 304 */
+
+#line 80 "movable_object.ceu"
+    {/* NODE: Stmts 303 */
+
+#line 80 "movable_object.ceu"
+    {/* NODE: Stmts 974 */
+
+#line 80 "movable_object.ceu"
+    {/* NODE: Dcl_var 971 */
+/* NODE: Stmts 1015 */
+
+#line 80 "movable_object.ceu"
+    {/* NODE: Nothing 977 */
+/* NODE: Set 976 */
+
+#line 80 "movable_object.ceu"
+/* SET: table: 0x1d0c630 *//* NODE: Await 255 */
+
+#line 80 "movable_object.ceu"
+    _CEU_NO_255_:
+if (0) { goto _CEU_NO_255_; /* avoids "not used" warning */ }
+
+#line 80 "movable_object.ceu"
+    _ceu_trl->evt = CEU_IN_SDL_KEYUP;
+_ceu_trl->lbl = Rect_Awake_SDL_KEYUP_12;
+_ceu_trl->seqno = _ceu_app->seqno;
+
+#line 80 "movable_object.ceu"
+    return;
+
+case Rect_Awake_SDL_KEYUP_12:;
+
+#line 80 "movable_object.ceu"
+    #ifdef CEU_DEBUG_TRAILS
+#ifndef CEU_OS
+printf("\tOK!\n");
+#endif
+#endif
+
+#line 80 "movable_object.ceu"
     {
-    SDL_Color __ceu_v_899 = 
+
+#line 80 "movable_object.ceu"
+        tceu__SDL_KeyboardEvent_** __ceu_casted = (tceu__SDL_KeyboardEvent_**) _ceu_evt->param;
+
+#line 80 "movable_object.ceu"
+        {
+        (((CEU_Rect*)_ceu_org)->key_31) = ((*(__ceu_casted))->_1);
+    }
+}
+/* NODE: Nothing 1352 */
+/* NODE: Nothing 1353 */
+
+#line 80 "movable_object.ceu"
+    }
+#line 80 "movable_object.ceu"
+    }/* NODE: If 1023 */
+
+#line 81 "movable_object.ceu"
+    if (((((((*(((CEU_Rect*)_ceu_org)->key_31)).keysym)).sym))==SDLK_t)) {
+/* NODE: Block 271 */
+
+#line 82 "movable_object.ceu"
+    {/* NODE: Stmts 270 */
+
+#line 82 "movable_object.ceu"
+    {/* NODE: Set 1026 */
+
+#line 82 "movable_object.ceu"
+/* SET: clr *//* NODE: Op2_call 268 */
+
+#line 82 "movable_object.ceu"
+    {
+    SDL_Color __ceu_v_1026 = 
 #ifdef __cplusplus
     SDL_Color(0x0A,0x5F,0x4D)
 #else
     {0x0A,0x5F,0x4D}
 #endif
 ;
-    (((CEU_Rect*)_ceu_org)->clr) = __ceu_v_899;
+    (((CEU_Rect*)_ceu_org)->clr) = __ceu_v_1026;
+}
+
+#line 82 "movable_object.ceu"
+    }
+#line 82 "movable_object.ceu"
+/* CLEAR: Block (82) */
+#line 82 "movable_object.ceu"
+    if (0) {
+
+#line 82 "movable_object.ceu"
+        }   /* opened in "if (0)" */
+}       /* opened in Block_pre */
+} else {
+/* NODE: If 1022 */
+
+#line 83 "movable_object.ceu"
+    if (((((((*(((CEU_Rect*)_ceu_org)->key_31)).keysym)).sym))==SDLK_y)) {
+/* NODE: Block 286 */
+
+#line 84 "movable_object.ceu"
+    {/* NODE: Stmts 285 */
+
+#line 84 "movable_object.ceu"
+    {/* NODE: Set 1029 */
+
+#line 84 "movable_object.ceu"
+/* SET: clr *//* NODE: Op2_call 283 */
+
+#line 84 "movable_object.ceu"
+    {
+    SDL_Color __ceu_v_1029 = 
+#ifdef __cplusplus
+    SDL_Color(0x00,0xFF,0xFF)
+#else
+    {0x00,0xFF,0xFF}
+#endif
+;
+    (((CEU_Rect*)_ceu_org)->clr) = __ceu_v_1029;
+}
+
+#line 84 "movable_object.ceu"
+    }
+#line 84 "movable_object.ceu"
+/* CLEAR: Block (84) */
+#line 84 "movable_object.ceu"
+    if (0) {
+
+#line 84 "movable_object.ceu"
+        }   /* opened in "if (0)" */
+}       /* opened in Block_pre */
+} else {
+/* NODE: If 1021 */
+
+#line 85 "movable_object.ceu"
+    if (((((((*(((CEU_Rect*)_ceu_org)->key_31)).keysym)).sym))==SDLK_u)) {
+/* NODE: Block 301 */
+
+#line 86 "movable_object.ceu"
+    {/* NODE: Stmts 300 */
+
+#line 86 "movable_object.ceu"
+    {/* NODE: Set 1032 */
+
+#line 86 "movable_object.ceu"
+/* SET: clr *//* NODE: Op2_call 298 */
+
+#line 86 "movable_object.ceu"
+    {
+    SDL_Color __ceu_v_1032 = 
+#ifdef __cplusplus
+    SDL_Color(0x90,0x3A,0x03)
+#else
+    {0x90,0x3A,0x03}
+#endif
+;
+    (((CEU_Rect*)_ceu_org)->clr) = __ceu_v_1032;
+}
+
+#line 86 "movable_object.ceu"
+    }
+#line 86 "movable_object.ceu"
+/* CLEAR: Block (86) */
+#line 86 "movable_object.ceu"
+    if (0) {
+
+#line 86 "movable_object.ceu"
+        }   /* opened in "if (0)" */
+}       /* opened in Block_pre */
+} else {
+/* NODE: Nothing 1020 */
+}
+}
+}
+
+#line 80 "movable_object.ceu"
+    }
+#line 80 "movable_object.ceu"
+/* CLEAR: Block (80) */
+#line 80 "movable_object.ceu"
+    if (0) {
+
+#line 80 "movable_object.ceu"
+        }   /* opened in "if (0)" */
+}       /* opened in Block_pre */
+
+#line 68 "movable_object.ceu"
+/* PAROR JOIN */
+#line 68 "movable_object.ceu"
+    _ceu_lbl = Rect_ParOr_out_10;
+goto _CEU_GOTO_;
+
+#line 68 "movable_object.ceu"
+case Rect_ParOr_sub_1_8:;/* NODE: Block 252 */
+
+#line 69 "movable_object.ceu"
+    {/* NODE: Stmts 251 */
+
+#line 69 "movable_object.ceu"
+    {/* NODE: Stmts 907 */
+
+#line 69 "movable_object.ceu"
+    {/* NODE: Dcl_var 904 */
+/* NODE: Stmts 948 */
+
+#line 69 "movable_object.ceu"
+    {/* NODE: Nothing 910 */
+/* NODE: Set 909 */
+
+#line 69 "movable_object.ceu"
+/* SET: table: 0x1ca5c70 *//* NODE: Await 206 */
+
+#line 69 "movable_object.ceu"
+    _CEU_NO_206_:
+if (0) { goto _CEU_NO_206_; /* avoids "not used" warning */ }
+
+#line 69 "movable_object.ceu"
+    _ceu_trl->evt = CEU_IN_SDL_KEYDOWN;
+_ceu_trl->lbl = Rect_Awake_SDL_KEYDOWN_11;
+_ceu_trl->seqno = _ceu_app->seqno;
+
+#line 69 "movable_object.ceu"
+    return;
+
+case Rect_Awake_SDL_KEYDOWN_11:;
+
+#line 69 "movable_object.ceu"
+    #ifdef CEU_DEBUG_TRAILS
+#ifndef CEU_OS
+printf("\tOK!\n");
+#endif
+#endif
+
+#line 69 "movable_object.ceu"
+    {
+
+#line 69 "movable_object.ceu"
+        tceu__SDL_KeyboardEvent_** __ceu_casted = (tceu__SDL_KeyboardEvent_**) _ceu_evt->param;
+
+#line 69 "movable_object.ceu"
+        {
+        (((CEU_Rect*)_ceu_org)->key_30) = ((*(__ceu_casted))->_1);
+    }
+}
+/* NODE: Nothing 1350 */
+/* NODE: Nothing 1351 */
+
+#line 69 "movable_object.ceu"
+    }
+#line 69 "movable_object.ceu"
+    }/* NODE: If 957 */
+
+#line 70 "movable_object.ceu"
+    if (((((((*(((CEU_Rect*)_ceu_org)->key_30)).keysym)).sym))==SDLK_a)) {
+/* NODE: Block 218 */
+
+#line 71 "movable_object.ceu"
+    {/* NODE: Stmts 217 */
+
+#line 71 "movable_object.ceu"
+    {/* NODE: EmitInt 216 */
+
+#line 71 "movable_object.ceu"
+    {
+#ifdef CEU_STACK_CLEAR
+    tceu_stk stk_ = { _ceu_stk, _ceu_org, 2, 2, 1 };
+#endif
+
+#line 71 "movable_object.ceu"
+    tceu__int __ceu_ps_216;
+{
+    tceu__int __ceu_ps_216_ =
+        {
+
+#line 71 "movable_object.ceu"
+                (-10)
+#line 71 "movable_object.ceu"
+            };
+
+#line 71 "movable_object.ceu"
+        __ceu_ps_216 = __ceu_ps_216_;
+}
+
+#line 71 "movable_object.ceu"
+        /* trigger the event */
+    tceu_evt evt;
+    evt.id = 1;
+#ifdef CEU_ORGS
+#line 71 "movable_object.ceu"
+    evt.org = (tceu_org*) _ceu_org;
+#endif
+
+#line 71 "movable_object.ceu"
+        evt.param = (&__ceu_ps_216);
+
+#line 71 "movable_object.ceu"
+        ceu_sys_go_ex(_ceu_app, &evt,
+#ifdef CEU_STACK_CLEAR
+                  &stk_,
+#else
+                  NULL,
+#endif
+                  _ceu_app->data, 0,
+#ifdef CEU_ORGS
+                  _ceu_app->data->n
+#else
+                  CEU_NTRAILS
+#endif
+    );
+
+#ifdef CEU_STACK_CLEAR
+    if (!stk_.is_alive) {
+        return;
+    }
+#endif
+}
+
+#line 71 "movable_object.ceu"
+    }
+#line 71 "movable_object.ceu"
+/* CLEAR: Block (71) */
+#line 71 "movable_object.ceu"
+    if (0) {
+
+#line 71 "movable_object.ceu"
+        }   /* opened in "if (0)" */
+}       /* opened in Block_pre */
+} else {
+/* NODE: If 956 */
+
+#line 72 "movable_object.ceu"
+    if (((((((*(((CEU_Rect*)_ceu_org)->key_30)).keysym)).sym))==SDLK_d)) {
+/* NODE: Block 228 */
+
+#line 73 "movable_object.ceu"
+    {/* NODE: Stmts 227 */
+
+#line 73 "movable_object.ceu"
+    {/* NODE: EmitInt 226 */
+
+#line 73 "movable_object.ceu"
+    {
+#ifdef CEU_STACK_CLEAR
+    tceu_stk stk_ = { _ceu_stk, _ceu_org, 2, 2, 1 };
+#endif
+
+#line 73 "movable_object.ceu"
+    tceu__int __ceu_ps_226;
+{
+    tceu__int __ceu_ps_226_ =
+        {
+
+#line 73 "movable_object.ceu"
+                10
+#line 73 "movable_object.ceu"
+            };
+
+#line 73 "movable_object.ceu"
+        __ceu_ps_226 = __ceu_ps_226_;
+}
+
+#line 73 "movable_object.ceu"
+        /* trigger the event */
+    tceu_evt evt;
+    evt.id = 1;
+#ifdef CEU_ORGS
+#line 73 "movable_object.ceu"
+    evt.org = (tceu_org*) _ceu_org;
+#endif
+
+#line 73 "movable_object.ceu"
+        evt.param = (&__ceu_ps_226);
+
+#line 73 "movable_object.ceu"
+        ceu_sys_go_ex(_ceu_app, &evt,
+#ifdef CEU_STACK_CLEAR
+                  &stk_,
+#else
+                  NULL,
+#endif
+                  _ceu_app->data, 0,
+#ifdef CEU_ORGS
+                  _ceu_app->data->n
+#else
+                  CEU_NTRAILS
+#endif
+    );
+
+#ifdef CEU_STACK_CLEAR
+    if (!stk_.is_alive) {
+        return;
+    }
+#endif
+}
+
+#line 73 "movable_object.ceu"
+    }
+#line 73 "movable_object.ceu"
+/* CLEAR: Block (73) */
+#line 73 "movable_object.ceu"
+    if (0) {
+
+#line 73 "movable_object.ceu"
+        }   /* opened in "if (0)" */
+}       /* opened in Block_pre */
+} else {
+/* NODE: If 955 */
+
+#line 74 "movable_object.ceu"
+    if (((((((*(((CEU_Rect*)_ceu_org)->key_30)).keysym)).sym))==SDLK_w)) {
+/* NODE: Block 239 */
+
+#line 75 "movable_object.ceu"
+    {/* NODE: Stmts 238 */
+
+#line 75 "movable_object.ceu"
+    {/* NODE: EmitInt 237 */
+
+#line 75 "movable_object.ceu"
+    {
+#ifdef CEU_STACK_CLEAR
+    tceu_stk stk_ = { _ceu_stk, _ceu_org, 2, 2, 1 };
+#endif
+
+#line 75 "movable_object.ceu"
+    tceu__int __ceu_ps_237;
+{
+    tceu__int __ceu_ps_237_ =
+        {
+
+#line 75 "movable_object.ceu"
+                (-10)
+#line 75 "movable_object.ceu"
+            };
+
+#line 75 "movable_object.ceu"
+        __ceu_ps_237 = __ceu_ps_237_;
+}
+
+#line 75 "movable_object.ceu"
+        /* trigger the event */
+    tceu_evt evt;
+    evt.id = 2;
+#ifdef CEU_ORGS
+#line 75 "movable_object.ceu"
+    evt.org = (tceu_org*) _ceu_org;
+#endif
+
+#line 75 "movable_object.ceu"
+        evt.param = (&__ceu_ps_237);
+
+#line 75 "movable_object.ceu"
+        ceu_sys_go_ex(_ceu_app, &evt,
+#ifdef CEU_STACK_CLEAR
+                  &stk_,
+#else
+                  NULL,
+#endif
+                  _ceu_app->data, 0,
+#ifdef CEU_ORGS
+                  _ceu_app->data->n
+#else
+                  CEU_NTRAILS
+#endif
+    );
+
+#ifdef CEU_STACK_CLEAR
+    if (!stk_.is_alive) {
+        return;
+    }
+#endif
+}
+
+#line 75 "movable_object.ceu"
+    }
+#line 75 "movable_object.ceu"
+/* CLEAR: Block (75) */
+#line 75 "movable_object.ceu"
+    if (0) {
+
+#line 75 "movable_object.ceu"
+        }   /* opened in "if (0)" */
+}       /* opened in Block_pre */
+} else {
+/* NODE: If 954 */
+
+#line 76 "movable_object.ceu"
+    if (((((((*(((CEU_Rect*)_ceu_org)->key_30)).keysym)).sym))==SDLK_s)) {
+/* NODE: Block 249 */
+
+#line 77 "movable_object.ceu"
+    {/* NODE: Stmts 248 */
+
+#line 77 "movable_object.ceu"
+    {/* NODE: EmitInt 247 */
+
+#line 77 "movable_object.ceu"
+    {
+#ifdef CEU_STACK_CLEAR
+    tceu_stk stk_ = { _ceu_stk, _ceu_org, 2, 2, 1 };
+#endif
+
+#line 77 "movable_object.ceu"
+    tceu__int __ceu_ps_247;
+{
+    tceu__int __ceu_ps_247_ =
+        {
+
+#line 77 "movable_object.ceu"
+                10
+#line 77 "movable_object.ceu"
+            };
+
+#line 77 "movable_object.ceu"
+        __ceu_ps_247 = __ceu_ps_247_;
+}
+
+#line 77 "movable_object.ceu"
+        /* trigger the event */
+    tceu_evt evt;
+    evt.id = 2;
+#ifdef CEU_ORGS
+#line 77 "movable_object.ceu"
+    evt.org = (tceu_org*) _ceu_org;
+#endif
+
+#line 77 "movable_object.ceu"
+        evt.param = (&__ceu_ps_247);
+
+#line 77 "movable_object.ceu"
+        ceu_sys_go_ex(_ceu_app, &evt,
+#ifdef CEU_STACK_CLEAR
+                  &stk_,
+#else
+                  NULL,
+#endif
+                  _ceu_app->data, 0,
+#ifdef CEU_ORGS
+                  _ceu_app->data->n
+#else
+                  CEU_NTRAILS
+#endif
+    );
+
+#ifdef CEU_STACK_CLEAR
+    if (!stk_.is_alive) {
+        return;
+    }
+#endif
 }
 
 #line 77 "movable_object.ceu"
@@ -8991,502 +9822,34 @@ printf("\tOK!\n");
         }   /* opened in "if (0)" */
 }       /* opened in Block_pre */
 } else {
-/* NODE: If 895 */
-
-#line 78 "movable_object.ceu"
-    if (((((((*(((CEU_Rect*)_ceu_org)->key_27)).keysym)).sym))==SDLK_y)) {
-/* NODE: Block 272 */
-
-#line 79 "movable_object.ceu"
-    {/* NODE: Stmts 271 */
-
-#line 79 "movable_object.ceu"
-    {/* NODE: Set 902 */
-
-#line 79 "movable_object.ceu"
-/* SET: clr *//* NODE: Op2_call 269 */
-
-#line 79 "movable_object.ceu"
-    {
-    SDL_Color __ceu_v_902 = 
-#ifdef __cplusplus
-    SDL_Color(0x00,0xFF,0xFF)
-#else
-    {0x00,0xFF,0xFF}
-#endif
-;
-    (((CEU_Rect*)_ceu_org)->clr) = __ceu_v_902;
-}
-
-#line 79 "movable_object.ceu"
-    }
-#line 79 "movable_object.ceu"
-/* CLEAR: Block (79) */
-#line 79 "movable_object.ceu"
-    if (0) {
-
-#line 79 "movable_object.ceu"
-        }   /* opened in "if (0)" */
-}       /* opened in Block_pre */
-} else {
-/* NODE: If 894 */
-
-#line 80 "movable_object.ceu"
-    if (((((((*(((CEU_Rect*)_ceu_org)->key_27)).keysym)).sym))==SDLK_u)) {
-/* NODE: Block 287 */
-
-#line 81 "movable_object.ceu"
-    {/* NODE: Stmts 286 */
-
-#line 81 "movable_object.ceu"
-    {/* NODE: Set 905 */
-
-#line 81 "movable_object.ceu"
-/* SET: clr *//* NODE: Op2_call 284 */
-
-#line 81 "movable_object.ceu"
-    {
-    SDL_Color __ceu_v_905 = 
-#ifdef __cplusplus
-    SDL_Color(0x90,0x3A,0x03)
-#else
-    {0x90,0x3A,0x03}
-#endif
-;
-    (((CEU_Rect*)_ceu_org)->clr) = __ceu_v_905;
-}
-
-#line 81 "movable_object.ceu"
-    }
-#line 81 "movable_object.ceu"
-/* CLEAR: Block (81) */
-#line 81 "movable_object.ceu"
-    if (0) {
-
-#line 81 "movable_object.ceu"
-        }   /* opened in "if (0)" */
-}       /* opened in Block_pre */
-} else {
-/* NODE: Nothing 893 */
+/* NODE: Nothing 953 */
 }
 }
 }
-
-#line 75 "movable_object.ceu"
-    }
-#line 75 "movable_object.ceu"
-/* CLEAR: Block (75) */
-#line 75 "movable_object.ceu"
-    if (0) {
-
-#line 75 "movable_object.ceu"
-        }   /* opened in "if (0)" */
-}       /* opened in Block_pre */
-
-#line 63 "movable_object.ceu"
-/* PAROR JOIN */
-#line 63 "movable_object.ceu"
-    _ceu_lbl = Rect_ParOr_out_9;
-goto _CEU_GOTO_;
-
-#line 63 "movable_object.ceu"
-case Rect_ParOr_sub_1_8:;/* NODE: Block 238 */
-
-#line 64 "movable_object.ceu"
-    {/* NODE: Stmts 237 */
-
-#line 64 "movable_object.ceu"
-    {/* NODE: Stmts 780 */
-
-#line 64 "movable_object.ceu"
-    {/* NODE: Dcl_var 777 */
-/* NODE: Stmts 821 */
-
-#line 64 "movable_object.ceu"
-    {/* NODE: Nothing 783 */
-/* NODE: Set 782 */
-
-#line 64 "movable_object.ceu"
-/* SET: table: 0x1920f60 *//* NODE: Await 192 */
-
-#line 64 "movable_object.ceu"
-    _CEU_NO_192_:
-if (0) { goto _CEU_NO_192_; /* avoids "not used" warning */ }
-
-#line 64 "movable_object.ceu"
-    _ceu_trl->evt = CEU_IN_SDL_KEYDOWN;
-_ceu_trl->lbl = Rect_Awake_SDL_KEYDOWN_10;
-_ceu_trl->seqno = _ceu_app->seqno;
-
-#line 64 "movable_object.ceu"
-    return;
-
-case Rect_Awake_SDL_KEYDOWN_10:;
-
-#line 64 "movable_object.ceu"
-    #ifdef CEU_DEBUG_TRAILS
-#ifndef CEU_OS
-printf("\tOK!\n");
-#endif
-#endif
-
-#line 64 "movable_object.ceu"
-    {
-
-#line 64 "movable_object.ceu"
-        tceu__SDL_KeyboardEvent_** __ceu_casted = (tceu__SDL_KeyboardEvent_**) _ceu_evt->param;
-
-#line 64 "movable_object.ceu"
-        {
-        (((CEU_Rect*)_ceu_org)->key_26) = ((*(__ceu_casted))->_1);
-    }
 }
-/* NODE: Nothing 1156 */
-/* NODE: Nothing 1157 */
-
-#line 64 "movable_object.ceu"
-    }
-#line 64 "movable_object.ceu"
-    }/* NODE: If 830 */
-
-#line 65 "movable_object.ceu"
-    if (((((((*(((CEU_Rect*)_ceu_org)->key_26)).keysym)).sym))==SDLK_a)) {
-/* NODE: Block 204 */
-
-#line 66 "movable_object.ceu"
-    {/* NODE: Stmts 203 */
-
-#line 66 "movable_object.ceu"
-    {/* NODE: EmitInt 202 */
-
-#line 66 "movable_object.ceu"
-    {
-#ifdef CEU_STACK_CLEAR
-    tceu_stk stk_ = { _ceu_stk, _ceu_org, 2, 2, 1 };
-#endif
-
-#line 66 "movable_object.ceu"
-    tceu__int __ceu_ps_202;
-{
-    tceu__int __ceu_ps_202_ =
-        {
-
-#line 66 "movable_object.ceu"
-                (-10)
-#line 66 "movable_object.ceu"
-            };
-
-#line 66 "movable_object.ceu"
-        __ceu_ps_202 = __ceu_ps_202_;
-}
-
-#line 66 "movable_object.ceu"
-        /* trigger the event */
-    tceu_evt evt;
-    evt.id = 1;
-#ifdef CEU_ORGS
-#line 66 "movable_object.ceu"
-    evt.org = (tceu_org*) _ceu_org;
-#endif
-
-#line 66 "movable_object.ceu"
-        evt.param = (&__ceu_ps_202);
-
-#line 66 "movable_object.ceu"
-        ceu_sys_go_ex(_ceu_app, &evt,
-#ifdef CEU_STACK_CLEAR
-                  &stk_,
-#else
-                  NULL,
-#endif
-                  _ceu_app->data, 0,
-#ifdef CEU_ORGS
-                  _ceu_app->data->n
-#else
-                  CEU_NTRAILS
-#endif
-    );
-
-#ifdef CEU_STACK_CLEAR
-    if (!stk_.is_alive) {
-        return;
-    }
-#endif
-}
-
-#line 66 "movable_object.ceu"
-    }
-#line 66 "movable_object.ceu"
-/* CLEAR: Block (66) */
-#line 66 "movable_object.ceu"
-    if (0) {
-
-#line 66 "movable_object.ceu"
-        }   /* opened in "if (0)" */
-}       /* opened in Block_pre */
-} else {
-/* NODE: If 829 */
-
-#line 67 "movable_object.ceu"
-    if (((((((*(((CEU_Rect*)_ceu_org)->key_26)).keysym)).sym))==SDLK_d)) {
-/* NODE: Block 214 */
-
-#line 68 "movable_object.ceu"
-    {/* NODE: Stmts 213 */
-
-#line 68 "movable_object.ceu"
-    {/* NODE: EmitInt 212 */
-
-#line 68 "movable_object.ceu"
-    {
-#ifdef CEU_STACK_CLEAR
-    tceu_stk stk_ = { _ceu_stk, _ceu_org, 2, 2, 1 };
-#endif
-
-#line 68 "movable_object.ceu"
-    tceu__int __ceu_ps_212;
-{
-    tceu__int __ceu_ps_212_ =
-        {
-
-#line 68 "movable_object.ceu"
-                10
-#line 68 "movable_object.ceu"
-            };
-
-#line 68 "movable_object.ceu"
-        __ceu_ps_212 = __ceu_ps_212_;
-}
-
-#line 68 "movable_object.ceu"
-        /* trigger the event */
-    tceu_evt evt;
-    evt.id = 1;
-#ifdef CEU_ORGS
-#line 68 "movable_object.ceu"
-    evt.org = (tceu_org*) _ceu_org;
-#endif
-
-#line 68 "movable_object.ceu"
-        evt.param = (&__ceu_ps_212);
-
-#line 68 "movable_object.ceu"
-        ceu_sys_go_ex(_ceu_app, &evt,
-#ifdef CEU_STACK_CLEAR
-                  &stk_,
-#else
-                  NULL,
-#endif
-                  _ceu_app->data, 0,
-#ifdef CEU_ORGS
-                  _ceu_app->data->n
-#else
-                  CEU_NTRAILS
-#endif
-    );
-
-#ifdef CEU_STACK_CLEAR
-    if (!stk_.is_alive) {
-        return;
-    }
-#endif
-}
-
-#line 68 "movable_object.ceu"
-    }
-#line 68 "movable_object.ceu"
-/* CLEAR: Block (68) */
-#line 68 "movable_object.ceu"
-    if (0) {
-
-#line 68 "movable_object.ceu"
-        }   /* opened in "if (0)" */
-}       /* opened in Block_pre */
-} else {
-/* NODE: If 828 */
 
 #line 69 "movable_object.ceu"
-    if (((((((*(((CEU_Rect*)_ceu_org)->key_26)).keysym)).sym))==SDLK_w)) {
-/* NODE: Block 225 */
-
-#line 70 "movable_object.ceu"
-    {/* NODE: Stmts 224 */
-
-#line 70 "movable_object.ceu"
-    {/* NODE: EmitInt 223 */
-
-#line 70 "movable_object.ceu"
-    {
-#ifdef CEU_STACK_CLEAR
-    tceu_stk stk_ = { _ceu_stk, _ceu_org, 2, 2, 1 };
-#endif
-
-#line 70 "movable_object.ceu"
-    tceu__int __ceu_ps_223;
-{
-    tceu__int __ceu_ps_223_ =
-        {
-
-#line 70 "movable_object.ceu"
-                (-10)
-#line 70 "movable_object.ceu"
-            };
-
-#line 70 "movable_object.ceu"
-        __ceu_ps_223 = __ceu_ps_223_;
-}
-
-#line 70 "movable_object.ceu"
-        /* trigger the event */
-    tceu_evt evt;
-    evt.id = 2;
-#ifdef CEU_ORGS
-#line 70 "movable_object.ceu"
-    evt.org = (tceu_org*) _ceu_org;
-#endif
-
-#line 70 "movable_object.ceu"
-        evt.param = (&__ceu_ps_223);
-
-#line 70 "movable_object.ceu"
-        ceu_sys_go_ex(_ceu_app, &evt,
-#ifdef CEU_STACK_CLEAR
-                  &stk_,
-#else
-                  NULL,
-#endif
-                  _ceu_app->data, 0,
-#ifdef CEU_ORGS
-                  _ceu_app->data->n
-#else
-                  CEU_NTRAILS
-#endif
-    );
-
-#ifdef CEU_STACK_CLEAR
-    if (!stk_.is_alive) {
-        return;
     }
-#endif
-}
-
-#line 70 "movable_object.ceu"
-    }
-#line 70 "movable_object.ceu"
-/* CLEAR: Block (70) */
-#line 70 "movable_object.ceu"
+#line 69 "movable_object.ceu"
+/* CLEAR: Block (69) */
+#line 69 "movable_object.ceu"
     if (0) {
 
-#line 70 "movable_object.ceu"
-        }   /* opened in "if (0)" */
-}       /* opened in Block_pre */
-} else {
-/* NODE: If 827 */
-
-#line 71 "movable_object.ceu"
-    if (((((((*(((CEU_Rect*)_ceu_org)->key_26)).keysym)).sym))==SDLK_s)) {
-/* NODE: Block 235 */
-
-#line 72 "movable_object.ceu"
-    {/* NODE: Stmts 234 */
-
-#line 72 "movable_object.ceu"
-    {/* NODE: EmitInt 233 */
-
-#line 72 "movable_object.ceu"
-    {
-#ifdef CEU_STACK_CLEAR
-    tceu_stk stk_ = { _ceu_stk, _ceu_org, 2, 2, 1 };
-#endif
-
-#line 72 "movable_object.ceu"
-    tceu__int __ceu_ps_233;
-{
-    tceu__int __ceu_ps_233_ =
-        {
-
-#line 72 "movable_object.ceu"
-                10
-#line 72 "movable_object.ceu"
-            };
-
-#line 72 "movable_object.ceu"
-        __ceu_ps_233 = __ceu_ps_233_;
-}
-
-#line 72 "movable_object.ceu"
-        /* trigger the event */
-    tceu_evt evt;
-    evt.id = 2;
-#ifdef CEU_ORGS
-#line 72 "movable_object.ceu"
-    evt.org = (tceu_org*) _ceu_org;
-#endif
-
-#line 72 "movable_object.ceu"
-        evt.param = (&__ceu_ps_233);
-
-#line 72 "movable_object.ceu"
-        ceu_sys_go_ex(_ceu_app, &evt,
-#ifdef CEU_STACK_CLEAR
-                  &stk_,
-#else
-                  NULL,
-#endif
-                  _ceu_app->data, 0,
-#ifdef CEU_ORGS
-                  _ceu_app->data->n
-#else
-                  CEU_NTRAILS
-#endif
-    );
-
-#ifdef CEU_STACK_CLEAR
-    if (!stk_.is_alive) {
-        return;
-    }
-#endif
-}
-
-#line 72 "movable_object.ceu"
-    }
-#line 72 "movable_object.ceu"
-/* CLEAR: Block (72) */
-#line 72 "movable_object.ceu"
-    if (0) {
-
-#line 72 "movable_object.ceu"
-        }   /* opened in "if (0)" */
-}       /* opened in Block_pre */
-} else {
-/* NODE: Nothing 826 */
-}
-}
-}
-}
-
-#line 64 "movable_object.ceu"
-    }
-#line 64 "movable_object.ceu"
-/* CLEAR: Block (64) */
-#line 64 "movable_object.ceu"
-    if (0) {
-
-#line 64 "movable_object.ceu"
+#line 69 "movable_object.ceu"
         }   /* opened in "if (0)" */
 }       /* opened in Block_pre */
 
-#line 63 "movable_object.ceu"
+#line 68 "movable_object.ceu"
 /* PAROR JOIN */
-#line 63 "movable_object.ceu"
-    _ceu_lbl = Rect_ParOr_out_9;
+#line 68 "movable_object.ceu"
+    _ceu_lbl = Rect_ParOr_out_10;
 goto _CEU_GOTO_;
 
-#line 63 "movable_object.ceu"
-case Rect_ParOr_out_9:;
-#line 63 "movable_object.ceu"
-/* CLEAR: ParOr (63) */
-#line 63 "movable_object.ceu"
+#line 68 "movable_object.ceu"
+case Rect_ParOr_out_10:;
+#line 68 "movable_object.ceu"
+/* CLEAR: ParOr (68) */
+#line 68 "movable_object.ceu"
     {
     /* Reuse current stack frame.
      * We know that CLEAR will not abort anything and return normally.
@@ -9502,68 +9865,68 @@ case Rect_ParOr_out_9:;
                   _ceu_stk,
                   _ceu_org,
                   2,
-                  4);
+                  5);
 #ifdef CEU_STACK_CLEAR
     _ceu_stk->is_alive = __ceu_old;
     ceu_sys_stack_clear(_ceu_stk, _ceu_org,
-                        2,3);
+                        2,4);
 #endif
 }
 
-#line 63 "movable_object.ceu"
+#line 68 "movable_object.ceu"
     }
-#line 63 "movable_object.ceu"
-/* CLEAR: Block (63) */
-#line 63 "movable_object.ceu"
+#line 68 "movable_object.ceu"
+/* CLEAR: Block (68) */
+#line 68 "movable_object.ceu"
     if (0) {
 
-#line 63 "movable_object.ceu"
+#line 68 "movable_object.ceu"
         }   /* opened in "if (0)" */
 }       /* opened in Block_pre */
 
-#line 62 "movable_object.ceu"
+#line 67 "movable_object.ceu"
     }
 
-#line 62 "movable_object.ceu"
+#line 67 "movable_object.ceu"
     }
-#line 62 "movable_object.ceu"
-/* CLEAR: Block (62) */
-#line 62 "movable_object.ceu"
+#line 67 "movable_object.ceu"
+/* CLEAR: Block (67) */
+#line 67 "movable_object.ceu"
     if (0) {
 
-#line 62 "movable_object.ceu"
+#line 67 "movable_object.ceu"
         }   /* opened in "if (0)" */
 }       /* opened in Block_pre */
 
-#line 62 "movable_object.ceu"
+#line 67 "movable_object.ceu"
     }
-#line 62 "movable_object.ceu"
-/* CLEAR: Block (62) */
-#line 62 "movable_object.ceu"
+#line 67 "movable_object.ceu"
+/* CLEAR: Block (67) */
+#line 67 "movable_object.ceu"
     if (0) {
 
-#line 62 "movable_object.ceu"
+#line 67 "movable_object.ceu"
         }   /* opened in "if (0)" */
 }       /* opened in Block_pre */
 
-#line 44 "movable_object.ceu"
-case Rect_ParOr_sub_1_1:;/* NODE: Block 189 */
+#line 49 "movable_object.ceu"
+case Rect_ParOr_sub_1_1:;/* NODE: Block 203 */
 
-#line 46 "movable_object.ceu"
-    {/* NODE: Stmts 188 */
+#line 51 "movable_object.ceu"
+    {/* NODE: Stmts 202 */
 
-#line 46 "movable_object.ceu"
-    {/* NODE: ParOr 187 */
+#line 51 "movable_object.ceu"
+    {/* NODE: ParOr 201 */
 
-#line 46 "movable_object.ceu"
+#line 51 "movable_object.ceu"
 /* ParOr: spawn subs */
-#line 46 "movable_object.ceu"
+#line 51 "movable_object.ceu"
     {
 #ifdef CEU_STACK_CLEAR
     tceu_stk stk_ = { _ceu_stk, _ceu_org, 0, 1, 1 };
 #endif
 
-#line 46 "movable_object.ceu"
+#line 51 "movable_object.ceu"
         _ceu_org->trls[ 0 ].lbl = Rect_ParOr_sub_1_4;
     ceu_app_go(_ceu_app,NULL,_ceu_org,
                &_ceu_org->trls[ 0 ],
@@ -9580,104 +9943,247 @@ case Rect_ParOr_sub_1_1:;/* NODE: Block 189 */
     }
 #endif
 
-#line 46 "movable_object.ceu"
+#line 51 "movable_object.ceu"
         _ceu_trl = &_ceu_org->trls[ 1 ];
 
-#line 46 "movable_object.ceu"
+#line 51 "movable_object.ceu"
     }
-/* NODE: Block 186 */
+/* NODE: Block 200 */
 
-#line 55 "movable_object.ceu"
-    {/* NODE: Stmts 185 */
+#line 60 "movable_object.ceu"
+    {/* NODE: Stmts 199 */
 
-#line 55 "movable_object.ceu"
-    {/* NODE: Block 720 */
+#line 60 "movable_object.ceu"
+    {/* NODE: Block 847 */
 
-#line 55 "movable_object.ceu"
-    {/* NODE: Stmts 719 */
+#line 60 "movable_object.ceu"
+    {/* NODE: Stmts 846 */
 
-#line 55 "movable_object.ceu"
-    {/* NODE: Stmts 718 */
+#line 60 "movable_object.ceu"
+    {/* NODE: Stmts 845 */
 
-#line 55 "movable_object.ceu"
+#line 60 "movable_object.ceu"
     {
-#line 55 "movable_object.ceu"
-    }/* NODE: Loop 717 */
+#line 60 "movable_object.ceu"
+    }/* NODE: Loop 844 */
 
-#line 55 "movable_object.ceu"
+#line 60 "movable_object.ceu"
     for (;;) {
-/* NODE: Block 183 */
+/* NODE: Block 197 */
 
-#line 56 "movable_object.ceu"
+#line 61 "movable_object.ceu"
     {
-#line 56 "movable_object.ceu"
-    int __ceu_v_25;
-/* NODE: Stmts 182 */
+#line 61 "movable_object.ceu"
+    int __ceu_v_29;
+/* NODE: Stmts 196 */
 
-#line 56 "movable_object.ceu"
-    {/* NODE: Stmts 725 */
+#line 61 "movable_object.ceu"
+    {/* NODE: Stmts 852 */
 
-#line 56 "movable_object.ceu"
-    {/* NODE: Dcl_var 722 */
-/* NODE: Stmts 766 */
+#line 61 "movable_object.ceu"
+    {/* NODE: Dcl_var 849 */
+/* NODE: Stmts 893 */
 
-#line 56 "movable_object.ceu"
-    {/* NODE: Nothing 728 */
-/* NODE: Set 727 */
+#line 61 "movable_object.ceu"
+    {/* NODE: Nothing 855 */
+/* NODE: Set 854 */
 
-#line 56 "movable_object.ceu"
-/* SET: table: 0x18d79c0 *//* NODE: Await 173 */
+#line 61 "movable_object.ceu"
+/* SET: table: 0x1ca60d0 *//* NODE: Await 187 */
 
-#line 56 "movable_object.ceu"
-    _CEU_NO_173_:
-if (0) { goto _CEU_NO_173_; /* avoids "not used" warning */ }
+#line 61 "movable_object.ceu"
+    _CEU_NO_187_:
+if (0) { goto _CEU_NO_187_; /* avoids "not used" warning */ }
 
-#line 56 "movable_object.ceu"
+#line 61 "movable_object.ceu"
     _ceu_trl->evt = 2;
 _ceu_trl->lbl = Rect_Awake_go_vert_7;
 _ceu_trl->seqno = _ceu_app->seqno;
 
-#line 56 "movable_object.ceu"
+#line 61 "movable_object.ceu"
     #ifdef CEU_ORGS
 _ceu_trl->evto  = _ceu_org;
 #endif
 
-#line 56 "movable_object.ceu"
+#line 61 "movable_object.ceu"
     return;
 
 case Rect_Awake_go_vert_7:;
 
-#line 56 "movable_object.ceu"
+#line 61 "movable_object.ceu"
     #ifdef CEU_DEBUG_TRAILS
 #ifndef CEU_OS
 printf("\tOK!\n");
 #endif
 #endif
 
-#line 56 "movable_object.ceu"
+#line 61 "movable_object.ceu"
     {
 
-#line 56 "movable_object.ceu"
+#line 61 "movable_object.ceu"
         tceu__int* __ceu_casted = (tceu__int*) _ceu_evt->param;
 
-#line 56 "movable_object.ceu"
+#line 61 "movable_object.ceu"
         {
-        (__ceu_v_25) = ((__ceu_casted)->_1);
+        (__ceu_v_29) = ((__ceu_casted)->_1);
     }
 }
-/* NODE: Nothing 1154 */
-/* NODE: Nothing 1155 */
+/* NODE: Nothing 1348 */
+/* NODE: Nothing 1349 */
 
-#line 56 "movable_object.ceu"
+#line 61 "movable_object.ceu"
     }
+#line 61 "movable_object.ceu"
+    }/* NODE: Set 898 */
+
+#line 62 "movable_object.ceu"
+/* SET: . *//* NODE: Op2_+ 194 */
+
+#line 62 "movable_object.ceu"
+    (((((CEU_Rect*)_ceu_org)->rect).y)) = ((((((CEU_Rect*)_ceu_org)->rect).y))+(__ceu_v_29));
+#line 61 "movable_object.ceu"
+    }
+#line 61 "movable_object.ceu"
+/* CLEAR: Block (61) */
+#line 61 "movable_object.ceu"
+    if (0) {
+
+#line 61 "movable_object.ceu"
+        }   /* opened in "if (0)" */
+}       /* opened in Block_pre */
+
+#line 60 "movable_object.ceu"
+    }
+
+#line 60 "movable_object.ceu"
+    }
+#line 60 "movable_object.ceu"
+/* CLEAR: Block (60) */
+#line 60 "movable_object.ceu"
+    if (0) {
+
+#line 60 "movable_object.ceu"
+        }   /* opened in "if (0)" */
+}       /* opened in Block_pre */
+
+#line 60 "movable_object.ceu"
+    }
+#line 60 "movable_object.ceu"
+/* CLEAR: Block (60) */
+#line 60 "movable_object.ceu"
+    if (0) {
+
+#line 60 "movable_object.ceu"
+        }   /* opened in "if (0)" */
+}       /* opened in Block_pre */
+
+#line 51 "movable_object.ceu"
+case Rect_ParOr_sub_1_4:;/* NODE: Block 184 */
+
+#line 52 "movable_object.ceu"
+    {/* NODE: Stmts 183 */
+
+#line 52 "movable_object.ceu"
+    {/* NODE: Block 790 */
+
+#line 52 "movable_object.ceu"
+    {/* NODE: Stmts 789 */
+
+#line 52 "movable_object.ceu"
+    {/* NODE: Stmts 788 */
+
+#line 52 "movable_object.ceu"
+    {
+#line 52 "movable_object.ceu"
+    }/* NODE: Loop 787 */
+
+#line 52 "movable_object.ceu"
+    for (;;) {
+/* NODE: Block 181 */
+
+#line 53 "movable_object.ceu"
+    {
+#line 53 "movable_object.ceu"
+    int __ceu_v_28;
+/* NODE: Stmts 180 */
+
+#line 53 "movable_object.ceu"
+    {/* NODE: Stmts 795 */
+
+#line 53 "movable_object.ceu"
+    {/* NODE: Dcl_var 792 */
+/* NODE: Stmts 836 */
+
+#line 53 "movable_object.ceu"
+    {/* NODE: Nothing 798 */
+/* NODE: Set 797 */
+
+#line 53 "movable_object.ceu"
+/* SET: table: 0x1cae4b0 *//* NODE: Await 163 */
+
+#line 53 "movable_object.ceu"
+    _CEU_NO_163_:
+if (0) { goto _CEU_NO_163_; /* avoids "not used" warning */ }
+
+#line 53 "movable_object.ceu"
+    _ceu_trl->evt = 1;
+_ceu_trl->lbl = Rect_Awake_go_oriz_6;
+_ceu_trl->seqno = _ceu_app->seqno;
+
+#line 53 "movable_object.ceu"
+    #ifdef CEU_ORGS
+_ceu_trl->evto  = _ceu_org;
+#endif
+
+#line 53 "movable_object.ceu"
+    return;
+
+case Rect_Awake_go_oriz_6:;
+
+#line 53 "movable_object.ceu"
+    #ifdef CEU_DEBUG_TRAILS
+#ifndef CEU_OS
+printf("\tOK!\n");
+#endif
+#endif
+
+#line 53 "movable_object.ceu"
+    {
+
+#line 53 "movable_object.ceu"
+        tceu__int* __ceu_casted = (tceu__int*) _ceu_evt->param;
+
+#line 53 "movable_object.ceu"
+        {
+        (__ceu_v_28) = ((__ceu_casted)->_1);
+    }
+}
+/* NODE: Nothing 1346 */
+/* NODE: Nothing 1347 */
+
+#line 53 "movable_object.ceu"
+    }
+#line 53 "movable_object.ceu"
+    }/* NODE: Set 841 */
+
+#line 54 "movable_object.ceu"
+/* SET: . *//* NODE: Op2_+ 170 */
+
+#line 54 "movable_object.ceu"
+    (((((CEU_Rect*)_ceu_org)->rect).x)) = ((((((CEU_Rect*)_ceu_org)->rect).x))+(__ceu_v_28));/* NODE: If 843 */
+
+#line 55 "movable_object.ceu"
+    if (((((((CEU_Rect*)_ceu_org)->rect).x))>1500)) {
+/* NODE: Block 178 */
+
 #line 56 "movable_object.ceu"
-    }/* NODE: Set 771 */
+    {/* NODE: Stmts 177 */
 
-#line 57 "movable_object.ceu"
-/* SET: . *//* NODE: Op2_+ 180 */
+#line 56 "movable_object.ceu"
+    {/* NODE: Break 176 */
 
-#line 57 "movable_object.ceu"
-    (((((CEU_Rect*)_ceu_org)->rect).y)) = ((((((CEU_Rect*)_ceu_org)->rect).y))+(__ceu_v_25));
+#line 56 "movable_object.ceu"
+    break;
 #line 56 "movable_object.ceu"
     }
 #line 56 "movable_object.ceu"
@@ -9688,202 +10194,59 @@ printf("\tOK!\n");
 #line 56 "movable_object.ceu"
         }   /* opened in "if (0)" */
 }       /* opened in Block_pre */
-
-#line 55 "movable_object.ceu"
-    }
-
-#line 55 "movable_object.ceu"
-    }
-#line 55 "movable_object.ceu"
-/* CLEAR: Block (55) */
-#line 55 "movable_object.ceu"
-    if (0) {
-
-#line 55 "movable_object.ceu"
-        }   /* opened in "if (0)" */
-}       /* opened in Block_pre */
-
-#line 55 "movable_object.ceu"
-    }
-#line 55 "movable_object.ceu"
-/* CLEAR: Block (55) */
-#line 55 "movable_object.ceu"
-    if (0) {
-
-#line 55 "movable_object.ceu"
-        }   /* opened in "if (0)" */
-}       /* opened in Block_pre */
-
-#line 46 "movable_object.ceu"
-case Rect_ParOr_sub_1_4:;/* NODE: Block 170 */
-
-#line 47 "movable_object.ceu"
-    {/* NODE: Stmts 169 */
-
-#line 47 "movable_object.ceu"
-    {/* NODE: Block 663 */
-
-#line 47 "movable_object.ceu"
-    {/* NODE: Stmts 662 */
-
-#line 47 "movable_object.ceu"
-    {/* NODE: Stmts 661 */
-
-#line 47 "movable_object.ceu"
-    {
-#line 47 "movable_object.ceu"
-    }/* NODE: Loop 660 */
-
-#line 47 "movable_object.ceu"
-    for (;;) {
-/* NODE: Block 167 */
-
-#line 48 "movable_object.ceu"
-    {
-#line 48 "movable_object.ceu"
-    int __ceu_v_24;
-/* NODE: Stmts 166 */
-
-#line 48 "movable_object.ceu"
-    {/* NODE: Stmts 668 */
-
-#line 48 "movable_object.ceu"
-    {/* NODE: Dcl_var 665 */
-/* NODE: Stmts 709 */
-
-#line 48 "movable_object.ceu"
-    {/* NODE: Nothing 671 */
-/* NODE: Set 670 */
-
-#line 48 "movable_object.ceu"
-/* SET: table: 0x18d0c80 *//* NODE: Await 149 */
-
-#line 48 "movable_object.ceu"
-    _CEU_NO_149_:
-if (0) { goto _CEU_NO_149_; /* avoids "not used" warning */ }
-
-#line 48 "movable_object.ceu"
-    _ceu_trl->evt = 1;
-_ceu_trl->lbl = Rect_Awake_go_oriz_6;
-_ceu_trl->seqno = _ceu_app->seqno;
-
-#line 48 "movable_object.ceu"
-    #ifdef CEU_ORGS
-_ceu_trl->evto  = _ceu_org;
-#endif
-
-#line 48 "movable_object.ceu"
-    return;
-
-case Rect_Awake_go_oriz_6:;
-
-#line 48 "movable_object.ceu"
-    #ifdef CEU_DEBUG_TRAILS
-#ifndef CEU_OS
-printf("\tOK!\n");
-#endif
-#endif
-
-#line 48 "movable_object.ceu"
-    {
-
-#line 48 "movable_object.ceu"
-        tceu__int* __ceu_casted = (tceu__int*) _ceu_evt->param;
-
-#line 48 "movable_object.ceu"
-        {
-        (__ceu_v_24) = ((__ceu_casted)->_1);
-    }
-}
-/* NODE: Nothing 1152 */
-/* NODE: Nothing 1153 */
-
-#line 48 "movable_object.ceu"
-    }
-#line 48 "movable_object.ceu"
-    }/* NODE: Set 714 */
-
-#line 49 "movable_object.ceu"
-/* SET: . *//* NODE: Op2_+ 156 */
-
-#line 49 "movable_object.ceu"
-    (((((CEU_Rect*)_ceu_org)->rect).x)) = ((((((CEU_Rect*)_ceu_org)->rect).x))+(__ceu_v_24));/* NODE: If 716 */
-
-#line 50 "movable_object.ceu"
-    if (((((((CEU_Rect*)_ceu_org)->rect).x))>1500)) {
-/* NODE: Block 164 */
-
-#line 51 "movable_object.ceu"
-    {/* NODE: Stmts 163 */
-
-#line 51 "movable_object.ceu"
-    {/* NODE: Break 162 */
-
-#line 51 "movable_object.ceu"
-    break;
-#line 51 "movable_object.ceu"
-    }
-#line 51 "movable_object.ceu"
-/* CLEAR: Block (51) */
-#line 51 "movable_object.ceu"
-    if (0) {
-
-#line 51 "movable_object.ceu"
-        }   /* opened in "if (0)" */
-}       /* opened in Block_pre */
 } else {
-/* NODE: Nothing 715 */
+/* NODE: Nothing 842 */
 }
 
-#line 48 "movable_object.ceu"
+#line 53 "movable_object.ceu"
     }
-#line 48 "movable_object.ceu"
-/* CLEAR: Block (48) */
-#line 48 "movable_object.ceu"
+#line 53 "movable_object.ceu"
+/* CLEAR: Block (53) */
+#line 53 "movable_object.ceu"
     if (0) {
 
-#line 48 "movable_object.ceu"
+#line 53 "movable_object.ceu"
         }   /* opened in "if (0)" */
 }       /* opened in Block_pre */
 
-#line 47 "movable_object.ceu"
+#line 52 "movable_object.ceu"
     }
 
-#line 47 "movable_object.ceu"
-/* CLEAR: Loop (47) */
-#line 47 "movable_object.ceu"
+#line 52 "movable_object.ceu"
+/* CLEAR: Loop (52) */
+#line 52 "movable_object.ceu"
     }
-#line 47 "movable_object.ceu"
-/* CLEAR: Block (47) */
-#line 47 "movable_object.ceu"
+#line 52 "movable_object.ceu"
+/* CLEAR: Block (52) */
+#line 52 "movable_object.ceu"
     if (0) {
 
-#line 47 "movable_object.ceu"
+#line 52 "movable_object.ceu"
         }   /* opened in "if (0)" */
 }       /* opened in Block_pre */
 
-#line 47 "movable_object.ceu"
+#line 52 "movable_object.ceu"
     }
-#line 47 "movable_object.ceu"
-/* CLEAR: Block (47) */
-#line 47 "movable_object.ceu"
+#line 52 "movable_object.ceu"
+/* CLEAR: Block (52) */
+#line 52 "movable_object.ceu"
     if (0) {
 
-#line 47 "movable_object.ceu"
+#line 52 "movable_object.ceu"
         }   /* opened in "if (0)" */
 }       /* opened in Block_pre */
 
-#line 46 "movable_object.ceu"
+#line 51 "movable_object.ceu"
 /* PAROR JOIN */
-#line 46 "movable_object.ceu"
+#line 51 "movable_object.ceu"
     _ceu_lbl = Rect_ParOr_out_5;
 goto _CEU_GOTO_;
 
-#line 46 "movable_object.ceu"
+#line 51 "movable_object.ceu"
 case Rect_ParOr_out_5:;
-#line 46 "movable_object.ceu"
-/* CLEAR: ParOr (46) */
-#line 46 "movable_object.ceu"
+#line 51 "movable_object.ceu"
+/* CLEAR: ParOr (51) */
+#line 51 "movable_object.ceu"
     {
     /* Reuse current stack frame.
      * We know that CLEAR will not abort anything and return normally.
@@ -9907,28 +10270,28 @@ case Rect_ParOr_out_5:;
 #endif
 }
 
-#line 46 "movable_object.ceu"
+#line 51 "movable_object.ceu"
     }
-#line 46 "movable_object.ceu"
-/* CLEAR: Block (46) */
-#line 46 "movable_object.ceu"
+#line 51 "movable_object.ceu"
+/* CLEAR: Block (51) */
+#line 51 "movable_object.ceu"
     if (0) {
 
-#line 46 "movable_object.ceu"
+#line 51 "movable_object.ceu"
         }   /* opened in "if (0)" */
 }       /* opened in Block_pre */
 
-#line 44 "movable_object.ceu"
+#line 49 "movable_object.ceu"
 /* PAROR JOIN */
-#line 44 "movable_object.ceu"
+#line 49 "movable_object.ceu"
     _ceu_lbl = Rect_ParOr_out_3;
 goto _CEU_GOTO_;
 
-#line 44 "movable_object.ceu"
+#line 49 "movable_object.ceu"
 case Rect_ParOr_out_3:;
-#line 44 "movable_object.ceu"
-/* CLEAR: ParOr (44) */
-#line 44 "movable_object.ceu"
+#line 49 "movable_object.ceu"
+/* CLEAR: ParOr (49) */
+#line 49 "movable_object.ceu"
     {
     /* Reuse current stack frame.
      * We know that CLEAR will not abort anything and return normally.
@@ -9944,11 +10307,11 @@ case Rect_ParOr_out_3:;
                   _ceu_stk,
                   _ceu_org,
                   0,
-                  5);
+                  6);
 #ifdef CEU_STACK_CLEAR
     _ceu_stk->is_alive = __ceu_old;
     ceu_sys_stack_clear(_ceu_stk, _ceu_org,
-                        0,4);
+                        0,5);
 #endif
 }
 

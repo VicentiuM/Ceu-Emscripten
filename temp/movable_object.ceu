@@ -41,6 +41,11 @@ do
     event int go_oriz;
     event int go_vert;
 
+    var int w = rect.w;
+    var int h = rect.h;
+    var int wn = 0;
+    var int hn = 0;
+
     par/or do
     	//MOVE THE PLAYER
     	par/or do
@@ -79,6 +84,20 @@ do
                     clr = _SDL_Color(0x00,0xFF,0xFF);
                 else/if key:keysym.sym == _SDLK_u then
                     clr = _SDL_Color(0x90,0x3A,0x03);
+                end
+            //MOUSE EVENTS
+            with
+                var _SDL_MouseButtonEvent&& but = await SDL_MOUSEBUTTONDOWN;
+                if but:button == _SDL_BUTTON_LEFT then
+                    wn = wn + 5;
+                    rect = SDL_Rect(rect.x, rect.y , w + wn,h + hn);
+                else/if but:button == _SDL_BUTTON_RIGHT then
+                    hn = hn + 5;
+                    rect = SDL_Rect(rect.x, rect.y , w + wn,h + hn);
+                else/if but:button == _SDL_BUTTON_MIDDLE then
+                    wn = 0;
+                    hn = 0;
+                    rect = SDL_Rect(rect.x, rect.y , w + wn,h + hn);
                 end
             end
     	end

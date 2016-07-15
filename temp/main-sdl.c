@@ -90,10 +90,40 @@ void key_up(int keycode) {
 	event.key.keysym.sym = keycode;
 
 	SDL_Event* evtp = &event;
-	printf("KEY UP\n");
+
 	#ifdef CEU_IN_SDL_KEYUP
 	ceu_sys_go(&app, CEU_IN_SDL_KEYUP, &evtp);
 	#endif
+}
+
+void mouse_down(int which) {
+	SDL_Event event;
+
+	event.type = SDL_MOUSEBUTTONDOWN;
+	event.button.state = SDL_PRESSED;
+	event.button.which = SDL_BUTTON_RIGHT;
+
+	SDL_Event* evtp = &event;
+
+	#ifdef CEU_IN_SDL_MOUSEBUTTONDOWN
+	ceu_sys_go(&app, CEU_IN_SDL_MOUSEBUTTONDOWN, &evtp);
+	#endif
+
+}
+
+void mouse_up(int which) {
+	SDL_Event event;
+
+	event.type = SDL_MOUSEBUTTONUP;
+	event.button.state = SDL_RELEASED;
+	event.button.which = SDL_BUTTON_RIGHT;
+
+	SDL_Event* evtp = &event;
+
+	#ifdef CEU_IN_SDL_MOUSEBUTTONUP
+	ceu_sys_go(&app, CEU_IN_SDL_MOUSEBUTTONUP, &evtp);
+	#endif
+
 }
 
 int ceu_draw(u32 oldee) {
