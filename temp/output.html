@@ -61,12 +61,15 @@
 
       <canvas class="emscripten" id="canvas" oncontextmenu="event.preventDefault()"></canvas>
       <script type="text/javascript">
-        window.addEventListener('keydown',this.check,false);
+        window.addEventListener('keydown',this.check_keydown,false);
+        window.addEventListener('keyup',this.check_keyup,false);
 
-        function check(e) {
-          console.log(e.keyCode);
-          //Module.ccall('key_down','void',['object'],[e]);
+        function check_keydown(e) {
           Module.ccall('key_down', 'void', ['number'], [e.keyCode]);
+        }
+
+        function check_keyup(e) {
+          Module.ccall('key_up', 'void', ['number'], [e.keyCode]);
         }
       </script>
     </div>

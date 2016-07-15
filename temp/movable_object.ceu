@@ -3,6 +3,7 @@
 input void SDL_REDRAW;
 input void SDL_QUIT;
 input _SDL_KeyboardEvent&&    SDL_KEYDOWN;
+input _SDL_KeyboardEvent&&    SDL_KEYUP;
 input _SDL_MouseButtonEvent&& SDL_MOUSEBUTTONDOWN;
 
 input void SDL_REDRAW;
@@ -59,15 +60,26 @@ do
     with
     	//KEYBOARD EVENTS
     	loop do
-    		var _SDL_KeyboardEvent&& key = await SDL_KEYDOWN;
-            if key:keysym.sym == _SDLK_a then
-                emit go_oriz => -10;
-            else/if key:keysym.sym == _SDLK_d then
-                emit go_oriz => 10;
-            else/if key:keysym.sym == _SDLK_w then
-            	emit go_vert => -10;
-            else/if key:keysym.sym == _SDLK_s then
-            	emit go_vert => 10;
+            par/or do
+        		var _SDL_KeyboardEvent&& key = await SDL_KEYDOWN;
+                if key:keysym.sym == _SDLK_a then
+                    emit go_oriz => -10;
+                else/if key:keysym.sym == _SDLK_d then
+                    emit go_oriz => 10;
+                else/if key:keysym.sym == _SDLK_w then
+                	emit go_vert => -10;
+                else/if key:keysym.sym == _SDLK_s then
+                	emit go_vert => 10;
+                end
+            with
+                var _SDL_KeyboardEvent&& key = await SDL_KEYUP;
+                if key:keysym.sym == _SDLK_t then
+                    clr = _SDL_Color(0x0A,0x5F,0x4D);
+                else/if key:keysym.sym == _SDLK_y then
+                    clr = _SDL_Color(0x00,0xFF,0xFF);
+                else/if key:keysym.sym == _SDLK_u then
+                    clr = _SDL_Color(0x90,0x3A,0x03);
+                end
             end
     	end
     with
