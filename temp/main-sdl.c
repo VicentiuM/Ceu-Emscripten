@@ -54,30 +54,23 @@ void new_draw(s32 dt_us) {
 	ceu_sys_go(&app, CEU_IN_SDL_REDRAW, NULL);
 }
 
-void key_down(SDL_Event* event) {
-	/*
+void key_down(int keycode) {
+
 	SDL_Event event;
-	SDL_PollEvent(&event);
-	*/
 
+	//to convert from the upercase value of javascript to the lowercase value of SDLK
+	if( keycode >= 65 && keycode <= 90)
+		keycode += 32;
 
-	while(SDL_PollEvent(&evt));
-	SDL_Event* evtp = &evt;
+	event.type = SDL_KEYDOWN;
+	event.key.state = SDL_PRESSED;
+	event.key.keysym.sym = keycode;
+
+	SDL_Event* evtp = &event;
+
 	#ifdef CEU_IN_SDL_KEYDOWN
-	printf("I'm here %d\n", evt.type);
 	ceu_sys_go(&app, CEU_IN_SDL_KEYDOWN, &evtp);
 	#endif
-
-/*
-	SDL_Event test_event;
-	while (SDL_PollEvent(&test_event)) {
-
-		#ifdef CEU_IN_SDL_KEYDOWN
-		printf("I'm here %d\n", test_event.type);
-		ceu_sys_go(&app, CEU_IN_SDL_KEYDOWN, &test_event);
-		#endif
-	}
-*/
 }
 
 

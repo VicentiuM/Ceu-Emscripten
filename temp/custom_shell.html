@@ -64,9 +64,7 @@
         window.addEventListener('keydown',this.check,false);
 
         function check(e) {
-          console.log(e.keyCode);
-          //Module.ccall('key_down','void',['object'],[e]);
-          _key_down();
+          Module.ccall('key_down', 'void', ['number'], [e.keyCode]);
         }
       </script>
     </div>

@@ -8077,7 +8077,7 @@ _ceu_org->trls[ 2 ].org = NULL;
 /* NODE: Set 893 */
 
 #line 104 "movable_object.ceu"
-/* SET: table: 0x288b4e0 *//* NODE: Await 332 */
+/* SET: table: 0x2b1f4e0 *//* NODE: Await 332 */
 
 #line 104 "movable_object.ceu"
     _CEU_NO_332_:
@@ -8836,7 +8836,7 @@ case Rect_ParOr_sub_2_2:;/* NODE: Block 239 */
 /* NODE: Set 721 */
 
 #line 62 "movable_object.ceu"
-/* SET: table: 0x2876210 *//* NODE: Await 190 */
+/* SET: table: 0x2b0a210 *//* NODE: Await 190 */
 
 #line 62 "movable_object.ceu"
     _CEU_NO_190_:
@@ -9310,7 +9310,7 @@ case Rect_ParOr_sub_1_1:;/* NODE: Block 187 */
 /* NODE: Set 666 */
 
 #line 55 "movable_object.ceu"
-/* SET: table: 0x286dd00 *//* NODE: Await 171 */
+/* SET: table: 0x2b01d00 *//* NODE: Await 171 */
 
 #line 55 "movable_object.ceu"
     _CEU_NO_171_:
@@ -9440,7 +9440,7 @@ case Rect_ParOr_sub_1_4:;/* NODE: Block 168 */
 /* NODE: Set 609 */
 
 #line 47 "movable_object.ceu"
-/* SET: table: 0x27c2ff0 *//* NODE: Await 147 */
+/* SET: table: 0x2a56ff0 *//* NODE: Await 147 */
 
 #line 47 "movable_object.ceu"
     _CEU_NO_147_:
