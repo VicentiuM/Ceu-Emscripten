@@ -3,11 +3,13 @@ var tutorial = ["tutorials/ex010_hello.ceu", "tutorials/ex020_events.ceu", "tuto
 				"tutorials/ex070_AB.ceu", "tutorials/ex080_tight.ceu", "tutorials/ex090_det01.ceu", 
 				"tutorials/ex100_atomic.ceu", "tutorials/ex120_inthello.ceu", "tutorials/ex140_intstack.ceu", 
 				"tutorials/ex150_async10.ceu", "tutorials/ex160_async0.ceu", "tutorials/ex170_simul.ceu", 
-				"tutorials/ex180_cblock.ceu", "tutorials/ex190_fin.ceu"];
+				"tutorials/ex180_cblock.ceu", "tutorials/ex190_fin.ceu", "tutorials/sdl1.ceu", "tutorials/sdl2.ceu",
+				"tutorials/sdl6.ceu", "tutorials/square.ceu"];
 
 
 var Module={};
 var printing = false;
+var length = tutorial.length;
 
 //Calls Module which will intercept the console log and print the message in output
 function call_module() {
@@ -26,7 +28,7 @@ function call_module() {
           // application robust, you may want to override this behavior before shipping!
           // See http://www.khronos.org/registry/webgl/specs/latest/1.0/#5.15.2
           canvas.addEventListener("webglcontextlost", function(e) { alert('WebGL context lost. You will need to reload the page.'); e.preventDefault(); }, false);
-
+          canvas.focus();
           return canvas;
         })()
 	};
@@ -84,16 +86,6 @@ function handle_time(timestamp) {
 
 	requestAnimationFrame(handle_time);
 
-/*
-	if (elapsed <= 5000000) {
-		requestAnimationFrame(handle_time);
-		async_call();
-	}
-	else {
-		start = null;
-		elapsed = 0;
-	}
-*/
 }
 
 
@@ -101,7 +93,7 @@ var nr = 0;
 //Function for going to the next tutorial lesson
 function inc_nr() {
 	nr = nr + 1;
-	if (nr == 17)
+	if (nr == length)
 		nr = 0;
 	get_tutorial()
 	document.getElementById('log').innerHTML = "";
@@ -112,7 +104,7 @@ function inc_nr() {
 function dec_nr() {
 	nr = nr - 1;
 	if (nr < 0)
-		nr = 16;
+		nr = length - 1;
 	get_tutorial()
 	document.getElementById('log').innerHTML = "";
 	document.getElementById('log').innerHTML += nr;
@@ -153,6 +145,54 @@ function async_check() {
 	else {
 		console.log('false');
 	}
+}
+var canvas = document.getElementById('canvas');
+
+canvas.focus();
+document.getElementById( "canvas" ).onmousedown = function(event){
+    event.preventDefault();
+};
+/*
+var canvas = document.getElementById('canvas');
+canvas.addEventListener('keydown', check_keydown, false);
+canvas.addEventListener('keyup', check_keyup, false);
+window.addEventListener('mousedown', check_mousedown, false);
+window.addEventListener('mouseup', this.check_mouseup, false);
+*/
+function checkElement() {
+	var x = document.activeElement.tagName;
+	console.log(x);
+}
+
+function getCursorPosition(canvas, event) {
+	var rect = canvas.getBoundingClientRect();
+	var x = event.clientX - rect.left;
+	var y = event.clientY - rect.top;
+	return {'x': x, 'y': y};
+}
+
+
+function check_keydown(e) {
+	Module.ccall('key_down', 'void', ['number'], [e.keyCode]);
+}
+
+function check_keyup(e) {
+	Module.ccall('key_up', 'void', ['number'], [e.keyCode]);
+}
+
+function check_mousedown(e) {
+	var c = getCursorPosition(canvas, e);
+	Module.ccall('mouse_down', 'void', ['number', 'number', 'number'], [e.which, c.x, c.y]);
+}
+
+function check_mouseup(e) {
+	var c = getCursorPosition(canvas, e);
+	Module.ccall('mouse_up', 'void', ['number', 'number', 'number'], [e.which, c.x, c.y]);
+}
+
+function check_onmousemove(e) {
+	var c = getCursorPosition(canvas, e);
+	Module.ccall('mouse_move', 'void', ['number', 'number'], [c.x, c.y]);
 }
 
 //Gets the first tutorial when the page is first loaded

@@ -22,20 +22,23 @@ function create_js($data) {
 
 	
 	//Run ceu on the file
-	exec("ceu ".$filename_ceu);
+	exec("./ceu ".$filename_ceu);
+		
+	$emcc = "/home/vic/emsdk_portable/emscripten/master/emcc";
+	$function =  $emcc . " main.c -o " . $filename_js . " -O2 --memory-init-file 0 -s EXPORTED_FUNCTIONS=\"['_begin', '_update', '_async_call', '_key_down', '_key_up', '_mouse_down', '_mouse_up', '_mouse_move']\" -s NO_EXIT_RUNTIME=1 -s USE_SDL=2";
 	
-	
-	//Run emscripten
-	$function =  "emcc main.c -o " . $filename_js . " -s EXPORTED_FUNCTIONS=\"['_begin', '_update', '_async_call', '_async_check']\" -s NO_EXIT_RUNTIME=1";
+
 	exec($function);
 
 
 	//Delete the files
+	
 	unlink($token);
-	unlink($filename_js.'.map');
 	unlink($filename_ceu);
+	unlink($filename_js.'.map');
 	unlink("_ceu_app.c");
 	unlink("_ceu_app.h");
+	
 
 
 	return $filename_js;

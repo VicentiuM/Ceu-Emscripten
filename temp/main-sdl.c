@@ -42,6 +42,63 @@ SDL_Event evt;
 //u32 old = SDL_GetTicks();
 u32 old = 0;
 
+int async_call() {
+	ceu_sys_go(&app, CEU_IN__ASYNC, NULL);
+	#ifdef CEU_RET
+	if (! app.isAlive) {
+		if (async_check() == 1) {
+			printf("%d\n", app.ret);
+			return 1;
+		}
+		else if (last == 1) {
+			last = 0;
+			printf("%d\n", app.ret);
+			return 1;
+		}
+	}
+	#endif
+	return 0;
+}
+
+
+void update(s32 time) {
+
+	s32 dt_us = time;
+	ceu_sys_go(&app, CEU_IN__WCLOCK, &dt_us);
+
+	#ifdef CEU_IN_SDL_DT
+	u32 dt_ms = dt_us / 1000;
+	ceu_sys_go(&app, CEU_IN_SDL_DT, &dt_ms);
+	#endif
+
+	#ifdef CEU_IN_SDL_REDRAW
+	ceu_sys_go(&app, CEU_IN_SDL_REDRAW, NULL);
+	#endif
+
+
+	s32 prev = WCLOCK_nxt;
+	while (WCLOCK_nxt <= 0) {
+		s32 dt_us = 0;
+		ceu_sys_go(&app, CEU_IN__WCLOCK, &dt_us);
+
+		#ifdef CEU_IN_SDL_DT
+		ceu_sys_go(&app, CEU_IN_SDL_DT, &dt_us);
+		#endif
+
+		#ifdef CEU_IN_SDL_REDRAW
+		ceu_sys_go(&app, CEU_IN_SDL_REDRAW, NULL);
+		#endif
+
+		//When there are no timed events
+		if (WCLOCK_nxt == prev) {
+			WCLOCK_nxt = 1;
+
+		}
+	}
+
+}
+
+
 void ceu_draw(s32 dt_us) {
 
 	u32 dt_ms = dt_us / 1000;
@@ -142,48 +199,6 @@ void mouse_move(int x, int y) {
 	#ifdef CEU_IN_SDL_MOUSEMOTION
 	ceu_sys_go(&app, CEU_IN_SDL_MOUSEMOTION, &evtp);
 	#endif
-}
-
-int async_call() {
-	ceu_sys_go(&app, CEU_IN__ASYNC, NULL);
-	#ifdef CEU_RET
-	if (! app.isAlive) {
-		if (async_check() == 1) {
-			printf("%d\n", app.ret);
-			return 1;
-		}
-		else if (last == 1) {
-			last = 0;
-			printf("%d\n", app.ret);
-			return 1;
-		}
-	}
-	#endif
-	return 0;
-}
-
-
-void update(s32 time) {
-
-	s32 dt_us = time;
-	ceu_sys_go(&app, CEU_IN__WCLOCK, &dt_us);
-
-
-	s32 prev = WCLOCK_nxt;
-	while (WCLOCK_nxt <= 0) {
-		s32 dt_us = 0;
-		ceu_sys_go(&app, CEU_IN__WCLOCK, &dt_us);
-
-		//DRAW FUNCTION
-		//ceu_sys_go(&app, CEU_IN_SDL_REDRAW, NULL);
-
-		//When there are no timed events
-		if (WCLOCK_nxt == prev) {
-			WCLOCK_nxt = 1;
-
-		}
-	}
-
 }
 
 void begin() {

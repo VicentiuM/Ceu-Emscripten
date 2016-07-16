@@ -23,8 +23,8 @@ function draw(timestamp) {
 
 		requestAnimationFrame(draw);
 		//_ceu_draw(diff);
-		//_update(diff);
-		_ceu_draw(diff);
+		_update(diff);
+		//_ceu_draw(diff);
 		
 }
 
