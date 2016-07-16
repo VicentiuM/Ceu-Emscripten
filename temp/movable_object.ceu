@@ -5,6 +5,8 @@ input void SDL_QUIT;
 input _SDL_KeyboardEvent&&    SDL_KEYDOWN;
 input _SDL_KeyboardEvent&&    SDL_KEYUP;
 input _SDL_MouseButtonEvent&& SDL_MOUSEBUTTONDOWN;
+input _SDL_MouseButtonEvent&& SDL_MOUSEBUTTONUP;
+input _SDL_MouseMotionEvent&& SDL_MOUSEMOTION;
 
 input void SDL_REDRAW;
 input void SDL_QUIT;
@@ -99,6 +101,18 @@ do
                     hn = 0;
                     rect = SDL_Rect(rect.x, rect.y , w + wn,h + hn);
                 end
+            with
+                var _SDL_MouseButtonEvent&& but = await SDL_MOUSEBUTTONUP;
+                if but:button == _SDL_BUTTON_LEFT then
+                   // _printf("x=%d | y=%d\n", rect.x, rect.y);
+                    _printf("x=%d | y=%d\n", but:x, but:y);
+                end
+            with
+                var _SDL_MouseMotionEvent&& mmt = await SDL_MOUSEMOTION;
+                //_printf("mx=%d | my=%d\n", mmt:x, mmt:y);
+                rect.x = mmt:x;
+                rect.y = mmt:y;
+                rect = SDL_Rect(rect.x, rect.y , w + wn,h + hn);
             end
     	end
     with

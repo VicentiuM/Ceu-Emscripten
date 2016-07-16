@@ -59,12 +59,22 @@
     </div>
     <div class="emscripten_border">
 
-      <canvas class="emscripten" id="canvas" oncontextmenu="event.preventDefault()"></canvas>
+      <canvas class="emscripten" id="canvas" oncontextmenu="event.preventDefault()" onmousemove="check_onmousemove(event)"></canvas>
       <script type="text/javascript">
-        window.addEventListener('keydown',this.check_keydown,false);
-        window.addEventListener('keyup',this.check_keyup,false);
-        window.addEventListener('mousedown',this.check_mousedown,false);
-        window.addEventListener('mouseup',this.check_mouseup,false);
+        window.addEventListener('keydown', this.check_keydown, false);
+        window.addEventListener('keyup', this.check_keyup, false);
+        window.addEventListener('mousedown', this.check_mousedown, false);
+        window.addEventListener('mouseup', this.check_mouseup, false);
+        //window.addEventListener('onmousemove', this.check_onmousemove, false);
+
+
+        function getCursorPosition(canvas, event) {
+          var rect = canvas.getBoundingClientRect();
+          var x = event.clientX - rect.left;
+          var y = event.clientY - rect.top;
+          return {'x': x, 'y': y};
+        }
+
 
         function check_keydown(e) {
           Module.ccall('key_down', 'void', ['number'], [e.keyCode]);
@@ -75,11 +85,20 @@
         }
 
         function check_mousedown(e) {
-          Module.ccall('mouse_down', 'void', ['number'], [e.which]);
+          var c = getCursorPosition(canvas, e);
+          Module.ccall('mouse_down', 'void', ['number', 'number', 'number'],
+           [e.which, c.x, c.y]);
         }
 
         function check_mouseup(e) {
-          Module.ccall('mouse_up', 'void', ['number'], [e.which]);
+          var c = getCursorPosition(canvas, e);
+          Module.ccall('mouse_up', 'void', ['number', 'number', 'number'],
+           [e.which, c.x, c.y]);
+        }
+
+        function check_onmousemove(e) {
+          var c = getCursorPosition(canvas, e);
+          Module.ccall('mouse_move', 'void', ['number', 'number'], [c.x, c.y]);
         }
       </script>
     </div>

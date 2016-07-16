@@ -42,7 +42,7 @@ SDL_Event evt;
 //u32 old = SDL_GetTicks();
 u32 old = 0;
 
-void new_draw(s32 dt_us) {
+void ceu_draw(s32 dt_us) {
 
 	u32 dt_ms = dt_us / 1000;
 
@@ -96,12 +96,14 @@ void key_up(int keycode) {
 	#endif
 }
 
-void mouse_down(int which) {
+void mouse_down(int which, int x, int y) {
 	SDL_Event event;
 
 	event.type = SDL_MOUSEBUTTONDOWN;
 	event.button.state = SDL_PRESSED;
-	event.button.which = SDL_BUTTON_RIGHT;
+	event.button.which = which;
+	event.button.x = x;
+	event.button.y = y;
 
 	SDL_Event* evtp = &event;
 
@@ -111,12 +113,14 @@ void mouse_down(int which) {
 
 }
 
-void mouse_up(int which) {
+void mouse_up(int which, int x, int y) {
 	SDL_Event event;
 
 	event.type = SDL_MOUSEBUTTONUP;
 	event.button.state = SDL_RELEASED;
-	event.button.which = SDL_BUTTON_RIGHT;
+	event.button.which = which;
+	event.button.x = x;
+	event.button.y = y;
 
 	SDL_Event* evtp = &event;
 
@@ -126,194 +130,18 @@ void mouse_up(int which) {
 
 }
 
-int ceu_draw(u32 oldee) {
-	   s32 tm = -1;
+void mouse_move(int x, int y) {
+	SDL_Event event;
 
-    #ifdef CEU_WCLOCKS
-            if (WCLOCK_nxt != CEU_WCLOCK_INACTIVE)
-                tm = WCLOCK_nxt / 1000;
-    #endif
-    #ifdef CEU_ASYNCS
-            if (app.pendingAsyncs) {
-                tm = 0;
-            }
-    #endif
+	event.type = SDL_MOUSEMOTION;
+	event.motion.x = x;
+	event.motion.y = y;
 
+	SDL_Event* evtp = &event;
 
-        //SDL_EventState(SDL_FINGERMOTION, SDL_IGNORE);
-
-
-
-        int has = SDL_WaitEventTimeout(&evt, tm);
-
-//#ifndef SIMULATION_TEST
-
-        u32 now = SDL_GetTicks();
-        s32 dt_ms = (now - old);
-        assert(dt_ms >= 0);
-        old = now;
-
-
-        s32 dt_us = dt_ms*1000;
-
-
-#ifdef CEU_WCLOCKS
-    #if ! (defined(CEU_IN_SDL_DT) || defined(CEU_IN_SDL_DT_))
-                if (WCLOCK_nxt != CEU_WCLOCK_INACTIVE)
-                {
-                    //redraw = WCLOCK_nxt <= dt_us;
-    #endif
-
-   
-
-                ceu_sys_go(&app, CEU_IN__WCLOCK, &dt_us);
-    #ifdef CEU_RET
-                    if (! app.isAlive)
-                        return 0;
-    #endif
-                while (WCLOCK_nxt <= 0) {
-                    s32 dt_us = 0;
-                    ceu_sys_go(&app, CEU_IN__WCLOCK, &dt_us);
-    #ifdef CEU_RET
-                        if (! app.isAlive)
-                            return 0;
-    #endif
-                }
-
-    #if ! (defined(CEU_IN_SDL_DT) || defined(CEU_IN_SDL_DT_))
-                }
-    #endif
-#endif
-
-
-
-#ifdef CEU_IN_SDL_DT
-                ceu_sys_go(&app, CEU_IN_SDL_DT, &dt_ms);
-    #ifdef CEU_RET
-                if (! app.isAlive)
-                    return 0;
-    #endif
-            //redraw = 1;
-#endif
-
-        // OTHER EVENTS
-        if (has)
-        {
-            int handled = 1;        // =1 for defined events
-            SDL_Event* evtp = &evt;
-            switch (evt.type) {
-                case SDL_QUIT:
-
-
-#ifdef CEU_IN_SDL_QUIT
-                    ceu_sys_go(&app, CEU_IN_SDL_QUIT, &evtp);
-#endif
-                    break;
-                case SDL_WINDOWEVENT:
-
-#ifdef CEU_IN_SDL_WINDOWEVENT
-                    ceu_sys_go(&app, CEU_IN_SDL_WINDOWEVENT, &evtp);
-#endif
-                    break;
-                case SDL_KEYDOWN:
-
-#ifdef CEU_IN_SDL_KEYDOWN
-                    ceu_sys_go(&app, CEU_IN_SDL_KEYDOWN, &evtp);
-#endif
-                    break;
-                case SDL_KEYUP:
-
-#ifdef CEU_IN_SDL_KEYUP
-                    ceu_sys_go(&app, CEU_IN_SDL_KEYUP, &evtp);
-#endif
-                    break;
-                case SDL_TEXTINPUT:
-
-#ifdef CEU_IN_SDL_TEXTINPUT
-                    ceu_sys_go(&app, CEU_IN_SDL_TEXTINPUT, &evtp);
-#endif
-                    break;
-                case SDL_TEXTEDITING:
-
-#ifdef CEU_IN_SDL_TEXTEDITING
-                    ceu_sys_go(&app, CEU_IN_SDL_TEXTEDITING, &evtp);
-#endif
-                    break;
-                case SDL_MOUSEMOTION:
-
-#ifdef CEU_IN_SDL_MOUSEMOTION
-                    ceu_sys_go(&app, CEU_IN_SDL_MOUSEMOTION, &evtp);
-#endif
-                    break;
-                case SDL_MOUSEBUTTONDOWN:
-
-#ifdef CEU_IN_SDL_MOUSEBUTTONDOWN
-                    ceu_sys_go(&app, CEU_IN_SDL_MOUSEBUTTONDOWN, &evtp);
-#endif
-                    break;
-                case SDL_MOUSEBUTTONUP:
-
-#ifdef CEU_IN_SDL_MOUSEBUTTONUP
-                    ceu_sys_go(&app, CEU_IN_SDL_MOUSEBUTTONUP, &evtp);
-#endif
-                    break;
-                case SDL_FINGERDOWN:
-
-#ifdef CEU_IN_SDL_FINGERDOWN
-                    ceu_sys_go(&app, CEU_IN_SDL_FINGERDOWN, &evtp);
-#endif
-                    break;
-                case SDL_FINGERUP:
-
-#ifdef CEU_IN_SDL_FINGERUP
-                    ceu_sys_go(&app, CEU_IN_SDL_FINGERUP, &evtp);
-#endif
-                    break;
-                case SDL_FINGERMOTION:
-
-#ifdef CEU_IN_SDL_FINGERMOTION
-                    ceu_sys_go(&app, CEU_IN_SDL_FINGERMOTION, &evtp);
-#endif
-                    break;
-
-                default:
-                    handled = 0;    // undefined event
-            }
-#ifdef CEU_RET
-            if (! app.isAlive) return 0;
-#endif
-            //redraw = redraw || handled;
-        }
-
-
-#ifdef CEU_IN_SDL_REDRAW
-
-            ceu_sys_go(&app, CEU_IN_SDL_REDRAW, NULL);
-    #ifdef CEU_RET
-                if (! app.isAlive)
-                    return 0;
-    #endif
-
-#endif
-
-
-//#endif  /* SIMULATION_TEST */
-
-
-
-
-/* TODO: "_" events */
-#ifdef CEU_ASYNCS
-        if (app.pendingAsyncs) {
-            ceu_sys_go(&app, CEU_IN__ASYNC, NULL);
-#ifdef CEU_RET
-            if (! app.isAlive)
-                return 0;
-#endif
-        }
-#endif
-    
-return 1;
+	#ifdef CEU_IN_SDL_MOUSEMOTION
+	ceu_sys_go(&app, CEU_IN_SDL_MOUSEMOTION, &evtp);
+	#endif
 }
 
 int async_call() {

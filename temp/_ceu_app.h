@@ -23,7 +23,7 @@ typedef s16 tceu_ncls;
 #endif
 
 /* TODO: remove */
-#define CEU_NTRAILS 8
+#define CEU_NTRAILS 10
 
 #ifndef _CEU_OS_H
 #define _CEU_OS_H
@@ -1622,11 +1622,14 @@ void ceu_pool_free (tceu_pool* pool, byte* val);
 #define CEU_IN_SDL_KEYDOWN 245
 #define CEU_IN_SDL_KEYUP 244
 #define CEU_IN_SDL_MOUSEBUTTONDOWN 243
+#define CEU_IN_SDL_MOUSEBUTTONUP 242
+#define CEU_IN_SDL_MOUSEMOTION 241
 #define CEU_IN_higher CEU_IN__INIT
-#define CEU_IN_lower 243
+#define CEU_IN_lower 241
 #define CEU_OUT_n 0
       /* CEU_IN_, CEU_OUT_ */
 #define CEU_FUN_SDL_SetRenderDrawColor
+#define CEU_FUN_printf
 #define CEU_FUN_SDL_CreateWindow
 #define CEU_FUN_SDL_GetWindowSize
 #define CEU_FUN_SDL_RenderFillRect
@@ -1651,6 +1654,9 @@ typedef struct {
 typedef struct {
 	s32 _1;
 } tceu__s32;
+typedef struct {
+	SDL_MouseMotionEvent* _1;
+} tceu__SDL_MouseMotionEvent_;
 typedef struct {
 	int _1;
 	int _2;
@@ -1693,7 +1699,7 @@ typedef                           struct { /* BLOCK ln=16 */
                           }  CEU_SDL_Rect;
 
 enum {
-CEU_NONE1304,
+CEU_NONE1485,
 CEU__OPTION___SDL_WINDOW__REF_NIL,
 CEU__OPTION___SDL_WINDOW__REF_SOME
 };
@@ -1701,9 +1707,9 @@ CEU__OPTION___SDL_WINDOW__REF_SOME
 typedef struct CEU__Option___SDL_Window__ref {
     u8 tag;
     union {
-                              struct { /* BLOCK ln=12 */
+                              struct { /* BLOCK ln=14 */
                               } NIL;
-                              struct { /* BLOCK ln=12 */
+                              struct { /* BLOCK ln=14 */
                                 SDL_Window* v;
                               } SOME;
     };
@@ -1711,7 +1717,7 @@ typedef struct CEU__Option___SDL_Window__ref {
  CEU__Option___SDL_Window__ref;
 
 enum {
-CEU_NONE1310,
+CEU_NONE1491,
 CEU__OPTION___SDL_RENDERER__REF_NIL,
 CEU__OPTION___SDL_RENDERER__REF_SOME
 };
@@ -1719,9 +1725,9 @@ CEU__OPTION___SDL_RENDERER__REF_SOME
 typedef struct CEU__Option___SDL_Renderer__ref {
     u8 tag;
     union {
-                              struct { /* BLOCK ln=25 */
+                              struct { /* BLOCK ln=27 */
                               } NIL;
-                              struct { /* BLOCK ln=25 */
+                              struct { /* BLOCK ln=27 */
                                 SDL_Renderer* v;
                               } SOME;
     };
@@ -1732,16 +1738,16 @@ typedef struct CEU_Rect {
 #ifdef CEU_ORGS
   struct tceu_org org;
 #endif
-  tceu_trl trls_[ 7 ];
-                            struct { /* BLOCK ln=35 */
+  tceu_trl trls_[ 9 ];
+                            struct { /* BLOCK ln=37 */
                               SDL_Renderer* ren;
                               CEU_SDL_Rect rect;
                               union {
                                   union {
                                   };
-                                struct { /* BLOCK ln=35 */
+                                struct { /* BLOCK ln=37 */
                                   union {
-                                    struct { /* BLOCK ln=39 */
+                                    struct { /* BLOCK ln=41 */
                                       SDL_Color clr;
                                       int h;
                                       int wn;
@@ -1763,22 +1769,22 @@ typedef struct CEU_Rect {
                                         union {
                                         };
                                         struct {
-                                          struct { /* BLOCK ln=51 */
+                                          struct { /* BLOCK ln=53 */
                                             union {
                                               struct {
-                                                struct { /* BLOCK ln=52 */
+                                                struct { /* BLOCK ln=54 */
                                                   union {
-                                                    struct { /* BLOCK ln=52 */
+                                                    struct { /* BLOCK ln=54 */
                                                       union {
                                                         union {
                                                         };
-                                                          struct { /* BLOCK ln=53 */
+                                                          struct { /* BLOCK ln=55 */
                                                             union {
                                                               union {
                                                                 union {
                                                                 };
                                                               };
-                                                                struct { /* BLOCK ln=56 */
+                                                                struct { /* BLOCK ln=58 */
                                                                   union {
                                                                   };
                                                                 } ;
@@ -1788,13 +1794,13 @@ typedef struct CEU_Rect {
                                                     } ;
                                                   };
                                                 } ;
-                                                struct { /* BLOCK ln=60 */
+                                                struct { /* BLOCK ln=62 */
                                                   union {
-                                                    struct { /* BLOCK ln=60 */
+                                                    struct { /* BLOCK ln=62 */
                                                       union {
                                                         union {
                                                         };
-                                                          struct { /* BLOCK ln=61 */
+                                                          struct { /* BLOCK ln=63 */
                                                             union {
                                                               union {
                                                                 union {
@@ -1809,80 +1815,101 @@ typedef struct CEU_Rect {
                                               };
                                             };
                                           } ;
-                                          struct { /* BLOCK ln=67 */
+                                          struct { /* BLOCK ln=69 */
                                             union {
-                                              struct { /* BLOCK ln=67 */
+                                              struct { /* BLOCK ln=69 */
                                                 union {
                                                   union {
                                                   };
-                                                    struct { /* BLOCK ln=68 */
+                                                    struct { /* BLOCK ln=70 */
                                                       union {
                                                         struct {
-                                                          struct { /* BLOCK ln=69 */
+                                                          struct { /* BLOCK ln=71 */
                                                             SDL_KeyboardEvent* key_30;
                                                             union {
                                                               union {
                                                                 union {
                                                                 };
                                                               };
-                                                                struct { /* BLOCK ln=71 */
+                                                                struct { /* BLOCK ln=73 */
                                                                   union {
                                                                   };
                                                                 } ;
-                                                                  struct { /* BLOCK ln=73 */
+                                                                  struct { /* BLOCK ln=75 */
                                                                     union {
                                                                     };
                                                                   } ;
-                                                                    struct { /* BLOCK ln=75 */
+                                                                    struct { /* BLOCK ln=77 */
                                                                       union {
                                                                       };
                                                                     } ;
-                                                                      struct { /* BLOCK ln=77 */
+                                                                      struct { /* BLOCK ln=79 */
                                                                         union {
                                                                         };
                                                                       } ;
                                                             };
                                                           } ;
-                                                          struct { /* BLOCK ln=80 */
+                                                          struct { /* BLOCK ln=82 */
                                                             SDL_KeyboardEvent* key_31;
                                                             union {
                                                               union {
                                                                 union {
                                                                 };
                                                               };
-                                                                struct { /* BLOCK ln=82 */
+                                                                struct { /* BLOCK ln=84 */
                                                                   union {
                                                                   };
                                                                 } ;
-                                                                  struct { /* BLOCK ln=84 */
+                                                                  struct { /* BLOCK ln=86 */
                                                                     union {
                                                                     };
                                                                   } ;
-                                                                    struct { /* BLOCK ln=86 */
+                                                                    struct { /* BLOCK ln=88 */
                                                                       union {
                                                                       };
                                                                     } ;
                                                             };
                                                           } ;
-                                                          struct { /* BLOCK ln=90 */
+                                                          struct { /* BLOCK ln=92 */
                                                             SDL_MouseButtonEvent* but_32;
                                                             union {
                                                               union {
                                                                 union {
                                                                 };
                                                               };
-                                                                struct { /* BLOCK ln=92 */
+                                                                struct { /* BLOCK ln=94 */
                                                                   union {
                                                                   };
                                                                 } ;
-                                                                  struct { /* BLOCK ln=95 */
+                                                                  struct { /* BLOCK ln=97 */
                                                                     union {
                                                                     };
                                                                   } ;
-                                                                    struct { /* BLOCK ln=98 */
+                                                                    struct { /* BLOCK ln=100 */
                                                                       union {
                                                                       };
                                                                     } ;
+                                                            };
+                                                          } ;
+                                                          struct { /* BLOCK ln=105 */
+                                                            SDL_MouseButtonEvent* but_33;
+                                                            union {
+                                                              union {
+                                                                union {
+                                                                };
+                                                              };
+                                                                struct { /* BLOCK ln=108 */
+                                                                  union {
+                                                                  };
+                                                                } ;
+                                                            };
+                                                          } ;
+                                                          struct { /* BLOCK ln=111 */
+                                                            union {
+                                                              union {
+                                                                union {
+                                                                };
+                                                              };
                                                             };
                                                           } ;
                                                         };
@@ -1892,13 +1919,13 @@ typedef struct CEU_Rect {
                                               } ;
                                             };
                                           } ;
-                                          struct { /* BLOCK ln=105 */
+                                          struct { /* BLOCK ln=119 */
                                             union {
-                                              struct { /* BLOCK ln=105 */
+                                              struct { /* BLOCK ln=119 */
                                                 union {
                                                   union {
                                                   };
-                                                    struct { /* BLOCK ln=106 */
+                                                    struct { /* BLOCK ln=120 */
                                                       union {
                                                         union {
                                                         };
@@ -1925,7 +1952,7 @@ typedef struct CEU_Main {
 #ifdef CEU_ORGS
   struct tceu_org org;
 #endif
-  tceu_trl trls_[ 8 ];
+  tceu_trl trls_[ 10 ];
     struct { /* BLOCK ln=1 */
       union {
           union {
@@ -1937,8 +1964,8 @@ typedef struct CEU_Main {
                 union {
                   union {
                     struct { /* BLOCK ln=1 */
-                    u8 __fin_526_1: 1;
-                    u8 __fin_526_2: 1;
+                    u8 __fin_584_1: 1;
+                    u8 __fin_584_2: 1;
                       CEU__Option___SDL_Window__ref win;
                       int w;
                       int h;
@@ -2001,12 +2028,16 @@ typedef struct CEU_Main {
                         union {
                         };
                         union {
+                        };
+                        union {
+                        };
+                        union {
                                 union {
                                 };
                                 union {
                                 };
                         };
-                            struct { /* BLOCK ln=19 */
+                            struct { /* BLOCK ln=21 */
                               union {
                               };
                             } ;
@@ -2018,7 +2049,7 @@ typedef struct CEU_Main {
                                 union {
                                 };
                         };
-                            struct { /* BLOCK ln=29 */
+                            struct { /* BLOCK ln=31 */
                               union {
                               };
                             } ;
@@ -2029,19 +2060,19 @@ typedef struct CEU_Main {
                         union {
                         };
                         struct {
-                          struct { /* BLOCK ln=121 */
+                          struct { /* BLOCK ln=135 */
                             union {
                               union {
                               };
                             };
                           } ;
-                          struct { /* BLOCK ln=123 */
+                          struct { /* BLOCK ln=137 */
                             union {
-                              struct { /* BLOCK ln=123 */
+                              struct { /* BLOCK ln=137 */
                                 union {
                                   union {
                                   };
-                                    struct { /* BLOCK ln=124 */
+                                    struct { /* BLOCK ln=138 */
                                       union {
                                         union {
                                         };
@@ -2051,24 +2082,24 @@ typedef struct CEU_Main {
                               } ;
                             };
                           } ;
-                          struct { /* BLOCK ln=129 */
+                          struct { /* BLOCK ln=143 */
                             struct CEU_Rect r1_19;
                             union {
-                                  struct { /* BLOCK ln=130 */
+                                  struct { /* BLOCK ln=144 */
                                     union {
                                     };
                                   } ;
-                              struct { /* BLOCK ln=134 */
+                              struct { /* BLOCK ln=148 */
                                 union {
                                   union {
                                   };
-                                    struct { /* BLOCK ln=135 */
+                                    struct { /* BLOCK ln=149 */
                                       union {
                                         union {
                                           union {
                                           };
                                         };
-                                          struct { /* BLOCK ln=137 */
+                                          struct { /* BLOCK ln=151 */
                                             union {
                                             };
                                           } ;
@@ -2078,13 +2109,13 @@ typedef struct CEU_Main {
                               } ;
                             };
                           } ;
-                          struct { /* BLOCK ln=143 */
+                          struct { /* BLOCK ln=157 */
                             union {
-                              struct { /* BLOCK ln=143 */
+                              struct { /* BLOCK ln=157 */
                                 union {
                                   union {
                                   };
-                                    struct { /* BLOCK ln=144 */
+                                    struct { /* BLOCK ln=158 */
                                       union {
                                         union {
                                         };

@@ -24,7 +24,7 @@ function draw(timestamp) {
 		requestAnimationFrame(draw);
 		//_ceu_draw(diff);
 		//_update(diff);
-		_new_draw(diff);
+		_ceu_draw(diff);
 		
 }
 
