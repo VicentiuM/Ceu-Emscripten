@@ -8198,7 +8198,7 @@ _ceu_org->trls[ 2 ].org = NULL;
 /* NODE: Set 1392 */
 
 #line 148 "movable_object.ceu"
-/* SET: table: 0x10b55c0 *//* NODE: Await 550 */
+/* SET: table: 0x24585c0 *//* NODE: Await 550 */
 
 #line 148 "movable_object.ceu"
     _CEU_NO_550_:
@@ -9097,7 +9097,7 @@ case Rect_ParOr_sub_2_2:;/* NODE: Block 457 */
 /* NODE: Set 1230 */
 
 #line 111 "movable_object.ceu"
-/* SET: table: 0x10a05d0 *//* NODE: Await 422 */
+/* SET: table: 0x24435d0 *//* NODE: Await 422 */
 
 #line 111 "movable_object.ceu"
     _CEU_NO_422_:
@@ -9216,7 +9216,7 @@ case Rect_ParOr_sub_4_11:;/* NODE: Block 419 */
 /* NODE: Set 1172 */
 
 #line 105 "movable_object.ceu"
-/* SET: table: 0x10921a0 *//* NODE: Await 400 */
+/* SET: table: 0x24351a0 *//* NODE: Await 400 */
 
 #line 105 "movable_object.ceu"
     _CEU_NO_400_:
@@ -9319,7 +9319,7 @@ case Rect_ParOr_sub_3_10:;/* NODE: Block 397 */
 /* NODE: Set 1105 */
 
 #line 92 "movable_object.ceu"
-/* SET: table: 0x1091a50 *//* NODE: Await 311 */
+/* SET: table: 0x2434a50 *//* NODE: Await 311 */
 
 #line 92 "movable_object.ceu"
     _CEU_NO_311_:
@@ -9582,7 +9582,7 @@ case Rect_ParOr_sub_2_9:;/* NODE: Block 308 */
 /* NODE: Set 1042 */
 
 #line 82 "movable_object.ceu"
-/* SET: table: 0x10086f0 *//* NODE: Await 259 */
+/* SET: table: 0x23ab6f0 *//* NODE: Await 259 */
 
 #line 82 "movable_object.ceu"
     _CEU_NO_259_:
@@ -9776,7 +9776,7 @@ case Rect_ParOr_sub_1_8:;/* NODE: Block 256 */
 /* NODE: Set 975 */
 
 #line 71 "movable_object.ceu"
-/* SET: table: 0x1031f70 *//* NODE: Await 210 */
+/* SET: table: 0x23d4f70 *//* NODE: Await 210 */
 
 #line 71 "movable_object.ceu"
     _CEU_NO_210_:
@@ -10295,7 +10295,7 @@ case Rect_ParOr_sub_1_1:;/* NODE: Block 207 */
 /* NODE: Set 920 */
 
 #line 63 "movable_object.ceu"
-/* SET: table: 0x1035dd0 *//* NODE: Await 191 */
+/* SET: table: 0x23d8dd0 *//* NODE: Await 191 */
 
 #line 63 "movable_object.ceu"
     _CEU_NO_191_:
@@ -10425,7 +10425,7 @@ case Rect_ParOr_sub_1_4:;/* NODE: Block 188 */
 /* NODE: Set 863 */
 
 #line 55 "movable_object.ceu"
-/* SET: table: 0x1021100 *//* NODE: Await 167 */
+/* SET: table: 0x23c4100 *//* NODE: Await 167 */
 
 #line 55 "movable_object.ceu"
     _CEU_NO_167_:
