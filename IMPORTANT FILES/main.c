@@ -188,6 +188,18 @@ void mouse_move(int x, int y) {
 	#endif
 }
 
+void disable_events() {
+	SDL_EventState(SDL_TEXTINPUT, SDL_DISABLE);
+	SDL_EventState(SDL_KEYDOWN, SDL_DISABLE);
+	SDL_EventState(SDL_KEYUP, SDL_DISABLE);
+}
+
+void enable_events() {
+	SDL_EventState(SDL_TEXTINPUT, SDL_ENABLE);
+	SDL_EventState(SDL_KEYDOWN, SDL_ENABLE);
+	SDL_EventState(SDL_KEYUP, SDL_ENABLE);
+}
+
 void begin() {
 	memset(CEU_DATA, 0, sizeof(CEU_Main));
 	app.data = (tceu_org*) &CEU_DATA;

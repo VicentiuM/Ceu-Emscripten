@@ -29,6 +29,9 @@ function call_module() {
           // See http://www.khronos.org/registry/webgl/specs/latest/1.0/#5.15.2
           canvas.addEventListener("webglcontextlost", function(e) { alert('WebGL context lost. You will need to reload the page.'); e.preventDefault(); }, false);
           canvas.focus();
+document.getElementById( "canvas" ).onmousedown = function(event){
+    event.preventDefault();
+};
           return canvas;
         })()
 	};
@@ -148,21 +151,42 @@ function async_check() {
 }
 var canvas = document.getElementById('canvas');
 
-canvas.focus();
-document.getElementById( "canvas" ).onmousedown = function(event){
-    event.preventDefault();
-};
-/*
+function stopDefAction(evt) {
+	document.getElementById('canvas').focus();
+	evt.preventDefault();
+}
+document.getElementById('canvas').addEventListener( 'click', stopDefAction, false );
+
+
+
 var canvas = document.getElementById('canvas');
-canvas.addEventListener('keydown', check_keydown, false);
-canvas.addEventListener('keyup', check_keyup, false);
+Module{canvas.addEventListener('keydown', check_keydown, false)};
+window.addEventListener('keydown', check_keydown, false);
+window.addEventListener('keyup', check_keyup, false);
 window.addEventListener('mousedown', check_mousedown, false);
 window.addEventListener('mouseup', this.check_mouseup, false);
-*/
+
 function checkElement() {
 	var x = document.activeElement.tagName;
 	console.log(x);
+	if (x == "TEXTAREA") {
+		console.log("T");
+		document.getElementById('code').focus();
+		Module.ccall('disable_events', // name of C function
+  					'void', // return type
+  					[], // argument types
+  					[]);
+	}
+	else if (x == "CANVAS") {
+		console.log("C");
+		document.getElementById('code').focus();
+		Module.ccall('enable_events', // name of C function
+  					'void', // return type
+  					[], // argument types
+  					[]);
+	}
 }
+
 
 function getCursorPosition(canvas, event) {
 	var rect = canvas.getBoundingClientRect();

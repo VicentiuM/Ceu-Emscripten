@@ -35,7 +35,7 @@
 }
 
 canvas {
-	z-index : 100000;
+	z-index : 0;
 }
 
 </style>
@@ -101,9 +101,11 @@ canvas {
 
 <br>
 
-
+<div id="textarea">
 <textarea id="code" name="code" rows="40" cols="70"></textarea> 
 <textarea class="emscripten" id="output" rows="40" cols="20"></textarea>
+</div>
+
 
 <canvas id="canvas" width="500" height="600" tabindex="100" onmousemove="check_onmousemove(event)">
 Your browser does not support the HTML5 canvas tag.
