@@ -160,16 +160,17 @@ document.getElementById('canvas').addEventListener( 'click', stopDefAction, fals
 
 
 var canvas = document.getElementById('canvas');
-Module{canvas.addEventListener('keydown', check_keydown, false)};
 window.addEventListener('keydown', check_keydown, false);
 window.addEventListener('keyup', check_keyup, false);
 window.addEventListener('mousedown', check_mousedown, false);
 window.addEventListener('mouseup', this.check_mouseup, false);
 
+var tagName;
+
 function checkElement() {
-	var x = document.activeElement.tagName;
-	console.log(x);
-	if (x == "TEXTAREA") {
+	tagName = document.activeElement.tagName;
+	console.log(tagName);
+	if (tagName == "TEXTAREA") {
 		console.log("T");
 		document.getElementById('code').focus();
 		Module.ccall('disable_events', // name of C function
@@ -177,7 +178,7 @@ function checkElement() {
   					[], // argument types
   					[]);
 	}
-	else if (x == "CANVAS") {
+	else if (tagName == "CANVAS") {
 		console.log("C");
 		document.getElementById('code').focus();
 		Module.ccall('enable_events', // name of C function
@@ -197,11 +198,13 @@ function getCursorPosition(canvas, event) {
 
 
 function check_keydown(e) {
-	Module.ccall('key_down', 'void', ['number'], [e.keyCode]);
+	if (tagName == "CANVAS")
+		Module.ccall('key_down', 'void', ['number'], [e.keyCode]);
 }
 
 function check_keyup(e) {
-	Module.ccall('key_up', 'void', ['number'], [e.keyCode]);
+	if (tagName == "CANVAS")
+		Module.ccall('key_up', 'void', ['number'], [e.keyCode]);
 }
 
 function check_mousedown(e) {
