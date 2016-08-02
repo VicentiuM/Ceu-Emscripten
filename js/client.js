@@ -47,6 +47,11 @@ function compile_code() {
 	}).done(function(text) {
 
 		document.getElementById('output').value ='';
+		//Clear canvas
+		var canvas = document.getElementById('canvas')
+		var context = canvas.getContext('2d');
+		console.log(canvas.width + ' ' + canvas.height);
+		context.clearRect(0, 0, canvas.width, canvas.height);
 
 		call_module();
 
@@ -91,6 +96,11 @@ function handle_time(timestamp) {
 
 }
 
+//Function to reset the tutorial
+function reset_tutorial() {
+	get_tutorial();
+}
+
 
 var nr = 0;
 //Function for going to the next tutorial lesson
@@ -99,8 +109,8 @@ function inc_nr() {
 	if (nr == length)
 		nr = 0;
 	get_tutorial()
-	document.getElementById('log').innerHTML = "";
-	document.getElementById('log').innerHTML += nr;
+	document.getElementById('ceu-slide-number').innerHTML = "";
+	document.getElementById('ceu-slide-number').innerHTML += nr;
 }
 
 //Function for going to the previous tutorial lesson
@@ -109,16 +119,16 @@ function dec_nr() {
 	if (nr < 0)
 		nr = length - 1;
 	get_tutorial()
-	document.getElementById('log').innerHTML = "";
-	document.getElementById('log').innerHTML += nr;
+	document.getElementById('ceu-slide-number').innerHTML = "";
+	document.getElementById('ceu-slide-number').innerHTML += nr;
 }
 
 //Function for going to a specific tutorial lesson
 function set_nr(x) {
 	nr = x;
 	get_tutorial()
-	document.getElementById('log').innerHTML = "";
-	document.getElementById('log').innerHTML += nr;
+	document.getElementById('ceu-slide-number').innerHTML = "";
+	document.getElementById('ceu-slide-number').innerHTML += nr;
 }
 
 //Function that prints the content of a certain tutorial in the code textbox
@@ -224,6 +234,5 @@ function check_onmousemove(e) {
 
 //Gets the first tutorial when the page is first loaded
 get_tutorial();
-
 //Start requestAnimationFrame
 requestAnimationFrame(handle_time);

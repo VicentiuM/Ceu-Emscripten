@@ -20,6 +20,7 @@
 * javascript
 
 ## How to run (ONLY FOR LINUX)
-* Create a shortcut in /var/www/ towards the location of the folder
-* Execute with root privileges install.sh
-* Open client.html in your browser, select the tutorial and press Send. The Async button sends an asynchronos signal.
+* Create a shortcut in your apache2 RootDirectory(default /var/www/ or /var/www/html/) towards the location of the folder
+* When running for the first time use install.sh
+* Otherwise use start.sh
+* Open client.html in your browser, select the tutorial and press Run.

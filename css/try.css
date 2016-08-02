@@ -25,7 +25,7 @@ textarea {
     background-color: #F8F8F8;
 }
 
-#ceu-slide, #ceu-results, #ceu-code, #ceu-input {
+#ceu-slide, #ceu-canvas, #ceu-code, #ceu-results {
     position: absolute;
   font-size: 100%;  
 }
@@ -88,7 +88,7 @@ textarea {
     padding: 10px;
 }
 
-#ceu-results     {
+#ceu-canvas     {
     top: 65%;
     left: 0px;
     bottom: 0px;
@@ -96,12 +96,13 @@ textarea {
     border-top: 2px solid #EEE;
 }
 
-#ceu-results div.relative {
+#ceu-canvas div.relative {
     width: 100%;
     height: 100%;
 }
 
-#ceu-results-text {
+/*
+#ceu-canvas-text {
     position: absolute;
     top: 30px;
     bottom: 0px;
@@ -110,7 +111,7 @@ textarea {
     overflow-y: auto;
     padding: 10px;
 }
-
+*/
 /* Right column */
 #ceu-ide {
     margin-left: 0px;
@@ -164,7 +165,7 @@ textarea {
     padding-left: 5px;
 }
 
-#ceu-input     {
+#ceu-results     {
     top: 65%;
     left: 55%;
     bottom: 0px;
@@ -173,12 +174,12 @@ textarea {
     border-top: 2px solid #EEE;
 }
 
-#ceu-input div.relative {
+#ceu-results div.relative {
     width: 100%;
     height: 100%;
 }
 
-#ceu-input #ceu-input-text {
+#ceu-results #ceu-results-text {
     position: absolute;
     top: 30px;
     left: 0px;
@@ -186,7 +187,7 @@ textarea {
     bottom: 0px;
 }
 
-#ceu-input #ceu-input-text textarea {
+#ceu-results #ceu-results-text textarea {
     margin: 0px;
     width: 100%;
     height: 100%;

@@ -2,82 +2,133 @@
 
 <head>
 
-<meta content="text/html;charset=utf-8" http-equiv="Content-Type">
-<meta content="utf-8" http-equiv="encoding">
+	<meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+	<meta content="utf-8" http-equiv="encoding">
 
-<!--- CSS FILES -->
+	<!--- CSS FILES -->
 
-<!--- <link href="css/bootstrap.min.css" rel="stylesheet"> <!-- Bootstrap -->
-<!--- <link href="css/try.css" rel="stylesheet">  <!-- Online editor css -->
+	<link href="css/bootstrap.min.css" rel="stylesheet"> <!-- Bootstrap -->
+	<link href="css/try.css" rel="stylesheet">  <!-- Online editor css -->
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+<!--
+	<style>
+		.dropdown-content {
+		    display: none;
+		    position: absolute;
+		    background-color: #f9f9f9;
+		    min-width: 160px;
+		    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+		}
 
-<style>
-.dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: #f9f9f9;
-    min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-}
+		.dropdown-content a {
+		    color: black;
+		    padding: 12px 16px;
+		    text-decoration: none;
+		    display: block;
+		}
 
-.dropdown-content a {
-    color: black;
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block;
-}
+		.dropdown-content a:hover {background-color: #f1f1f1}
 
-.dropdown-content a:hover {background-color: #f1f1f1}
+		.dropdown:hover .dropdown-content {
+		    display: block;
+		}
 
-.dropdown:hover .dropdown-content {
-    display: block;
-}
+		canvas {
+			z-index : 0;
+		}
 
-canvas {
-	z-index : 0;
-}
-
-</style>
-
+	</style>
+-->
 </head>
 
 <body onclick="checkElement()">
-<!--
+
 <div id="ceu-body">
 	<div>
-		<div id="ceu-slide">
-			<div class="relative">
-				<div class="ceu-textbar">
-					<a href="http://ceu-lang.org/index.html"><img src="img/ceu.png"></a>
-<!-- <blink>UNDER MAINTENANCE</blink> -->
-<!--
-					<span id="ceu-font-controls">
-						<button id="ceu-font-decrease" class="btn btn-mini" alt="Decrease font size." title="Decrease font size"><i class="icon-minus-sign"></i></button>
-						Font
-						<button id="ceu-font-increase" class="btn btn-mini" alt="Increase font size." title="Increase font size"><i class="icon-plus-sign"></i></button>
-					</span>
+		<!-- Left columns -->
+		<div id="ceu-tutorial">
+			
+			<div id="ceu-slide">
+				<div class="relative">
+					<div class="ceu-textbar">
+						<a href="http://ceu-lang.org/index.html"><img src="img/ceu.png"></a>
+						<a href="http://kripken.github.io/emscripten-site/"><img src="img/emscripten.png"></a>
 
-					<span class="pull-right">
-						<button type="button" class="btn btn-small" data-toggle="modal" data-target="#ceu-index-modal" title="View Table of Contents">
-						<i class="icon-list"></i> Index
-						</button>
+						<span id="ceu-font-controls">
+							<button id="ceu-font-decrease" class="btn btn-mini" alt="Decrease font size." title="Decrease font size"><i class="icon-minus-sign"></i></button>
+							Font
+							<button id="ceu-font-increase" class="btn btn-mini" alt="Increase font size." title="Increase font size"><i class="icon-plus-sign"></i></button>
+						</span>
 
-						<button id="ceu-left" type="button" class="btn btn-small" title="Previous lesson" onclick="javascript:dec_nr();">&lt;</button>
-						<span id="ceu-slide-number">1</span>
-						<button id="ceu-next" type="button" class="btn btn-small" title="Next lesson" onclick="javascript:inc_nr();">&gt;</button>
-					</span>
+						<span class="pull-right">
+							<button type="button" class="btn btn-small" data-toggle="modal" data-target="#ceu-index-modal" title="View Table of Contents">
+							<i class="icon-list"></i> Index
+							</button>
+
+							<button id="ceu-left" type="button" class="btn btn-small" title="Previous lesson" onclick="javascript:dec_nr();">&lt;</button>
+							<span id="ceu-slide-number">0</span>
+							<button id="ceu-next" type="button" class="btn btn-small" title="Next lesson" onclick="javascript:inc_nr();">&gt;</button>
+						</span>
+
+					</div>
+				</div>
+			</div>
+
+			<div id="ceu-canvas">
+				<div class="relative">
+					<div class="ceu-textbar">Canvas</div>
+						<!--<div id="ceu-canvas-text">
+                
+						</div>-->
+						<canvas id="canvas" tabindex="100" onmousemove="check_onmousemove(event)">
+						Your browser does not support the HTML5 canvas tag.
+						</canvas>
+					</div>
+				</div>
+			</div>
+
+			<!-- Right columns -->
+			<div id="ceu-ide">
+				<div id="ceu-code">
+					<div class="relative">
+						<div class="ceu-textbar">
+							Code
+							<div class="pull-right">
+							<!--
+								<button id="ceu-fullscreen" type="button" class="btn btn-small" title="Fullscreen" onclick="Module.requestFullScreen(document.getElementById('pointerLock').checked, document.getElementById('resize').checked)">Fullscreen</button>
+							-->
+								<button id="ceu-reset" type="button" class="btn btn-small" title="Reset lesson" onclick="javascript:reset_tutorial();"> Reset</button>
+								<button id="ceu-run"   type="button" class="btn btn-small btn-primary" title="Compile and execute code " onclick="javascript:compile_code();">Run <i class="icon-play-circle icon-white"></i></button>
+							</div>
+						</div>
+
+						<div id="ceu-code-container">
+							<textarea id="code" name="code"></textarea>
+						</div>
+					</div>
+				</div>
+
+				<div id="ceu-results">
+					<div class="relative">
+						<div class="ceu-textbar">
+							Results
+						</div>
+
+						<div id="ceu-results-text">
+							<textarea class="emscripten" id="output"></textarea>
+						</div>
+					</div>
 				</div>
 
 			</div>
-		</div>		
+		</div>
 	</div>
 
-</div> 
--->
+</div>
   
-
-
+<script type="text/javascript" src="js/client.js"></script>
+<!--
 <input type="submit" name = "submit" value="Send" onclick="javascript:compile_code();">
 <input id="Button" type="button" value="Async Call" onclick="async_call()">
 <input id="Button" type="button" value="Accessor" onclick="async_check()">
@@ -107,13 +158,15 @@ canvas {
 </div>
 
 
-<canvas id="canvas" width="500" height="600" tabindex="100" onmousemove="check_onmousemove(event)">
+<canvas id="canvas" width="800" height="480" tabindex="100" onmousemove="check_onmousemove(event)">
 Your browser does not support the HTML5 canvas tag.
 </canvas>
 <div id="status"></div>
 
 
 <script type="text/javascript" src="js/client.js"></script>
+
+-->
 </body>
 
 </html>

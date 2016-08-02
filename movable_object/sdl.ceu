@@ -20,10 +20,16 @@ data SDL_Rect with
     var int h;
 end
 
+data SDL_Circle with
+    var int x;
+    var int y;
+    var int r;
+end
+
 native @const _GL_SCISSOR_TEST, _GL_TEXTURE_2D;
 native _glEnable(), _glDisable(), _glScissor();
 
-native @plain _SDL_Rect, _SDL_Point, _SDL_Color,
+native @plain _SDL_Rect, _SDL_Point, _SDL_Color, _SDL_Circle,
               _SDL_MouseButtonEvent,
               _SDL_Renderer,
               _SDL_TouchFingerEvent,
@@ -70,6 +76,8 @@ native @nohold _SDL_GL_BindTexture(),
                _SDL_RenderDrawLine(),
                _SDL_RenderDrawRect(),
                _SDL_RenderFillRect(),
+               _SDL_RenderFillCircle(),
+               _filledCircleRGBA(),
                _SDL_RenderCopy(),
                _SDL_RenderPresent(),
                _SDL_DestroyRenderer(),
