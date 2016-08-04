@@ -19,8 +19,54 @@
 * php
 * javascript
 
-## How to run (ONLY FOR LINUX)
-* Create a shortcut in your apache2 RootDirectory(default /var/www/ or /var/www/html/) towards the location of the folder
-* When running for the first time use install.sh
-* Otherwise use start.sh
-* Open client.html in your browser, select the tutorial and press Run.
+## Steps needed in order for it to work(Linux only)
+# Installing CMAKE
+* sudo apt-get install cmake
+
+# Installing Emscripten Portable (version 1.3X)
+* download it from http://kripken.github.io/emscripten-site/docs/getting_started/downloads.html#sdk-download-and-install
+* Enter in the folder and execute
+* ./emsdk update
+* ./emsdk install latest
+* ./emsdk activate latest
+
+# Installing Apache2
+* sudo apt-get update
+* sudo apt-get install apache2
+* sudo /etc/init.d/apache2 restart
+
+# Installing php5
+* sudo apt-get install php libapache2-mod-php php-mcrypt
+
+# Installing nodejs
+* sudo apt-get install nodejs
+
+# Installing git
+* sudo apt-get install git
+
+# Installing Lua
+* sudo apt-get install lua5.1
+* sudo apt-get install lua-lpeg
+
+# Installing Ceu(optional)
+* git clone https://github.com/fsantanna/ceu
+* cd ceu/
+* lua pak.lua
+* ./run_tests.lua
+* cp ceu /usr/local/bin/
+
+# Installing SDL2.0
+* sudo apt-get install libsdl2-dev
+
+# Getting Ceu-Emscripten
+* git clone https://github.com/VicentiuM/Ceu-Emscripten.git
+
+# Setting apache2 Document Root (optional)
+* follow the tutorial posted at http://julienrenaux.fr/2015/04/06/changing-apache2-document-root-in-ubuntu-14-x/ or any other tutorial
+
+# Setting Shortcut in DocumentRoot
+* ln -s /full/path/to/Ceu-Emscripten ceu
+* run install.sh when using for the first time, otherwise use start.sh
+
+# Opening the server in your browser
+* put the following URL http://localhost/ceu/client.html
