@@ -1,0 +1,11 @@
+// calculates fat of 10
+var int fat = 1;
+var int i = 10;
+loop do             // a tight loop
+    if i == 0 then
+        break;
+    end
+    fat = fat * i;
+    i = i - 1;      // this path does not await or break
+end
+escape fat;

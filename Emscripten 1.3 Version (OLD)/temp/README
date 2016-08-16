@@ -1,0 +1,15 @@
+The program will work for only 20 seconds. If you want to change the time see custom.js line 24
+
+I ran sdl1.ceu with ceu and I used main-sdl.c
+
+The commands:
+ceu sdl1.ceu
+emcc main-sdl.c -o output.html -s EXPORTED_FUNCTIONS="['_begin', '_update', '_async_call', '_ceu_draw']" -s NO_EXIT_RUNTIME=1 -s USE_SDL=2 --shell-file custom_shell.html --pre-js custom.js
+
+IMPORTANT
+NEEDS EMSCRIPTEN VERSION 1.3 to work(recommended using portable)
+
+WARNING
+It is highly unoptimized and will run like crap. With time it will be better
+
+To see the result without just open output.html

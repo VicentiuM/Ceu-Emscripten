@@ -14,7 +14,6 @@ function create_js($data) {
 	$filename_ceu = $token . '.ceu';
 	$filename_js = $token . '.js';
 
-	include 'path.php';
 	//Change directory
 	chdir("/tmp/");
 
@@ -27,7 +26,8 @@ function create_js($data) {
 		
 	//$emcc = "/home/vic/emsdk_portable/emscripten/master/emcc";
 	
-	$function =  $emcc . " main.c -o " . $filename_js . " -O2 --memory-init-file 0 -s EXPORTED_FUNCTIONS=\"['_begin', '_update', '_async_call', '_key_down', '_key_up', '_mouse_down', '_mouse_up', '_mouse_move', '_disable_events', '_enable_events']\" -s NO_EXIT_RUNTIME=1 -s USE_SDL=2";
+	//$function =  $emcc . " main.c -o " . $filename_js . " -O2 --memory-init-file 0 -s EXPORTED_FUNCTIONS=\"['_begin', '_update', '_async_call', '_key_down', '_key_up', '_mouse_down', '_mouse_up', '_mouse_move', '_disable_events', '_enable_events']\" -s NO_EXIT_RUNTIME=1 -s USE_SDL=2";
+	$function =  "emcc main.c -o " . $filename_js . " -O1 --memory-init-file 0 -s EXPORTED_FUNCTIONS=\"['_begin', '_update', '_async_call', '_mouse_down', '_mouse_up']\" -s NO_EXIT_RUNTIME=1 --js-library sdl_library.js";
 	
 
 	exec($function);

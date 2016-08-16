@@ -1,0 +1,309 @@
+#include "sdl.ceu"
+
+input void SDL_REDRAW;
+input void SDL_QUIT;
+input _SDL_KeyboardEvent&&    SDL_KEYDOWN;
+input _SDL_MouseButtonEvent&& SDL_MOUSEBUTTONDOWN;
+
+input void MOVE;
+input void SHOOT;
+
+native do
+//Bullet Coordinates
+    int blx = 0;
+    int bly = 900;
+//If enemy was hit
+    int enemy_hit = 0;
+end
+
+var _SDL_Window&? win;
+    finalize
+        win = &_SDL_CreateWindow("Space Invader", _SDL_WINDOWPOS_CENTERED,
+                                         _SDL_WINDOWPOS_CENTERED,
+                                         800, 780,
+                                         _SDL_WINDOW_SHOWN);
+    with
+        _SDL_DestroyWindow(&&win!);
+    end
+
+var int w=0, h=0;
+_SDL_GetWindowSize(&&win!, &&w, &&h);
+
+var _SDL_Renderer&? ren;
+    finalize
+        ren = &_SDL_CreateRenderer(&&win!, -1, 0);
+    with
+        _SDL_DestroyRenderer(&&ren!);
+    end
+
+var _SDL_Texture&? tex_a;
+    finalize
+        tex_a = &_IMG_LoadTexture(&&ren!, "../git/Ceu-Emscripten/SDL/alien.png");
+    with
+        _SDL_DestroyTexture(&&tex_a!);
+    end
+
+
+
+
+var _SDL_Texture&? str_tex;
+var SDL_Rect str_r = SDL_Rect(10,10, 500,30);
+var SDL_Color clr = SDL_Color(0xFF, 0xFF, 0xFF, 0xFF);
+
+
+//*******************************************************/
+
+var SDL_Rect  bg     = SDL_Rect(0,0 , w,h);
+var SDL_Color bg_clr = SDL_Color(0x00, 0x00, 0x00, 0xFF);
+
+
+
+//*************************ENEMY************************/
+class Enemy with
+    var _SDL_Renderer& ren;
+    var SDL_Rect       rct;
+    var _SDL_Texture& tex_a;
+do
+    this.rct.w = 40;
+    this.rct.h = 40;
+
+    var int dist = 40;
+    var int exist = 1;
+
+    var SDL_Color clr = SDL_Color(0xFF, 0xFF, 0xFF, 0xFF);
+
+    par/or do
+        loop do
+            if exist == 1 then
+                await 100ms;
+                if dist > 0 then
+                    loop do
+                        //Check if the enemy was hit by a bullet
+                        if rct.x <= _blx and _blx <= rct.x + 40 and rct.y + 40 >= _bly then
+                            _enemy_hit = 1;
+                            exist = 0;
+                            break;
+                        else
+
+                            await 100ms;
+                            rct.x = rct.x - 1;
+                            dist = dist - 1;
+                            if dist < 0 then
+                                break;
+                            end
+                        end
+                    end
+                else
+                    loop do
+                        //Check if the enemy was hit by a bullet
+                        if rct.x <= _blx and _blx <= rct.x + 40 and rct.y >= _bly + 8 then
+                            _enemy_hit = 1;
+                            exist = 0;
+                            break;
+                        else
+
+                            await 100ms;
+                            rct.x = rct.x + 1;
+                            dist = dist + 1;
+                            if dist > 40 then
+                                break;
+                            end
+                        end
+                    end
+                end
+            else
+                break;
+            end
+        end
+    with
+        every 10s do
+            rct.y = rct.y + 30;
+        end;
+    with
+        every SDL_REDRAW do
+            _SDL_SetRenderDrawColor(&&ren, clr.r,clr.g,clr.b,0xFF);
+            //_SDL_RenderFillRect(&&ren, (_SDL_Rect&&)&&rct);
+            _SDL_RenderCopy(&&ren, &&tex_a, null, (_SDL_Rect&&)&&rct);
+        end        
+    end
+    //await FOREVER;    // disappears but remains on memory
+
+end
+
+
+//*************************BULLET************************/
+class Bullet with
+    var _SDL_Renderer& ren;
+    var SDL_Rect       rct;
+do
+    this.rct.w = 5;
+    this.rct.h = 8;
+
+    var SDL_Color clr = SDL_Color(0x00, 0xFF, 0x00, 0xFF);
+
+    par/or do
+        loop do
+            await 2 ms;
+            rct.y = rct.y - 1;
+            _blx = rct.x;
+            _bly = rct.y;
+            if rct.y < 0 then
+                break;
+            end
+            if _enemy_hit == 1 then
+                _enemy_hit = 0;
+                break;
+            end
+        end
+    with
+        every SDL_REDRAW do
+            _SDL_SetRenderDrawColor(&&ren, clr.r,clr.g,clr.b,0xFF);
+            _SDL_RenderFillRect(&&ren, (_SDL_Rect&&)&&rct);
+        end
+    end
+    //await FOREVER;    // disappears but remains on memory
+end
+
+//*************************PLAYER************************/
+class Player with
+    var _SDL_Renderer& ren;
+    var SDL_Rect       rct;
+    var int w;
+    var int h;
+do
+    this.rct.w = w;
+    this.rct.h = h;
+
+    var SDL_Color clr = SDL_Color(0x00, 0xFF, 0x00, 0xFF);
+
+
+    var SDL_Rect rct2 = SDL_Rect(410,740,0,0);
+    rct2.w = 20;
+    rct2.h = 30;
+
+    event int go_pause;
+    event int go_move;
+
+
+    par/or do
+        loop do
+            var int v = await go_move;
+            if rct.x + v + 5 > 0 and rct.x + v + 72 < 800 then
+                rct.x = rct.x + v;
+                rct2.x = rct2.x + v;
+            end
+            if rct.x > 1500 then
+                break;
+            end
+        end
+    with
+
+        loop do
+            par/or do
+
+                //TO SHOOT THE ENEMY
+                var _SDL_MouseButtonEvent&& but = await SDL_MOUSEBUTTONDOWN;
+                if but:button == _SDL_BUTTON_LEFT then
+                   // _printf("Left Click\n");
+                end
+
+            with
+
+                //TO MOVE THE PLAYER
+                var _SDL_KeyboardEvent&& key = await SDL_KEYDOWN;
+                if key:keysym.sym == _SDLK_a then
+                    emit go_move => -10;
+                else/if key:keysym.sym == _SDLK_d then
+                    emit go_move => 10;
+                end
+            end
+
+        end
+    with
+        every SDL_REDRAW do
+            _SDL_SetRenderDrawColor(&&ren, clr.r,clr.g,clr.b,0xFF);
+            _SDL_RenderFillRect(&&ren, (_SDL_Rect&&)&&rct);
+            _SDL_RenderFillRect(&&ren, (_SDL_Rect&&)&&rct2);
+        end
+    end
+    //await FOREVER;    // disappears but remains on memory
+end
+
+event int go_pause_all;
+
+
+
+
+
+//*************************MAIN************************/
+
+par/or do
+    await SDL_QUIT;
+with
+    every SDL_REDRAW do
+        _SDL_SetRenderDrawColor(&&ren!, bg_clr.r,bg_clr.g,bg_clr.b,0xFF);
+        _SDL_RenderFillRect(&&ren!, (_SDL_Rect&&)&&bg);
+    end
+with
+    
+
+    var Player pl with
+        this.ren = &ren!;
+        this.rct = SDL_Rect(380,750,0,0);
+        this.w = 80;
+        this.h = 20;
+    end;
+
+
+    //There can be only a maximum of 1 bullet at a time
+    pool Bullet[1] bl;
+
+    //The enemies
+    pool Enemy[60] en;
+    var int ind = 0;
+
+    loop do
+        if ind == 60 then
+            break;
+        end
+
+        spawn Enemy in en with
+            this.ren = &ren!;
+            this.rct = SDL_Rect(70 + (ind % 12) *60, 80 + (ind / 12) * 60, 0, 0);
+            this.tex_a = &tex_a!;
+        end;
+
+        ind = ind + 1;
+    end
+
+//TO ESCAPE FROM THE PROGRAM PRESS ESCAPE
+    loop do
+
+        par/or do
+            var _SDL_KeyboardEvent&& key = await SDL_KEYDOWN;
+            if key:keysym.sym == _SDLK_ESCAPE then
+                break;
+            end
+        with
+
+            var _SDL_MouseButtonEvent&& but = await SDL_MOUSEBUTTONDOWN;
+            if but:button == _SDL_BUTTON_LEFT then
+                spawn Bullet in bl with
+                    this.ren = &ren!;
+                    this.rct = SDL_Rect(pl.rct.x+38,pl.rct.y - 18,0,0);
+                end;
+            
+            end
+            
+        end
+    end
+
+
+with
+    every SDL_REDRAW do
+        _SDL_RenderCopy(&&ren!, &&str_tex!, null, (_SDL_Rect&&)&&str_r);
+        _SDL_RenderPresent(&&ren!);
+    end
+end
+
+escape 0;

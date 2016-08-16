@@ -48,7 +48,9 @@ function compile_code() {
 
 		document.getElementById('output').value ='';
 		//Clear canvas
-		var canvas = document.getElementById('canvas')
+		var canvas = document.getElementById('canvas');
+		canvas.width  = 800;
+		canvas.height = 600;
 		var context = canvas.getContext('2d');
 		console.log(canvas.width + ' ' + canvas.height);
 		context.clearRect(0, 0, canvas.width, canvas.height);
@@ -176,7 +178,7 @@ window.addEventListener('mousedown', check_mousedown, false);
 window.addEventListener('mouseup', this.check_mouseup, false);
 
 var tagName;
-
+/*
 function checkElement() {
 	tagName = document.activeElement.tagName;
 	console.log(tagName);
@@ -197,7 +199,7 @@ function checkElement() {
   					[]);
 	}
 }
-
+*/
 
 function getCursorPosition(canvas, event) {
 	var rect = canvas.getBoundingClientRect();

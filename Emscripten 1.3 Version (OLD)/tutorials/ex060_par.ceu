@@ -1,0 +1,30 @@
+input void HELLO;
+input void WORLD;
+par/or do
+	par do      // par/and, par/or would behave the same
+	    loop do
+		await HELLO;
+		_printf("Hello!\n");
+	    end
+	with
+	    loop do
+		await WORLD;
+		_printf("World!\n");
+	    end
+	end
+
+with
+	  // simulates the input sending events
+	async do
+		emit HELLO;
+		emit WORLD;
+		emit WORLD;
+		emit HELLO;
+		emit HELLO;
+		emit WORLD;
+		emit HELLO;
+		emit WORLD;
+	end
+end
+
+escape 1;

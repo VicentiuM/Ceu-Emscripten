@@ -1,0 +1,152 @@
+#include "c.ceu"
+#include "sdl.ceu"
+
+native do
+    int ORGS = 0;       // count the number of alive rectangles
+end
+
+input void SDL_REDRAW;
+input void SDL_QUIT;
+input int  SDL_DT;
+
+var _SDL_Window&? win;
+    finalize
+        win = &_SDL_CreateWindow("SDL 6", _SDL_WINDOWPOS_CENTERED,
+                                         _SDL_WINDOWPOS_CENTERED,
+                                         800, 480,
+                                         _SDL_WINDOW_SHOWN);
+    with
+        _SDL_DestroyWindow(&&win!);
+    end
+
+var int w=0, h=0;
+_SDL_GetWindowSize(&&win!, &&w, &&h);
+
+var _SDL_Renderer&? ren;
+    finalize
+        ren = &_SDL_CreateRenderer(&&win!, -1, 0);
+    with
+        _SDL_DestroyRenderer(&&ren!);
+    end
+
+/* Maximum of 10k Rectangles on a dedicated memory pool */
+
+class Rect with
+    var SDL_Rect       rct;    // My initial values
+    var int            vel;    // I have a speed set from outside
+    var _SDL_Renderer& ren;    // I redraw myself
+do
+    this.rct.w = 25;
+    this.rct.h = 25;
+
+    var int x = rct.x;
+
+    /* count the number of alive rectangles */
+    _ORGS = _ORGS + 1;          // increment on init
+        finalize with
+            _ORGS = _ORGS - 1;  // decrement on finalization
+        end;
+/*
+*/
+
+    var SDL_Color clr = SDL_Color(0xFF,0xFF,0xFF,0xFF);
+        // color varies periodically
+
+    par/or do
+        every 100ms do
+            this.rct.h = rct.h + _rand()%5 - 2;     // random height
+            if rct.h <= 0 then
+                rct.h = 1;
+            end
+            if rct.h >= 50 then
+                rct.h = 50;
+            end
+
+            this.rct.w = rct.w + _rand()%5 - 2;     // random width
+            if rct.w <= 0 then
+                rct.w = 1;
+            end
+            if rct.w >= 50 then
+                rct.w = 50;
+            end
+
+            clr.r = clr.r + _rand()%5 - 2;          // random r/g/b
+            clr.g = clr.g + _rand()%5 - 2;
+            clr.b = clr.b + _rand()%5 - 2;
+        end
+    with
+        var float fx = x;
+        loop do
+            var int dt = await SDL_DT;
+            fx = fx + (float)(this.vel*dt)/1000;    // update my position
+            rct.x = fx;
+
+            /* When the rectangle reaches the end of screen, escape the "every".
+             * This will terminate the "par/or", which will terminate
+             *  organism.
+             * The "finalize" will also execute on termination.
+             */
+            if rct.x > 950 then
+                //rct.x = 0;
+                //fx = 0;
+                break;
+            end
+        end
+    with
+        /* redraw myself every frame */
+        every SDL_REDRAW do
+            _SDL_SetRenderDrawColor(&&ren, clr.r,clr.g,clr.b,0xFF);
+            _SDL_RenderFillRect(&&ren, (_SDL_Rect&&)&&rct);
+        end
+    end
+end
+
+par/or do
+    await SDL_QUIT;                     // terminates everything
+with
+    every SDL_REDRAW do
+        _SDL_SetRenderDrawColor(&&ren!, 0,0,0, 0xFF);
+        _SDL_RenderFillRect(&&ren!, null);  // DRAW 1: clear screen
+    end
+with
+    loop do
+        par/or do
+            await 30s;                  // kill all rectangles and restart
+        with
+            pool Rect[10000] rs;
+            do
+                every 40ms do
+                    loop i in 30 do       // create 30 rectangles every 40ms
+                        spawn Rect in rs with
+                            this.vel = 50 + _rand()%20;
+                            this.rct = SDL_Rect(50, _rand()%750, 0,0);
+                            this.ren = &ren!;
+                        end;
+                    end
+                end
+            end                         // DRAW 2: (all rectangles react here)
+        end
+    end
+with
+    every SDL_REDRAW do
+        _SDL_RenderPresent(&&ren!);        // DRAW 3: update screen
+    end
+with
+    /* calculate FPS */
+    loop do
+        var int c = 0;
+        par/or do
+            every SDL_REDRAW do
+                c = c + 1;
+            end
+        with
+            await 1s;
+        end
+        _printf("[FPS=%d] [orgs=%d]\n", c, _ORGS);
+    end
+end
+
+await 1s;
+_printf("term\n");
+
+escape 0;
