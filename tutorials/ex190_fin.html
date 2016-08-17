@@ -1,0 +1,29 @@
+<p>
+
+Some C functions produce a side effect that requires a further call to destroy 
+that effect.
+For example, a call to <code>malloc</code> will allocate memory that should be 
+destroyed in the future.
+
+In C&eacute;u, any variable that is assigned a pointer from a function call 
+requires a finalization code.
+
+<span class="label label-info">Internal events</span> are used as a signaling mechanism among trails.
+</p>
+
+<p>
+A program can <code>await</code> for changes on internal events, 
+which can be signaled through the <code>emit</code> statement.
+</p>
+
+<p>
+The emitted value can be captured by the corresponding awaiting trails.
+</p>
+
+<!--
+<p>
+You can also think of internal events as a kind of <span class="label 
+label-info">reactive variables</label>.
+</p>
+-->
+

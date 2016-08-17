@@ -1,0 +1,24 @@
+<p>
+<i>Asyncs</i> are allowed to trigger input events and the passage of time towards the synchronous side of a program,
+ providing a way to test programs in the own language.
+</p>
+ 
+<p>
+In this example, we use a <code>par</code> to execute the program to be tested 
+(i.e. <i>the original code</i>) together with the input simulation.
+As synchronous code has higher priority, the program immediately awaits event 
+<code>A</code>.
+Then, the <code>async</code> emits event <code>A</code>, awaking the 
+synchronous code, which enters the loop, prints the message, and awaits 
+<code>10ms</code>.
+Then, the <code>async</code> resumes and emits <code>1s35ms</code>, what makes 
+the synchronous side to resume, increment <code>v</code>, restart the loop, 
+print the message, and await <code>10ms</code> again.
+However, <code>1s25ms</code> remains from the previous <code>emit</code>, what 
+makes the synchronous side to resume again, and again (the loop iterates and 
+prints the message exactly 103 times).
+</p>
+
+<blockquote>
+	<p><i>C&eacute;u supports the simulation of programs in the own language!</i></p>
+</blockquote>	

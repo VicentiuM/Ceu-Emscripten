@@ -1,0 +1,15 @@
+<p>
+The previous <a href="try.php?sample=ex_tight">factorial example</a> contains a 
+tight loop and should not be written that way.
+</p>
+
+<p>
+C&eacute;u supports <span class="label label-info">asynchronous blocks</span> 
+(asyncs) to perform time consuming computations requiring tight loops.
+</p>
+
+<p>
+To ensure that synchronous code runs with higher priority, <code>async</code> 
+blocks are suspended whenever there is a pending input event.
+Note that you can never know if/when an <code>async</code> executes.
+</p>

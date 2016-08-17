@@ -1,0 +1,20 @@
+<p>C&eacute;u interacts with the environment by awaiting <i>external input 
+events</i>, such as <code>MY_EVT</code> in the example.
+
+<blockquote>       
+	<p><i>The <code>await</code> statement accounts for the reactive nature of C&eacute;u.</i></p>
+</blockquote>
+
+<p> An input event in C&eacute;u represents a correspondent event in the 
+underlying platform.  The availability of external events depends on the 
+platform in use. </p>
+
+<p>
+As an example, in an <a href="/wiki/index.php?title=Arduino">Arduino</a> 
+binding for C&eacute;u, a change in an input pin on the microcontroller
+triggers a correspondent input event in C&eacute;u.
+
+<p>
+In higher-level platforms (e.g. operating systems),
+more abstract events might be available, such as keyboard presses, or the 
+arrival of network packets.

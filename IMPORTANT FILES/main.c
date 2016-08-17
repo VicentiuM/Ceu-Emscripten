@@ -100,7 +100,7 @@ void update(s32 time) {
 	}
 
 }
-/*
+
 int convert(int keycode) {
 	if( keycode >= 65 && keycode <= 90)
 		keycode += 32;
@@ -142,7 +142,7 @@ void key_up(int keycode) {
 	ceu_sys_go(&app, CEU_IN_SDL_KEYUP, &evtp);
 	#endif
 }
-*/
+
 void mouse_down(int which, int x, int y) {
 	SDL_Event event;
 
@@ -176,7 +176,7 @@ void mouse_up(int which, int x, int y) {
 	#endif
 
 }
-/*
+
 void mouse_move(int x, int y) {
 	SDL_Event event;
 
@@ -191,18 +191,22 @@ void mouse_move(int x, int y) {
 	#endif
 }
 
+
 void disable_events() {
-	SDL_EventState(SDL_TEXTINPUT, SDL_DISABLE);
-	SDL_EventState(SDL_KEYDOWN, SDL_DISABLE);
-	SDL_EventState(SDL_KEYUP, SDL_DISABLE);
+	//SDL_EventState(SDL_TEXTINPUT, SDL_DISABLE);
+	//SDL_EventState(SDL_KEYDOWN, SDL_DISABLE);
+	//SDL_EventState(SDL_KEYUP, SDL_DISABLE);
+	
 }
 
 void enable_events() {
-	SDL_EventState(SDL_TEXTINPUT, SDL_ENABLE);
-	SDL_EventState(SDL_KEYDOWN, SDL_ENABLE);
-	SDL_EventState(SDL_KEYUP, SDL_ENABLE);
+	
+	//SDL_EventState(SDL_TEXTINPUT, SDL_ENABLE);
+	//SDL_EventState(SDL_KEYDOWN, SDL_ENABLE);
+	//SDL_EventState(SDL_KEYUP, SDL_ENABLE);
+	
 }
-*/
+
 void begin() {
 	memset(CEU_DATA, 0, sizeof(CEU_Main));
 	app.data = (tceu_org*) &CEU_DATA;

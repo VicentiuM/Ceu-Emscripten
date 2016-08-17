@@ -1,0 +1,27 @@
+<p>
+A running trail that emits an internal event may cause another trail to awake.  
+This way, we must specify how the communicating trails interact precisely.
+</p>
+
+<p>
+In C&eacute;u, when a trail emits an internal event, it immediately halts, 
+resuming only after the complete reaction to it terminates.
+</p>
+
+<p>
+The way internal events execute is analogous to conventional call/return 
+routines.
+When a routine is invoked, the statement following it only executes after the 
+routine returns.
+Also, just like routines, internal events can nest to a deep level of emits.
+</p>
+
+<blockquote>
+	<p><i>Internal events execute similar to routines!</i></p>
+</blockquote>
+
+<p>
+Note that an <code>await</code> statement cannot react in the same reaction it 
+is reached.
+Therefore, the second <code>emit e</code> is ignored by the <code>await 
+e</code>.

@@ -15,6 +15,11 @@ This is a modified and simplified version of SDL_Event Copyright (C) 1997-2016 S
                 SDL_INIT_JOYSTICK | SDL_INIT_HAPTIC | SDL_INIT_GAMECONTROLLER \
             )
 
+#define SDL_REDRAW       0x10000001
+#define SDL_DISABLE  0
+#define SDL_ENABLE   1
+#define SDL_WINDOWPOS_CENTERED 0x1010
+#define SDL_WINDOW_SHOWN 0x1011
 
 #include "SDL_keyboard.h"
 /*

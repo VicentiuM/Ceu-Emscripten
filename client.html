@@ -7,39 +7,14 @@
 
 	<!--- CSS FILES -->
 
-	<link href="css/bootstrap.min.css" rel="stylesheet"> <!-- Bootstrap -->
+	
+	<link href="css/bootstrap.css" rel="stylesheet">
 	<link href="css/try.css" rel="stylesheet">  <!-- Online editor css -->
 
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
-<!--
-	<style>
-		.dropdown-content {
-		    display: none;
-		    position: absolute;
-		    background-color: #f9f9f9;
-		    min-width: 160px;
-		    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-		}
 
-		.dropdown-content a {
-		    color: black;
-		    padding: 12px 16px;
-		    text-decoration: none;
-		    display: block;
-		}
 
-		.dropdown-content a:hover {background-color: #f1f1f1}
 
-		.dropdown:hover .dropdown-content {
-		    display: block;
-		}
-
-		canvas {
-			z-index : 0;
-		}
-
-	</style>
--->
 </head>
 
 <body onclick="checkElement()">
@@ -62,7 +37,7 @@
 						</span>
 
 						<span class="pull-right">
-							<button type="button" class="btn btn-small" data-toggle="modal" data-target="#ceu-index-modal" title="View Table of Contents">
+							<button id="list-tutorials" type="button" class="btn btn-small" data-toggle="modal" data-target="#ceu-index-modal" title="View Table of Contents">
 							<i class="icon-list"></i> Index
 							</button>
 
@@ -70,10 +45,15 @@
 							<span id="ceu-slide-number">0</span>
 							<button id="ceu-next" type="button" class="btn btn-small" title="Next lesson" onclick="javascript:inc_nr();">&gt;</button>
 						</span>
-
 					</div>
+					
+					<div id="ceu-slide-text">
+						<h3>Title</h3>
+						<div>TEXT</div>
+	              </div>
 				</div>
 			</div>
+
 
 			<div id="ceu-canvas">
 				<div class="relative">
@@ -100,7 +80,6 @@
 							-->
 								<button id="ceu-reset" type="button" class="btn btn-small" title="Reset lesson" onclick="javascript:reset_tutorial();"> Reset</button>
 								<button id="ceu-run"   type="button" class="btn btn-small btn-primary" title="Compile and execute code " onclick="javascript:compile_code();">Run <i class="icon-play-circle icon-white"></i></button>
-								<button id="draw-rectangle" type="button" title="Draw rectangle" onclick="javascript:draw_rectangle();">Draw Rectangel</button>
 							</div>
 						</div>
 
@@ -127,47 +106,66 @@
 	</div>
 
 </div>
+
+<div id="myModal" class="modal">
+
+  <!-- Modal content -->
+  <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h3>Tutorial Lessons</h3>
+      </div>
+      <div class="modal-body">
+        <ol>
+        	<li><a href="#" onclick="javascript:set_nr(0);">Hello World!</a></li>
+        	<li><a href="#" onclick="javascript:set_nr(1);">Input Events</a></li>
+        	<li><a href="#" onclick="javascript:set_nr(2);">Parallel Compositions: par/and</a></li>
+        	<li><a href="#" onclick="javascript:set_nr(3);">Parallel Compositions: par/or</a></li>
+        	<li><a href="#" onclick="javascript:set_nr(4);">Parallel Compositions: mixing</a></li>
+        	<li><a href="#" onclick="javascript:set_nr(5);">Parallel Compositions: par</a></li>
+        	<li><a href="#" onclick="javascript:set_nr(6);">Execution Model: Synchronous Execution</a></li>
+        	<li><a href="#" onclick="javascript:set_nr(7);">Execution Model: Bounded Execution</a></li>
+        	<li><a href="#" onclick="javascript:set_nr(8);">Execution Model: Deterministic Execution</a></li>
+        	<li><a href="#" onclick="javascript:set_nr(3);">Parallel Compositions: par/or</a></li>
+        	<li><a href="#" onclick="javascript:set_nr(3);">Parallel Compositions: par/or</a></li>
+        	<li><a href="#" onclick="javascript:set_nr(3);">Parallel Compositions: par/or</a></li>
+        	<li><a href="#" onclick="javascript:set_nr(3);">Parallel Compositions: par/or</a></li>
+        </ol>
+      </div>
+      <div class="modal-footer">
+      </div>
+
+</div>
+
   
 <script type="text/javascript" src="js/client.js"></script>
-<!--
-<input type="submit" name = "submit" value="Send" onclick="javascript:compile_code();">
-<input id="Button" type="button" value="Async Call" onclick="async_call()">
-<input id="Button" type="button" value="Accessor" onclick="async_check()">
-<input type="submit" name = "submit" value="Next Tutorial" onclick="javascript:inc_nr();">
-<input type="submit" name = "submit" value="Previous Tutorial" onclick="javascript:dec_nr();">
-<div id="log">0</div>
-<div class="dropdown">
-	<button class="dropbtn">Dropdown</button>
-	<div class="dropdown-content">
-	<ul style="list-style-type:none">
-		<li><input type="submit" name = "submit" value="Tutorial 0" onclick="javascript:set_nr(0);"></li>
-		<li><input type="submit" name = "submit" value="Tutorial 1" onclick="javascript:set_nr(1);"></li>
-		<li><input type="submit" name = "submit" value="Tutorial 2" onclick="javascript:set_nr(2);"></li>
-		<li><input type="submit" name = "submit" value="Tutorial 3" onclick="javascript:set_nr(3);"></li>
-		<li><input type="submit" name = "submit" value="Tutorial 4" onclick="javascript:set_nr(4);"></li>
-		<li><input type="submit" name = "submit" value="Tutorial 5" onclick="javascript:set_nr(5);"></li>
-		<li><input type="submit" name = "submit" value="Tutorial 6" onclick="javascript:set_nr(6);"></li>
-	</ul>
-  </div>
-</div>
+<script>
+// Get the modal
+var modal = document.getElementById('myModal');
 
-<br>
+// Get the button that opens the modal
+var btn = document.getElementById("list-tutorials");
 
-<div id="textarea">
-<textarea id="code" name="code" rows="40" cols="70"></textarea> 
-<textarea class="emscripten" id="output" rows="40" cols="20"></textarea>
-</div>
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
 
+// When the user clicks the button, open the modal 
+btn.onclick = function() {
+    modal.style.display = "block";
+}
 
-<canvas id="canvas" width="800" height="480" tabindex="100" onmousemove="check_onmousemove(event)">
-Your browser does not support the HTML5 canvas tag.
-</canvas>
-<div id="status"></div>
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+    modal.style.display = "none";
+}
 
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+}
+</script>
 
-<script type="text/javascript" src="js/client.js"></script>
-
--->
 </body>
 
 </html>

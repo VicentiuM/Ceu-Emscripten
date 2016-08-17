@@ -317,5 +317,23 @@ mergeInto(LibraryManager.library, {
 
 		ctx.strokeStyle = "rgba("+ r + ", " + g + ", " + b + ", " + a + ")";
 		ctx.strokeRect(x1, y1, x2, y2);
+	},
+//*********************************//
+//*************WINDOW**************//
+//*********************************//
+	SDL_CreateWindow: function(name, pos1, pos2, w, h, tag) {
+		document.title = name;
+	},
+	SDL_DestroyWindow: function (win) {
+
+	},
+//*********************************//
+//************RENDERER*************//
+//*********************************//
+	SDL_CreateRenderer: function(win, a, b) {
+
+	},
+	SDL_DestroyRenderer: function(ren) {
+		
 	}
 });

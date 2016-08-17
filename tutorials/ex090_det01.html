@@ -1,0 +1,27 @@
+<p>
+C&eacute;u is designed to be <span class="label label-info">deterministic</span>
+in the sense that a given program, when executed multiple times, should always 
+yield the same outcome when the same sequence of input events is repeated.
+</p>
+
+<p>
+However, as trails share variables, it is easy to write non-deterministic 
+programs.
+</p>
+
+<p>
+In this example, the variable <code>v</code> is accessed concurrently on the 
+occurrence of <code>A</code>.
+</p>
+
+<p>
+When running the program, read the message in the <span class="label 
+label-info">Debug</span> output.
+</p>
+
+Even though the compiler warns about the suspicious accesses to <code>v</code>, 
+the scheduler of Céu always awakes the trail that appears first in the program 
+text.
+This way, the first trails resumes, assigns <code>1</code> and halts;
+then the second trail resumes and assigns <code>2</code>.
+The final result is always <code>2</code>.

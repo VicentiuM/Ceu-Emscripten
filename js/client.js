@@ -6,6 +6,14 @@ var tutorial = ["tutorials/ex010_hello.ceu", "tutorials/ex020_events.ceu", "tuto
 				"tutorials/ex180_cblock.ceu", "tutorials/ex190_fin.ceu", "tutorials/sdl1.ceu", "tutorials/sdl2.ceu",
 				"tutorials/sdl6.ceu", "tutorials/square.ceu"];
 
+var explanation = ["tutorials/ex010_hello.html", "tutorials/ex020_events.html", "tutorials/ex030_parand.html",
+				"tutorials/ex040_paror.html", "tutorials/ex050_term.html", "tutorials/ex060_par.html",
+				"tutorials/ex070_AB.html", "tutorials/ex080_tight.html", "tutorials/ex090_det01.html", 
+				"tutorials/ex100_atomic.html", "tutorials/ex120_inthello.html", "tutorials/ex140_intstack.html", 
+				"tutorials/ex150_async10.html", "tutorials/ex160_async0.html", "tutorials/ex170_simul.html", 
+				"tutorials/ex180_cblock.html", "tutorials/ex190_fin.html", "tutorials/sdl1.html", "tutorials/sdl2.html",
+				"tutorials/sdl6.html", "tutorials/square.html"];
+
 
 var Module={};
 var printing = false;
@@ -142,7 +150,18 @@ function get_tutorial() {
 	}).done(function(text) {
 		document.getElementById("code").value = text;
 	});
-
+/*
+	$.ajax({ type: "GET",
+		mimeType: 'text/plain; charset=x-user-defined',
+		url: explanation[nr],
+		dataType: "text"
+	}).done(function(text) {
+		document.getElementById("ceu-code-example").value = text;
+	});
+*/
+	$(function(){
+      $("#ceu-slide-text").load(explanation[nr]); 
+    });
 }
 
 //Sends an asynchronous call to the ceu code
@@ -178,7 +197,7 @@ window.addEventListener('mousedown', check_mousedown, false);
 window.addEventListener('mouseup', this.check_mouseup, false);
 
 var tagName;
-/*
+
 function checkElement() {
 	tagName = document.activeElement.tagName;
 	console.log(tagName);
@@ -199,7 +218,7 @@ function checkElement() {
   					[]);
 	}
 }
-*/
+
 
 function getCursorPosition(canvas, event) {
 	var rect = canvas.getBoundingClientRect();
@@ -210,8 +229,10 @@ function getCursorPosition(canvas, event) {
 
 
 function check_keydown(e) {
-	if (tagName == "CANVAS")
+	if (tagName == "CANVAS") {
+		console.log(e.keyCode);
 		Module.ccall('key_down', 'void', ['number'], [e.keyCode]);
+	}
 }
 
 function check_keyup(e) {
@@ -238,3 +259,4 @@ function check_onmousemove(e) {
 get_tutorial();
 //Start requestAnimationFrame
 requestAnimationFrame(handle_time);
+document.title = "Tutorial";

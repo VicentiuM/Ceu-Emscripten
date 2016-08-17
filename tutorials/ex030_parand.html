@@ -1,0 +1,26 @@
+<p>
+If only a single line of execution were allowed, a program could not wait for 
+multiple events at the same time, and C&eacute;u would be the most worthless 
+language in the World.
+</p>
+
+<p>
+A line of execution is known as a <span class="label label-info">trail</span>, 
+and C&eacute;u allows multiple trails to coexist through parallel compositions.
+</p>
+
+<p>
+C&eacute;u supports three kinds of parallel statements: <code>par/and</code>,   
+<code>par/or</code>, and <code>par</code>.
+They differ in how they rejoin the trails on termination.
+</p>
+
+<p>
+The <code>par/and</code> stands for <i>parallel and</i>, meaning that the 
+trails spawned in parallel rejoin after they both terminate.
+</p>
+
+<p>
+In the example, after the <code>par/and</code> rejoins, the loop restarts, 
+printing the "Hello World!" message continuously.
+</p>

@@ -1,0 +1,62 @@
+<p>
+C&eacute;u ensures at compile time that a trail never runs forever, and hence, 
+that reaction chains always run to completion in <span class="label 
+label-info">bounded time</span>.
+</p>
+
+<p>
+The compiler detects and <i>warns</i> when trails can run in unbounded time: 
+loops that do not await, the so called <span class="label label-info">tight 
+loops</span>.
+</p>
+
+<p>
+In the following examples, which all issue warnings at compile time, the loop 
+bodies have at least one path that does not await:
+</p>
+
+<pre>
+loop do               // a tight loop
+  // nothing
+end
+</pre>
+
+<p>or</p>
+
+<pre>
+loop do             // a tight loop
+  par/or do
+    await A;
+  with
+    // nothing      // this path does not await
+  end
+end
+</pre>
+
+<p>or</p>
+
+<pre>
+loop do               // a tight loop
+  if a == 0 then
+    await A;
+  end                 // the omitted else does not await
+end
+</pre>
+
+<blockquote>
+	<p><i>C&eacute;u detects tight loops at compile time!</i></p>
+</blockquote>
+
+<p>
+The example in the code panel calculates the factorial of <code>10</code>, but 
+contains a tight loop and a warning is issued.
+<p>
+The example is actually useful and can be written in C&eacute;u in a safer way.
+We return to it on <a href="try.php?sample=ex_async10">lesson 19</a>.
+</p>
+
+<p>
+The tight loop analysis is not extended for external C code.
+Hence, it is the responsibility of the programmer to ensure that external 
+functions run in bounded time.
+</p>
