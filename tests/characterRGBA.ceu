@@ -1,0 +1,25 @@
+#include "sdl.ceu"
+
+input void SDL_REDRAW;
+
+var _SDL_Window&? win;
+    finalize
+        win = &_SDL_CreateWindow("SDL 2", _SDL_WINDOWPOS_CENTERED,
+                                         _SDL_WINDOWPOS_CENTERED,
+                                         800, 480,
+                                         _SDL_WINDOW_SHOWN);
+    with
+        _SDL_DestroyWindow("&&win!");
+    end
+
+var _SDL_Surface&? surface;
+    finalize
+        surface = &_SDL_GetWindowSurface("&&win!");
+    with
+        _SDL_FreeSurface(&&surface!);
+    end
+
+loop do
+    await SDL_REDRAW;
+    _characterRGBA("&&surface!", 20, 20, 'c', 0x00, 0x00, 0xFF, 0xFF);
+end

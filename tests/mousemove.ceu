@@ -1,0 +1,18 @@
+input _SDL_MouseMotionEvent&& SDL_MOUSEMOTION;
+input void SDL_REDRAW;
+
+var int x = 100;
+var int y = 100;
+par/or do
+   loop do
+      var _SDL_MouseMotionEvent&& but = await SDL_MOUSEMOTION;
+      x = but:x;
+      y = but:y;
+      _printf("%d %d\n", x, y);
+   end
+with
+   loop do
+      await SDL_REDRAW;
+      _boxRGBA(null, x, y, 150, 200, 0xFF, 0xE0, 0xD0, 0xC0);
+   end
+end

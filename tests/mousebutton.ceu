@@ -1,0 +1,22 @@
+var bool is_on = true;
+input _SDL_MouseButtonEvent&& SDL_MOUSEBUTTONDOWN;
+
+par/or do
+    loop do
+        await SDL_MOUSEBUTTONDOWN;
+        is_on = not is_on;
+    end
+with
+    loop do
+        await 500ms;
+        _boxRGBA(null, 0,0,500,400, 0xCC,0xCC,0xCC,0xFF);
+        _filledCircleRGBA(null, 200,200,50, 0xFF,0xFF,0xFF,0xFF);
+        if is_on then
+            _filledCircleRGBA(null, 200,200,47, 0x00,0x88,0x00,0xFF);
+        else
+            _filledCircleRGBA(null, 200,200,47, 0x00,0x00,0x00,0xFF);
+        end
+    end
+end
+
+escape 0;
