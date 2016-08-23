@@ -15,7 +15,7 @@ with
     // input simulation
     async do
         emit A => 1;    // initial value for 'v'
-        //emit 1s35ms;    // the loop executes 103 times
+        emit 1s35ms;    // the loop executes 110 times
     end
     escape 0;
 end

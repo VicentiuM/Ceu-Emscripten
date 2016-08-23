@@ -1,0 +1,10 @@
+<h3>Keyboard Inputs</h3>
+
+<p>
+We can also use the keyboard to interact with the window. This is a simple program that controls with the "A" and "D" keys the direction of the moving circle.
+
+<p>
+We need to declare the type of input, in this case <code>_SDL_KeyboardEvent</code> and what subtype, in this case <code>SDL_KEYDOWN</code>, which sends the signal when the key is pressed. <code>SDL_KEYUP</code> sends the signal when the key is released.
+
+<p>
+In the <code>par/or</code> with have a new branch. It waits for the input of the keyboard and if it is <code>_SDLK_a</code> it will change the boolean value right to false, else if it is <code>_SDLK_d</code> it will change the value of <code>right</code> to true. If it is any other key, then it will ignore.

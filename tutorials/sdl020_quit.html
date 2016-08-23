@@ -1,0 +1,7 @@
+<h3>SDL_Quit</h3>
+
+<p>
+We should talk about <code>SDL_QUIT</code>. In this online implementation, it won't work, because you can't turn off the window, however locally if you want to be able to close it without ending the process, then you will need <code>SDL_QUIT</code>.
+
+<p>
+So we have a <code>par/or</code> that either receives <code>SDL_QUIT</code> in which it will close the window or <code>SDL_REDRAW</code> in which it will draw the next frame of the animation.

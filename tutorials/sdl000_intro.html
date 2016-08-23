@@ -1,0 +1,29 @@
+<h3>Welcome to C&eacute;u with SDL 2.0!</h3>
+
+<p>
+Congratulations for reaching this far. 
+<p>
+This tutorial will now implement <a href="https://wiki.libsdl.org/FrontPage">SDL 2.0</a>, which Ceu is compatible with.
+
+<p>
+We assume that you have followed the regular Ceu tutorials. This is a very basic tutorial, and won't require all that much knowledge in SDL 2.0.
+
+<p>
+This online version, hasn't implemented all the SDL functions, however it should be able to give you a basic idea of how it works.
+
+<p>
+First of, we have <code>SDL_REDRAW</code> which tells the program to redraw every <code>SDL_REDRAW</code>. Do not worry about time, <code>SDL_REDRAW</code> makes sure that the animations will be smooth.
+
+<p>
+We then define the window. In tis online version, it isn't all that important what you, how you create the window, however it is very important when running <a href="http://ceu-lang.org/wiki/index.php?title=SDL">locally</a>. The first parameter is the name of the window, it's relative position on the screen, then we have the height and width and finally if the window will be shown or not.
+
+<p>
+Then we define a surface on which the objects will be drawn. Basically on the window there is a surface and on the surface there are objects.
+
+<p>
+Finally we create a loop that constantly calls <code>_boxRGBA</code>. The first element is the surface, the next two are the lower left coordinates of the rectangle then we have the width and height. Finally we have the RGBA values in hexadecimal.
+
+<p>
+To run a program, click the <span class="label label-info">Run</span> button on 
+top-right of the page.
+The results appear in the panel on bottom.

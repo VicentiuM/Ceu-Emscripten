@@ -15,6 +15,7 @@ par/or do
 		         // and kills the original loop
 	end
 with
+	await 1s;
 	async do
 		emit TERM;
 	end

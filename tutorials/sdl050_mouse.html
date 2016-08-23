@@ -1,0 +1,17 @@
+<h3>Mouse Inputs</h3>
+
+<p>
+With the mouse we can either use the motion of it, or the press of a button. This program will use the mouse to move the circle and the left mouse button to print the position of it.
+
+<p>
+Again we need to declare the type of inputs, with <code>_SDL_MouseMotionEven</code> and the subtypes with <code>SDL_MOUSEMOTION</code> and <code>SDL_MOUSEBUTTONDOWN</code>
+
+<p>
+We declare two integers <code>x and y</code> which will take the coordinates the of the mouse.
+<p>
+On the second branch of <code>par/or</code> we wait for the mouse to move inside the window, after which it will take it's position.
+<p>
+On the third branch, we wait for the press of the Left Mouse Button. When pressed it will print the coordinates.
+
+<p>
+Lastly for every <code>SDL_REDRAW</code> we draw the circle on the position of the mouse.

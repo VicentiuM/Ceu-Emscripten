@@ -1,18 +1,18 @@
-var tutorial = ["tutorials/ex010_hello.ceu", "tutorials/ex020_events.ceu", "tutorials/ex030_parand.ceu",
+var tutorial = ["tutorials/ex000_intro.ceu", "tutorials/ex010_hello.ceu", "tutorials/ex020_events.ceu", "tutorials/ex030_parand.ceu",
 				"tutorials/ex040_paror.ceu", "tutorials/ex050_term.ceu", "tutorials/ex060_par.ceu",
 				"tutorials/ex070_AB.ceu", "tutorials/ex080_tight.ceu", "tutorials/ex090_det01.ceu", 
-				"tutorials/ex100_atomic.ceu", "tutorials/ex120_inthello.ceu", "tutorials/ex140_intstack.ceu", 
-				"tutorials/ex150_async10.ceu", "tutorials/ex160_async0.ceu", "tutorials/ex170_simul.ceu", 
-				"tutorials/ex180_cblock.ceu", "tutorials/ex190_fin.ceu", "tutorials/sdl1.ceu", "tutorials/sdl2.ceu",
-				"tutorials/sdl6.ceu", "tutorials/square.ceu"];
+				"tutorials/ex100_atomic.ceu", "tutorials/ex120_inthello.ceu", 
+				"tutorials/ex150_async10.ceu", "tutorials/ex170_simul.ceu", 
+				"tutorials/ex180_cblock.ceu", "tutorials/ex190_fin.ceu", "tutorials/sdl000_intro.ceu", "tutorials/sdl010_helloworld.ceu",
+				"tutorials/sdl020_quit.ceu", "tutorials/sdl030_animation.ceu", "tutorials/sdl040_keyboard.ceu", "tutorials/sdl050_mouse.ceu"];
 
-var explanation = ["tutorials/ex010_hello.html", "tutorials/ex020_events.html", "tutorials/ex030_parand.html",
+var explanation = ["tutorials/ex000_intro.html", "tutorials/ex010_hello.html", "tutorials/ex020_events.html", "tutorials/ex030_parand.html",
 				"tutorials/ex040_paror.html", "tutorials/ex050_term.html", "tutorials/ex060_par.html",
 				"tutorials/ex070_AB.html", "tutorials/ex080_tight.html", "tutorials/ex090_det01.html", 
-				"tutorials/ex100_atomic.html", "tutorials/ex120_inthello.html", "tutorials/ex140_intstack.html", 
-				"tutorials/ex150_async10.html", "tutorials/ex160_async0.html", "tutorials/ex170_simul.html", 
-				"tutorials/ex180_cblock.html", "tutorials/ex190_fin.html", "tutorials/sdl1.html", "tutorials/sdl2.html",
-				"tutorials/sdl6.html", "tutorials/square.html"];
+				"tutorials/ex100_atomic.html", "tutorials/ex120_inthello.html",
+				"tutorials/ex150_async10.html", "tutorials/ex170_simul.html", 
+				"tutorials/ex180_cblock.html", "tutorials/ex190_fin.html", "tutorials/sdl000_intro.html", "tutorials/sdl010_helloworld.html",
+				"tutorials/sdl020_quit.html", "tutorials/sdl030_animation.html", "tutorials/sdl040_keyboard.html", "tutorials/sdl050_mouse.html"];
 
 
 var Module={};
@@ -30,18 +30,18 @@ function call_module() {
 		},
 
 		canvas: (function() {
-          var canvas = document.getElementById('canvas');
+			var canvas = document.getElementById('canvas');
 
-          // As a default initial behavior, pop up an alert when webgl context is lost. To make your
-          // application robust, you may want to override this behavior before shipping!
-          // See http://www.khronos.org/registry/webgl/specs/latest/1.0/#5.15.2
-          canvas.addEventListener("webglcontextlost", function(e) { alert('WebGL context lost. You will need to reload the page.'); e.preventDefault(); }, false);
-          canvas.focus();
-document.getElementById( "canvas" ).onmousedown = function(event){
-    event.preventDefault();
-};
-          return canvas;
-        })()
+			// As a default initial behavior, pop up an alert when webgl context is lost. To make your
+			// application robust, you may want to override this behavior before shipping!
+			// See http://www.khronos.org/registry/webgl/specs/latest/1.0/#5.15.2
+			canvas.addEventListener("webglcontextlost", function(e) { alert('WebGL context lost. You will need to reload the page.'); e.preventDefault(); }, false);
+			canvas.focus();
+			document.getElementById( "canvas" ).onmousedown = function(event){
+				event.preventDefault();
+			};
+			return canvas;
+		})()
 	};
 }
 
@@ -51,31 +51,38 @@ function compile_code() {
 	var send = document.getElementById('code').value;
 	$.ajax({ type: "POST",   
 		url: "server.php",
-		data: { 'code' : send}
-	}).done(function(text) {
+		data: { 'code' : send},
+		success: function(data) {
+			var data = $.parseJSON(data);
+			if (data.status == "success") {
+				document.getElementById('output').value ='';
+				//Clear canvas
+				var canvas = document.getElementById('canvas');
+				canvas.width  = window.innerWidth * 0.55;
+				canvas.height = window.innerHeight * 0.32;
+				var context = canvas.getContext('2d');
+				console.log(canvas.width + ' ' + canvas.height);
+				context.clearRect(0, 0, canvas.width, canvas.height);
 
-		document.getElementById('output').value ='';
-		//Clear canvas
-		var canvas = document.getElementById('canvas');
-		canvas.width  = 800;
-		canvas.height = 600;
-		var context = canvas.getContext('2d');
-		console.log(canvas.width + ' ' + canvas.height);
-		context.clearRect(0, 0, canvas.width, canvas.height);
+				call_module();
 
-		call_module();
+				window.eval(data.message);
 
-		window.eval(text);
+				Module.ccall('begin', // name of C function
+		  					'void', // return type
+		  					[], // argument types
+		  					[]);
 
-		Module.ccall('begin', // name of C function
-  					'void', // return type
-  					[], // argument types
-  					[]);
+				printing = true;
+			}
+			else {
+				document.getElementById('output').value ='';
+				document.getElementById('output').value = data.message;
+			}
 
-		printing = true;
-		//requestAnimationFrame(handle_time);
-
+		}
 	});
+	
 }
 
 
@@ -150,15 +157,7 @@ function get_tutorial() {
 	}).done(function(text) {
 		document.getElementById("code").value = text;
 	});
-/*
-	$.ajax({ type: "GET",
-		mimeType: 'text/plain; charset=x-user-defined',
-		url: explanation[nr],
-		dataType: "text"
-	}).done(function(text) {
-		document.getElementById("ceu-code-example").value = text;
-	});
-*/
+
 	$(function(){
       $("#ceu-slide-text").load(explanation[nr]); 
     });
@@ -188,6 +187,18 @@ function stopDefAction(evt) {
 }
 document.getElementById('canvas').addEventListener( 'click', stopDefAction, false );
 
+// Increase/decrease font size by diff px
+function change_font_size(diff){
+  var $body = $('body'),
+      cur_font_size = $body.css('font-size');
+  
+  cur_font_size = parseFloat(cur_font_size, 10) + diff;
+  
+  if(cur_font_size > 0){
+    $body.css('font-size', cur_font_size);
+  }
+}
+
 
 
 var canvas = document.getElementById('canvas');
@@ -201,6 +212,7 @@ var tagName;
 function checkElement() {
 	tagName = document.activeElement.tagName;
 	console.log(tagName);
+	//document.getElementById('code').disabled = false;
 	if (tagName == "TEXTAREA") {
 		console.log("T");
 		document.getElementById('code').focus();
@@ -210,8 +222,8 @@ function checkElement() {
   					[]);
 	}
 	else if (tagName == "CANVAS") {
-		console.log("C");
-		document.getElementById('code').focus();
+		document.getElementById('code').readonly = true;
+		//document.getElementById('code').focus();
 		Module.ccall('enable_events', // name of C function
   					'void', // return type
   					[], // argument types
@@ -259,4 +271,42 @@ function check_onmousemove(e) {
 get_tutorial();
 //Start requestAnimationFrame
 requestAnimationFrame(handle_time);
-document.title = "Tutorial";
+document.title = "Try & Learn C&eacute;u";
+
+
+//Allow TAB in Textarea
+$(document).delegate('#code', 'keydown', function(e) {
+  var keyCode = e.keyCode || e.which;
+
+  if (keyCode == 9) {
+    e.preventDefault();
+    var start = $(this).get(0).selectionStart;
+    var end = $(this).get(0).selectionEnd;
+
+    // set textarea value to: text before caret + tab + text after caret
+    $(this).val($(this).val().substring(0, start)
+                + "\t"
+                + $(this).val().substring(end));
+
+    // put caret at right position again
+    $(this).get(0).selectionStart =
+    $(this).get(0).selectionEnd = start + 1;
+  }
+});
+
+//Allow Fullscreen
+function fullscreen(){
+	var canvas = document.getElementById('canvas');
+ 
+	if(canvas.webkitRequestFullScreen) {
+		canvas.webkitRequestFullScreen();
+		canvas.width  = window.innerWidth;
+		canvas.height = window.innerHeight;
+	}
+	else {
+		canvas.mozRequestFullScreen();
+		canvas.width  = window.innerWidth * 0.55;
+		canvas.height = window.innerHeight * 0.32;
+	}            
+}
+ 

@@ -1,0 +1,47 @@
+#include "sdl.ceu"
+
+input _SDL_MouseMotionEvent&& SDL_MOUSEMOTION;
+input _SDL_MouseButtonEvent&& SDL_MOUSEBUTTONDOWN;
+input void SDL_REDRAW;
+input void SDL_QUIT;
+
+var _SDL_Window&? win;
+    finalize
+        win = &_SDL_CreateWindow("SDL 2", _SDL_WINDOWPOS_CENTERED,
+                                         _SDL_WINDOWPOS_CENTERED,
+                                         800, 480,
+                                         _SDL_WINDOW_SHOWN);
+    with
+        _SDL_DestroyWindow("&&win!");
+    end
+
+var _SDL_Surface&? surface;
+    finalize
+        surface = &_SDL_GetWindowSurface("&&win!");
+    with
+        _SDL_FreeSurface(&&surface!);
+    end
+
+var int x = 100;
+var int y = 100;
+
+par/or do
+    await SDL_QUIT;
+with
+    loop do
+        var _SDL_MouseMotionEvent&& mmv = await SDL_MOUSEMOTION;
+        x = mmv:x;
+        y = mmv:y;
+    end
+with
+    loop do
+        var _SDL_MouseButtonEvent&& but = await SDL_MOUSEBUTTONDOWN;
+        _printf("%d %d\n", x, y);
+    end
+with
+    every SDL_REDRAW do
+        _boxRGBA("&&surface!", 0, 0, 800, 300, 0xCC, 0xCC, 0xCC, 0xFF);
+        _filledCircleRGBA("&&surface!", x, y, 50, 0x00, 0xFF, 0xFF, 0xFF);
+
+    end
+end

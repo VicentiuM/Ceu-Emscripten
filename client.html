@@ -6,13 +6,27 @@
 	<meta content="utf-8" http-equiv="encoding">
 
 	<!--- CSS FILES -->
-
-	
 	<link href="css/bootstrap.css" rel="stylesheet">
-	<link href="css/try.css" rel="stylesheet">  <!-- Online editor css -->
+	<link href="css/client.css" rel="stylesheet">  <!-- Online editor css -->
+	<link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
 
+	<!--- JS FILES -->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+	<script src="js/bootstrap.js"></script>
+	<script>
+	$(document).ready(function() {
 
+		// Clicking on the INCREASE or DECREASE font size buttons
+		$("#ceu-font-controls .btn").click(function(){
+			if($(this).attr("id") === "ceu-font-increase"){
+				change_font_size(2);
+			}
+			else {
+				change_font_size(-2);
+			}    
+		});
+	});
+	</script>
 
 
 </head>
@@ -61,7 +75,7 @@
 						<!--<div id="ceu-canvas-text">
                 
 						</div>-->
-						<canvas id="canvas" tabindex="100" onmousemove="check_onmousemove(event)">
+						<canvas id="canvas" tabindex="100" onmousemove="check_onmousemove(event)" >
 						Your browser does not support the HTML5 canvas tag.
 						</canvas>
 					</div>
@@ -78,7 +92,8 @@
 							<!--
 								<button id="ceu-fullscreen" type="button" class="btn btn-small" title="Fullscreen" onclick="Module.requestFullScreen(document.getElementById('pointerLock').checked, document.getElementById('resize').checked)">Fullscreen</button>
 							-->
-								<button id="ceu-reset" type="button" class="btn btn-small" title="Reset lesson" onclick="javascript:reset_tutorial();"> Reset</button>
+								<button id="ceu-canvas-fullscreen" type="button" class="btn btn-small" onclick="javascript:fullscreen();">Fullscreen <i class="fa fa-expand"></i></button>
+								<button id="ceu-reset" type="button" class="btn btn-small" title="Reset lesson" onclick="javascript:reset_tutorial();"> Reset <i class="fa fa-refresh"></i></button>
 								<button id="ceu-run"   type="button" class="btn btn-small btn-primary" title="Compile and execute code " onclick="javascript:compile_code();">Run <i class="icon-play-circle icon-white"></i></button>
 							</div>
 						</div>
@@ -107,40 +122,50 @@
 
 </div>
 
-<div id="myModal" class="modal">
+<div id="ceu-index-modal" class="modal" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 
-  <!-- Modal content -->
-  <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-        <h3>Tutorial Lessons</h3>
-      </div>
-      <div class="modal-body">
-        <ol>
-        	<li><a href="#" onclick="javascript:set_nr(0);">Hello World!</a></li>
-        	<li><a href="#" onclick="javascript:set_nr(1);">Input Events</a></li>
-        	<li><a href="#" onclick="javascript:set_nr(2);">Parallel Compositions: par/and</a></li>
-        	<li><a href="#" onclick="javascript:set_nr(3);">Parallel Compositions: par/or</a></li>
-        	<li><a href="#" onclick="javascript:set_nr(4);">Parallel Compositions: mixing</a></li>
-        	<li><a href="#" onclick="javascript:set_nr(5);">Parallel Compositions: par</a></li>
-        	<li><a href="#" onclick="javascript:set_nr(6);">Execution Model: Synchronous Execution</a></li>
-        	<li><a href="#" onclick="javascript:set_nr(7);">Execution Model: Bounded Execution</a></li>
-        	<li><a href="#" onclick="javascript:set_nr(8);">Execution Model: Deterministic Execution</a></li>
-        	<li><a href="#" onclick="javascript:set_nr(3);">Parallel Compositions: par/or</a></li>
-        	<li><a href="#" onclick="javascript:set_nr(3);">Parallel Compositions: par/or</a></li>
-        	<li><a href="#" onclick="javascript:set_nr(3);">Parallel Compositions: par/or</a></li>
-        	<li><a href="#" onclick="javascript:set_nr(3);">Parallel Compositions: par/or</a></li>
-        </ol>
-      </div>
-      <div class="modal-footer">
-      </div>
+	<!-- Modal content -->
+	<div class="modal-header">
+		<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+		<h3>Tutorial Lessons</h3>
+	</div>
+	<div class="modal-body">
+		<ol>
+			<li><a href="#" onclick="javascript:set_nr(0);">Welcome to C&eacute;u!</a></li>
+			<li><a href="#" onclick="javascript:set_nr(1);">Hello World!</a></li>
+			<li><a href="#" onclick="javascript:set_nr(2);">Input Events</a></li>
+			<li><a href="#" onclick="javascript:set_nr(3);">Parallel Compositions: par/and</a></li>
+			<li><a href="#" onclick="javascript:set_nr(4);">Parallel Compositions: par/or</a></li>
+			<li><a href="#" onclick="javascript:set_nr(5);">Parallel Compositions: mixing</a></li>
+			<li><a href="#" onclick="javascript:set_nr(6);">Parallel Compositions: par</a></li>
+			<li><a href="#" onclick="javascript:set_nr(7);">Execution Model: Synchronous Execution</a></li>
+			<li><a href="#" onclick="javascript:set_nr(8);">Execution Model: Bounded Execution</a></li>
+			<li><a href="#" onclick="javascript:set_nr(9);">Execution Model: Deterministic Execution</a></li>
+        	<li><a href="#" onclick="javascript:set_nr(10);">Execution Model: Non-Deterministic Execution</a></li>
+        	<li><a href="#" onclick="javascript:set_nr(11);">Internal Events</a></li>
+        	<li><a href="#" onclick="javascript:set_nr(12);">Asynchronous Execution</a></li>
+        	<li><a href="#" onclick="javascript:set_nr(13);">Simulation</a></li>
+        	<li><a href="#" onclick="javascript:set_nr(14);">C Definitions</a></li>
+        	<li><a href="#" onclick="javascript:set_nr(15);">C Definitions 2</a></li>
+        	<li><a href="#" onclick="javascript:set_nr(16);">Welcome to C&eacute;u with SDL 2.0!</a></li>
+        	<li><a href="#" onclick="javascript:set_nr(17);">Hellow World</a></li>
+        	<li><a href="#" onclick="javascript:set_nr(18);">SDL_Quit</a></li>
+        	<li><a href="#" onclick="javascript:set_nr(19);">Simple Animation</a></li>
+        	<li><a href="#" onclick="javascript:set_nr(20);">Keyboard Inputs</a></li>
+        	<li><a href="#" onclick="javascript:set_nr(21);">Mouse Inputs</a></li>
+		</ol>
+	</div>
+	<div class="modal-footer"></div>
 
 </div>
+
 
   
 <script type="text/javascript" src="js/client.js"></script>
 <script>
 // Get the modal
-var modal = document.getElementById('myModal');
+var modal = document.getElementById('ceu-index-modal');
+modal.style.display = "none";
 
 // Get the button that opens the modal
 var btn = document.getElementById("list-tutorials");
@@ -150,7 +175,10 @@ var span = document.getElementsByClassName("close")[0];
 
 // When the user clicks the button, open the modal 
 btn.onclick = function() {
-    modal.style.display = "block";
+	if ( modal.style.display == "none" )
+    	modal.style.display = "block";
+    else
+    	modal.style.display = "none";
 }
 
 // When the user clicks on <span> (x), close the modal

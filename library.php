@@ -13,6 +13,7 @@ function create_js($data) {
 
 	$filename_ceu = $token . '.ceu';
 	$filename_js = $token . '.js';
+	$filename_txt = $token . '.txt';
 
 	//Change directory
 	chdir("/tmp/");
@@ -20,16 +21,9 @@ function create_js($data) {
 	//Put the code into the file
 	file_put_contents($filename_ceu, $data);
 
-	
-	//Run ceu on the file
-	exec("./ceu ".$filename_ceu);
-		
-	//$emcc = "/home/vic/emsdk_portable/emscripten/master/emcc";
-	
-	//$function =  $emcc . " main.c -o " . $filename_js . " -O2 --memory-init-file 0 -s EXPORTED_FUNCTIONS=\"['_begin', '_update', '_async_call', '_key_down', '_key_up', '_mouse_down', '_mouse_up', '_mouse_move', '_disable_events', '_enable_events']\" -s NO_EXIT_RUNTIME=1 -s USE_SDL=2";
-	$function =  "emcc main.c -o " . $filename_js . " -O1 --memory-init-file 0 -s EXPORTED_FUNCTIONS=\"['_begin', '_update', '_async_call', '_key_down', '_key_up', '_mouse_down', '_mouse_up', '_mouse_move', '_disable_events', '_enable_events']\" -s NO_EXIT_RUNTIME=1 --js-library sdl_library.js";
-	
+	exec("./ceu ".$filename_ceu. " 2> " . $filename_txt);
 
+	$function =  "emcc main.c -o " . $filename_js . " -O1 --memory-init-file 0 -s EXPORTED_FUNCTIONS=\"['_begin', '_update', '_async_call', '_key_down', '_key_up', '_mouse_down', '_mouse_up', '_mouse_move', '_disable_events', '_enable_events']\" -s NO_EXIT_RUNTIME=1 --js-library sdl_library.js";
 	exec($function);
 
 
@@ -38,12 +32,13 @@ function create_js($data) {
 	unlink($token);
 	unlink($filename_ceu);
 	//unlink($filename_js.'.map');
-	unlink("_ceu_app.c");
-	unlink("_ceu_app.h");
-	
+	if ( unlink("_ceu_app.c") && unlink("_ceu_app.h") ) {
+		unlink($filename_txt);
+		return $filename_js;
+	}
+	else
+		return $filename_txt;
 
-
-	return $filename_js;
 }
 
 ?>

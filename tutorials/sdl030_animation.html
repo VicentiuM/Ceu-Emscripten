@@ -1,0 +1,13 @@
+<h3>Simple Animation</h3>
+
+<p>
+SDL itsn't just for drawing objects, it's for animating them as well.
+
+<p>
+We start with an integer <code>x</code> that will be used to set the new position of the circle. The boolean value, <code>right</code> is to determine if the circle will move to the right(true) or to the left(false).
+
+<p>
+<code>_filledCircleRGBA</code> has the first parameter dependent on the value of x. This way it will move on the X axis. If we had modified the second value, then the circle would have moved on the Y axis.
+
+<p>
+If the value of <code>x</code> is over 300 then it will stard shrinking so the circle will move to the left up until it reaches 0, upon which the cirlce will move to the right.

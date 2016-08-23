@@ -1,1 +1,1 @@
-cp ./IMPORTANT\ FILES/* /tmp/
+cp ./src/* /tmp/

@@ -1,0 +1,43 @@
+#include "sdl.ceu"
+
+input void SDL_REDRAW;
+input void SDL_QUIT;
+
+var _SDL_Window&? win;
+    finalize
+        win = &_SDL_CreateWindow("SDL 2", _SDL_WINDOWPOS_CENTERED,
+                                         _SDL_WINDOWPOS_CENTERED,
+                                         800, 480,
+                                         _SDL_WINDOW_SHOWN);
+    with
+        _SDL_DestroyWindow("&&win!");
+    end
+
+var _SDL_Surface&? surface;
+    finalize
+        surface = &_SDL_GetWindowSurface("&&win!");
+    with
+        _SDL_FreeSurface(&&surface!);
+    end
+
+var int x = 0;
+var bool right = true;
+
+par/or do
+    await SDL_QUIT;
+with
+    every SDL_REDRAW do
+        _boxRGBA("&&surface!", 0, 0, 800, 300, 0xCC, 0xCC, 0xCC, 0xFF);
+        _filledCircleRGBA("&&surface!", 100 + x, 100, 50, 0x00, 0xFF, 0xFF, 0xFF);
+
+        if x > 300 or x < 0 then
+            right = not right;
+        end
+
+        if right == true then
+            x = x + 1;
+        else
+            x = x - 1;
+        end
+    end
+end
