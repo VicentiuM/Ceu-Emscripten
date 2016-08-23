@@ -4,6 +4,8 @@
 * src <- contains the files used by start.sh
 * js <- contains the javascript files used by client
 * tutorials <- the source files for the example codes
+* Emscripten 1.3 Version(OLD) <- is a version that used emscripten portable.
+* tests <- a folder with all kinds of tests, making sure that the client works.
 
 # Files
 * README.md <- the README file
