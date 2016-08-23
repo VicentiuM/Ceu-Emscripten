@@ -1,9 +1,0 @@
-#ifndef _SDL_CEU
-#define _SDL_CEU
-
-native @const _GL_SCISSOR_TEST, _GL_TEXTURE_2D;
-native _glEnable(), _glDisable(), _glScissor();
-
-native @nohold _boxRGBA();
-
-#endif
