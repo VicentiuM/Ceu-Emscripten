@@ -23,7 +23,7 @@ function create_js($data) {
 
 	exec("./ceu ".$filename_ceu. " 2> " . $filename_txt);
 
-	$function =  "emcc main.c -o " . $filename_js . " -O1 --memory-init-file 0 -s EXPORTED_FUNCTIONS=\"['_begin', '_update', '_async_call', '_key_down', '_key_up', '_mouse_down', '_mouse_up', '_mouse_move', '_disable_events', '_enable_events']\" -s NO_EXIT_RUNTIME=1 --js-library sdl_library.js";
+	$function =  "emcc main.c -o " . $filename_js . " --memory-init-file 0 -s EXPORTED_FUNCTIONS=\"['_begin', '_update', '_async_call', '_key_down', '_key_up', '_mouse_down', '_mouse_up', '_mouse_move', '_disable_events', '_enable_events']\" -s NO_EXIT_RUNTIME=1 --js-library sdl_library.js";
 	exec($function);
 
 

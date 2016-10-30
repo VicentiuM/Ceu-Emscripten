@@ -19,6 +19,9 @@ var Module={};
 var printing = false;
 var length = tutorial.length;
 
+var global_width = window.innerWidth;
+var global_height = window.innerHeight;
+
 //Calls Module which will intercept the console log and print the message in output
 function call_module() {
 	Module = {
@@ -300,13 +303,18 @@ function fullscreen(){
  
 	if(canvas.webkitRequestFullScreen) {
 		canvas.webkitRequestFullScreen();
-		canvas.width  = window.innerWidth;
-		canvas.height = window.innerHeight;
+		//canvas.width  = window.innerWidth;
+		//canvas.height = window.innerHeight;
+		canvas.setAttribute('width', global_width * 0.55);
+		canvas.setAttribute('height', global_height * 0.32);
 	}
 	else {
 		canvas.mozRequestFullScreen();
-		canvas.width  = window.innerWidth * 0.55;
-		canvas.height = window.innerHeight * 0.32;
+		//canvas.width  = window.innerWidth * 0.55;
+		//canvas.height = window.innerHeight * 0.32;
+		canvas.setAttribute('width', global_width * 0.55);
+		canvas.setAttribute('height', global_height * 0.32);
+
 	}            
 }
  
